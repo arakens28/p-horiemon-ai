@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ★変更: サービス名を入れる -->
+  <title>【サービス名】 | ホリエモンAI学校</title>
+  <meta name="description" content="サービスの説明をここに書く（検索結果に表示される文章）">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- 共通CSS（ヘッダー・フッター）→ 触らなくていい -->
+  <link rel="stylesheet" href="/assets/css/common.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.75;
+      font-size: 16px;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --red: #e8001c;
+      --red-dark: #c0001a;
+      --black: #1a1a1a;
+      --gray-light: #f7f7f7;
+      --gray-mid: #ebebeb;
+      --gray-text: #666;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,.08);
+      --transition: .25s ease;
+    }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: #fff0f0;
+      border-radius: 99px;
+      padding: 4px 16px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray-text);
+      max-width: 600px;
+    }
+    .text-center { text-align: center; }
+    .text-center .section-sub { margin: 0 auto; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 99px;
+      padding: 16px 40px;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(232,0,28,.3);
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,0,28,.4); }
+    .btn-outline {
+      background: transparent;
+      color: var(--black);
+      border: 2px solid var(--black);
+    }
+    .btn-outline:hover { background: var(--black); color: #fff; }
+    .btn-lg { font-size: 18px; padding: 20px 56px; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: #fff;
+      padding: 24px 0 40px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(232,0,28,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red);
+      background: #fff0f0;
+      border-radius: 99px;
+      padding: 6px 16px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow .dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+    .hero-title {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -.03em;
+      margin-bottom: 24px;
+    }
+    .hero-title .accent { color: var(--red); }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--gray-text);
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-note { font-size: 13px; color: #aaa; margin-top: 16px; }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--gray-light);
+      padding: 32px 0;
+      border-top: 1px solid var(--gray-mid);
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .trust-label { font-size: 13px; color: #bbb; text-align: center; margin-bottom: 20px; letter-spacing: .08em; }
+    .trust-list {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .trust-item { font-size: 18px; font-weight: 900; color: #ccc; letter-spacing: -.02em; }
+
+    /* ===== PROBLEMS ===== */
+    .problems { background: var(--gray-light); }
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .problem-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px;
+      border-left: 4px solid var(--gray-mid);
+      transition: var(--transition);
+    }
+    .problem-card:hover { border-left-color: var(--red); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .problem-icon { font-size: 32px; margin-bottom: 16px; }
+    .problem-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .problem-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+
+    /* ===== SOLUTION ===== */
+    .solution-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .solution-features { margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+    .feature-row { display: flex; gap: 16px; align-items: flex-start; }
+    .feature-icon-wrap {
+      width: 44px; height: 44px;
+      background: #fff0f0;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .feature-row h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .feature-row p { font-size: 14px; color: var(--gray-text); }
+    .solution-visual {
+      background: var(--gray-light);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .flow-step {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      text-align: left;
+    }
+    .flow-step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 36px; height: 36px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 900;
+      font-size: 14px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .flow-step-text { font-size: 14px; font-weight: 700; }
+    .flow-arrow { color: var(--red); font-size: 20px; margin: -4px auto; }
+
+    /* ===== FEATURES ===== */
+    .features { background: var(--black); color: #fff; }
+    .features .section-title { color: #fff; }
+    .features .section-sub { color: #aaa; }
+    .features .section-label { color: #ff6b80; background: rgba(232,0,28,.15); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .feature-card {
+      background: #252525;
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      border: 1px solid #333;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: var(--transition);
+      transform-origin: left;
+    }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-card:hover { border-color: #444; transform: translateY(-4px); }
+    .feature-card-num { font-size: 48px; font-weight: 900; color: #333; line-height: 1; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #fff; }
+    .feature-card p { font-size: 14px; color: #888; line-height: 1.8; }
+    .feature-card .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red);
+      background: rgba(232,0,28,.1);
+      border-radius: 99px;
+      padding: 3px 12px;
+      margin-bottom: 16px;
+    }
+
+    /* ===== TARGETS ===== */
+    .targets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .target-card {
+      border: 2px solid var(--gray-mid);
+      border-radius: 16px;
+      padding: 36px 32px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .target-card:hover { border-color: var(--red); box-shadow: 0 8px 32px rgba(232,0,28,.1); }
+    .target-icon { font-size: 48px; margin-bottom: 20px; }
+    .target-card h3 { font-size: 20px; font-weight: 900; margin-bottom: 12px; }
+    .target-card ul { list-style: none; }
+    .target-card li {
+      font-size: 14px;
+      color: var(--gray-text);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--gray-mid);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .target-card li:last-child { border-bottom: none; }
+    .target-card li::before { content: '✓'; color: var(--red); font-weight: 700; flex-shrink: 0; }
+    .target-badge {
+      position: absolute;
+      top: -12px; right: 24px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 99px;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how { background: var(--gray-light); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 44px;
+      left: calc(100% / 8);
+      right: calc(100% / 8);
+      height: 2px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--red) 100%);
+      z-index: 0;
+    }
+    .step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+    .step-circle {
+      width: 88px; height: 88px;
+      background: #fff;
+      border: 3px solid var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 24px;
+      box-shadow: 0 4px 16px rgba(232,0,28,.15);
+    }
+    .step-num-badge {
+      position: absolute;
+      top: -4px; right: calc(50% - 52px);
+      width: 22px; height: 22px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 13px; color: var(--gray-text); line-height: 1.7; }
+
+    /* ===== PRICING ===== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .pricing-card {
+      border: 2px solid var(--gray-mid);
+      border-radius: 20px;
+      padding: 36px 32px;
+      transition: var(--transition);
+      background: #fff;
+    }
+    .pricing-card.featured { border-color: var(--red); box-shadow: 0 12px 48px rgba(232,0,28,.15); position: relative; }
+    .pricing-card.featured .pricing-badge {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 20px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+    .pricing-plan { font-size: 14px; font-weight: 700; color: var(--red); margin-bottom: 8px; }
+    .pricing-price { font-size: 42px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+    .pricing-price span { font-size: 18px; font-weight: 500; color: var(--gray-text); }
+    .pricing-desc { font-size: 13px; color: var(--gray-text); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--gray-mid); }
+    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-features li { font-size: 14px; padding: 8px 0; display: flex; gap: 10px; align-items: center; }
+    .pricing-features li::before { content: '●'; color: var(--red); font-size: 8px; flex-shrink: 0; }
+    .pricing-features li.disabled { color: #ccc; }
+    .pricing-features li.disabled::before { color: #ddd; }
+    .pricing-cta { width: 100%; text-align: center; }
+
+    /* ===== FAQ ===== */
+    .faq { background: var(--gray-light); }
+    .faq-list { margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
+    .faq-item { background: #fff; border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+    .faq-question {
+      padding: 24px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      user-select: none;
+    }
+    .faq-question::after { content: '+'; font-size: 24px; color: var(--red); flex-shrink: 0; transition: var(--transition); font-weight: 300; }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer {
+      display: none;
+      padding: 0 28px 24px;
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.8;
+      border-top: 1px solid var(--gray-mid);
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: var(--black);
+      padding: 96px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(232,0,28,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-section .section-title { color: #fff; position: relative; z-index: 1; }
+    .cta-desc { font-size: 17px; color: #aaa; margin-bottom: 48px; position: relative; z-index: 1; }
+
+    /* ===== CONTACT ===== */
+    .contact-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.1);
+      position: relative;
+      z-index: 1;
+    }
+    .contact-title { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
+    .contact-sub { font-size: 14px; color: var(--gray-text); margin-bottom: 32px; }
+
+    /* ===== COMPANY ===== */
+    .company { background: #fff; }
+    .company-table-wrap {
+      max-width: 760px;
+      margin: 56px auto 0;
+      border: 1px solid var(--gray-mid);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .company-table { width: 100%; border-collapse: collapse; }
+    .company-table tr { border-bottom: 1px solid var(--gray-mid); }
+    .company-table tr:last-child { border-bottom: none; }
+    .company-table th {
+      width: 200px;
+      padding: 20px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: left;
+      background: var(--gray-light);
+      color: var(--black);
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .company-table td { padding: 20px 24px; font-size: 14px; color: var(--gray-text); line-height: 1.8; }
+
+    /* ===== DEMO VIDEO ===== */
+    .demo { background: var(--gray-light); }
+    .demo-inner { max-width: 860px; margin: 56px auto 0; text-align: center; }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 16px 64px rgba(0,0,0,.12);
+      background: #111;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== LINE ===== */
+    .btn-line {
+      background: #06C755;
+      color: #fff !important;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 99px;
+    }
+    .btn-line:hover { opacity: .88; }
+    .line-badge { background: #fff; color: #06C755; font-size: 11px; font-weight: 900; padding: 1px 6px; border-radius: 4px; }
+    .line-contact-box {
+      max-width: 640px;
+      margin: 28px auto 0;
+      background: #f0fdf4;
+      border: 2px solid #06C755;
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .line-contact-box img { width: 110px; height: 110px; flex-shrink: 0; border-radius: 8px; }
+    .line-contact-text h4 { font-size: 16px; font-weight: 800; color: #111; margin-bottom: 6px; }
+    .line-contact-text p { font-size: 13px; color: #555; line-height: 1.7; margin-bottom: 14px; }
+    .pricing-line-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #06C755;
+      text-decoration: none;
+      margin-top: 12px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1.5px solid #06C755;
+      transition: var(--transition);
+    }
+    .pricing-line-link:hover { background: #f0fdf4; }
+
+    /* ===== MOBILE STICKY FOOTER ===== */
+    .sp-sticky-footer { display: none; }
+    @media (max-width: 768px) {
+      .sp-sticky-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 200;
+        box-shadow: 0 -2px 12px rgba(0,0,0,.15);
+      }
+      .sp-sticky-footer a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        padding: 14px 4px;
+        font-size: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        letter-spacing: .02em;
+      }
+      .sp-sticky-footer .sp-btn-doc { background: #333; color: #fff; }
+      .sp-sticky-footer .sp-btn-line { background: #06C755; color: #fff; }
+      .sp-sticky-footer .sp-btn-contact { background: var(--red); color: #fff; }
+      body { padding-bottom: 56px; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .hero { padding: 16px 0 32px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .solution-inner { grid-template-columns: 1fr; gap: 40px; }
+      .steps::before { display: none; }
+      .steps { grid-template-columns: 1fr; gap: 32px; }
+      .step { display: flex; gap: 20px; text-align: left; }
+      .step-circle { margin: 0; flex-shrink: 0; width: 64px; height: 64px; font-size: 22px; }
+      .line-contact-box { flex-direction: column; text-align: center; padding: 24px 20px; }
+      .contact-wrapper { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .company-table th { width: 120px; padding: 16px; font-size: 13px; }
+      .company-table td { padding: 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 共通ヘッダー（触らなくていい） -->
+<site-header></site-header>
+
+<!-- ===== HERO ===== -->
+<!-- ★変更: hero-eyebrowのテキスト、hero-title、hero-desc、ボタンのリンク -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content fade-up">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          ★ キャッチフレーズ（例: AI × 業務効率化）
+        </div>
+        <h1 class="hero-title">
+          ★ メインコピー<br>
+          <span class="accent">★ 赤字にしたい部分</span>を<br>
+          書く
+        </h1>
+        <p class="hero-desc">
+          ★ サービスの説明文をここに書く（2〜3行）。<br>
+          ターゲットと価値を明確に伝える文章。<br>
+          具体的な数字や実績があると効果的。
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">★ CTAボタンのテキスト →</a>
+          <a href="#how" class="btn btn-outline">仕組みを見る</a>
+        </div>
+        <!-- LINEボタン（不要なら削除OK） -->
+        <a href="https://lin.ee/★LINEのURL" target="_blank" rel="noopener" class="btn btn-line" style="margin-top:12px;padding:12px 28px;font-size:15px;">
+          <span class="line-badge">LINE</span> LINEで無料相談する →
+        </a>
+        <p class="hero-note">※ 初回相談・資料請求は完全無料です</p>
+      </div>
+      <div class="hero-visual fade-up">
+        <!-- ★変更: サービスのスクリーンショット画像に変える -->
+        <img
+          src="hero-screen.png"
+          alt="★ サービス名 操作画面"
+          style="width:100%;border-radius:16px;display:block;box-shadow:0 24px 64px rgba(0,0,0,.15);"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<!-- ★変更: 導入実績・対象ジャンルなどに変える -->
+<div class="trust-bar">
+  <div class="container">
+    <p class="trust-label">★ 導入実績・対応ジャンル例</p>
+    <div class="trust-list">
+      <span class="trust-item">★ ジャンル1</span>
+      <span class="trust-item">★ ジャンル2</span>
+      <span class="trust-item">★ ジャンル3</span>
+      <span class="trust-item">★ ジャンル4</span>
+      <span class="trust-item">★ ジャンル5</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 紹介動画（不要なら丸ごと削除OK） ===== -->
+<section class="section" id="intro-video">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:40px;">
+      <span class="section-label">About</span>
+      <h2 class="section-title">★ サービス名とは？</h2>
+      <p class="section-sub">サービスについて、担当者が詳しく解説します。</p>
+    </div>
+    <div class="demo-inner fade-up">
+      <div class="video-container">
+        <!-- ★変更: YouTubeのURLを差し替える（embedのIDを変える） -->
+        <iframe
+          src="https://www.youtube.com/embed/★動画ID"
+          title="★ サービス紹介動画"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEMS ===== -->
+<section class="section problems" id="problems">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">こんなお悩みはありませんか？</span>
+      <h2 class="section-title">★ ターゲットが抱える<br>よくある課題</h2>
+      <p class="section-sub">★ 課題の概要を書く。共感を呼ぶ文章で。</p>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card fade-up">
+        <div class="problem-icon">⏰</div>
+        <h3>★ 課題1のタイトル</h3>
+        <p>★ 課題1の説明文。読者の悩みをリアルに描写する。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">💸</div>
+        <h3>★ 課題2のタイトル</h3>
+        <p>★ 課題2の説明文。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">🎯</div>
+        <h3>★ 課題3のタイトル</h3>
+        <p>★ 課題3の説明文。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">📉</div>
+        <h3>★ 課題4のタイトル</h3>
+        <p>★ 課題4の説明文。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="section" id="solution">
+  <div class="container">
+    <div class="solution-inner">
+      <div class="fade-up">
+        <span class="section-label">Solution</span>
+        <h2 class="section-title">★ サービス名が<br>すべて解決します</h2>
+        <p class="section-sub">★ 解決策の概要を書く。</p>
+        <div class="solution-features">
+          <div class="feature-row">
+            <div class="feature-icon-wrap">🤖</div>
+            <div>
+              <h4>★ 解決策1のタイトル</h4>
+              <p>★ 解決策1の説明。</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon-wrap">📝</div>
+            <div>
+              <h4>★ 解決策2のタイトル</h4>
+              <p>★ 解決策2の説明。</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon-wrap">🚀</div>
+            <div>
+              <h4>★ 解決策3のタイトル</h4>
+              <p>★ 解決策3の説明。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-visual fade-up">
+        <div style="font-size:13px;font-weight:700;color:#aaa;margin-bottom:20px;letter-spacing:.08em;">処理の流れ</div>
+        <div class="flow-step">
+          <div class="step-num">1</div>
+          <div class="flow-step-text">★ ステップ1</div>
+        </div>
+        <div class="flow-arrow" style="text-align:center;margin:4px 0">↓</div>
+        <div class="flow-step">
+          <div class="step-num">2</div>
+          <div class="flow-step-text">★ ステップ2</div>
+        </div>
+        <div class="flow-arrow" style="text-align:center;margin:4px 0">↓</div>
+        <div class="flow-step">
+          <div class="step-num">3</div>
+          <div class="flow-step-text">★ ステップ3</div>
+        </div>
+        <div class="flow-arrow" style="text-align:center;margin:4px 0">↓</div>
+        <div class="flow-step">
+          <div class="step-num">4</div>
+          <div class="flow-step-text">★ ステップ4（完了）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMO SCREEN ===== -->
+<section class="section demo" id="demo">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Demo</span>
+      <h2 class="section-title">★ こんな感じで使います</h2>
+      <p class="section-sub">★ 操作方法の説明文。</p>
+    </div>
+    <div class="demo-inner fade-up">
+      <!-- ★変更: サービスの操作画面スクショ（app-preview.png を差し替え） -->
+      <img
+        src="app-preview.png"
+        alt="★ サービス名 実際の操作画面"
+        style="width:100%;border-radius:16px;display:block;box-shadow:0 16px 48px rgba(0,0,0,.12);border:1px solid #e8e8e8;"
+      >
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section features" id="features">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Features</span>
+      <h2 class="section-title">★ 選ばれる3つの理由</h2>
+      <p class="section-sub">★ 他社・他サービスとの差別化ポイント。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">01</div>
+        <span class="tag">★ タグ1</span>
+        <h3>★ 特徴1の<br>タイトル</h3>
+        <p>★ 特徴1の詳細説明。数字・データを入れると説得力が増す。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">02</div>
+        <span class="tag">★ タグ2</span>
+        <h3>★ 特徴2の<br>タイトル</h3>
+        <p>★ 特徴2の詳細説明。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">03</div>
+        <span class="tag">★ タグ3</span>
+        <h3>★ 特徴3の<br>タイトル</h3>
+        <p>★ 特徴3の詳細説明。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TARGETS ===== -->
+<section class="section" id="targets">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">こんな方におすすめ</span>
+      <h2 class="section-title">★ ターゲット像の<br>見出し</h2>
+    </div>
+    <div class="targets-grid">
+      <div class="target-card fade-up">
+        <div class="target-icon">🎥</div>
+        <h3>★ ターゲット1</h3>
+        <ul>
+          <li>★ 当てはまる条件1</li>
+          <li>★ 当てはまる条件2</li>
+          <li>★ 当てはまる条件3</li>
+          <li>★ 当てはまる条件4</li>
+        </ul>
+      </div>
+      <div class="target-card fade-up">
+        <div class="target-badge">★ バッジテキスト</div>
+        <div class="target-icon">💻</div>
+        <h3>★ ターゲット2</h3>
+        <ul>
+          <li>★ 当てはまる条件1</li>
+          <li>★ 当てはまる条件2</li>
+          <li>★ 当てはまる条件3</li>
+          <li>★ 当てはまる条件4</li>
+        </ul>
+      </div>
+      <div class="target-card fade-up">
+        <div class="target-icon">🏢</div>
+        <h3>★ ターゲット3</h3>
+        <ul>
+          <li>★ 当てはまる条件1</li>
+          <li>★ 当てはまる条件2</li>
+          <li>★ 当てはまる条件3</li>
+          <li>★ 当てはまる条件4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section how" id="how">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">How to Use</span>
+      <h2 class="section-title">ご利用の流れ</h2>
+      <p class="section-sub">★ 流れの概要説明文。</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">📩</div>
+          <div class="step-num-badge">1</div>
+        </div>
+        <div>
+          <h3>★ ステップ1タイトル</h3>
+          <p>★ ステップ1の説明。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">💬</div>
+          <div class="step-num-badge">2</div>
+        </div>
+        <div>
+          <h3>★ ステップ2タイトル</h3>
+          <p>★ ステップ2の説明。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">⚙️</div>
+          <div class="step-num-badge">3</div>
+        </div>
+        <div>
+          <h3>★ ステップ3タイトル</h3>
+          <p>★ ステップ3の説明。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">🚀</div>
+          <div class="step-num-badge">4</div>
+        </div>
+        <div>
+          <h3>★ ステップ4タイトル</h3>
+          <p>★ ステップ4の説明。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">★ 料金プラン</h2>
+      <p class="section-sub">★ 料金説明の補足文。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <div class="pricing-plan">★ プラン名1</div>
+        <div class="pricing-price">¥★,000<span>〜/月（税抜）</span></div>
+        <p class="pricing-desc">★ プラン1の説明。</p>
+        <ul class="pricing-features">
+          <li>★ 含まれる機能1</li>
+          <li>★ 含まれる機能2</li>
+          <li class="disabled">★ このプランにない機能</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+      </div>
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-badge">一番人気</div>
+        <div class="pricing-plan">★ プラン名2</div>
+        <div class="pricing-price">¥★★,000<span>〜/月（税抜）</span></div>
+        <p class="pricing-desc">★ プラン2の説明。</p>
+        <ul class="pricing-features">
+          <li>★ 含まれる機能1</li>
+          <li>★ 含まれる機能2</li>
+          <li>★ 含まれる機能3</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary pricing-cta">詳細を問い合わせる</a>
+      </div>
+      <div class="pricing-card fade-up">
+        <div class="pricing-plan">エンタープライズ</div>
+        <div class="pricing-price">要相談<span>（個別見積）</span></div>
+        <p class="pricing-desc">企業・大口向け。完全カスタマイズ対応。</p>
+        <ul class="pricing-features">
+          <li>★ 含まれる機能（無制限）</li>
+          <li>専任サポート・SLA保証</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:13px;color:#aaa;">※ 料金は規模・ご要望に応じてお見積もりします。まずはお気軽にご相談ください。</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-question">★ よくある質問1</div>
+        <div class="faq-answer">★ 質問1の回答。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">★ よくある質問2</div>
+        <div class="faq-answer">★ 質問2の回答。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">★ よくある質問3</div>
+        <div class="faq-answer">★ 質問3の回答。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA + CONTACT ===== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <span class="section-label" style="display:inline-block;margin-bottom:16px;">Contact</span>
+    <h2 class="section-title" style="color:#fff;margin-bottom:16px;">まずは無料でご相談ください</h2>
+    <p class="cta-desc">資料請求・デモ・お見積もりはすべて無料です。<br>お気軽にフォームよりお送りください。</p>
+    <div class="contact-wrapper">
+      <h3 class="contact-title">お問い合わせ・資料請求</h3>
+      <p class="contact-sub">内容を確認後、担当者より2営業日以内にご返信いたします。</p>
+      <!-- ★変更: Googleフォームのembedリンクを差し替える -->
+      <iframe
+        src="https://docs.google.com/forms/d/e/★フォームID/viewform?embedded=true"
+        width="100%"
+        height="1600"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        style="border:none;display:block;min-height:1600px;"
+        scrolling="no"
+      >読み込んでいます…</iframe>
+    </div>
+    <!-- LINEボックス（不要なら削除OK） -->
+    <div class="line-contact-box fade-up">
+      <!-- ★変更: line-qr.png をこのサービス用のQRに変える -->
+      <img src="line-qr.png" alt="LINE QRコード">
+      <div class="line-contact-text">
+        <h4>📱 LINEでも資料請求・ご相談できます</h4>
+        <p>友達追加すると、資料と面談URLが自動で届きます。</p>
+        <a href="https://lin.ee/★LINEのURL" target="_blank" rel="noopener" class="btn btn-line" style="padding:11px 24px;font-size:14px;">
+          <span class="line-badge">LINE</span> 友達追加して相談する →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPANY ===== -->
+<section class="section company" id="company">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Company</span>
+      <h2 class="section-title">会社概要</h2>
+    </div>
+    <div class="company-table-wrap fade-up">
+      <table class="company-table">
+        <tbody>
+          <tr><th>会社名</th><td>ホリエモンAI学校株式会社</td></tr>
+          <tr><th>設立</th><td>2024年3月6日</td></tr>
+          <tr><th>取締役</th><td>荒木 賢二郎（代表取締役）、山根 由嗣、堀江 貴文、田中 尚幸</td></tr>
+          <tr><th>資本金</th><td>1,000,000円</td></tr>
+          <tr><th>主要株主</th><td>荒木賢二郎、HIUインベストメント株式会社、株式会社ガイアックス</td></tr>
+          <tr><th>本社</th><td>〒160-0022<br>東京都新宿区新宿4-3-15 レイフラット新宿B棟3F</td></tr>
+          <tr><th>主な業務内容</th><td>オンライン研修の運営、オンラインスクール、セミナー・講演、などAI人材育成に関する事業全般</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 共通フッター（触らなくていい） -->
+<site-footer></site-footer>
+
+<!-- ===== SP STICKY FOOTER ===== -->
+<!-- ★変更: LINEのURLとお問い合わせリンクを差し替える -->
+<div class="sp-sticky-footer">
+  <a href="#contact" class="sp-btn-doc">📄 資料請求</a>
+  <a href="https://lin.ee/★LINEのURL" target="_blank" rel="noopener" class="sp-btn-line">💚 LINE相談</a>
+  <a href="#contact" class="sp-btn-contact">✉ お問い合わせ</a>
+</div>
+
+<!-- 共通JS（触らなくていい） -->
+<script src="/components/components.js"></script>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) el.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

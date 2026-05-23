@@ -1,0 +1,186 @@
+/* ================================================
+   ホリエモンAI学校 共通CSS
+   ヘッダー・フッターのスタイル
+   ================================================ */
+
+:root {
+  --ai-red: #e8001c;
+  --ai-red-dark: #c0001a;
+  --ai-black: #1a1a1a;
+  --ai-header-height: 64px;
+}
+
+/* ヘッダーの高さ分だけ本文を下げる */
+body { padding-top: var(--ai-header-height); }
+
+/* ---- ヘッダー ---- */
+.ai-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--ai-header-height);
+  background: #fff;
+  border-bottom: 2px solid var(--ai-red);
+  z-index: 1000;
+}
+
+.ai-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ロゴ */
+.ai-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.ai-logo-img { height: 36px; width: auto; display: block; }
+.ai-logo-text {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--ai-black);
+  white-space: nowrap;
+}
+
+/* ナビ */
+.ai-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.ai-nav ul li a {
+  display: block;
+  padding: 8px 16px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ai-black);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.ai-nav ul li a:hover { background: #fff0f0; color: var(--ai-red); }
+
+/* お問い合わせボタン */
+.ai-nav-cta {
+  background: var(--ai-red) !important;
+  color: #fff !important;
+  border-radius: 20px !important;
+}
+.ai-nav-cta:hover { background: var(--ai-red-dark) !important; color: #fff !important; }
+
+/* ハンバーガー（スマホ） */
+.ai-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.ai-menu-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ai-black);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.ai-menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ai-menu-btn.active span:nth-child(2) { opacity: 0; }
+.ai-menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- フッター ---- */
+.ai-footer {
+  background: var(--ai-black);
+  color: #fff;
+  margin-top: 80px;
+}
+
+.ai-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+
+.ai-footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.ai-footer-brand a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+.ai-footer-brand .ai-logo-text { color: #fff; }
+
+.ai-footer-tagline {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+
+.ai-footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.ai-footer-nav ul li a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ai-footer-nav ul li a:hover { color: #fff; }
+
+.ai-footer-bottom {
+  padding-top: 20px;
+  text-align: center;
+}
+.ai-footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+/* ---- レスポンシブ ---- */
+@media (max-width: 768px) {
+  .ai-menu-btn { display: flex; }
+
+  .ai-nav {
+    position: absolute;
+    top: var(--ai-header-height);
+    left: 0; right: 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .ai-nav.open { max-height: 300px; }
+
+  .ai-nav ul { flex-direction: column; padding: 12px 24px; gap: 2px; align-items: flex-start; }
+  .ai-nav ul li { width: 100%; }
+  .ai-nav ul li a { padding: 12px 8px; font-size: 15px; }
+
+  .ai-footer-top { flex-direction: column; }
+  .ai-footer-nav ul { flex-direction: row; flex-wrap: wrap; gap: 8px 20px; }
+}
