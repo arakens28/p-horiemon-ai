@@ -120,7 +120,47 @@
       transition: var(--transition);
     }
     .header-nav a:hover { color: var(--red); }
-    .header-cta { padding: 10px 24px; font-size: 14px; }
+    .header-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-cta {
+      padding: 10px 18px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .header-cta-outline {
+      padding: 10px 18px;
+      font-size: 13px;
+      white-space: nowrap;
+      background: #fff;
+      color: var(--black);
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .header-cta-outline:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+    .header-cta-primary {
+      padding: 10px 18px;
+      font-size: 13px;
+      white-space: nowrap;
+      background: var(--red);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+    .header-cta-primary:hover { opacity: .88; }
 
     /* ===== HERO ===== */
     .hero {
@@ -797,6 +837,8 @@
       .step { display: flex; gap: 20px; text-align: left; }
       .step-circle { margin: 0; flex-shrink: 0; width: 64px; height: 64px; font-size: 22px; }
       .header-nav { display: none; }
+      .header-cta-outline { display: none; }
+      .header-cta-primary { font-size: 12px; padding: 9px 12px; }
       .form-row { grid-template-columns: 1fr; }
       .contact-wrapper { padding: 32px 24px; }
       .footer-inner { flex-direction: column; }
@@ -817,7 +859,10 @@
         <a href="#pricing">料金</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="#contact" class="btn btn-primary header-cta">無料で相談する</a>
+      <div class="header-btns">
+        <a href="#contact" class="header-cta-outline">資料請求</a>
+        <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/lAex2sPRKJu_3Ym_l8tGl/confirm" target="_blank" rel="noopener" class="header-cta-primary">営業にお問い合わせ &rsaquo;</a>
+      </div>
     </div>
   </div>
 </header>
