@@ -843,6 +843,44 @@
       .contact-wrapper { padding: 32px 24px; }
       .footer-inner { flex-direction: column; }
     }
+
+    /* ===== MOBILE STICKY FOOTER ===== */
+    .sp-sticky-footer {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .sp-sticky-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        box-shadow: 0 -2px 12px rgba(0,0,0,.15);
+      }
+      .sp-sticky-footer a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 16px 8px;
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+        letter-spacing: .02em;
+      }
+      .sp-sticky-footer .sp-btn-doc {
+        background: #333;
+        color: #fff;
+      }
+      .sp-sticky-footer .sp-btn-contact {
+        background: var(--red);
+        color: #fff;
+      }
+      /* コンテンツがフッターに隠れないよう余白 */
+      body { padding-bottom: 56px; }
+    }
   </style>
 </head>
 <body>
@@ -1421,5 +1459,15 @@
   });
 
 </script>
+
+<!-- ===== SP STICKY FOOTER ===== -->
+<div class="sp-sticky-footer">
+  <a href="#contact" class="sp-btn-doc">
+    📄 資料請求
+  </a>
+  <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/lAex2sPRKJu_3Ym_l8tGl/confirm" target="_blank" rel="noopener" class="sp-btn-contact">
+    ✉ 営業にお問い合わせ
+  </a>
+</div>
 </body>
 </html>
