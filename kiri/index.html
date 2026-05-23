@@ -870,8 +870,17 @@
         text-decoration: none;
         letter-spacing: .02em;
       }
+      .sp-sticky-footer a {
+        padding: 14px 4px;
+        font-size: 12px;
+        gap: 3px;
+      }
       .sp-sticky-footer .sp-btn-doc {
         background: #333;
+        color: #fff;
+      }
+      .sp-sticky-footer .sp-btn-line {
+        background: #06C755;
         color: #fff;
       }
       .sp-sticky-footer .sp-btn-contact {
@@ -880,6 +889,78 @@
       }
       /* コンテンツがフッターに隠れないよう余白 */
       body { padding-bottom: 56px; }
+    }
+
+    /* ===== LINE ===== */
+    .btn-line {
+      background: #06C755;
+      color: #fff !important;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 99px;
+    }
+    .btn-line:hover { opacity: .88; }
+    .line-badge {
+      background: #fff;
+      color: #06C755;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .line-contact-box {
+      max-width: 640px;
+      margin: 28px auto 0;
+      background: #f0fdf4;
+      border: 2px solid #06C755;
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .line-contact-box img {
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+      border-radius: 8px;
+    }
+    .line-contact-text h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 6px;
+    }
+    .line-contact-text p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .pricing-line-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #06C755;
+      text-decoration: none;
+      margin-top: 12px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1.5px solid #06C755;
+      transition: var(--transition);
+    }
+    .pricing-line-link:hover { background: #f0fdf4; }
+    @media (max-width: 768px) {
+      .line-contact-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+      }
     }
   </style>
 </head>
@@ -928,6 +1009,9 @@
           <a href="#contact" class="btn btn-primary btn-lg">無料で資料を受け取る →</a>
           <a href="#how" class="btn btn-outline">仕組みを見る</a>
         </div>
+        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="btn btn-line" style="margin-top:12px;padding:12px 28px;font-size:15px;">
+          <span class="line-badge">LINE</span> LINEで無料相談する →
+        </a>
         <p class="hero-note">※ 初回相談・資料請求は完全無料です</p>
       </div>
       <div class="hero-visual fade-up">
@@ -1248,6 +1332,7 @@
           <li class="disabled">専任サポート</li>
         </ul>
         <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
       </div>
       <div class="pricing-card featured fade-up">
         <div class="pricing-badge">一番人気</div>
@@ -1262,6 +1347,7 @@
           <li class="disabled">専任サポート</li>
         </ul>
         <a href="#contact" class="btn btn-primary pricing-cta">詳細を問い合わせる</a>
+        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
       </div>
       <div class="pricing-card fade-up">
         <div class="pricing-plan">エンタープライズ</div>
@@ -1275,6 +1361,7 @@
           <li>専任サポート・SLA保証</li>
         </ul>
         <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
       </div>
       <div class="pricing-card fade-up" style="border-color:#111;background:#111;color:#fff;">
         <div class="pricing-badge" style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fff;color:#111;font-size:12px;font-weight:700;padding:5px 20px;border-radius:99px;white-space:nowrap;">完全丸投げ</div>
@@ -1290,6 +1377,7 @@
             <li style="color:#fff;">ツール操作不要・完全丸投げOK</li>
           </ul>
           <a href="#contact" class="btn pricing-cta" style="background:#fff;color:#111;font-weight:700;width:100%;text-align:center;">詳細を問い合わせる</a>
+          <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link" style="border-color:#06C755;color:#06C755;margin-top:12px;"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
         </div>
       </div>
     </div>
@@ -1353,6 +1441,16 @@
         style="border:none;display:block;min-height:1600px;"
         scrolling="no"
       >読み込んでいます…</iframe>
+    </div>
+    <div class="line-contact-box fade-up">
+      <img src="line-qr.png" alt="LINE QRコード">
+      <div class="line-contact-text">
+        <h4>📱 LINEでも資料請求・ご相談できます</h4>
+        <p>友達追加すると、資料と面談URLが自動で届きます。<br>個人事業主・中小企業の方もお気軽にどうぞ。</p>
+        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="btn btn-line" style="padding:11px 24px;font-size:14px;">
+          <span class="line-badge">LINE</span> 友達追加して相談する →
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1463,6 +1561,9 @@
 <div class="sp-sticky-footer">
   <a href="#contact" class="sp-btn-doc">
     📄 資料請求
+  </a>
+  <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="sp-btn-line">
+    💚 LINE相談
   </a>
   <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/lAex2sPRKJu_3Ym_l8tGl/confirm" target="_blank" rel="noopener" class="sp-btn-contact">
     ✉ 営業にお問い合わせ
