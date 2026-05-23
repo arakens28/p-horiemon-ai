@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ホリエモンAI切り抜き | YouTube動画を自動でショート動画に変換</title>
+  <meta name="description" content="AIが自動でYouTube動画をバズるショート動画に切り抜き。YouTubeチャンネル運営者・切り抜き職人向けの革新的Webサービス。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.75;
+      font-size: 16px;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --red: #e8001c;
+      --red-dark: #c0001a;
+      --black: #1a1a1a;
+      --gray-light: #f7f7f7;
+      --gray-mid: #ebebeb;
+      --gray-text: #666;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,.08);
+      --transition: .25s ease;
+    }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: #fff0f0;
+      border-radius: 99px;
+      padding: 4px 16px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray-text);
+      max-width: 600px;
+    }
+    .text-center { text-align: center; }
+    .text-center .section-sub { margin: 0 auto; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 99px;
+      padding: 16px 40px;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(232,0,28,.3);
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,0,28,.4); }
+    .btn-outline {
+      background: transparent;
+      color: var(--black);
+      border: 2px solid var(--black);
+    }
+    .btn-outline:hover { background: var(--black); color: #fff; }
+    .btn-lg { font-size: 18px; padding: 20px 56px; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+    .logo span { color: var(--red); }
+    .header-nav { display: flex; align-items: center; gap: 32px; }
+    .header-nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      transition: var(--transition);
+    }
+    .header-nav a:hover { color: var(--red); }
+    .header-cta { padding: 10px 24px; font-size: 14px; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: #fff;
+      padding: 100px 0 80px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(232,0,28,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red);
+      background: #fff0f0;
+      border-radius: 99px;
+      padding: 6px 16px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow .dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+    .hero-title {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -.03em;
+      margin-bottom: 24px;
+    }
+    .hero-title .accent { color: var(--red); }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--gray-text);
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-note { font-size: 13px; color: #aaa; margin-top: 16px; }
+    .hero-visual {
+      position: relative;
+    }
+    .hero-card {
+      background: var(--black);
+      border-radius: 20px;
+      padding: 32px;
+      color: #fff;
+      box-shadow: 0 24px 64px rgba(0,0,0,.2);
+    }
+    .hero-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 16px;
+    }
+    .video-mockup {
+      background: #2a2a2a;
+      border-radius: 12px;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-mockup::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(232,0,28,.15) 0%, transparent 60%);
+    }
+    .play-icon {
+      width: 56px; height: 56px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      box-shadow: 0 4px 20px rgba(232,0,28,.5);
+    }
+    .play-icon svg { margin-left: 4px; }
+    .arrow-down {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--red);
+    }
+    .shorts-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .short-thumb {
+      background: #2a2a2a;
+      border-radius: 8px;
+      aspect-ratio: 9/16;
+      display: flex;
+      align-items: flex-end;
+      padding: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .short-thumb:nth-child(1) { background: linear-gradient(160deg, #2a2a2a, #3d0000); }
+    .short-thumb:nth-child(2) { background: linear-gradient(160deg, #2a2a2a, #001a3d); }
+    .short-thumb:nth-child(3) { background: linear-gradient(160deg, #2a2a2a, #1a3d00); }
+    .short-thumb-label {
+      font-size: 9px;
+      color: rgba(255,255,255,.7);
+      line-height: 1.3;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 32px;
+      box-shadow: var(--shadow);
+    }
+    .stat-item { text-align: center; padding: 0 12px; }
+    .stat-item + .stat-item { border-left: 1px solid var(--gray-mid); }
+    .stat-num { font-size: 28px; font-weight: 900; color: var(--black); line-height: 1; }
+    .stat-num span { color: var(--red); font-size: 20px; }
+    .stat-label { font-size: 12px; color: var(--gray-text); margin-top: 4px; }
+
+    /* ===== LOGOS / TRUST ===== */
+    .trust-bar {
+      background: var(--gray-light);
+      padding: 32px 0;
+      border-top: 1px solid var(--gray-mid);
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .trust-label { font-size: 13px; color: #bbb; text-align: center; margin-bottom: 20px; letter-spacing: .08em; }
+    .trust-list {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .trust-item {
+      font-size: 18px;
+      font-weight: 900;
+      color: #ccc;
+      letter-spacing: -.02em;
+    }
+
+    /* ===== PROBLEMS ===== */
+    .problems { background: var(--gray-light); }
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .problem-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px;
+      border-left: 4px solid var(--gray-mid);
+      transition: var(--transition);
+    }
+    .problem-card:hover { border-left-color: var(--red); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .problem-icon { font-size: 32px; margin-bottom: 16px; }
+    .problem-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .problem-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+
+    /* ===== SOLUTION ===== */
+    .solution-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .solution-features { margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+    .feature-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .feature-icon-wrap {
+      width: 44px; height: 44px;
+      background: #fff0f0;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .feature-row h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .feature-row p { font-size: 14px; color: var(--gray-text); }
+    .solution-visual {
+      background: var(--gray-light);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .flow-step {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      text-align: left;
+    }
+    .flow-step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 36px; height: 36px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 900;
+      font-size: 14px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .flow-step-text { font-size: 14px; font-weight: 700; }
+    .flow-arrow { color: var(--red); font-size: 20px; margin: -4px auto; }
+
+    /* ===== FEATURES ===== */
+    .features { background: var(--black); color: #fff; }
+    .features .section-title { color: #fff; }
+    .features .section-sub { color: #aaa; }
+    .features .section-label { color: #ff6b80; background: rgba(232,0,28,.15); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .feature-card {
+      background: #252525;
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      border: 1px solid #333;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: var(--transition);
+      transform-origin: left;
+    }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-card:hover { border-color: #444; transform: translateY(-4px); }
+    .feature-card-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: #333;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #fff; }
+    .feature-card p { font-size: 14px; color: #888; line-height: 1.8; }
+    .feature-card .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red);
+      background: rgba(232,0,28,.1);
+      border-radius: 99px;
+      padding: 3px 12px;
+      margin-bottom: 16px;
+    }
+
+    /* ===== TARGETS ===== */
+    .targets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .target-card {
+      border: 2px solid var(--gray-mid);
+      border-radius: 16px;
+      padding: 36px 32px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .target-card:hover { border-color: var(--red); box-shadow: 0 8px 32px rgba(232,0,28,.1); }
+    .target-icon { font-size: 48px; margin-bottom: 20px; }
+    .target-card h3 { font-size: 20px; font-weight: 900; margin-bottom: 12px; }
+    .target-card ul { list-style: none; }
+    .target-card li {
+      font-size: 14px;
+      color: var(--gray-text);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--gray-mid);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .target-card li:last-child { border-bottom: none; }
+    .target-card li::before { content: '✓'; color: var(--red); font-weight: 700; flex-shrink: 0; }
+    .target-badge {
+      position: absolute;
+      top: -12px; right: 24px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 99px;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how { background: var(--gray-light); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 44px;
+      left: calc(100% / 8);
+      right: calc(100% / 8);
+      height: 2px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--red) 100%);
+      z-index: 0;
+    }
+    .step {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-circle {
+      width: 88px; height: 88px;
+      background: #fff;
+      border: 3px solid var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 24px;
+      box-shadow: 0 4px 16px rgba(232,0,28,.15);
+    }
+    .step-num-badge {
+      position: absolute;
+      top: -4px; right: calc(50% - 52px);
+      width: 22px; height: 22px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 13px; color: var(--gray-text); line-height: 1.7; }
+
+    /* ===== PRICING ===== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .pricing-card {
+      border: 2px solid var(--gray-mid);
+      border-radius: 20px;
+      padding: 36px 32px;
+      transition: var(--transition);
+      background: #fff;
+    }
+    .pricing-card.featured {
+      border-color: var(--red);
+      box-shadow: 0 12px 48px rgba(232,0,28,.15);
+      position: relative;
+    }
+    .pricing-card.featured .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 20px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+    .pricing-plan { font-size: 14px; font-weight: 700; color: var(--red); margin-bottom: 8px; }
+    .pricing-price {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-price span { font-size: 18px; font-weight: 500; color: var(--gray-text); }
+    .pricing-desc { font-size: 13px; color: var(--gray-text); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--gray-mid); }
+    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-features li {
+      font-size: 14px;
+      padding: 8px 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .pricing-features li::before { content: '●'; color: var(--red); font-size: 8px; flex-shrink: 0; }
+    .pricing-features li.disabled { color: #ccc; }
+    .pricing-features li.disabled::before { color: #ddd; }
+    .pricing-cta { width: 100%; text-align: center; }
+
+    /* ===== FAQ ===== */
+    .faq { background: var(--gray-light); }
+    .faq-list { margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
+    .faq-item {
+      background: #fff;
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 24px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      user-select: none;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 24px;
+      color: var(--red);
+      flex-shrink: 0;
+      transition: var(--transition);
+      font-weight: 300;
+    }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer {
+      display: none;
+      padding: 0 28px 24px;
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.8;
+      border-top: 1px solid var(--gray-mid);
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: var(--black);
+      padding: 96px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(232,0,28,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-section .section-title { color: #fff; position: relative; z-index: 1; }
+    .cta-desc { font-size: 17px; color: #aaa; margin-bottom: 48px; position: relative; z-index: 1; }
+
+    /* ===== CONTACT ===== */
+    .contact-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.1);
+      position: relative;
+      z-index: 1;
+    }
+    .contact-title { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
+    .contact-sub { font-size: 14px; color: var(--gray-text); margin-bottom: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-label { font-size: 14px; font-weight: 700; margin-bottom: 8px; display: block; }
+    .form-label .required {
+      font-size: 11px;
+      color: #fff;
+      background: var(--red);
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin-left: 6px;
+    }
+    .form-label .optional { font-size: 11px; color: #aaa; margin-left: 6px; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: inherit;
+      font-size: 15px;
+      border: 2px solid var(--gray-mid);
+      border-radius: 10px;
+      outline: none;
+      transition: var(--transition);
+      color: var(--black);
+      background: #fff;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(232,0,28,.1);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit {
+      width: 100%;
+      font-size: 17px;
+      padding: 18px;
+      margin-top: 8px;
+      border-radius: 12px;
+    }
+    .form-note { font-size: 12px; color: #aaa; text-align: center; margin-top: 12px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .footer-logo { font-size: 18px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+    .footer-logo span { color: var(--red); }
+    .footer-tagline { font-size: 13px; color: #666; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: #888; transition: var(--transition); }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid #222;
+      padding-top: 24px;
+      font-size: 12px;
+      color: #555;
+      text-align: center;
+    }
+
+    /* ===== COMPANY ===== */
+    .company { background: #fff; }
+    .company-table-wrap {
+      max-width: 760px;
+      margin: 56px auto 0;
+      border: 1px solid var(--gray-mid);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .company-table { width: 100%; border-collapse: collapse; }
+    .company-table tr { border-bottom: 1px solid var(--gray-mid); }
+    .company-table tr:last-child { border-bottom: none; }
+    .company-table th {
+      width: 200px;
+      padding: 20px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: left;
+      background: var(--gray-light);
+      color: var(--black);
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .company-table td {
+      padding: 20px 24px;
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.8;
+    }
+    @media (max-width: 600px) {
+      .company-table th { width: 120px; padding: 16px; font-size: 13px; }
+      .company-table td { padding: 16px; font-size: 13px; }
+    }
+
+    /* ===== DEMO VIDEO ===== */
+    .demo { background: var(--gray-light); }
+    .demo-inner {
+      max-width: 860px;
+      margin: 56px auto 0;
+      text-align: center;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 16px 64px rgba(0,0,0,.12);
+      background: #111;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 16px;
+    }
+    .video-placeholder-icon { font-size: 56px; margin-bottom: 16px; }
+    .video-placeholder-text { font-size: 16px; color: #aaa; }
+    .video-caption {
+      font-size: 14px;
+      color: var(--gray-text);
+      margin-top: 20px;
+    }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .hero { padding: 64px 0 48px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { order: -1; }
+      .solution-inner { grid-template-columns: 1fr; gap: 40px; }
+      .steps::before { display: none; }
+      .steps { grid-template-columns: 1fr; gap: 32px; }
+      .step { display: flex; gap: 20px; text-align: left; }
+      .step-circle { margin: 0; flex-shrink: 0; width: 64px; height: 64px; font-size: 22px; }
+      .header-nav { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-wrapper { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">ホリエモン<span>AI</span>切り抜き</div>
+      <nav class="header-nav">
+        <a href="#features">特徴</a>
+        <a href="#targets">対象者</a>
+        <a href="#how">利用の流れ</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary header-cta">無料で相談する</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content fade-up">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          AI × YouTube ショート動画
+        </div>
+        <h1 class="hero-title">
+          動画を貼るだけで<br>
+          <span class="accent">バズる切り抜き</span>が<br>
+          自動でできる
+        </h1>
+        <p class="hero-desc">
+          ホリエモンAI切り抜きは、YouTubeの長尺動画を<br>
+          AIが自動でショート動画に変換するWebサービスです。<br>
+          編集スキル不要・時間ゼロで再生数を伸ばせます。
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">無料で資料を受け取る →</a>
+          <a href="#how" class="btn btn-outline">仕組みを見る</a>
+        </div>
+        <p class="hero-note">※ 初回相談・資料請求は完全無料です</p>
+      </div>
+      <div class="hero-visual fade-up">
+        <div class="hero-card">
+          <div class="hero-card-label">INPUT → OUTPUT</div>
+          <div class="video-mockup">
+            <div class="play-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="arrow-down">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-6-6h12z"/></svg>
+          </div>
+          <div class="shorts-row">
+            <div class="short-thumb"><span class="short-thumb-label">切り抜き#1</span></div>
+            <div class="short-thumb"><span class="short-thumb-label">切り抜き#2</span></div>
+            <div class="short-thumb"><span class="short-thumb-label">切り抜き#3</span></div>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">95<span>%</span></div>
+            <div class="stat-label">編集時間削減</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3<span>分</span></div>
+            <div class="stat-label">URL貼るだけ</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">24<span>h</span></div>
+            <div class="stat-label">いつでも稼働</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="container">
+    <p class="trust-label">導入チャンネルジャンル例</p>
+    <div class="trust-list">
+      <span class="trust-item">ビジネス系</span>
+      <span class="trust-item">ニュース解説</span>
+      <span class="trust-item">投資・お金</span>
+      <span class="trust-item">エンタメ</span>
+      <span class="trust-item">教育・学習</span>
+      <span class="trust-item">テクノロジー</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEMS ===== -->
+<section class="section problems" id="problems">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">こんなお悩みはありませんか？</span>
+      <h2 class="section-title">YouTube運営者が抱える<br>よくある課題</h2>
+      <p class="section-sub">ショート動画の重要性はわかっているのに、なかなか手が回らない。そんな悩みをすべて解決します。</p>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card fade-up">
+        <div class="problem-icon">⏰</div>
+        <h3>編集に時間がかかりすぎる</h3>
+        <p>動画1本の切り抜き編集に数時間かかる。本業のコンテンツ制作に集中できない。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">💸</div>
+        <h3>外注コストが高すぎる</h3>
+        <p>編集者を雇うと1本数千円〜。本数が増えるほどコストが膨らんで採算が合わない。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">🎯</div>
+        <h3>どこを切り抜けばいいかわからない</h3>
+        <p>長尺動画のどのシーンがバズるか判断できず、効果が出ないまま時間だけ過ぎていく。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">📉</div>
+        <h3>ショート動画の本数が足りない</h3>
+        <p>アルゴリズム上、ショートは量が命。でも毎日投稿する時間も人手も足りない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="section" id="solution">
+  <div class="container">
+    <div class="solution-inner">
+      <div class="fade-up">
+        <span class="section-label">Solution</span>
+        <h2 class="section-title">ホリエモンAI切り抜きが<br>すべて解決します</h2>
+        <p class="section-sub">AIがバズシーンを自動検出し、字幕・テロップまで含めたショート動画を自動生成。あとは投稿するだけです。</p>
+        <div class="solution-features">
+          <div class="feature-row">
+            <div class="feature-icon-wrap">🤖</div>
+            <div>
+              <h4>AIが自動でハイライトを抽出</h4>
+              <p>視聴者の反応が高いシーンをAIがスコアリング。バズる素材を逃しません。</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon-wrap">📝</div>
+            <div>
+              <h4>字幕・テロップも自動生成</h4>
+              <p>音声認識で字幕を自動追加。縦型フォーマットへのリサイズも自動対応。</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon-wrap">🚀</div>
+            <div>
+              <h4>1動画から複数本を同時出力</h4>
+              <p>1本の長尺動画から最大10本以上のショート動画を一気に生成。投稿素材が溜まります。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-visual fade-up">
+        <div style="font-size:13px;font-weight:700;color:#aaa;margin-bottom:20px;letter-spacing:.08em;">処理の流れ</div>
+        <div class="flow-step">
+          <div class="step-num">1</div>
+          <div class="flow-step-text">YouTube URLを貼り付ける</div>
+        </div>
+        <div class="flow-arrow" style="text-align:center;margin:4px 0">↓</div>
+        <div class="flow-step">
+          <div class="step-num">2</div>
+          <div class="flow-step-text">AIがバズシーンを自動解析</div>
+        </div>
+        <div class="flow-arrow" style="text-align:center;margin:4px 0">↓</div>
+        <div class="flow-step">
+          <div class="step-num">3</div>
+          <div class="flow-step-text">字幕・テロップ付きで動画生成</div>
+        </div>
+        <div class="flow-arrow" style="text-align:center;margin:4px 0">↓</div>
+        <div class="flow-step">
+          <div class="step-num">4</div>
+          <div class="flow-step-text">ダウンロード or 直接投稿</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMO VIDEO ===== -->
+<section class="section demo" id="demo">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Demo</span>
+      <h2 class="section-title">こんな感じで操作します</h2>
+      <p class="section-sub">URLを貼るだけ。難しい操作はありません。実際の画面をご覧ください。</p>
+    </div>
+    <div class="demo-inner fade-up">
+      <div class="video-container">
+        <!-- ▼▼▼ 操作動画のURLが決まったら、以下のsrc属性を差し替えてください ▼▼▼ -->
+        <!-- YouTube埋め込みの場合: src="https://www.youtube.com/embed/動画ID" -->
+        <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon">🎬</div>
+          <div class="video-placeholder-text">操作説明動画をここに挿入予定</div>
+        </div>
+      </div>
+      <p class="video-caption">※ 操作は3ステップ。URLを貼り付け → AI解析 → 動画ダウンロード</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section features" id="features">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Features</span>
+      <h2 class="section-title">選ばれる3つの理由</h2>
+      <p class="section-sub">他の編集ツールとは一線を画す、ホリエモンAI切り抜きならではの強みです。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">01</div>
+        <span class="tag">AI特化</span>
+        <h3>バズる箇所を<br>AIが自動判定</h3>
+        <p>視聴維持率・コメント密度・感情分析など複数の指標を組み合わせ、バズりやすいシーンを高精度に特定します。人間の感覚に頼らない、データドリブンな切り抜きが可能です。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">02</div>
+        <span class="tag">低コスト</span>
+        <h3>外注の1/10以下の<br>コストで実現</h3>
+        <p>月額定額制で使い放題。1本あたりの単価を大幅に削減しながら、プロ品質の動画を量産できます。副業・スモールビジネスの方でも無理なく続けられます。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">03</div>
+        <span class="tag">すぐ使える</span>
+        <h3>専門知識ゼロで<br>今日から始められる</h3>
+        <p>URLを貼り付けるだけの超シンプル操作。動画編集ソフトの知識は一切不要。登録から最初のショート動画完成まで、最短3分で完結します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TARGETS ===== -->
+<section class="section" id="targets">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">こんな方におすすめ</span>
+      <h2 class="section-title">3つのターゲットに<br>ピッタリのサービスです</h2>
+    </div>
+    <div class="targets-grid">
+      <div class="target-card fade-up">
+        <div class="target-icon">🎥</div>
+        <h3>YouTubeチャンネル運営者</h3>
+        <ul>
+          <li>長尺動画をすでに投稿している</li>
+          <li>ショートへの展開が後回しになっている</li>
+          <li>チャンネル登録者をもっと増やしたい</li>
+          <li>自分で編集する時間が取れない</li>
+        </ul>
+      </div>
+      <div class="target-card fade-up">
+        <div class="target-badge">副業にも最適</div>
+        <div class="target-icon">💻</div>
+        <h3>切り抜き職人・副業の方</h3>
+        <ul>
+          <li>切り抜き制作で稼ぎたい</li>
+          <li>複数チャンネルを効率的に運営したい</li>
+          <li>編集に時間をかけずに納品本数を増やしたい</li>
+          <li>再現性のある収益モデルを構築したい</li>
+        </ul>
+      </div>
+      <div class="target-card fade-up">
+        <div class="target-icon">🏢</div>
+        <h3>YouTube運用企業・法人</h3>
+        <ul>
+          <li>社内コンテンツのリサイクルをしたい</li>
+          <li>複数チャンネルを一元管理したい</li>
+          <li>制作コストを削減しながら本数を増やしたい</li>
+          <li>動画マーケティングを強化したい</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section how" id="how">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">How to Use</span>
+      <h2 class="section-title">ご利用の流れ</h2>
+      <p class="section-sub">お問い合わせから最初のショート動画完成まで、わかりやすく4ステップで完結します。</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">📩</div>
+          <div class="step-num-badge">1</div>
+        </div>
+        <div>
+          <h3>お問い合わせ・資料請求</h3>
+          <p>フォームからお気軽にご連絡ください。サービス資料を無料でお送りします。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">💬</div>
+          <div class="step-num-badge">2</div>
+        </div>
+        <div>
+          <h3>無料ヒアリング・デモ</h3>
+          <p>チャンネルの状況をヒアリングし、実際にデモ動画を作成してご確認いただきます。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">⚙️</div>
+          <div class="step-num-badge">3</div>
+        </div>
+        <div>
+          <h3>アカウント設定・初期設定</h3>
+          <p>チャンネルの雰囲気に合わせたスタイル・テロップデザインを設定します。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">🚀</div>
+          <div class="step-num-badge">4</div>
+        </div>
+        <div>
+          <h3>URLを貼るだけで本番稼働</h3>
+          <p>あとはURLを貼り付けるだけ。ショート動画が次々と自動生成されます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">シンプルな料金体系</h2>
+      <p class="section-sub">まずはお気軽にご相談ください。チャンネル規模や用途に合わせた最適なプランをご提案します。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <div class="pricing-plan">スタータープラン</div>
+        <div class="pricing-price">¥9,800<span>〜/月（税抜）</span></div>
+        <p class="pricing-desc">副業・個人チャンネル向け。まずは試してみたい方に。</p>
+        <ul class="pricing-features">
+          <li>月10本までショート動画生成</li>
+          <li>自動字幕・テロップ付き</li>
+          <li>縦型フォーマット自動変換</li>
+          <li class="disabled">複数チャンネル対応</li>
+          <li class="disabled">専任サポート</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+      </div>
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-badge">一番人気</div>
+        <div class="pricing-plan">スタンダードプラン</div>
+        <div class="pricing-price">¥29,800<span>〜/月（税抜）</span></div>
+        <p class="pricing-desc">本格的にショート展開したいチャンネル・切り抜き職人向け。</p>
+        <ul class="pricing-features">
+          <li>月50本までショート動画生成</li>
+          <li>自動字幕・テロップ付き</li>
+          <li>縦型フォーマット自動変換</li>
+          <li>複数チャンネル対応（3件まで）</li>
+          <li class="disabled">専任サポート</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary pricing-cta">詳細を問い合わせる</a>
+      </div>
+      <div class="pricing-card fade-up">
+        <div class="pricing-plan">エンタープライズ</div>
+        <div class="pricing-price">要相談<span>（個別見積）</span></div>
+        <p class="pricing-desc">企業・複数チャンネル運営向け。完全カスタマイズ対応。</p>
+        <ul class="pricing-features">
+          <li>生成本数 無制限</li>
+          <li>自動字幕・テロップ付き</li>
+          <li>縦型フォーマット自動変換</li>
+          <li>複数チャンネル対応（無制限）</li>
+          <li>専任サポート・SLA保証</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:13px;color:#aaa;">※ 料金は規模・ご要望に応じてお見積もりします。まずはお気軽にご相談ください。</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-question">動画編集の知識がなくても使えますか？</div>
+        <div class="faq-answer">はい、まったく問題ありません。YouTubeのURLを貼り付けるだけで、AIがすべての工程を自動処理します。動画編集ソフトや専門知識は一切不要です。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">どんなジャンルのYouTube動画でも対応できますか？</div>
+        <div class="faq-answer">ビジネス・ニュース解説・エンタメ・教育など幅広いジャンルに対応しています。まずは無料デモでお手持ちのチャンネル動画を使ってお試しください。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">生成されたショート動画の著作権はどうなりますか？</div>
+        <div class="faq-answer">生成された動画の著作権はお客様に帰属します。当社がお客様の動画コンテンツを第三者に提供することはありません。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">1本の動画から何本のショートが生成されますか？</div>
+        <div class="faq-answer">動画の尺や内容によって異なりますが、30〜60分の動画から平均5〜15本のショート動画を生成できます。生成本数の上限はプランによって異なります。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">無料で試すことはできますか？</div>
+        <div class="faq-answer">はい、初回のデモ生成・資料請求・ヒアリングはすべて無料です。まずはお気軽にお問い合わせフォームよりご連絡ください。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">法人での利用は可能ですか？</div>
+        <div class="faq-answer">もちろん対応しています。エンタープライズプランでは請求書払い・契約書の締結にも対応しております。複数チャンネル・大量生成のニーズもお気軽にご相談ください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA + CONTACT ===== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <span class="section-label" style="display:inline-block;margin-bottom:16px;">Contact</span>
+    <h2 class="section-title" style="color:#fff;margin-bottom:16px;">まずは無料でご相談ください</h2>
+    <p class="cta-desc">資料請求・デモ動画の作成・お見積もりはすべて無料です。<br>お気軽にフォームよりお送りください。</p>
+    <div class="contact-wrapper">
+      <h3 class="contact-title">お問い合わせ・資料請求</h3>
+      <p class="contact-sub">内容を確認後、担当者より2営業日以内にご返信いたします。</p>
+      <!-- ▼ Formspree設定手順：
+           1. https://formspree.io/ で無料登録
+           2. 「New Form」を作成してメールアドレスを設定
+           3. 発行されたURLの末尾ID（例: xabcdefg）を下の YOUR_FORM_ID に貼り替えてください ▼ -->
+      <form action="https://formspree.io/araki@telewor.com" method="POST">
+        <input type="hidden" name="_language" value="ja">
+        <input type="hidden" name="_subject" value="【ホリエモンAI切り抜き】新規お問い合わせ">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">お名前<span class="required">必須</span></label>
+            <input type="text" name="お名前" class="form-input" placeholder="山田 太郎" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">会社名・チャンネル名<span class="optional">任意</span></label>
+            <input type="text" name="会社名・チャンネル名" class="form-input" placeholder="株式会社〇〇 / チャンネル名">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">メールアドレス<span class="required">必須</span></label>
+          <input type="email" name="email" class="form-input" placeholder="example@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">お問い合わせ種別<span class="required">必須</span></label>
+          <select name="お問い合わせ種別" class="form-select" required>
+            <option value="">選択してください</option>
+            <option>資料請求</option>
+            <option>無料デモを試したい</option>
+            <option>料金・プランの確認</option>
+            <option>法人での導入相談</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">ご質問・ご要望<span class="optional">任意</span></label>
+          <textarea name="ご質問・ご要望" class="form-textarea" placeholder="現在のチャンネル状況や、気になる点をお気軽にどうぞ。"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">送信する →</button>
+        <p class="form-note">送信された情報は個人情報保護方針に基づき適切に管理します。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPANY ===== -->
+<section class="section company" id="company">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Company</span>
+      <h2 class="section-title">会社概要</h2>
+    </div>
+    <div class="company-table-wrap fade-up">
+      <table class="company-table">
+        <tbody>
+          <tr>
+            <th>会社名</th>
+            <td>ホリエモンAI学校株式会社</td>
+          </tr>
+          <tr>
+            <th>設立</th>
+            <td>2024年3月6日</td>
+          </tr>
+          <tr>
+            <th>代表取締役</th>
+            <td>荒木賢二郎</td>
+          </tr>
+          <tr>
+            <th>共同創業/取締役</th>
+            <td>堀江貴文</td>
+          </tr>
+          <tr>
+            <th>資本金</th>
+            <td>1,000,000円</td>
+          </tr>
+          <tr>
+            <th>主要株主</th>
+            <td>荒木賢二郎、HIUインベストメント株式会社、株式会社ガイアックス</td>
+          </tr>
+          <tr>
+            <th>本社</th>
+            <td>〒160-0022<br>東京都新宿区新宿4-3-15 レイフラット新宿B棟3F</td>
+          </tr>
+          <tr>
+            <th>主な業務内容</th>
+            <td>オンライン研修の運営、オンラインスクール、セミナー・講演、などAI人材育成に関する事業全般</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">ホリエモン<span>AI</span>切り抜き</div>
+        <p class="footer-tagline">YouTube × AI で、動画の価値を最大化する</p>
+      </div>
+      <div class="footer-links">
+        <a href="#features">サービス特徴</a>
+        <a href="#targets">対象者</a>
+        <a href="#how">利用の流れ</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ホリエモンAI学校株式会社. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // iframe高さ通知（STUDIO埋め込み対応）
+  function notifyHeight() {
+    const h = document.documentElement.scrollHeight;
+    window.parent.postMessage({ type: 'lpHeight', height: h }, '*');
+  }
+  window.addEventListener('load', notifyHeight);
+  window.addEventListener('resize', notifyHeight);
+  // フォントや画像の読み込み完了後にも再送
+  setTimeout(notifyHeight, 800);
+  setTimeout(notifyHeight, 2000);
+
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+</script>
+</body>
+</html>
