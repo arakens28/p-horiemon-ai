@@ -214,6 +214,61 @@
     .pricing-features li::before { content: '●'; color: var(--red); font-size: 8px; flex-shrink: 0; }
     .pricing-cta { width: 100%; text-align: center; }
 
+    /* ===== PRICING（新レイアウト） ===== */
+    .pricing-main {
+      max-width: 900px; margin: 56px auto 0;
+      border: 2px solid var(--red); border-radius: 24px;
+      box-shadow: 0 12px 48px rgba(34,197,94,.15);
+      background: #fff; position: relative;
+    }
+    .pricing-main > .pricing-badge {
+      position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+      background: var(--red); color: #fff; font-size: 13px; font-weight: 700;
+      padding: 6px 24px; border-radius: 99px; white-space: nowrap;
+    }
+    .pricing-main-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    }
+    .pricing-main-left {
+      padding: 48px 40px; border-right: 1px solid var(--gray-mid);
+    }
+    .pricing-main-right {
+      padding: 40px 36px; display: flex; flex-direction: column; gap: 20px;
+    }
+    .pricing-price-row { margin: 12px 0 16px; }
+    .pricing-price-row .pricing-price { font-size: 46px; }
+
+    /* 比較 */
+    .pricing-compare { background: var(--gray-light); border-radius: 14px; padding: 20px; }
+    .compare-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; color: #aaa; margin-bottom: 14px; }
+    .compare-row { border-radius: 10px; padding: 14px 16px; margin-bottom: 8px; }
+    .compare-bad { background: #fff5f5; border: 1px solid #fecaca; }
+    .compare-good { background: #f0fdf4; border: 2px solid var(--red); }
+    .compare-type { font-size: 12px; font-weight: 700; color: #888; margin-bottom: 4px; }
+    .compare-bad .compare-type { color: #f87171; }
+    .compare-good .compare-type { color: var(--red-dark); }
+    .compare-price { font-size: 26px; font-weight: 900; line-height: 1.1; }
+    .compare-price span { font-size: 13px; font-weight: 500; color: #888; }
+    .compare-good .compare-price { color: var(--red); }
+    .compare-note { font-size: 11px; color: #999; margin-top: 4px; }
+    .compare-arrow { text-align: center; font-size: 13px; font-weight: 700; color: var(--red); margin: 4px 0; }
+
+    /* キャリーオーバー */
+    .carryover-box {
+      background: #f0fdf4; border: 1px solid rgba(34,197,94,.3);
+      border-radius: 12px; padding: 16px 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .carryover-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .carryover-title { font-size: 14px; font-weight: 700; color: var(--red-dark); margin-bottom: 6px; }
+    .carryover-text { font-size: 12px; color: #555; line-height: 1.7; }
+
+    @media (max-width: 768px) {
+      .pricing-main-inner { grid-template-columns: 1fr; }
+      .pricing-main-left { border-right: none; border-bottom: 1px solid var(--gray-mid); padding: 40px 24px 32px; }
+      .pricing-main-right { padding: 28px 24px 36px; }
+    }
+
     /* ===== FAQ ===== */
     .faq { background: var(--gray-light); }
     .faq-list { margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
@@ -571,48 +626,51 @@
       <h2 class="section-title">料金プラン</h2>
       <p class="section-sub">まずは無料ヒアリングから。規模・課題に応じた最適なプランをご提案します。</p>
     </div>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-up">
-        <div class="pricing-plan">スポットプラン</div>
-        <div class="pricing-price">¥150,000<span>〜（税抜）</span></div>
-        <p class="pricing-desc">単発でAIについて相談したい方・課題を整理したい方向け。</p>
-        <ul class="pricing-features">
-          <li>現状ヒアリング（60〜90分）</li>
-          <li>AI活用ロードマップ作成</li>
-          <li>ツール選定レポート</li>
-          <li>1ヶ月メールサポート付き</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
-      </div>
-      <div class="pricing-card featured fade-up">
-        <div class="pricing-badge">一番人気</div>
-        <div class="pricing-plan">月次顧問プラン</div>
-        <div class="pricing-price">¥300,000<span>〜/月（税抜）</span></div>
-        <p class="pricing-desc">継続的にAI活用を推進したい企業向け。伴走型で確実に成果を出す。</p>
-        <ul class="pricing-features">
-          <li>月2回のオンラインMTG</li>
-          <li>AI戦略の継続的な改善</li>
-          <li>ツール導入・設定サポート</li>
-          <li>社内研修・マニュアル作成</li>
-          <li>チャットサポート（平日）</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary pricing-cta">詳細を問い合わせる</a>
-      </div>
-      <div class="pricing-card fade-up">
-        <div class="pricing-plan">エンタープライズ</div>
-        <div class="pricing-price">要相談<span>（個別見積）</span></div>
-        <p class="pricing-desc">複数拠点・大規模導入・プロジェクト型の支援が必要な企業向け。</p>
-        <ul class="pricing-features">
-          <li>専任チームによる支援</li>
-          <li>全社AI化プロジェクト管理</li>
-          <li>カスタムAIシステム開発も対応</li>
-          <li>経営層向け研修・講演</li>
-          <li>SLA・成果保証型プランあり</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+    <!-- メインプランカード -->
+    <div class="pricing-main fade-up">
+      <div class="pricing-badge">月額定額プラン</div>
+      <div class="pricing-main-inner">
+        <div class="pricing-main-left">
+          <div class="pricing-plan">AI顧問・構築代行</div>
+          <div class="pricing-price-row">
+            <div class="pricing-price">¥100,000<span>/月（税抜）</span></div>
+          </div>
+          <p class="pricing-desc">「AIがわかる社員を1人雇いたい」そのニーズに、<br>実際の採用コストの半額以下でお応えします。</p>
+          <ul class="pricing-features">
+            <li>¥150,000分の業務を毎月提供</li>
+            <li>使い切れなかった分はキャリーオーバー（翌月持ち越し）</li>
+            <li>AI顧問・戦略相談・構築代行、何でもOK</li>
+            <li>チャット相談もシステム開発も、すべて含む</li>
+            <li>担当者の時間単価：¥10,000〜¥100,000（内容に応じて）</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary btn-lg" style="margin-top:8px;">無料相談を予約する →</a>
+        </div>
+        <div class="pricing-main-right">
+          <div class="pricing-compare">
+            <div class="compare-label">コスト比較</div>
+            <div class="compare-row compare-bad">
+              <div class="compare-type">AI人材を採用する場合</div>
+              <div class="compare-price">¥400,000<span>/月〜</span></div>
+              <div class="compare-note">給与＋社保＋採用費などで相場は40万円以上</div>
+            </div>
+            <div class="compare-arrow">↓ 半額以下</div>
+            <div class="compare-row compare-good">
+              <div class="compare-type">ホリエモンAIコンサル</div>
+              <div class="compare-price">¥100,000<span>/月</span></div>
+              <div class="compare-note">¥150,000分の仕事＋キャリーオーバーつき</div>
+            </div>
+          </div>
+          <div class="carryover-box">
+            <div class="carryover-icon">🔄</div>
+            <div>
+              <div class="carryover-title">キャリーオーバー制度</div>
+              <div class="carryover-text">月15万円分を使い切れなかった場合、<br>残りは翌月に自動で繰り越しされます。<br>「払い損」が一切ない仕組みです。</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <p style="text-align:center;margin-top:32px;font-size:13px;color:#aaa;">※ 料金は規模・ご要望によって変わります。まずはお気軽にご相談ください。</p>
+    <p style="text-align:center;margin-top:32px;font-size:13px;color:#aaa;">※ 表示価格はすべて税抜です。まずはお気軽に無料相談ください。</p>
   </div>
 </section>
 
