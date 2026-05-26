@@ -114,6 +114,19 @@
     .result-num { font-size: 28px; font-weight: 900; color: var(--red); margin-left: auto; flex-shrink: 0; }
     .result-row .result-text strong { font-size: 14px; }
 
+    /* ヒーロー画像 */
+    .hero-screen-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,.18);
+      border: 1px solid #eee;
+    }
+    .hero-screen-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* ===== TRUST BAR ===== */
     .trust-bar { background: var(--gray-light); padding: 32px 0; border-top: 1px solid var(--gray-mid); border-bottom: 1px solid var(--gray-mid); }
     .trust-label { font-size: 13px; color: #bbb; text-align: center; margin-bottom: 20px; letter-spacing: .08em; }
@@ -297,36 +310,8 @@
         <p class="hero-note">※ 初回ヒアリング・相談は完全無料です</p>
       </div>
       <div class="hero-visual fade-up">
-        <div class="hero-visual-box">
-          <div class="hero-visual-label">AIにこんな仕事をさせられます</div>
-          <div class="result-row">
-            <div class="result-icon">📧</div>
-            <div class="result-text">
-              <strong>メール・チャットを自動巡回</strong>
-              毎朝AIが確認・分類・返信まで
-            </div>
-          </div>
-          <div class="result-row">
-            <div class="result-icon">🤖</div>
-            <div class="result-text">
-              <strong>AIに自動で営業させる</strong>
-              リスト作成〜アプローチまで全自動
-            </div>
-          </div>
-          <div class="result-row">
-            <div class="result-icon">📞</div>
-            <div class="result-text">
-              <strong>AIに電話対応させる</strong>
-              24時間対応・内容をテキスト化
-            </div>
-          </div>
-          <div class="result-row">
-            <div class="result-icon">💰</div>
-            <div class="result-text">
-              <strong>AIに経理処理させる</strong>
-              請求書・仕訳・レポートを自動化
-            </div>
-          </div>
+        <div class="hero-screen-wrap">
+          <img src="/con/hero-screen.png" alt="ホリエモンAIコンサル サービスイメージ" class="hero-screen-img">
         </div>
       </div>
     </div>
