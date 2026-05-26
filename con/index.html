@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ホリエモンAIコンサル | 中小企業のAI導入を丸ごと支援</title>
+  <meta name="description" content="AIを導入したいけど何から始めればいいかわからない経営者へ。戦略策定から現場定着まで、ホリエモンAI学校が丸ごと伴走します。初回相談無料。">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/img/logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logo.png">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://p.horiemon.ai/con/">
+  <meta property="og:title" content="ホリエモンAIコンサル | 中小企業のAI導入を丸ごと支援">
+  <meta property="og:description" content="AIを導入したいけど何から始めればいいかわからない経営者へ。戦略策定から現場定着まで丸ごと伴走。初回相談無料。">
+  <meta property="og:image" content="https://p.horiemon.ai/assets/img/logo.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="ホリエモンAI学校株式会社">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://p.horiemon.ai/assets/img/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/common.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.75; font-size: 16px; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    :root {
+      --red: #e8001c;
+      --red-dark: #c0001a;
+      --black: #1a1a1a;
+      --gray-light: #f7f7f7;
+      --gray-mid: #ebebeb;
+      --gray-text: #666;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,.08);
+      --transition: .25s ease;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .section-label {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--red); background: #fff0f0;
+      border-radius: 99px; padding: 4px 16px; margin-bottom: 16px;
+    }
+    .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.3; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--gray-text); max-width: 600px; }
+    .text-center { text-align: center; }
+    .text-center .section-sub { margin: 0 auto; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; font-family: inherit; font-weight: 700; font-size: 16px;
+      border: none; cursor: pointer; border-radius: 99px; padding: 16px 40px;
+      transition: var(--transition);
+    }
+    .btn-primary { background: var(--red); color: #fff; box-shadow: 0 6px 24px rgba(232,0,28,.3); }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,0,28,.4); }
+    .btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
+    .btn-outline:hover { background: var(--black); color: #fff; }
+    .btn-lg { font-size: 18px; padding: 20px 56px; }
+
+    /* ===== HERO ===== */
+    .hero { background: #fff; padding: 32px 0 48px; overflow: hidden; position: relative; }
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(232,0,28,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 700; color: var(--red);
+      background: #fff0f0; border-radius: 99px; padding: 6px 16px; margin-bottom: 24px;
+    }
+    .hero-eyebrow .dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+    .hero-title { font-size: clamp(32px, 4.5vw, 54px); font-weight: 900; line-height: 1.2; letter-spacing: -.03em; margin-bottom: 24px; }
+    .hero-title .accent { color: var(--red); }
+    .hero-desc { font-size: 17px; color: var(--gray-text); margin-bottom: 40px; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-note { font-size: 13px; color: #aaa; margin-top: 16px; }
+
+    /* 右側ビジュアル */
+    .hero-visual-box {
+      background: var(--black);
+      border-radius: 20px;
+      padding: 36px 32px;
+      color: #fff;
+      box-shadow: 0 24px 64px rgba(0,0,0,.2);
+    }
+    .hero-visual-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #aaa; margin-bottom: 20px; }
+    .result-row {
+      display: flex; align-items: center; gap: 16px;
+      background: #252525; border-radius: 10px; padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .result-row:last-child { margin-bottom: 0; }
+    .result-icon { font-size: 24px; flex-shrink: 0; }
+    .result-text { font-size: 14px; line-height: 1.5; }
+    .result-text strong { display: block; font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+    .result-num { font-size: 28px; font-weight: 900; color: var(--red); margin-left: auto; flex-shrink: 0; }
+    .result-row .result-text strong { font-size: 14px; }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar { background: var(--gray-light); padding: 32px 0; border-top: 1px solid var(--gray-mid); border-bottom: 1px solid var(--gray-mid); }
+    .trust-label { font-size: 13px; color: #bbb; text-align: center; margin-bottom: 20px; letter-spacing: .08em; }
+    .trust-list { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; align-items: center; }
+    .trust-item { font-size: 18px; font-weight: 900; color: #ccc; letter-spacing: -.02em; }
+
+    /* ===== PROBLEMS ===== */
+    .problems { background: var(--gray-light); }
+    .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px; }
+    .problem-card {
+      background: #fff; border-radius: var(--radius); padding: 32px;
+      border-left: 4px solid var(--gray-mid); transition: var(--transition);
+    }
+    .problem-card:hover { border-left-color: var(--red); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .problem-icon { font-size: 32px; margin-bottom: 16px; }
+    .problem-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .problem-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+
+    /* ===== SOLUTION ===== */
+    .solution-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .solution-features { margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+    .feature-row { display: flex; gap: 16px; align-items: flex-start; }
+    .feature-icon-wrap { width: 44px; height: 44px; background: #fff0f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .feature-row h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .feature-row p { font-size: 14px; color: var(--gray-text); }
+    .solution-visual { background: var(--gray-light); border-radius: 20px; padding: 40px 32px; }
+    .flow-step { background: #fff; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+    .flow-step:last-child { margin-bottom: 0; }
+    .step-num { width: 36px; height: 36px; background: var(--red); color: #fff; font-weight: 900; font-size: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .flow-step-text { font-size: 14px; font-weight: 700; }
+    .flow-step-sub { font-size: 12px; color: var(--gray-text); margin-top: 2px; }
+    .flow-arrow { color: var(--red); font-size: 20px; text-align: center; margin: 4px 0; }
+
+    /* ===== FEATURES ===== */
+    .features { background: var(--black); color: #fff; }
+    .features .section-title { color: #fff; }
+    .features .section-sub { color: #aaa; }
+    .features .section-label { color: #ff6b80; background: rgba(232,0,28,.15); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 56px; }
+    .feature-card {
+      background: #252525; border-radius: var(--radius); padding: 36px 32px;
+      border: 1px solid #333; transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--red); transform: scaleX(0); transition: var(--transition); transform-origin: left; }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-card:hover { border-color: #444; transform: translateY(-4px); }
+    .feature-card-num { font-size: 48px; font-weight: 900; color: #333; line-height: 1; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #fff; }
+    .feature-card p { font-size: 14px; color: #888; line-height: 1.8; }
+    .feature-card .tag { display: inline-block; font-size: 11px; font-weight: 700; color: var(--red); background: rgba(232,0,28,.1); border-radius: 99px; padding: 3px 12px; margin-bottom: 16px; }
+
+    /* ===== TARGETS ===== */
+    .targets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 56px; }
+    .target-card { border: 2px solid var(--gray-mid); border-radius: 16px; padding: 36px 32px; transition: var(--transition); position: relative; }
+    .target-card:hover { border-color: var(--red); box-shadow: 0 8px 32px rgba(232,0,28,.1); }
+    .target-icon { font-size: 48px; margin-bottom: 20px; }
+    .target-card h3 { font-size: 20px; font-weight: 900; margin-bottom: 12px; }
+    .target-card ul { list-style: none; }
+    .target-card li { font-size: 14px; color: var(--gray-text); padding: 6px 0; border-bottom: 1px solid var(--gray-mid); display: flex; align-items: center; gap: 8px; }
+    .target-card li:last-child { border-bottom: none; }
+    .target-card li::before { content: '✓'; color: var(--red); font-weight: 700; flex-shrink: 0; }
+    .target-badge { position: absolute; top: -12px; right: 24px; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 99px; }
+
+    /* ===== HOW ===== */
+    .how { background: var(--gray-light); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin-top: 64px; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 44px; left: calc(100%/8); right: calc(100%/8); height: 2px; background: var(--red); z-index: 0; }
+    .step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+    .step-circle { width: 88px; height: 88px; background: #fff; border: 3px solid var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 24px; box-shadow: 0 4px 16px rgba(232,0,28,.15); }
+    .step-num-badge { position: absolute; top: -4px; right: calc(50% - 52px); width: 22px; height: 22px; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 13px; color: var(--gray-text); line-height: 1.7; }
+
+    /* ===== PRICING ===== */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 56px; align-items: start; }
+    .pricing-card { border: 2px solid var(--gray-mid); border-radius: 20px; padding: 36px 32px; transition: var(--transition); background: #fff; }
+    .pricing-card.featured { border-color: var(--red); box-shadow: 0 12px 48px rgba(232,0,28,.15); position: relative; }
+    .pricing-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--red); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 20px; border-radius: 99px; white-space: nowrap; }
+    .pricing-plan { font-size: 14px; font-weight: 700; color: var(--red); margin-bottom: 8px; }
+    .pricing-price { font-size: 42px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+    .pricing-price span { font-size: 18px; font-weight: 500; color: var(--gray-text); }
+    .pricing-desc { font-size: 13px; color: var(--gray-text); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--gray-mid); }
+    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-features li { font-size: 14px; padding: 8px 0; display: flex; gap: 10px; align-items: center; }
+    .pricing-features li::before { content: '●'; color: var(--red); font-size: 8px; flex-shrink: 0; }
+    .pricing-cta { width: 100%; text-align: center; }
+
+    /* ===== FAQ ===== */
+    .faq { background: var(--gray-light); }
+    .faq-list { margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
+    .faq-item { background: #fff; border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+    .faq-question { padding: 24px 28px; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+    .faq-question::after { content: '+'; font-size: 24px; color: var(--red); flex-shrink: 0; transition: var(--transition); font-weight: 300; }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer { display: none; padding: 0 28px 24px; font-size: 14px; color: var(--gray-text); line-height: 1.8; border-top: 1px solid var(--gray-mid); }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ===== CTA + CONTACT ===== */
+    .cta-section { background: var(--black); padding: 96px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(232,0,28,.12) 0%, transparent 65%); pointer-events: none; }
+    .cta-section .section-title { color: #fff; position: relative; z-index: 1; }
+    .cta-desc { font-size: 17px; color: #aaa; margin-bottom: 48px; position: relative; z-index: 1; }
+    .contact-wrapper { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 20px; padding: 48px; box-shadow: 0 20px 60px rgba(0,0,0,.1); position: relative; z-index: 1; }
+    .contact-title { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
+    .contact-sub { font-size: 14px; color: var(--gray-text); margin-bottom: 32px; }
+
+    /* ===== LINE ===== */
+    .btn-line { background: #06C755; color: #fff !important; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; border-radius: 99px; }
+    .btn-line:hover { opacity: .88; }
+    .line-badge { background: #fff; color: #06C755; font-size: 11px; font-weight: 900; padding: 1px 6px; border-radius: 4px; }
+
+    /* ===== COMPANY ===== */
+    .company { background: #fff; }
+    .company-table-wrap { max-width: 760px; margin: 56px auto 0; border: 1px solid var(--gray-mid); border-radius: var(--radius); overflow: hidden; }
+    .company-table { width: 100%; border-collapse: collapse; }
+    .company-table tr { border-bottom: 1px solid var(--gray-mid); }
+    .company-table tr:last-child { border-bottom: none; }
+    .company-table th { width: 200px; padding: 20px 24px; font-size: 14px; font-weight: 700; text-align: left; background: var(--gray-light); vertical-align: top; white-space: nowrap; }
+    .company-table td { padding: 20px 24px; font-size: 14px; color: var(--gray-text); line-height: 1.8; }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== SP STICKY ===== */
+    .sp-sticky-footer { display: none; }
+    @media (max-width: 768px) {
+      .sp-sticky-footer { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; box-shadow: 0 -2px 12px rgba(0,0,0,.15); }
+      .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 3px; padding: 14px 4px; font-size: 12px; font-weight: 800; text-decoration: none; }
+      .sp-btn-doc { background: #333; color: #fff; }
+      .sp-btn-line { background: #06C755; color: #fff; }
+      .sp-btn-contact { background: var(--red); color: #fff; }
+      body { padding-bottom: 56px; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .hero { padding: 16px 0 32px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .solution-inner { grid-template-columns: 1fr; gap: 40px; }
+      .steps::before { display: none; }
+      .steps { grid-template-columns: 1fr; gap: 32px; }
+      .step { display: flex; gap: 20px; text-align: left; }
+      .step-circle { margin: 0; flex-shrink: 0; width: 64px; height: 64px; font-size: 22px; }
+      .contact-wrapper { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .company-table th { width: 120px; padding: 16px; font-size: 13px; }
+      .company-table td { padding: 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<site-header></site-header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content fade-up">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          AI導入を丸ごとお任せ
+        </div>
+        <h1 class="hero-title">
+          「AIよくわからない」<br>
+          「忙しくて無理…」<br>
+          <span class="accent">全部、任せてください。</span>
+        </h1>
+        <p class="hero-desc">
+          ホリエモンAIコンサルは、AIが全くわからない会社に<br>
+          AIを教えたり、AIを作ったりするサービスです。<br>
+          あなたの会社の業務を、AIに丸ごとやらせましょう。
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">無料相談を予約する →</a>
+          <a href="#how" class="btn btn-outline">導入の流れを見る</a>
+        </div>
+        <p class="hero-note">※ 初回ヒアリング・相談は完全無料です</p>
+      </div>
+      <div class="hero-visual fade-up">
+        <div class="hero-visual-box">
+          <div class="hero-visual-label">AIにこんな仕事をさせられます</div>
+          <div class="result-row">
+            <div class="result-icon">📧</div>
+            <div class="result-text">
+              <strong>メール・チャットを自動巡回</strong>
+              毎朝AIが確認・分類・返信まで
+            </div>
+          </div>
+          <div class="result-row">
+            <div class="result-icon">🤖</div>
+            <div class="result-text">
+              <strong>AIに自動で営業させる</strong>
+              リスト作成〜アプローチまで全自動
+            </div>
+          </div>
+          <div class="result-row">
+            <div class="result-icon">📞</div>
+            <div class="result-text">
+              <strong>AIに電話対応させる</strong>
+              24時間対応・内容をテキスト化
+            </div>
+          </div>
+          <div class="result-row">
+            <div class="result-icon">💰</div>
+            <div class="result-text">
+              <strong>AIに経理処理させる</strong>
+              請求書・仕訳・レポートを自動化
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="container">
+    <p class="trust-label">対応業種・業界例</p>
+    <div class="trust-list">
+      <span class="trust-item">製造業</span>
+      <span class="trust-item">サービス業</span>
+      <span class="trust-item">士業・コンサル</span>
+      <span class="trust-item">IT・SaaS</span>
+      <span class="trust-item">小売・EC</span>
+      <span class="trust-item">不動産</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEMS ===== -->
+<section class="section problems" id="problems">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">こんなお悩みはありませんか？</span>
+      <h2 class="section-title">「AIいいなー。でも、<br>うちには無理かも…」</h2>
+      <p class="section-sub">そのあきらめ、もったいないです。どの悩みも、ホリエモンAIコンサルなら解決できます。</p>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card fade-up">
+        <div class="problem-icon">😵</div>
+        <h3>AIよくわからない・むりぃ</h3>
+        <p>ChatGPT？Claude？何が違うの？どれを使えばいいの？情報が多すぎて、何も動けないまま時間が過ぎていく。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">⏰</div>
+        <h3>忙しくて調べる時間がない</h3>
+        <p>日々の業務で手いっぱい。AIの勉強や導入検討に時間を使えない。担当者を立てる余裕もない。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">💸</div>
+        <h3>入れたけど誰も使っていない</h3>
+        <p>ツールを導入してみたものの、現場に定着せず結局元通り。「うちではAI無理」と思い始めている。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">📉</div>
+        <h3>本当に効果あるの？</h3>
+        <p>AIで本当に儲かるの？費用対効果が見えず、経営判断できない。導入失敗したら怖い。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="section" id="solution">
+  <div class="container">
+    <div class="solution-inner">
+      <div class="fade-up">
+        <span class="section-label">Solution</span>
+        <h2 class="section-title">AIって便利！<br>その仕組みを<span style="color:var(--red)">全部作ります</span></h2>
+        <p class="section-sub">教えるだけじゃなく、あなたの会社専用のAIを実際に構築します。「わからない」は私たちが全部引き受けます。</p>
+        <div class="solution-features">
+          <div class="feature-row">
+            <div class="feature-icon-wrap">🔍</div>
+            <div>
+              <h4>現状分析と課題の言語化</h4>
+              <p>業務フローをヒアリングし、AIで解決できる課題を具体的に特定。「なんとなく導入」は一切しません。</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon-wrap">🗺️</div>
+            <div>
+              <h4>ROIを明示したAI戦略設計</h4>
+              <p>費用・効果・優先順位を数字で提示。経営判断できる形でロードマップを作ります。</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon-wrap">🚀</div>
+            <div>
+              <h4>導入から現場定着まで伴走</h4>
+              <p>ツール選定・設定・社内研修まで支援。「入れっぱなし」にならない定着フォローが強みです。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-visual fade-up">
+        <div style="font-size:13px;font-weight:700;color:#aaa;margin-bottom:20px;letter-spacing:.08em;">コンサルティングの流れ</div>
+        <div class="flow-step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="flow-step-text">無料ヒアリング</div>
+            <div class="flow-step-sub">現状・課題・目標を整理</div>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="flow-step-text">AI戦略・ROI提案</div>
+            <div class="flow-step-sub">費用対効果を数字で提示</div>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="flow-step-text">ツール選定・導入支援</div>
+            <div class="flow-step-sub">自社に合ったAIを厳選</div>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="step-num">4</div>
+          <div>
+            <div class="flow-step-text">社内研修・定着フォロー</div>
+            <div class="flow-step-sub">現場で使われるまで支援</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section features" id="features">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Features</span>
+      <h2 class="section-title">選ばれる3つの理由</h2>
+      <p class="section-sub">「AI導入支援」はたくさんあります。それでもホリエモンAIコンサルが選ばれる理由がここにあります。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">01</div>
+        <span class="tag">実績ベース</span>
+        <h3>使えるAIだけを<br>提案する</h3>
+        <p>流行りのツールを勧めるのではなく、業種・業務・予算に合わせて本当に効果が出るAIのみを提案。導入後の「使われない問題」を事前に排除します。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">02</div>
+        <span class="tag">伴走型</span>
+        <h3>丸投げOK・<br>現場まで定着させる</h3>
+        <p>提案書だけ作って終わり、ではありません。ツール設定・社員向け研修・運用マニュアル作成まで、現場にAIが根付くまで継続サポートします。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">03</div>
+        <span class="tag">中小企業特化</span>
+        <h3>予算・人員が少なくても<br>成果を出す設計</h3>
+        <p>大企業向けの高額なシステムは不要。従業員10〜100人規模の企業が、少ない投資で最大効果を得られるAI戦略を専門としています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TARGETS ===== -->
+<section class="section" id="targets">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">こんな方におすすめ</span>
+      <h2 class="section-title">こんな経営者・企業に<br>選ばれています</h2>
+    </div>
+    <div class="targets-grid">
+      <div class="target-card fade-up">
+        <div class="target-icon">🏭</div>
+        <h3>製造業の経営者・工場長</h3>
+        <ul>
+          <li>生産効率・品質管理を改善したい</li>
+          <li>見積もり・発注業務の手間を減らしたい</li>
+          <li>図面管理・ナレッジ共有をデジタル化したい</li>
+          <li>人手不足でも売上を維持・拡大したい</li>
+        </ul>
+      </div>
+      <div class="target-card fade-up">
+        <div class="target-badge">相談件数 No.1</div>
+        <div class="target-icon">🏪</div>
+        <h3>サービス業・小売業の経営者</h3>
+        <ul>
+          <li>顧客対応・予約管理を自動化したい</li>
+          <li>スタッフの教育コストを下げたい</li>
+          <li>SNS・広告運用をAIで効率化したい</li>
+          <li>バックオフィスの残業を削減したい</li>
+        </ul>
+      </div>
+      <div class="target-card fade-up">
+        <div class="target-icon">💼</div>
+        <h3>士業・コンサル・BtoB企業</h3>
+        <ul>
+          <li>提案資料・レポート作成を高速化したい</li>
+          <li>AI活用でサービスの付加価値を上げたい</li>
+          <li>競合他社との差別化ポイントが欲しい</li>
+          <li>クライアントにAI導入を提案できるようになりたい</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section how" id="how">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">How to Start</span>
+      <h2 class="section-title">ご利用の流れ</h2>
+      <p class="section-sub">お問い合わせから最初の成果が出るまで、最短30日。すべてオンラインで完結します。</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">📩</div>
+          <div class="step-num-badge">1</div>
+        </div>
+        <div>
+          <h3>無料相談フォーム送信</h3>
+          <p>業種・課題・現状を簡単に入力するだけ。2営業日以内にご連絡します。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">💬</div>
+          <div class="step-num-badge">2</div>
+        </div>
+        <div>
+          <h3>無料ヒアリング（60分）</h3>
+          <p>オンラインで現状・目標・課題を深掘り。この時点で具体的な改善案をお伝えします。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">📋</div>
+          <div class="step-num-badge">3</div>
+        </div>
+        <div>
+          <h3>AI戦略・ご提案</h3>
+          <p>費用・効果・スケジュールを明記したロードマップをご提示。納得のいくまでご相談できます。</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div style="position:relative">
+          <div class="step-circle">🚀</div>
+          <div class="step-num-badge">4</div>
+        </div>
+        <div>
+          <h3>導入・伴走スタート</h3>
+          <p>契約後は即スタート。月次レビューで効果を測定しながら、継続的に改善します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-sub">まずは無料ヒアリングから。規模・課題に応じた最適なプランをご提案します。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <div class="pricing-plan">スポットプラン</div>
+        <div class="pricing-price">¥150,000<span>〜（税抜）</span></div>
+        <p class="pricing-desc">単発でAIについて相談したい方・課題を整理したい方向け。</p>
+        <ul class="pricing-features">
+          <li>現状ヒアリング（60〜90分）</li>
+          <li>AI活用ロードマップ作成</li>
+          <li>ツール選定レポート</li>
+          <li>1ヶ月メールサポート付き</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+      </div>
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-badge">一番人気</div>
+        <div class="pricing-plan">月次顧問プラン</div>
+        <div class="pricing-price">¥300,000<span>〜/月（税抜）</span></div>
+        <p class="pricing-desc">継続的にAI活用を推進したい企業向け。伴走型で確実に成果を出す。</p>
+        <ul class="pricing-features">
+          <li>月2回のオンラインMTG</li>
+          <li>AI戦略の継続的な改善</li>
+          <li>ツール導入・設定サポート</li>
+          <li>社内研修・マニュアル作成</li>
+          <li>チャットサポート（平日）</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary pricing-cta">詳細を問い合わせる</a>
+      </div>
+      <div class="pricing-card fade-up">
+        <div class="pricing-plan">エンタープライズ</div>
+        <div class="pricing-price">要相談<span>（個別見積）</span></div>
+        <p class="pricing-desc">複数拠点・大規模導入・プロジェクト型の支援が必要な企業向け。</p>
+        <ul class="pricing-features">
+          <li>専任チームによる支援</li>
+          <li>全社AI化プロジェクト管理</li>
+          <li>カスタムAIシステム開発も対応</li>
+          <li>経営層向け研修・講演</li>
+          <li>SLA・成果保証型プランあり</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:13px;color:#aaa;">※ 料金は規模・ご要望によって変わります。まずはお気軽にご相談ください。</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-question">AIの知識がまったくない会社でも大丈夫ですか？</div>
+        <div class="faq-answer">はい、むしろそういった会社からのご依頼が最も多いです。「AIとは何か」というところから丁寧にご説明し、現場スタッフが普通に使えるレベルまで定着させることを目標としています。専門知識は一切不要です。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">どれくらいで効果が出ますか？</div>
+        <div class="faq-answer">業種・課題によって異なりますが、業務自動化系であれば最短1〜2週間で効果が体感できるケースもあります。月次顧問プランでは3ヶ月を目安に定量的な効果測定レポートをお出しします。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">従業員が少ない小さな会社でも利用できますか？</div>
+        <div class="faq-answer">もちろんです。従業員10名以下の会社でも対応実績があります。むしろ小規模であるほどAI導入の効果が出やすく、少人数で大きな成果を上げることができます。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">ChatGPT以外のAIツールも対応していますか？</div>
+        <div class="faq-answer">はい。Claude・Gemini・Notion AI・Zapier・Make・Midjourney・各種業種特化SaaSなど、幅広いAIツールに対応しています。目的に合わせて最適なツールを組み合わせてご提案します。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">月次顧問は最低何ヶ月から契約できますか？</div>
+        <div class="faq-answer">最低3ヶ月からの契約をお願いしています。定着・効果測定まで含めると3ヶ月が最低ラインとなります。延長・縮小は相談の上、柔軟に対応します。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">オンラインのみの対応ですか？</div>
+        <div class="faq-answer">基本はオンライン（Zoom・Googleミート等）での対応となります。エンタープライズプランでは、別途交通費実費にて訪問対応も可能です。まずはお気軽にご相談ください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA + CONTACT ===== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <span class="section-label" style="display:inline-block;margin-bottom:16px;">Contact</span>
+    <h2 class="section-title" style="color:#fff;margin-bottom:16px;">AIに仕事をさせたい企業は、<br>今すぐホリエモンAIコンサルへ！</h2>
+    <p class="cta-desc">ヒアリング・ご提案・お見積もりはすべて無料です。<br>「相談したら絶対契約しないといけない」は一切ありません。</p>
+    <div class="contact-wrapper">
+      <h3 class="contact-title">無料相談・お問い合わせ</h3>
+      <p class="contact-sub">内容を確認後、担当者より2営業日以内にご返信いたします。</p>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdR7MWMfrlICJUJrG_REL2JlZBHBMvZo_hCWXUBNM2MWKNIQQ/viewform?embedded=true"
+        width="100%" height="1600" frameborder="0" marginheight="0" marginwidth="0"
+        style="border:none;display:block;min-height:1600px;" scrolling="no"
+      >読み込んでいます…</iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPANY ===== -->
+<section class="section company" id="company">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Company</span>
+      <h2 class="section-title">会社概要</h2>
+    </div>
+    <div class="company-table-wrap fade-up">
+      <table class="company-table">
+        <tbody>
+          <tr><th>会社名</th><td>ホリエモンAI学校株式会社</td></tr>
+          <tr><th>設立</th><td>2024年3月6日</td></tr>
+          <tr><th>取締役</th><td>荒木 賢二郎（代表取締役）、山根 由嗣、堀江 貴文、田中 尚幸</td></tr>
+          <tr><th>資本金</th><td>1,000,000円</td></tr>
+          <tr><th>主要株主</th><td>荒木賢二郎、HIUインベストメント株式会社、株式会社ガイアックス</td></tr>
+          <tr><th>本社</th><td>〒160-0022<br>東京都新宿区新宿4-3-15 レイフラット新宿B棟3F</td></tr>
+          <tr><th>主な業務内容</th><td>オンライン研修の運営、オンラインスクール、セミナー・講演、などAI人材育成に関する事業全般</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<site-footer></site-footer>
+
+<div class="sp-sticky-footer">
+  <a href="#contact" class="sp-btn-doc">📄 資料請求</a>
+  <a href="#contact" class="sp-btn-line">✉ 無料相談</a>
+  <a href="#contact" class="sp-btn-contact">📞 今すぐ相談</a>
+</div>
+
+<script src="/components/components.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

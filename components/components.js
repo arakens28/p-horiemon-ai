@@ -16,6 +16,7 @@ class SiteHeader extends HTMLElement {
           <nav class="ai-nav" id="aiNav">
             <ul>
               <li><a href="/kiri/">AI切り抜き</a></li>
+              <li><a href="/con/">AIコンサル</a></li>
               <li><a href="/" class="ai-nav-cta">サービス一覧</a></li>
             </ul>
           </nav>
@@ -52,6 +53,7 @@ class SiteFooter extends HTMLElement {
             <nav class="ai-footer-nav">
               <ul>
                 <li><a href="/kiri/">AI切り抜き</a></li>
+                <li><a href="/con/">AIコンサル</a></li>
                 <li><a href="/">サービス一覧</a></li>
                 <li><a href="/privacy.html">プライバシーポリシー</a></li>
                 <li><a href="/terms.html">利用規約</a></li>
