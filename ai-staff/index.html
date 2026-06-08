@@ -419,12 +419,9 @@ async function callClaude(agentKey, messages, labelOverride, isSummary) {
   updateProgress(agentKey === 'horie' && isSummary ? 'horie_final' : agentKey, `${displayAgent.label} が考え中...`);
   addThinking(displayAgent);
 
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+  const resp = await fetch('/api/claude', {
     method: 'POST',
     headers: {
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-allow-browser': 'true',
       'content-type': 'application/json',
     },
     body: JSON.stringify({
