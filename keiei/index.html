@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI経営塾 | 堀江貴文と学ぶ、経営者のためのAI実践講座 | ホリエモンAI学校</title>
-  <meta name="description" content="審査制・経営者限定。AIを経営に実装したい経営者が集まる勉強会組織「AI経営塾」。堀江貴文と共に、自社の経営課題をAIで解決する実践力を身につけます。">
+  <title>AI経営塾 | 経営者限定・月1回のAI実践勉強会 | ホリエモンAI学校</title>
+  <meta name="description" content="経営者限定・月1回（第3土曜日・3時間）のAI実践勉強会「AI経営塾」。ツールの使い方ではなく、AI時代に経営者が何をやるべきかを、代表・荒木賢二郎と共に学びます。入会金10万円・月額3万円（税別）。">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
@@ -13,13 +13,13 @@
   <!-- OGP -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://p.horiemon.ai/keiei/">
-  <meta property="og:title" content="AI経営塾 | 堀江貴文と学ぶ、経営者のためのAI実践講座">
-  <meta property="og:description" content="審査制・経営者限定。AIを経営に実装したい経営者が集まる勉強会組織「AI経営塾」。">
-  <meta property="og:image" content="https://p.horiemon.ai/assets/img/logo.png">
+  <meta property="og:title" content="AI経営塾 | 経営者限定・月1回のAI実践勉強会">
+  <meta property="og:description" content="ツールの使い方ではなく、AI時代に経営者が何をやるべきかを学ぶ。経営者限定・月1回の勉強会。">
+  <meta property="og:image" content="https://p.horiemon.ai/keiei/ai-keiei-juku.png">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="ホリエモンAI学校株式会社">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://p.horiemon.ai/assets/img/logo.png">
+  <meta name="twitter:image" content="https://p.horiemon.ai/keiei/ai-keiei-juku.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +42,7 @@
       --gray-light: #f7f7f7;
       --gray-mid: #ebebeb;
       --gray-text: #666;
+      --line-green: #06c755;
       --radius: 12px;
       --shadow: 0 4px 24px rgba(0,0,0,.08);
       --transition: .25s ease;
@@ -56,7 +57,7 @@
       border-radius: 99px; padding: 4px 16px; margin-bottom: 16px;
     }
     .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.3; margin-bottom: 16px; }
-    .section-sub { font-size: 17px; color: var(--gray-text); max-width: 620px; }
+    .section-sub { font-size: 17px; color: var(--gray-text); max-width: 640px; }
     .text-center { text-align: center; }
     .text-center .section-sub { margin: 0 auto; }
 
@@ -70,7 +71,16 @@
     .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,0,28,.4); }
     .btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
     .btn-outline:hover { background: var(--black); color: #fff; }
+    .btn-line { background: var(--line-green); color: #fff; box-shadow: 0 6px 24px rgba(6,199,85,.3); }
+    .btn-line:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(6,199,85,.4); color:#fff; }
+    .btn-line .line-ico { font-weight: 900; background:#fff; color:var(--line-green); border-radius:5px; font-size:11px; padding:1px 6px; }
     .btn-lg { font-size: 18px; padding: 20px 56px; }
+
+    /* ===== HEADER（このページ専用：リンクは horiemon.ai/service へ） ===== */
+    .ai-nav-line {
+      background: var(--line-green) !important; color:#fff !important; border-radius:20px !important; font-weight:700;
+    }
+    .ai-nav-line:hover { opacity:.9; background: var(--line-green) !important; color:#fff !important; }
 
     /* ===== HERO ===== */
     .hero { background: #fff; padding: 40px 0 56px; overflow: hidden; position: relative; }
@@ -94,62 +104,51 @@
     .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
     .hero-note { font-size: 13px; color: #aaa; margin-top: 16px; }
 
-    /* 右側ビジュアル（実績ボックス） */
-    .hero-visual-box {
-      background: var(--black); border-radius: 20px; padding: 36px 32px;
-      color: #fff; box-shadow: 0 24px 64px rgba(0,0,0,.22);
-    }
-    .hero-visual-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #888; margin-bottom: 20px; }
-    .result-row {
-      display: flex; align-items: center; gap: 16px;
-      background: #252525; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px;
-    }
-    .result-row:last-child { margin-bottom: 0; }
-    .result-icon { font-size: 24px; flex-shrink: 0; }
-    .result-text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
-    .result-text span { font-size: 12px; color: #888; }
-    .result-num { font-size: 26px; font-weight: 900; color: var(--red); margin-left: auto; flex-shrink: 0; white-space: nowrap; }
+    /* 右側：開催概要カード */
+    .overview-box { background: var(--black); border-radius: 20px; padding: 36px 32px; color: #fff; box-shadow: 0 24px 64px rgba(0,0,0,.22); }
+    .overview-box-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #888; margin-bottom: 20px; }
+    .overview-row { display: flex; align-items: center; gap: 16px; background: #252525; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+    .overview-row:last-child { margin-bottom: 0; }
+    .overview-icon { font-size: 24px; flex-shrink: 0; }
+    .overview-text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .overview-text span { font-size: 12px; color: #888; }
+    .overview-val { font-size: 22px; font-weight: 900; color: var(--red); margin-left: auto; flex-shrink: 0; white-space: nowrap; }
+
+    /* ===== INFOGRAPHIC ===== */
+    .infographic { background: var(--gray-light); }
+    .infographic-fig { max-width: 980px; margin: 48px auto 0; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 48px rgba(0,0,0,.1); border: 1px solid var(--gray-mid); background:#fff; }
+    .infographic-fig img { width: 100%; height: auto; display: block; }
 
     /* ===== PROBLEMS ===== */
-    .problems { background: var(--gray-light); }
     .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px; }
-    .problem-card {
-      background: #fff; border-radius: var(--radius); padding: 32px;
-      border-left: 4px solid var(--gray-mid); transition: var(--transition);
-    }
+    .problem-card { background: #fff; border-radius: var(--radius); padding: 32px; border-left: 4px solid var(--gray-mid); transition: var(--transition); box-shadow: 0 2px 12px rgba(0,0,0,.04); }
     .problem-card:hover { border-left-color: var(--red); transform: translateY(-4px); box-shadow: var(--shadow); }
     .problem-icon { font-size: 32px; margin-bottom: 16px; }
     .problem-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
     .problem-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
 
-    /* ===== ABOUT（経営塾とは） ===== */
-    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .about-points { margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
-    .about-point { display: flex; gap: 16px; align-items: flex-start; }
-    .about-point-icon { width: 44px; height: 44px; background: var(--red-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-    .about-point h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-    .about-point p { font-size: 14px; color: var(--gray-text); }
-    .about-visual {
-      background: var(--black); border-radius: 20px; padding: 44px 40px; color: #fff;
-    }
-    .about-visual-tag {
-      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em;
-      color: var(--red); background: rgba(232,0,28,.16); border-radius: 99px; padding: 4px 16px; margin-bottom: 20px;
-    }
-    .about-visual h3 { font-size: 24px; font-weight: 900; line-height: 1.45; margin-bottom: 16px; color: #fff; }
-    .about-visual p { font-size: 14px; color: #aaa; line-height: 1.9; }
-    .about-visual p strong { color: #fff; }
+    /* ===== CONCEPT（家の建築の例え） ===== */
+    .concept { background: var(--gray-light); }
+    .concept-lead { max-width: 720px; margin: 24px auto 0; text-align: center; font-size: 17px; color: var(--gray-text); line-height: 1.9; }
+    .concept-lead .mark { background: linear-gradient(transparent 60%, #fff3b0 60%); font-weight: 700; color: var(--black); }
+    .concept-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
+    .concept-card { background: #fff; border: 2px solid var(--gray-mid); border-radius: 20px; padding: 40px 36px; text-align: center; transition: var(--transition); }
+    .concept-card:hover { border-color: var(--red); box-shadow: 0 8px 32px rgba(232,0,28,.1); }
+    .concept-card .emoji { font-size: 48px; margin-bottom: 16px; }
+    .concept-card .role { font-size: 13px; font-weight: 700; color: var(--gray-text); margin-bottom: 6px; }
+    .concept-card .who { font-size: 26px; font-weight: 900; color: var(--red); }
+    .concept-card.is-staff .who { color: var(--black); }
+    .concept-msg { max-width: 760px; margin: 40px auto 0; background: var(--black); color:#fff; border-radius: 20px; padding: 36px 40px; text-align: center; }
+    .concept-msg p { font-size: clamp(18px, 2.4vw, 24px); font-weight: 700; line-height: 1.7; }
+    .concept-msg .hl { color: #ffd84d; }
 
     /* ===== FEATURES ===== */
     .features { background: var(--black); color: #fff; }
     .features .section-title { color: #fff; }
     .features .section-sub { color: #aaa; }
     .features .section-label { color: #ff6b7a; background: rgba(232,0,28,.16); }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px; }
-    .feature-card {
-      background: #252525; border-radius: var(--radius); padding: 36px 32px;
-      border: 1px solid #333; transition: var(--transition); position: relative; overflow: hidden;
-    }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 56px; }
+    .feature-card { background: #252525; border-radius: var(--radius); padding: 36px 32px; border: 1px solid #333; transition: var(--transition); position: relative; overflow: hidden; }
     .feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--red); transform: scaleX(0); transition: var(--transition); transform-origin: left; }
     .feature-card:hover::before { transform: scaleX(1); }
     .feature-card:hover { border-color: #444; transform: translateY(-4px); }
@@ -158,46 +157,42 @@
     .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #fff; }
     .feature-card p { font-size: 14px; color: #888; line-height: 1.8; }
 
-    /* ===== CURRICULUM ===== */
-    .curriculum { background: var(--gray-light); }
-    .curriculum-list { max-width: 860px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 16px; }
-    .curriculum-item {
-      background: #fff; border-radius: var(--radius); padding: 28px 32px;
-      display: flex; gap: 24px; align-items: flex-start; box-shadow: 0 2px 12px rgba(0,0,0,.04);
-      border: 1px solid var(--gray-mid); transition: var(--transition);
-    }
-    .curriculum-item:hover { border-color: var(--red); transform: translateX(4px); }
-    .curriculum-step { font-size: 13px; font-weight: 900; color: #fff; background: var(--red); border-radius: 8px; padding: 8px 14px; flex-shrink: 0; white-space: nowrap; letter-spacing: .04em; }
-    .curriculum-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-    .curriculum-body p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
-    .curriculum-note { text-align: center; margin-top: 28px; font-size: 13px; color: #aaa; }
+    /* ===== OUTLINE / PRICING ===== */
+    .outline-wrap { max-width: 900px; margin: 56px auto 0; }
+    .outline-table-wrap { border: 1px solid var(--gray-mid); border-radius: var(--radius); overflow: hidden; margin-bottom: 28px; }
+    .outline-table { width: 100%; border-collapse: collapse; }
+    .outline-table tr { border-bottom: 1px solid var(--gray-mid); }
+    .outline-table tr:last-child { border-bottom: none; }
+    .outline-table th { width: 200px; padding: 20px 24px; font-size: 14px; font-weight: 700; text-align: left; background: var(--gray-light); white-space: nowrap; vertical-align: top; }
+    .outline-table td { padding: 20px 24px; font-size: 15px; color: #333; line-height: 1.8; }
+    .price-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .price-card { border: 2px solid var(--gray-mid); border-radius: 18px; padding: 32px; text-align: center; }
+    .price-card.featured { border-color: var(--red); }
+    .price-card .price-label { font-size: 14px; font-weight: 700; color: var(--gray-text); margin-bottom: 10px; }
+    .price-card .price-val { font-size: 40px; font-weight: 900; line-height: 1; color: var(--red); }
+    .price-card .price-val .yen { font-size: 22px; }
+    .price-card .price-val .unit { font-size: 16px; color: var(--gray-text); font-weight: 700; }
+    .price-card .price-tax { font-size: 12px; color: #aaa; margin-top: 8px; }
+    .price-note { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 24px; font-size: 14px; color: var(--gray-text); background: var(--gray-light); border-radius: 10px; padding: 14px 20px; }
 
     /* ===== INSTRUCTOR ===== */
-    .instructor-card {
-      max-width: 880px; margin: 56px auto 0;
-      background: var(--black); border-radius: 24px; color: #fff;
-      display: grid; grid-template-columns: 280px 1fr; gap: 0; overflow: hidden;
-    }
-    .instructor-photo {
-      background: linear-gradient(160deg, #2a2a2a, #111);
-      display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px;
-    }
+    .instructor-card { max-width: 880px; margin: 56px auto 0; background: var(--black); border-radius: 24px; color: #fff; display: grid; grid-template-columns: 280px 1fr; gap: 0; overflow: hidden; }
+    .instructor-photo { background: linear-gradient(160deg, #2a2a2a, #111); display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px; }
     .instructor-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-    .instructor-photo-fallback {
-      width: 120px; height: 120px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 40px; font-weight: 900; color: #fff;
-    }
+    .instructor-photo-fallback { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--red), var(--red-dark)); display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 900; color: #fff; }
     .instructor-body { padding: 44px 40px; }
-    .instructor-tag {
-      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em;
-      color: var(--red); background: rgba(232,0,28,.16); border-radius: 99px; padding: 4px 16px; margin-bottom: 16px;
-    }
+    .instructor-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--red); background: rgba(232,0,28,.16); border-radius: 99px; padding: 4px 16px; margin-bottom: 16px; }
     .instructor-name { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 4px; }
     .instructor-name .en { font-size: 14px; font-weight: 500; color: #888; margin-left: 12px; }
     .instructor-role { font-size: 14px; color: var(--red); font-weight: 700; margin-bottom: 20px; }
     .instructor-bio { font-size: 14px; color: #bbb; line-height: 1.9; }
+
+    /* ===== PAST MATERIALS ===== */
+    .past { background: var(--gray-light); }
+    .slides-wrap { position: relative; width: 100%; max-width: 880px; margin: 48px auto 0; padding-bottom: 49.5%; height: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 48px rgba(0,0,0,.12); background:#fff; }
+    .slides-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .past-actions { text-align: center; margin-top: 28px; }
+    .past-note { text-align:center; font-size:13px; color:#aaa; margin-top:16px; }
 
     /* ===== FAQ ===== */
     .faq-list { margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
@@ -210,8 +205,8 @@
 
     /* ===== CTA / APPLY ===== */
     .cta-section { background: var(--black); padding: 96px 0; text-align: center; position: relative; overflow: hidden; }
-    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(232,0,28,.14) 0%, transparent 65%); pointer-events: none; }
-    .cta-section .section-label { display: inline-block; margin-bottom: 16px; position: relative; z-index: 1; }
+    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(6,199,85,.16) 0%, transparent 65%); pointer-events: none; }
+    .cta-section .section-label { display: inline-block; margin-bottom: 16px; position: relative; z-index: 1; color:#7CFAB0; background:rgba(6,199,85,.16); }
     .cta-section .section-title { color: #fff; margin-bottom: 16px; position: relative; z-index: 1; }
     .cta-desc { font-size: 17px; color: #aaa; margin-bottom: 40px; position: relative; z-index: 1; }
     .cta-actions { position: relative; z-index: 1; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
@@ -234,7 +229,8 @@
     .sp-sticky-footer { display: none; }
     @media (max-width: 768px) {
       .sp-sticky-footer { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; box-shadow: 0 -2px 12px rgba(0,0,0,.15); }
-      .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 16px 4px; font-size: 14px; font-weight: 800; text-decoration: none; background: var(--red); color: #fff; }
+      .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 16px 4px; font-size: 15px; font-weight: 800; text-decoration: none; background: var(--line-green); color: #fff; }
+      .sp-sticky-footer .line-ico { font-weight:900; background:#fff; color:var(--line-green); border-radius:5px; font-size:11px; padding:1px 6px; }
       body { padding-bottom: 56px; }
     }
 
@@ -243,24 +239,44 @@
       .section { padding: 64px 0; }
       .hero { padding: 24px 0 40px; }
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .concept-cards { grid-template-columns: 1fr; }
+      .price-cards { grid-template-columns: 1fr; }
       .instructor-card { grid-template-columns: 1fr; }
       .instructor-photo { min-height: 240px; }
       .instructor-body { padding: 32px 28px; }
-      .curriculum-item { flex-direction: column; gap: 12px; padding: 24px; }
+      .slides-wrap { padding-bottom: 56.25%; }
     }
     @media (max-width: 600px) {
-      .company-table th { width: 120px; padding: 16px; font-size: 13px; }
-      .company-table td { padding: 16px; font-size: 13px; }
+      .company-table th, .outline-table th { width: 110px; padding: 16px; font-size: 13px; }
+      .company-table td, .outline-table td { padding: 16px; font-size: 13px; }
     }
   </style>
 </head>
 <body>
 
-<site-header></site-header>
+<!-- ===== HEADER（このページ専用。リンクはすべて horiemon.ai/service へ） ===== -->
+<header class="ai-header">
+  <div class="ai-header-inner">
+    <a href="https://horiemon.ai/service" class="ai-logo">
+      <img src="/assets/img/logo.png" alt="ホリエモンAI学校" class="ai-logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span class="ai-logo-text">ホリエモンAI学校</span>
+    </a>
+    <nav class="ai-nav" id="aiNav">
+      <ul>
+        <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
+        <li><a href="#outline">開催概要</a></li>
+        <li><a href="https://lin.ee/vv6fIon" class="ai-nav-line">LINEで入会</a></li>
+      </ul>
+    </nav>
+    <button class="ai-menu-btn" id="aiMenuBtn" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
 <!-- ========================================================== -->
-<!-- ※ 以下コンテンツは「仮」です。確定情報が出次第差し替えてください -->
+<!-- ※ コンテンツの一部は仮です。確定情報が出次第差し替えてください -->
 <!-- ========================================================== -->
 
 <!-- ===== HERO ===== -->
@@ -270,41 +286,41 @@
       <div class="hero-content fade-up">
         <div class="hero-eyebrow">
           <span class="dot"></span>
-          審査制・経営者限定
+          経営者限定・月1回の勉強会
         </div>
         <h1 class="hero-title">
           <span class="accent">AI経営塾</span><br>
-          経営者のための<br>
-          AI実践講座。
+          AI時代に、<br>
+          経営者が「何をやるべきか」を学ぶ。
         </h1>
         <p class="hero-desc">
-          AIを「知っている」から「経営に実装する」へ。<br>
-          堀江貴文と共に、自社の課題をAIで解決する力を磨く、<br>
-          経営者だけが集まる勉強会組織です。
+          ツールの使い方を覚える場ではありません。<br>
+          AI時代に自社の経営をどう動かすか——。<br>
+          代表・荒木賢二郎と共に、経営者だけで学ぶ月1回の勉強会です。
         </p>
         <div class="hero-actions">
-          <a href="#apply" class="btn btn-primary btn-lg">入塾を申し込む →</a>
-          <a href="#curriculum" class="btn btn-outline">カリキュラムを見る</a>
+          <a href="https://lin.ee/vv6fIon" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで入会する →</a>
+          <a href="#outline" class="btn btn-outline">開催概要を見る</a>
         </div>
-        <p class="hero-note">※ 審査制のため、応募後に選考があります</p>
+        <p class="hero-note">※ 毎月第3土曜日・3時間／経営者限定</p>
       </div>
       <div class="hero-visual fade-up">
-        <div class="hero-visual-box">
-          <div class="hero-visual-label">ホリエモンAI学校 実績</div>
-          <div class="result-row">
-            <span class="result-icon">🏢</span>
-            <div class="result-text"><strong>受講企業</strong><span>法人向けAI研修の導入社数</span></div>
-            <div class="result-num">400社</div>
+        <div class="overview-box">
+          <div class="overview-box-label">開催概要</div>
+          <div class="overview-row">
+            <span class="overview-icon">📅</span>
+            <div class="overview-text"><strong>開催日</strong><span>毎月 第3土曜日</span></div>
+            <div class="overview-val">月1回</div>
           </div>
-          <div class="result-row">
-            <span class="result-icon">👥</span>
-            <div class="result-text"><strong>受講人数</strong><span>累計の受講者数</span></div>
-            <div class="result-num">4,000人</div>
+          <div class="overview-row">
+            <span class="overview-icon">⏱️</span>
+            <div class="overview-text"><strong>所要時間</strong><span>無理なく続けられる</span></div>
+            <div class="overview-val">3時間</div>
           </div>
-          <div class="result-row">
-            <span class="result-icon">🎓</span>
-            <div class="result-text"><strong>業種特化校</strong><span>建築・税理士など専門カリキュラム</span></div>
-            <div class="result-num">多数</div>
+          <div class="overview-row">
+            <span class="overview-icon">👔</span>
+            <div class="overview-text"><strong>対象</strong><span>経営者限定</span></div>
+            <div class="overview-val">経営者</div>
           </div>
         </div>
       </div>
@@ -312,19 +328,34 @@
   </div>
 </section>
 
+<!-- ===== INFOGRAPHIC（添付画像）===== -->
+<!-- 画像ファイルを keiei/ai-keiei-juku.png として置くと表示されます。未設置の間はこのセクションは自動的に非表示になります -->
+<section class="section infographic" id="infographic">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Overview</span>
+      <h2 class="section-title">ひと目でわかるAI経営塾</h2>
+    </div>
+    <figure class="infographic-fig fade-up">
+      <img src="/keiei/ai-keiei-juku.png" alt="AI経営塾の概要：経営者限定の月1勉強会（第3土曜日・3時間）。会社経営を家の建築に例えると、設計図を作るのは経営者、家を作るのは社員。入会金10万円・月額3万円（税別）。"
+        onerror="this.closest('.infographic').style.display='none'">
+    </figure>
+  </div>
+</section>
+
 <!-- ===== PROBLEMS ===== -->
-<section class="section problems" id="problems">
+<section class="section problems" id="problems" style="background:var(--gray-light)">
   <div class="container">
     <div class="text-center fade-up">
       <span class="section-label">こんなお悩みはありませんか？</span>
-      <h2 class="section-title">「AIが大事なのは分かる。<br>でも、経営にどう使えば…」</h2>
-      <p class="section-sub">多くの経営者が、同じ壁にぶつかっています。AI経営塾は、その壁を越えるための場です。</p>
+      <h2 class="section-title">「AIが大事なのは分かる。<br>でも経営に、どう使えば…」</h2>
+      <p class="section-sub">多くの経営者が同じ壁にぶつかっています。AI経営塾は、その壁を越えるための場です。</p>
     </div>
     <div class="problems-grid">
       <div class="problem-card fade-up">
         <div class="problem-icon">🧭</div>
         <h3>何から手をつければいいか分からない</h3>
-        <p>ツールも情報も多すぎて、自社の経営に何をどう導入すべきか判断できない。気づけば時間だけが過ぎていく。</p>
+        <p>ツールも情報も多すぎて、自社の経営に何をどう取り入れるべきか判断できない。気づけば時間だけが過ぎていく。</p>
       </div>
       <div class="problem-card fade-up">
         <div class="problem-icon">🏃</div>
@@ -332,53 +363,36 @@
         <p>号令はかけたが、現場が動かない。一部の社員が触って終わり。会社全体の成果につながっていない。</p>
       </div>
       <div class="problem-card fade-up">
-        <div class="problem-icon">💰</div>
-        <h3>投資判断の確信が持てない</h3>
-        <p>どこに・いくら投資すれば、どんなリターンがあるのか。経営者として腹落ちする判断軸がほしい。</p>
+        <div class="problem-icon">🤝</div>
+        <h3>相談できる経営者仲間がいない</h3>
+        <p>同じ目線でAI活用を語れる相手がいない。他社が実際どう動いているのか、リアルな情報が手に入らない。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT（AI経営塾とは） ===== -->
-<section class="section" id="about">
+<!-- ===== CONCEPT（家の建築の例え） ===== -->
+<section class="section concept" id="concept">
   <div class="container">
-    <div class="text-center fade-up" style="margin-bottom:56px;">
-      <span class="section-label">About</span>
-      <h2 class="section-title">AI経営塾とは</h2>
-      <p class="section-sub">「学んで終わり」ではなく、「自社に実装する」ことをゴールに置いた、経営者のための実践コミュニティです。</p>
+    <div class="text-center fade-up">
+      <span class="section-label">Concept</span>
+      <h2 class="section-title">会社経営を「家の建築」に例えると</h2>
+      <p class="concept-lead">AIという新しい道具が増えても、<span class="mark">どんな家を建てるか（設計図）を描くのは経営者の仕事</span>です。AI経営塾は、その「設計図を描く力」を磨く場です。</p>
     </div>
-    <div class="about-inner">
-      <div class="fade-up">
-        <div class="about-points">
-          <div class="about-point">
-            <div class="about-point-icon">🤝</div>
-            <div>
-              <h4>経営者だけが集まる場</h4>
-              <p>同じ目線で本音を語れる経営者同士のネットワーク。事例も悩みも、ここでしか得られない密度で共有されます。</p>
-            </div>
-          </div>
-          <div class="about-point">
-            <div class="about-point-icon">🛠️</div>
-            <div>
-              <h4>実装にこだわる</h4>
-              <p>知識のインプットだけで終わらせません。自社の課題を持ち込み、AIで解決する手を動かすまで伴走します。</p>
-            </div>
-          </div>
-          <div class="about-point">
-            <div class="about-point-icon">🔍</div>
-            <div>
-              <h4>審査制だから本気で学べる</h4>
-              <p>AIを経営に活かす意志のある経営者だけが入塾。だからこそ、議論も成果も、レベルの高い環境が保たれます。</p>
-            </div>
-          </div>
-        </div>
+    <div class="concept-cards fade-up">
+      <div class="concept-card">
+        <div class="emoji">📐</div>
+        <div class="role">設計図を作るのは</div>
+        <div class="who">経営者</div>
       </div>
-      <div class="about-visual fade-up">
-        <div class="about-visual-tag">CONCEPT</div>
-        <h3>AIを、<br>経営の武器に変える。</h3>
-        <p>変化のスピードが速いこの時代、<strong>AIを使いこなす経営者と、そうでない経営者の差は開く一方</strong>です。<br><br>AI経営塾は、最新のAIを「自社の経営にどう実装するか」という一点にフォーカスした場。堀江貴文をはじめとする実践者と共に、明日から動ける状態をつくります。</p>
+      <div class="concept-card is-staff">
+        <div class="emoji">🏠</div>
+        <div class="role">家を作るのは</div>
+        <div class="who">社員</div>
       </div>
+    </div>
+    <div class="concept-msg fade-up">
+      <p>ツールの使い方ではなく、<br><span class="hl">AI時代に何をやるべきか</span>、<br>一緒に学んでいきましょう。</p>
     </div>
   </div>
 </section>
@@ -394,76 +408,71 @@
     <div class="features-grid">
       <div class="feature-card fade-up">
         <div class="feature-card-num">01</div>
-        <span class="tag">堀江貴文</span>
-        <h3>第一線の視点から<br>直接学ぶ</h3>
-        <p>常に新しいテクノロジーを事業に取り込んできた堀江貴文の視点を、経営のリアルに即して直接インプットできます。</p>
+        <span class="tag">経営者限定</span>
+        <h3>同じ目線の<br>経営者だけで学ぶ</h3>
+        <p>参加者は経営者のみ。本音で語れる仲間と、各社のAI活用事例や悩みを高い密度で共有できます。</p>
       </div>
       <div class="feature-card fade-up">
         <div class="feature-card-num">02</div>
-        <span class="tag">実践重視</span>
-        <h3>自社の課題を<br>持ち込んで解決</h3>
-        <p>一般論ではなく、あなたの会社の具体的な課題が題材。学んだその場で、自社に実装できる形に落とし込みます。</p>
+        <span class="tag">月1・3時間</span>
+        <h3>無理なく<br>続けられる設計</h3>
+        <p>毎月第3土曜日に3時間だけ。忙しい経営者でも継続でき、学びを着実に経営へ反映していけます。</p>
       </div>
       <div class="feature-card fade-up">
         <div class="feature-card-num">03</div>
-        <span class="tag">経営者ネットワーク</span>
-        <h3>本気の経営者と<br>つながる</h3>
-        <p>審査を通過した経営者だけのコミュニティ。事例共有・相互相談・協業まで、入塾後も続く関係が手に入ります。</p>
+        <span class="tag">本質にフォーカス</span>
+        <h3>「何をやるべきか」<br>に集中する</h3>
+        <p>ツールの操作研修ではありません。AI時代に経営者が下すべき意思決定そのものを学びます。</p>
       </div>
       <div class="feature-card fade-up">
         <div class="feature-card-num">04</div>
         <span class="tag">400社の知見</span>
-        <h3>豊富な導入実績に<br>裏打ちされた内容</h3>
-        <p>受講企業400社・受講者4,000人を支援してきたホリエモンAI学校の知見を凝縮。再現性のある進め方を学べます。</p>
+        <h3>豊富な実績に<br>裏打ちされた内容</h3>
+        <p>受講企業400社・受講者4,000人を支援してきたホリエモンAI学校の知見を凝縮してお届けします。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CURRICULUM ===== -->
-<section class="section curriculum" id="curriculum">
+<!-- ===== OUTLINE / PRICING ===== -->
+<section class="section" id="outline">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Curriculum</span>
-      <h2 class="section-title">カリキュラム概要</h2>
-      <p class="section-sub">「理解 → 戦略 → 実装 → 定着」の流れで、AIを経営に根づかせます。<br>※内容は仮です。確定次第更新します。</p>
+      <span class="section-label">Outline</span>
+      <h2 class="section-title">開催概要・費用</h2>
+      <p class="section-sub">経営者限定・月1回のシンプルな勉強会です。</p>
     </div>
-    <div class="curriculum-list">
-      <div class="curriculum-item fade-up">
-        <div class="curriculum-step">STEP 01</div>
-        <div class="curriculum-body">
-          <h3>AIと経営の全体像をつかむ</h3>
-          <p>いま経営者が押さえるべきAIの潮流と、自社にとってのインパクトを整理。投資判断の土台となる視点を身につけます。</p>
+    <div class="outline-wrap">
+      <div class="outline-table-wrap fade-up">
+        <table class="outline-table">
+          <tbody>
+            <tr><th>対象</th><td>経営者限定</td></tr>
+            <tr><th>開催頻度</th><td>月1回（毎月 第3土曜日）</td></tr>
+            <tr><th>所要時間</th><td>1回あたり 3時間</td></tr>
+            <tr><th>内容</th><td>AI時代に経営者が「何をやるべきか」を学ぶ実践勉強会（ツールの操作研修ではありません）</td></tr>
+            <tr><th>主催</th><td>ホリエモンAI学校株式会社</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="price-cards fade-up">
+        <div class="price-card">
+          <div class="price-label">入会金</div>
+          <div class="price-val"><span class="yen">¥</span>100,000</div>
+          <div class="price-tax">税別</div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-label">月額</div>
+          <div class="price-val"><span class="yen">¥</span>30,000<span class="unit">/月</span></div>
+          <div class="price-tax">税別</div>
         </div>
       </div>
-      <div class="curriculum-item fade-up">
-        <div class="curriculum-step">STEP 02</div>
-        <div class="curriculum-body">
-          <h3>自社課題の棚卸しとAI戦略策定</h3>
-          <p>自社の業務・課題を洗い出し、どこにAIを効かせれば成果が最大化するかを設計。優先順位とロードマップを描きます。</p>
-        </div>
-      </div>
-      <div class="curriculum-item fade-up">
-        <div class="curriculum-step">STEP 03</div>
-        <div class="curriculum-body">
-          <h3>実装ワーク：手を動かす</h3>
-          <p>実際にAIを使い、自社の業務を改善する施策を形にします。生成AI・自動化・業務効率化など、実践を通じて習得します。</p>
-        </div>
-      </div>
-      <div class="curriculum-item fade-up">
-        <div class="curriculum-step">STEP 04</div>
-        <div class="curriculum-body">
-          <h3>現場定着と継続的な改善</h3>
-          <p>導入したAIを社内に定着させ、回し続ける仕組みづくり。経営者同士でフィードバックし合いながら成果を伸ばします。</p>
-        </div>
-      </div>
+      <div class="price-note fade-up">⚠️ 助成金などのサポートはありません。</div>
     </div>
-    <p class="curriculum-note">※ 上記は構成イメージです。開催形式・回数・日程など詳細は確定後に掲載します。</p>
   </div>
 </section>
 
 <!-- ===== INSTRUCTOR ===== -->
-<section class="section" id="instructor">
+<section class="section" id="instructor" style="background:var(--gray-light)">
   <div class="container">
     <div class="text-center fade-up">
       <span class="section-label">Instructor</span>
@@ -471,21 +480,40 @@
     </div>
     <div class="instructor-card fade-up">
       <div class="instructor-photo">
-        <!-- 写真を入れる場合は /keiei/ に画像を置き、下記 src を差し替えてください -->
-        <img src="/keiei/horie.jpg" alt="堀江貴文"
+        <!-- 写真を入れる場合は keiei/araki.jpg を置き、下記 src を差し替えてください -->
+        <img src="/keiei/araki.jpg" alt="荒木賢二郎"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="instructor-photo-fallback" style="display:none">堀江</div>
+        <div class="instructor-photo-fallback" style="display:none">荒木</div>
       </div>
       <div class="instructor-body">
-        <div class="instructor-tag">主宰</div>
-        <div class="instructor-name">堀江 貴文<span class="en">Takafumi Horie</span></div>
-        <div class="instructor-role">実業家 / ホリエモンAI学校 ファウンダー</div>
+        <div class="instructor-tag">講師</div>
+        <div class="instructor-name">荒木 賢二郎<span class="en">Kenjiro Araki</span></div>
+        <div class="instructor-role">ホリエモンAI学校株式会社 代表取締役社長</div>
         <p class="instructor-bio">
-          実業家。新しいテクノロジーをいち早く事業へ取り込み、数々の領域で挑戦を続ける。AIを「使う側」に立つことの重要性を発信し、経営者がAIを経営に実装するための場として「AI経営塾」を主宰。<br><br>
+          ホリエモンAI学校株式会社 代表取締役社長。法人向けAI研修を中心に、受講企業400社・受講者4,000人超のAI人材育成を牽引。AIを「ツールの話」で終わらせず、経営の意思決定にどう落とし込むかという視点で、経営者に直接指導する。<br><br>
           ※プロフィール文は仮です。掲載内容は確定後に差し替えてください。
         </p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== PAST MATERIALS ===== -->
+<section class="section past" id="past">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Sample</span>
+      <h2 class="section-title">過去の開催資料（サンプル）</h2>
+      <p class="section-sub">実際にどんな内容を扱うのか、過去開催の資料を公開しています。</p>
+    </div>
+    <div class="slides-wrap fade-up">
+      <iframe src="https://docs.google.com/presentation/d/1P-yT3qxhOqrxVGHQaGt5B36Xl_gZKeJnOlHsUnGIT4w/embed?start=false&loop=false&delayms=5000"
+        allowfullscreen title="AI経営塾 過去開催資料"></iframe>
+    </div>
+    <div class="past-actions fade-up">
+      <a href="https://docs.google.com/presentation/d/1P-yT3qxhOqrxVGHQaGt5B36Xl_gZKeJnOlHsUnGIT4w/edit?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline">資料を別タブで開く →</a>
+    </div>
+    <p class="past-note">※ 資料が表示されない場合は、Googleスライドの共有設定を「リンクを知っている全員が閲覧可」にしてください。</p>
   </div>
 </section>
 
@@ -499,23 +527,23 @@
     <div class="faq-list">
       <div class="faq-item fade-up">
         <div class="faq-question">AIの知識がなくても参加できますか？</div>
-        <div class="faq-answer">はい。前提知識は問いません。AIを自社の経営に活かしたいという意志のある経営者であれば、基礎から実装まで段階的に学べる構成になっています。</div>
+        <div class="faq-answer">はい。前提知識は問いません。ツールの操作ではなく「AI時代に経営者が何をやるべきか」を扱うため、これからAIに取り組む経営者でも問題なく参加できます。</div>
       </div>
       <div class="faq-item fade-up">
-        <div class="faq-question">「審査制」とは具体的にどういうものですか？</div>
-        <div class="faq-answer">本気でAIを経営に取り入れたい経営者が集まる場とするため、応募後に簡単な選考を行っています。学びの質とコミュニティの密度を保つための仕組みです。詳細は応募時にご案内します。</div>
+        <div class="faq-question">いつ・どれくらいの時間で開催しますか？</div>
+        <div class="faq-answer">毎月第3土曜日に、1回あたり3時間の開催です。月1回のペースなので、忙しい経営者でも無理なく継続できます。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">費用はいくらですか？</div>
+        <div class="faq-answer">入会金10万円、月額3万円（いずれも税別）です。なお、助成金などのサポートはありません。</div>
       </div>
       <div class="faq-item fade-up">
         <div class="faq-question">経営者でなくても参加できますか？</div>
-        <div class="faq-answer">AI経営塾は、経営者・役員・事業責任者の方を主な対象としています。立場が近い方々が集まることで、議論や事例共有がより実践的になります。詳しくはお問い合わせください。</div>
+        <div class="faq-answer">AI経営塾は経営者限定の勉強会です。立場の近い方々が集まることで、議論や事例共有がより実践的になります。</div>
       </div>
       <div class="faq-item fade-up">
-        <div class="faq-question">オンラインでも参加できますか？</div>
-        <div class="faq-answer">開催形式（オンライン／対面）については現在準備中です。確定次第、このページでご案内します。</div>
-      </div>
-      <div class="faq-item fade-up">
-        <div class="faq-question">費用や開催スケジュールを教えてください</div>
-        <div class="faq-answer">料金・開催日程・期間などの詳細は確定後に掲載します。まずは応募・お問い合わせいただければ、最新情報をご案内します。</div>
+        <div class="faq-question">どうやって申し込めばいいですか？</div>
+        <div class="faq-answer">公式LINEからご入会・お問い合わせいただけます。ページ内の「LINEで入会する」ボタンから友だち追加のうえ、ご連絡ください。</div>
       </div>
     </div>
   </div>
@@ -524,15 +552,14 @@
 <!-- ===== CTA / APPLY ===== -->
 <section class="cta-section" id="apply">
   <div class="container">
-    <span class="section-label">Apply</span>
+    <span class="section-label">Join</span>
     <h2 class="section-title">AIを、あなたの経営の武器に。</h2>
-    <p class="cta-desc">AI経営塾は審査制です。<br>本気でAIを経営に実装したい経営者の応募をお待ちしています。</p>
+    <p class="cta-desc">ご入会・お問い合わせは公式LINEから。<br>経営者仲間と共に、AI時代の経営を学びましょう。</p>
     <div class="cta-actions">
-      <!-- TODO: 申込フォームのURLが決まり次第、href を差し替えてください -->
-      <a href="#" class="btn btn-primary btn-lg">入塾を申し込む →</a>
-      <a href="#curriculum" class="btn btn-outline" style="color:#fff;border-color:#fff;">カリキュラムを見る</a>
+      <a href="https://lin.ee/vv6fIon" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで入会する →</a>
+      <a href="#past" class="btn btn-outline" style="color:#fff;border-color:#fff;">過去の資料を見る</a>
     </div>
-    <p class="cta-note">※ 申込フォームは準備中です。URLが決まり次第このボタンに設定します。</p>
+    <p class="cta-note">※ 公式LINEの友だち追加後、メッセージにてご案内します。</p>
   </div>
 </section>
 
@@ -557,14 +584,47 @@
   </div>
 </section>
 
-<site-footer></site-footer>
+<!-- ===== FOOTER（このページ専用。リンクは horiemon.ai/service へ） ===== -->
+<footer class="ai-footer">
+  <div class="ai-footer-inner">
+    <div class="ai-footer-top">
+      <div class="ai-footer-brand">
+        <a href="https://horiemon.ai/service">
+          <img src="/assets/img/logo.png" alt="ホリエモンAI学校" class="ai-logo-img"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+          <span class="ai-logo-text">ホリエモンAI学校</span>
+        </a>
+        <p class="ai-footer-tagline">AIで、ビジネスの未来を切り開く</p>
+      </div>
+      <nav class="ai-footer-nav">
+        <ul>
+          <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
+          <li><a href="#outline">開催概要</a></li>
+          <li><a href="https://lin.ee/vv6fIon">LINEで入会</a></li>
+          <li><a href="https://horiemon.ai/">運営会社サイト</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="ai-footer-bottom">
+      <p>© 2026 ホリエモンAI学校株式会社. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
+<!-- ===== SP STICKY ===== -->
 <div class="sp-sticky-footer">
-  <a href="#apply">🔥 入塾を申し込む</a>
+  <a href="https://lin.ee/vv6fIon"><span class="line-ico">LINE</span>LINEで入会する</a>
 </div>
 
-<script src="/components/components.js"></script>
 <script>
+  // ハンバーガーメニュー
+  const menuBtn = document.getElementById('aiMenuBtn');
+  const nav = document.getElementById('aiNav');
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    menuBtn.classList.toggle('active');
+  });
+
   // スクロールでふわっと表示
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
