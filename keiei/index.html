@@ -15,11 +15,11 @@
   <meta property="og:url" content="https://p.horiemon.ai/keiei/">
   <meta property="og:title" content="AI経営塾 | 経営者限定・月1回のAI実践勉強会">
   <meta property="og:description" content="ツールの使い方ではなく、AI時代に経営者が何をやるべきかを学ぶ。経営者限定・月1回の勉強会。">
-  <meta property="og:image" content="https://p.horiemon.ai/keiei/ai-keiei-juku.png">
+  <meta property="og:image" content="https://p.horiemon.ai/keiei/ai-keiei-juku.jpg">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="ホリエモンAI学校株式会社">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://p.horiemon.ai/keiei/ai-keiei-juku.png">
+  <meta name="twitter:image" content="https://p.horiemon.ai/keiei/ai-keiei-juku.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,6 +180,8 @@
     .instructor-photo { background: linear-gradient(160deg, #2a2a2a, #111); display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px; }
     .instructor-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
     .instructor-photo-fallback { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--red), var(--red-dark)); display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 900; color: #fff; }
+    .instructor-photo--illust { background: linear-gradient(160deg, #ffffff, #ffe3e7); padding: 0; }
+    .instructor-photo--illust svg { position: absolute; inset: 0; width: 100%; height: 100%; }
     .instructor-body { padding: 44px 40px; }
     .instructor-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--red); background: rgba(232,0,28,.16); border-radius: 99px; padding: 4px 16px; margin-bottom: 16px; }
     .instructor-name { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 4px; }
@@ -242,7 +244,7 @@
       .concept-cards { grid-template-columns: 1fr; }
       .price-cards { grid-template-columns: 1fr; }
       .instructor-card { grid-template-columns: 1fr; }
-      .instructor-photo { min-height: 240px; }
+      .instructor-photo { min-height: 340px; }
       .instructor-body { padding: 32px 28px; }
       .slides-wrap { padding-bottom: 56.25%; }
     }
@@ -329,7 +331,7 @@
 </section>
 
 <!-- ===== INFOGRAPHIC（添付画像）===== -->
-<!-- 画像ファイルを keiei/ai-keiei-juku.png として置くと表示されます。未設置の間はこのセクションは自動的に非表示になります -->
+<!-- 画像ファイルを keiei/ai-keiei-juku.jpg として置くと表示されます。未設置の間はこのセクションは自動的に非表示になります -->
 <section class="section infographic" id="infographic">
   <div class="container">
     <div class="text-center fade-up">
@@ -337,7 +339,7 @@
       <h2 class="section-title">ひと目でわかるAI経営塾</h2>
     </div>
     <figure class="infographic-fig fade-up">
-      <img src="/keiei/ai-keiei-juku.png" alt="AI経営塾の概要：経営者限定の月1勉強会（第3土曜日・3時間）。会社経営を家の建築に例えると、設計図を作るのは経営者、家を作るのは社員。入会金10万円・月額3万円（税別）。"
+      <img src="/keiei/ai-keiei-juku.jpg" alt="AI経営塾の概要：経営者限定の月1勉強会（第3土曜日・3時間）。会社経営を家の建築に例えると、設計図を作るのは経営者、家を作るのは社員。入会金10万円・月額3万円（税別）。"
         onerror="this.closest('.infographic').style.display='none'">
     </figure>
   </div>
@@ -479,11 +481,48 @@
       <h2 class="section-title">講師紹介</h2>
     </div>
     <div class="instructor-card fade-up">
-      <div class="instructor-photo">
-        <!-- 写真を入れる場合は keiei/araki.jpg を置き、下記 src を差し替えてください -->
-        <img src="/keiei/araki.jpg" alt="荒木賢二郎"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="instructor-photo-fallback" style="display:none">荒木</div>
+      <div class="instructor-photo instructor-photo--illust">
+        <svg viewBox="0 0 280 360" role="img" aria-label="荒木賢二郎 イラスト" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- 背景アクセント -->
+          <circle cx="140" cy="168" r="138" fill="#ffd2d8" opacity="0.45"/>
+          <!-- 黒い服（肩） -->
+          <path d="M24,360 C30,298 76,270 140,270 C204,270 250,298 256,360 Z" fill="#161616"/>
+          <path d="M118,272 C124,290 156,290 162,272 C156,300 124,300 118,272 Z" fill="#2a2a2a"/>
+          <!-- 首 -->
+          <rect x="124" y="236" width="32" height="46" rx="14" fill="#e7b189"/>
+          <!-- 顔（ふくよか・丸顔） -->
+          <ellipse cx="140" cy="176" rx="77" ry="73" fill="#f2c6a0"/>
+          <ellipse cx="140" cy="230" rx="50" ry="27" fill="#f2c6a0"/>
+          <!-- 耳 -->
+          <ellipse cx="65" cy="184" rx="12" ry="18" fill="#eab98f"/>
+          <ellipse cx="215" cy="184" rx="12" ry="18" fill="#eab98f"/>
+          <!-- ほお（ふくよかな血色） -->
+          <ellipse cx="92" cy="206" rx="15" ry="9" fill="#f29487" opacity="0.35"/>
+          <ellipse cx="188" cy="206" rx="15" ry="9" fill="#f29487" opacity="0.35"/>
+          <!-- 髪（黒・短髪） -->
+          <path d="M62,162 C60,108 96,78 140,78 C184,78 220,108 218,162 C209,140 198,129 181,124 C159,117 121,117 99,124 C82,129 71,140 62,162 Z" fill="#191919"/>
+          <path d="M62,162 C61,182 65,196 73,202 L74,150 C68,152 64,156 62,162 Z" fill="#191919"/>
+          <path d="M218,162 C219,182 215,196 207,202 L206,150 C212,152 216,156 218,162 Z" fill="#191919"/>
+          <!-- 眉 -->
+          <path d="M93,156 q18,-9 36,-2" stroke="#191919" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <path d="M151,154 q18,-7 36,2" stroke="#191919" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <!-- 目 -->
+          <circle cx="110" cy="180" r="5.5" fill="#2b2b2b"/>
+          <circle cx="170" cy="180" r="5.5" fill="#2b2b2b"/>
+          <!-- 鼻 -->
+          <path d="M140,184 q-7,16 -9,23 q5,5 14,2" stroke="#d89c72" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <!-- 口（控えめな笑み） -->
+          <path d="M122,222 q18,9 36,0" stroke="#b5614c" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <!-- 口ひげ＋顎髭 -->
+          <path d="M116,212 q24,13 48,0 q-11,11 -24,11 q-13,0 -24,-11 z" fill="#1c1c1c"/>
+          <path d="M110,224 C110,251 123,266 140,266 C157,266 170,251 170,224 C161,237 149,241 140,241 C131,241 119,237 110,224 Z" fill="#1c1c1c"/>
+          <!-- 黒縁メガネ -->
+          <path d="M86,172 L66,178" stroke="#111" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <path d="M194,172 L214,178" stroke="#111" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <rect x="86" y="156" width="48" height="42" rx="13" fill="#ffffff" fill-opacity="0.16" stroke="#111" stroke-width="7"/>
+          <rect x="146" y="156" width="48" height="42" rx="13" fill="#ffffff" fill-opacity="0.16" stroke="#111" stroke-width="7"/>
+          <path d="M134,171 q6,-6 12,0" stroke="#111" stroke-width="7" stroke-linecap="round" fill="none"/>
+        </svg>
       </div>
       <div class="instructor-body">
         <div class="instructor-tag">講師</div>
