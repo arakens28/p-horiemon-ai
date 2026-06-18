@@ -1183,17 +1183,17 @@ footer{
       <button class="schedule-tab" onclick="filterSchedule('offline',this)">🏢 対面（市ヶ谷）</button>
     </div>
     <div class="dates-grid" id="dates-grid">
-      <div class="date-card" data-type="online" onclick="window.open('https://lin.ee/YkSLDa4','_blank')">
+      <div class="date-card" data-type="online" style="opacity:.45;cursor:default;pointer-events:none;">
         <span class="date-card-type online">💻 オンライン</span>
         <div class="date-card-date">6/13(土) & 6/14(日)</div>
         <div class="date-card-place">全国から参加可能</div>
-        <div class="date-card-availability"><div class="dot-pulse"></div>受付中</div>
+        <div class="date-card-availability" style="color:var(--muted);">終了</div>
       </div>
-      <div class="date-card" data-type="online" onclick="window.open('https://lin.ee/YkSLDa4','_blank')">
+      <div class="date-card" data-type="online" style="opacity:.45;cursor:default;pointer-events:none;">
         <span class="date-card-type online">💻 オンライン</span>
         <div class="date-card-date">6/17(水) & 6/24(水)</div>
         <div class="date-card-place">全国から参加可能</div>
-        <div class="date-card-availability"><div class="dot-pulse"></div>受付中</div>
+        <div class="date-card-availability" style="color:var(--muted);">終了</div>
       </div>
       <div class="date-card" data-type="offline" onclick="window.open('https://lin.ee/YkSLDa4','_blank')">
         <span class="date-card-type offline">🏢 対面開催</span>
@@ -1208,9 +1208,11 @@ footer{
         <div class="date-card-availability"><div class="dot-pulse"></div>受付中</div>
       </div>
     </div>
-    <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
-      ※ 7月以降の日程は決まり次第、随時公開します。法人様の貸切開催は別途ご相談ください。
-    </p>
+    <div style="text-align:center;margin-top:2rem;background:var(--orange-soft);border:1px solid var(--orange-bg);border-radius:14px;padding:1.4rem 1.5rem;max-width:600px;margin-left:auto;margin-right:auto;">
+      <div style="font-weight:900;font-size:.95rem;color:var(--orange-dark);margin-bottom:.5rem;">📅 7月・8月の日程は 6/19（木）発表予定</div>
+      <div style="font-size:.85rem;color:var(--text-soft);line-height:1.8;">発表と同時にLINEでお知らせします。<br/>日程を逃したくない方は、今すぐLINE登録を。</div>
+      <a href="https://lin.ee/YkSLDa4" target="_blank" rel="noopener" class="btn-line" style="display:inline-flex;margin-top:1rem;padding:.7rem 1.6rem;font-size:.88rem;">💚 LINE登録して日程を受け取る →</a>
+    </div>
     <div style="margin-top:2.5rem;text-align:center;">
       <img src="/camp/6m.png" alt="6月開催日スケジュール＆参加費ステップアップシステム" style="max-width:100%;border-radius:16px;">
     </div>
