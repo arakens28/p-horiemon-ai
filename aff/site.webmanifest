@@ -1,0 +1,15 @@
+{
+  "name": "アフィリエイトパートナー募集 | ホリエモンAI学校",
+  "short_name": "AI学校 紹介",
+  "description": "ホリエモンAI学校のアフィリエイトパートナー募集。紹介で1件3万円、お友だちは2万円割引。",
+  "start_url": "/aff/",
+  "scope": "/aff/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e8001c",
+  "icons": [
+    { "src": "/aff/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/aff/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/aff/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" }
+  ]
+}
