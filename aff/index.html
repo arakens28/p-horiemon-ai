@@ -14,7 +14,7 @@
   </script>
 
   <title>アフィリエイトパートナー募集 | 紹介で1件3万円・お友だちは2万円OFF | ホリエモンAI学校</title>
-  <meta name="description" content="ホリエモンAI学校のアフィリエイトパートナー募集。あなた専用の2万円割引・招待コードを発行。ブログやSNSで紹介し、コードが使われると1件あたり3万円をお支払いします。応募はGoogleフォームから。">
+  <meta name="description" content="ホリエモンAI学校のアフィリエイトパートナー募集。あなた専用の2万円割引・招待コードを発行。ブログやSNSで紹介し、コードが使われると1件あたり3万円をお支払いします。応募はページ内のフォームから。">
   <meta name="keywords" content="アフィリエイト,紹介プログラム,招待コード,ホリエモンAI学校,AI研修,副業,ブログ,SNS,紹介報酬">
   <meta name="author" content="ホリエモンAI学校株式会社">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
@@ -76,7 +76,7 @@
           { "@type": "Question", "name": "報酬はいくら受け取れますか？", "acceptedAnswer": { "@type": "Answer", "text": "あなたの招待コードが利用され、対象サービスのお申し込みが確定するごとに、1件あたり3万円をお支払いします。紹介した方は2万円割引で受講できます。" } },
           { "@type": "Question", "name": "どうやって紹介すればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "ブログ・SNS・メール・口コミなど、あなたの得意な方法で紹介していただけます。発行された招待コードと紹介ページのリンクをシェアするだけです。" } },
           { "@type": "Question", "name": "ブログやSNSを持っていなくても参加できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。友人・知人への紹介でも構いません。まずはご応募ください。" } },
-          { "@type": "Question", "name": "応募から報酬受け取りまでの流れは？", "acceptedAnswer": { "@type": "Answer", "text": "Googleフォームから応募 → 専用の招待コードを発行 → ブログやSNSで紹介 → コードが利用されたら報酬をお支払い、という流れです。" } }
+          { "@type": "Question", "name": "応募から報酬受け取りまでの流れは？", "acceptedAnswer": { "@type": "Answer", "text": "ページ内の申込フォームから応募 → 専用の招待コードを発行 → ブログやSNSで紹介 → コードが利用されたら報酬をお支払い、という流れです。" } }
         ]
       },
       {
@@ -322,6 +322,30 @@
       .sim-table td { padding: 14px 10px; font-size: 14px; }
       .sim-table td.reward { font-size: 18px; }
     }
+
+    /* ===== APPLICATION FORM ===== */
+    .form-section { background: var(--gray-light); }
+    .form-card { max-width: 640px; margin: 48px auto 0; background:#fff; border:1px solid var(--gray-mid); border-radius: 20px; padding: 44px 40px; box-shadow: var(--shadow); }
+    .form-pending { background:#fff8e1; border:1px solid #ffe49a; color:#8a6d00; border-radius:10px; padding:14px 18px; font-size:14px; line-height:1.7; margin-bottom:28px; }
+    .form-pending strong { color:#7a5e00; }
+    .form-pending a { color:var(--line-green); font-weight:700; text-decoration:underline; }
+    .form-lead { font-size:13px; color:var(--gray-text); line-height:1.8; background:var(--gray-light); border-radius:10px; padding:14px 18px; margin-bottom:28px; }
+    .form-field { margin-bottom:20px; }
+    .form-field label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; }
+    .form-field .req { display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--red); border-radius:4px; padding:1px 8px; margin-left:6px; vertical-align:1px; }
+    .form-field input, .form-field select, .form-field textarea { width:100%; font-family:inherit; font-size:16px; color:var(--black); border:1.5px solid var(--gray-mid); border-radius:10px; padding:13px 16px; background:#fff; transition:border-color .2s, box-shadow .2s; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline:none; border-color:var(--red); box-shadow:0 0 0 3px rgba(232,0,28,.12); }
+    .form-field textarea { resize:vertical; line-height:1.7; }
+    .form-hint { display:block; font-size:12px; color:#999; margin-top:6px; line-height:1.6; }
+    .form-divider { font-size:13px; font-weight:700; color:var(--red); letter-spacing:.04em; margin:32px 0 18px; padding-bottom:10px; border-bottom:2px solid var(--red-bg); }
+    .form-actions { margin-top:32px; }
+    .form-submit { width:100%; }
+    .form-submit:disabled { background:#c9c9c9; box-shadow:none; cursor:not-allowed; transform:none; }
+    .form-status { text-align:center; font-size:14px; margin-top:16px; min-height:1em; line-height:1.7; }
+    .form-status.ok { color:var(--line-green); font-weight:700; }
+    .form-status.err { color:var(--red); font-weight:700; }
+    .form-privacy { text-align:center; font-size:12px; color:#aaa; margin-top:20px; line-height:1.7; }
+    @media (max-width:600px){ .form-card{ padding:28px 20px; } }
   </style>
 </head>
 <body>
@@ -339,8 +363,7 @@
         <li><a href="#flow">仕組み</a></li>
         <li><a href="#sim">報酬</a></li>
         <li><a href="#faq">よくある質問</a></li>
-        <!-- TODO: 「無料で応募」のリンクを応募フォームのURLに差し替えてください -->
-        <li><a href="https://forms.gle/REPLACE_WITH_FORM_URL" class="ai-nav-cta">無料で応募</a></li>
+        <li><a href="#apply-form" class="ai-nav-cta">無料で応募</a></li>
       </ul>
     </nav>
     <button class="ai-menu-btn" id="aiMenuBtn" aria-label="メニュー">
@@ -369,10 +392,8 @@
           ブログやSNSで紹介し、コードが使われるごとに3万円をお支払いします。
         </p>
         <div class="hero-actions">
-          <!-- TODO: 応募フォームのURLに差し替えてください -->
-          <a href="https://forms.gle/REPLACE_WITH_FORM_URL" class="btn btn-primary btn-lg">無料で応募する →</a>
-          <!-- TODO: 問い合わせ用LINEが別にある場合はURLを差し替えてください（暫定：公式LINE） -->
-          <a href="https://lin.ee/vv6fIon" class="btn btn-line"><span class="line-ico">LINE</span>LINEで相談する</a>
+          <a href="#apply-form" class="btn btn-primary btn-lg">無料で応募する →</a>
+          <a href="https://lin.ee/zITC2uJ" class="btn btn-line"><span class="line-ico">LINE</span>LINEで相談する</a>
         </div>
         <p class="hero-note">※ 参加・登録は無料／ブログ・SNSをお持ちでなくてもOK</p>
       </div>
@@ -410,7 +431,7 @@
         <div class="step-num">1</div>
         <div class="step-icon">📝</div>
         <h3>応募して<br>招待コードを受け取る</h3>
-        <p>Googleフォームから応募すると、あなた専用の「2万円割引・招待コード」を発行します。</p>
+        <p>申込フォームから応募すると、あなた専用の「2万円割引・招待コード」を発行します。</p>
       </div>
       <div class="step-card fade-up">
         <div class="step-num">2</div>
@@ -544,13 +565,13 @@
     <div class="text-center fade-up">
       <span class="section-label">Steps</span>
       <h2 class="section-title">参加方法</h2>
-      <p class="section-sub">応募はGoogleフォームから。最短その日のうちにスタートできます。</p>
+      <p class="section-sub">応募はページ下部の申込フォームから。最短その日のうちにスタートできます。</p>
     </div>
     <div class="join-steps">
       <div class="join-step fade-up">
         <div class="join-step-num">1</div>
         <div class="join-step-body">
-          <h3>Googleフォームから応募</h3>
+          <h3>ページ下部の申込フォームから応募</h3>
           <p>お名前・連絡先・紹介に使う媒体（ブログ／SNSなど）をご記入のうえ送信してください。費用は一切かかりません。</p>
         </div>
       </div>
@@ -570,8 +591,7 @@
       </div>
     </div>
     <div class="text-center fade-up" style="margin-top:48px;">
-      <!-- TODO: 応募フォームのURLに差し替えてください -->
-      <a href="https://forms.gle/REPLACE_WITH_FORM_URL" class="btn btn-primary btn-lg">無料で応募する →</a>
+      <a href="#apply-form" class="btn btn-primary btn-lg">無料で応募する →</a>
     </div>
   </div>
 </section>
@@ -632,14 +652,90 @@
   <div class="container">
     <span class="section-label">Join us</span>
     <h2 class="section-title">あなたの「おすすめ」が、報酬になる。</h2>
-    <p class="cta-desc">応募は無料・Googleフォームから1分で完了。<br>ご質問やご相談は、公式LINEからお気軽にどうぞ。</p>
+    <p class="cta-desc">応募は無料・1分で完了。<br>ご質問やご相談は、公式LINEからお気軽にどうぞ。</p>
     <div class="cta-actions">
-      <!-- TODO: 応募フォームのURLに差し替えてください -->
-      <a href="https://forms.gle/REPLACE_WITH_FORM_URL" class="btn btn-primary btn-lg">無料で応募する →</a>
-      <!-- TODO: 問い合わせ用LINEが別にある場合はURLを差し替えてください（暫定：公式LINE） -->
-      <a href="https://lin.ee/vv6fIon" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで相談する</a>
+      <a href="#apply-form" class="btn btn-primary btn-lg">無料で応募する →</a>
+      <a href="https://lin.ee/zITC2uJ" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで相談する</a>
     </div>
     <p class="cta-note">※ お問い合わせは公式LINEから承ります。</p>
+  </div>
+</section>
+
+<!-- ===== APPLICATION FORM ===== -->
+<section class="section form-section" id="apply-form">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Application</span>
+      <h2 class="section-title">紹介クーポン お申し込みフォーム</h2>
+      <p class="section-sub">ご入力いただいたメールアドレス宛に、ご利用クーポンコードを自動でお送りします。お一人様1回限り有効です。</p>
+    </div>
+
+    <form class="form-card fade-up" id="affForm" novalidate>
+      <!-- 受付準備中バナー：下のスクリプトで FORM_ENDPOINT を設定すると自動で非表示＆送信有効になります -->
+      <div class="form-pending" id="formPending">
+        <strong>ただいま受付準備中です。</strong>
+        送信機能はまもなく開始します。お急ぎの方は
+        <a href="https://lin.ee/zITC2uJ">LINE</a> からご連絡ください。
+      </div>
+
+      <p class="form-lead">ご紹介報酬のお振込のため、振込先口座情報のご入力をお願いします。<br>口座情報は報酬のお振込にのみ使用します。</p>
+
+      <div class="form-field">
+        <label for="f-email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="f-email" name="メールアドレス" required autocomplete="email" placeholder="example@email.com">
+      </div>
+      <div class="form-field">
+        <label for="f-name">お名前<span class="req">必須</span></label>
+        <input type="text" id="f-name" name="お名前" required autocomplete="name" placeholder="例: 山田 太郎">
+      </div>
+      <div class="form-field">
+        <label for="f-tel">電話番号<span class="req">必須</span></label>
+        <input type="tel" id="f-tel" name="電話番号" required autocomplete="tel" inputmode="tel" placeholder="例: 09012345678">
+        <span class="form-hint">報酬のお振込に関するご連絡に使用します。</span>
+      </div>
+
+      <div class="form-divider">振込先口座情報</div>
+
+      <div class="form-field">
+        <label for="f-bank">銀行名<span class="req">必須</span></label>
+        <input type="text" id="f-bank" name="銀行名" required placeholder="例: ○○銀行">
+        <span class="form-hint">報酬のお振込にのみ使用します。</span>
+      </div>
+      <div class="form-field">
+        <label for="f-branch">支店名<span class="req">必須</span></label>
+        <input type="text" id="f-branch" name="支店名" required placeholder="例: ○○支店">
+        <span class="form-hint">報酬のお振込にのみ使用します。</span>
+      </div>
+      <div class="form-field">
+        <label for="f-type">口座種別<span class="req">必須</span></label>
+        <select id="f-type" name="口座種別" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="普通">普通</option>
+          <option value="当座">当座</option>
+        </select>
+        <span class="form-hint">報酬のお振込にのみ使用します。</span>
+      </div>
+      <div class="form-field">
+        <label for="f-number">口座番号<span class="req">必須</span></label>
+        <input type="text" id="f-number" name="口座番号" required inputmode="numeric" placeholder="例: 1234567">
+        <span class="form-hint">報酬のお振込にのみ使用します。</span>
+      </div>
+      <div class="form-field">
+        <label for="f-holder">口座名義<span class="req">必須</span></label>
+        <input type="text" id="f-holder" name="口座名義" required placeholder="例: ヤマダ タロウ">
+        <span class="form-hint">例: ヤマダ タロウ。報酬のお振込にのみ使用します。</span>
+      </div>
+      <div class="form-field">
+        <label for="f-note">備考（任意）</label>
+        <textarea id="f-note" name="備考" rows="3" placeholder="ご質問・ご要望などがあればご記入ください。"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-lg form-submit" id="formSubmit">送信する</button>
+      </div>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      <p class="form-privacy">送信いただいた情報は、クーポンの発行および報酬のお振込のみに使用し、それ以外の目的では利用しません。</p>
+    </form>
   </div>
 </section>
 
@@ -694,10 +790,8 @@
 
 <!-- ===== SP STICKY ===== -->
 <div class="sp-sticky-footer">
-  <!-- TODO: 応募フォームのURLに差し替えてください -->
-  <a href="https://forms.gle/REPLACE_WITH_FORM_URL" class="apply">無料で応募する</a>
-  <!-- TODO: 問い合わせ用LINEが別にある場合はURLを差し替えてください -->
-  <a href="https://lin.ee/vv6fIon" class="line"><span class="line-ico">LINE</span>相談</a>
+  <a href="#apply-form" class="apply">無料で応募する</a>
+  <a href="https://lin.ee/zITC2uJ" class="line"><span class="line-ico">LINE</span>相談</a>
 </div>
 
 <script>
@@ -724,6 +818,57 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // ===== 申込フォーム =====
+  // ▼送信先URLが決まったら、この FORM_ENDPOINT に設定するだけで送信が有効化されます。
+  //   ・Formspree の場合 : "https://formspree.io/f/xxxxxxxx"
+  //   ・Google Apps Script の場合 : ウェブアプリの /exec URL
+  const FORM_ENDPOINT = "";
+
+  (function () {
+    const form = document.getElementById('affForm');
+    if (!form) return;
+    const submitBtn = document.getElementById('formSubmit');
+    const statusEl  = document.getElementById('formStatus');
+    const pendingEl = document.getElementById('formPending');
+
+    // 送信先が未設定の間は「受付準備中」（送信無効・データは保存されません）
+    if (!FORM_ENDPOINT) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '受付準備中';
+    } else {
+      if (pendingEl) pendingEl.style.display = 'none';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!FORM_ENDPOINT) return;
+      if (!form.reportValidity()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中…';
+      statusEl.className = 'form-status';
+      statusEl.textContent = '';
+
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (!res.ok) throw new Error('failed');
+        form.reset();
+        statusEl.className = 'form-status ok';
+        statusEl.textContent = '送信が完了しました。ご利用クーポンコードをメールでお送りします。';
+        submitBtn.textContent = '送信完了';
+      } catch (err) {
+        statusEl.className = 'form-status err';
+        statusEl.textContent = '送信に失敗しました。お手数ですがLINEからご連絡ください。';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送信する';
+      }
+    });
+  })();
 </script>
 </body>
 </html>
