@@ -338,7 +338,9 @@
     .form-field textarea { resize:vertical; line-height:1.7; }
     .form-hint { display:block; font-size:12px; color:#999; margin-top:6px; line-height:1.6; }
     .form-divider { font-size:13px; font-weight:700; color:var(--red); letter-spacing:.04em; margin:32px 0 18px; padding-bottom:10px; border-bottom:2px solid var(--red-bg); }
-    .form-actions { margin-top:32px; }
+    .form-consent { font-size:13px; color:var(--gray-text); text-align:center; margin-top:28px; line-height:1.7; }
+    .form-consent a { color:var(--red); font-weight:700; text-decoration:underline; }
+    .form-actions { margin-top:16px; }
     .form-submit { width:100%; }
     .form-submit:disabled { background:#c9c9c9; box-shadow:none; cursor:not-allowed; transform:none; }
     .form-status { text-align:center; font-size:14px; margin-top:16px; min-height:1em; line-height:1.7; }
@@ -730,11 +732,12 @@
         <textarea id="f-note" name="備考" rows="3" placeholder="ご質問・ご要望などがあればご記入ください。"></textarea>
       </div>
 
+      <p class="form-consent">送信することで、<a href="/aff/terms.html" target="_blank" rel="noopener">利用規約</a>および<a href="/aff/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとみなします。</p>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary btn-lg form-submit" id="formSubmit">送信する</button>
       </div>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-      <p class="form-privacy">送信いただいた情報は、クーポンの発行および報酬のお振込のみに使用し、それ以外の目的では利用しません。</p>
+      <p class="form-privacy">ご入力いただいた情報は、クーポンの発行および報酬のお振込のみに使用し、それ以外の目的では利用しません。詳しくは<a href="/aff/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>をご確認ください。</p>
     </form>
   </div>
 </section>
@@ -777,6 +780,9 @@
           <li><a href="#flow">仕組み</a></li>
           <li><a href="#sim">報酬シミュレーション</a></li>
           <li><a href="#faq">よくある質問</a></li>
+          <li><a href="/aff/terms.html">利用規約</a></li>
+          <li><a href="/aff/privacy.html">プライバシーポリシー</a></li>
+          <li><a href="/aff/tokushoho.html">特定商取引法に基づく表記</a></li>
           <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
           <li><a href="https://horiemon.ai/">運営会社サイト</a></li>
         </ul>
