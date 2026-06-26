@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホリエモンAI学校 受講記録ダッシュボード</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F2; --panel:#FFFFFF; --ink:#16181D; --ink-soft:#3C4049;
+    --muted:#6B7280; --hair:#E7E4DC; --hair-strong:#D8D4C8;
+    --signal:#E8482B;            /* 講座・コンテンツ */
+    --indigo:#2B3A67;            /* 法人・団体 */
+    --amber:#E0A100;             /* FC校 */
+    --slate:#9AA0AA;             /* 社内・テスト */
+    --signal-soft:#FBE3DC;
+    --r:14px;
+    --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    --mono:"Space Grotesk",var(--sans);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--sans);
+    line-height:1.6; -webkit-font-smoothing:antialiased; padding:clamp(16px,4vw,44px);
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+
+  /* ---------- header ---------- */
+  header.top{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;flex-wrap:wrap;
+    padding-bottom:20px;margin-bottom:26px;border-bottom:2px solid var(--ink);
+  }
+  .brand-eyebrow{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--signal);font-weight:600;margin-bottom:6px;
+  }
+  h1{font-size:clamp(1.5rem,3.4vw,2.3rem);font-weight:900;letter-spacing:-.01em;line-height:1.15}
+  .sub{color:var(--muted);font-size:.9rem;margin-top:8px}
+  .period{
+    font-family:var(--mono);text-align:right;font-size:.82rem;color:var(--ink-soft);
+    border:1px solid var(--hair-strong);border-radius:var(--r);padding:10px 14px;background:var(--panel);
+  }
+  .period b{display:block;font-size:1.05rem;color:var(--ink);font-weight:600;letter-spacing:.02em}
+
+  /* ---------- KPI ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:30px}
+  .kpi{
+    background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);
+    padding:18px 16px 16px;position:relative;overflow:hidden;
+  }
+  .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ink)}
+  .kpi.accent::before{background:var(--signal)}
+  .kpi .label{font-size:.74rem;color:var(--muted);font-weight:500;margin-bottom:8px;letter-spacing:.01em}
+  .kpi .val{font-family:var(--mono);font-size:2rem;font-weight:700;line-height:1;letter-spacing:-.02em}
+  .kpi .val .u{font-size:.85rem;font-weight:500;color:var(--ink-soft);margin-left:3px}
+  .kpi .foot{font-size:.72rem;color:var(--muted);margin-top:7px}
+
+  /* ---------- panels ---------- */
+  .panel{
+    background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);
+    padding:22px clamp(16px,2.4vw,26px);margin-bottom:22px;
+  }
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .ph{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:4px}
+  .ph h2{font-size:1.08rem;font-weight:700;letter-spacing:.01em}
+  .ph .n{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+  .pdesc{font-size:.8rem;color:var(--muted);margin-bottom:18px}
+
+  /* ---------- trend chart (signature) ---------- */
+  .trend-wrap{position:relative}
+  svg.trend{width:100%;height:auto;display:block;overflow:visible}
+  .axis-lbl{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+  .bar{fill:var(--signal-soft);transition:fill .15s}
+  .bar.peak{fill:var(--signal)}
+  .barg:hover .bar{fill:var(--signal)}
+  .dot{fill:var(--ink)}
+  .peak-tag{font-family:var(--mono);font-size:10px;fill:var(--signal);font-weight:600}
+
+  /* renewal */
+  .renew-stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .rs{flex:1;min-width:130px;border:1px solid var(--hair);border-radius:10px;padding:11px 13px;background:var(--paper)}
+  .rs .l{font-size:.72rem;color:var(--muted);margin-bottom:4px}
+  .rs .v{font-family:var(--mono);font-size:1.3rem;font-weight:700;line-height:1}
+  .rs .v .u{font-size:.78rem;font-weight:500;color:var(--ink-soft);margin-left:2px}
+  .rs.warn .v{color:var(--amber)} .rs.ok .v{color:var(--indigo)}
+  .ebar{fill:#DfE3EC;transition:fill .15s}
+  .ebarg:hover .ebar,.ebar.hot{fill:var(--indigo)}
+  .trend-tip{
+    position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-118%);
+    background:var(--ink);color:#fff;font-family:var(--mono);font-size:.72rem;
+    padding:5px 9px;border-radius:7px;white-space:nowrap;transition:opacity .12s;z-index:5;
+  }
+  .trend-tip b{font-size:.85rem}
+
+  /* ---------- stacked category bar ---------- */
+  .stack{display:flex;height:38px;border-radius:9px;overflow:hidden;margin:4px 0 18px}
+  .stack span{display:flex;align-items:center;justify-content:center;color:#fff;
+    font-family:var(--mono);font-size:.72rem;font-weight:600;min-width:0;transition:flex .3s}
+  .legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+  .lg{display:flex;align-items:center;gap:9px;font-size:.85rem}
+  .sw{width:12px;height:12px;border-radius:3px;flex:none}
+  .lg .lc{margin-left:auto;font-family:var(--mono);color:var(--ink-soft);font-weight:600}
+
+  /* ---------- ranking bars ---------- */
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+  .chip{
+    font-family:var(--sans);font-size:.76rem;font-weight:500;cursor:pointer;
+    border:1px solid var(--hair-strong);background:var(--panel);color:var(--ink-soft);
+    padding:5px 12px;border-radius:20px;transition:all .15s;display:flex;align-items:center;gap:6px;
+  }
+  .chip .d{width:8px;height:8px;border-radius:50%}
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .rank{display:flex;flex-direction:column;gap:9px;max-height:420px;overflow-y:auto;padding-right:6px}
+  .rank::-webkit-scrollbar{width:8px}
+  .rank::-webkit-scrollbar-thumb{background:var(--hair-strong);border-radius:4px}
+  .row{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center}
+  .row .name{font-size:.84rem;display:flex;align-items:center;gap:8px;min-width:0}
+  .row .name .d{width:7px;height:7px;border-radius:50%;flex:none}
+  .row .name span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .cnt{font-family:var(--mono);font-size:.82rem;font-weight:600;color:var(--ink-soft)}
+  .track{grid-column:1/-1;height:7px;background:var(--paper);border-radius:4px;overflow:hidden}
+  .fill{height:100%;border-radius:4px;width:0;transition:width .5s cubic-bezier(.2,.7,.3,1)}
+
+  /* ---------- hbars (purpose/channel) ---------- */
+  .hbars{display:flex;flex-direction:column;gap:14px}
+  .hb .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:5px}
+  .hb .t{font-size:.85rem;line-height:1.35}
+  .hb .v{font-family:var(--mono);font-size:.82rem;font-weight:600;white-space:nowrap}
+  .hb .v .pct{color:var(--muted);font-weight:500;font-size:.72rem;margin-left:4px}
+  .hb .track{height:9px;background:var(--paper);border-radius:5px;overflow:hidden}
+  .hb .fill{height:100%;border-radius:5px;width:0;transition:width .6s cubic-bezier(.2,.7,.3,1)}
+
+  /* ---------- notes ---------- */
+  .notes{font-size:.78rem;color:var(--muted);line-height:1.7}
+  .notes b{color:var(--ink-soft)}
+  .notes ul{margin:8px 0 0 1.1em}
+  footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--hair);
+    font-size:.74rem;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  footer .mono{font-family:var(--mono)}
+
+  @media(max-width:860px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .grid2{grid-template-columns:1fr}
+    header.top{align-items:flex-start}
+    .period{text-align:left}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <div class="brand-eyebrow">Horiemon AI School · 受講記録</div>
+      <h1>会員ダッシュボード</h1>
+      <p class="sub">1行＝1名の会員データを集計。氏名・メールは除外済みの匿名版です。</p>
+    </div>
+    <div class="period">
+      集計期間（加入日記録ベース）
+      <b id="period">—</b>
+    </div>
+  </header>
+
+  <!-- KPI -->
+  <section class="kpis" id="kpis"></section>
+
+  <!-- 入会推移：signature -->
+  <section class="panel">
+    <div class="ph">
+      <h2>月別 入会推移</h2>
+      <span class="n" id="trend-n">—</span>
+    </div>
+    <p class="pdesc">開校期の'25年7月と、年明け'26年1月に大きな山。法人導入の波がはっきり出ています。</p>
+    <div class="trend-wrap">
+      <svg class="trend" id="trend" viewBox="0 0 920 300" role="img" aria-label="月別入会推移"></svg>
+      <div class="trend-tip" id="tip"></div>
+    </div>
+  </section>
+
+  <!-- 契約更新スケジュール -->
+  <section class="panel">
+    <div class="ph">
+      <h2>契約更新スケジュール（有効期限）</h2>
+      <span class="n" id="exp-n">—</span>
+    </div>
+    <p class="pdesc">年間前払いモデルの更新タイミング。今後の山に向けて、事前のフォロー設計に。</p>
+    <div class="renew-stats" id="renew-stats"></div>
+    <div class="trend-wrap">
+      <svg class="trend" id="expchart" viewBox="0 0 920 280" role="img" aria-label="月別更新予定"></svg>
+      <div class="trend-tip" id="exptip"></div>
+    </div>
+  </section>
+
+  <div class="grid2">
+    <!-- カテゴリ構成 -->
+    <section class="panel">
+      <div class="ph"><h2>所属カテゴリ構成</h2><span class="n" id="cat-total"></span></div>
+      <p class="pdesc">グループ所属の延べ数。1人が複数グループに所属するケースを含みます。</p>
+      <div class="stack" id="stack"></div>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <!-- グループ別ランキング -->
+    <section class="panel">
+      <div class="ph"><h2>グループ別 会員数</h2><span class="n" id="grp-n"></span></div>
+      <div class="chips" id="chips"></div>
+      <div class="rank" id="rank"></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <!-- 入会目的 -->
+    <section class="panel">
+      <div class="ph"><h2>入会目的・身につけたいスキル</h2></div>
+      <p class="pdesc" id="purpose-desc">複数選択可。バーは回答者に対する割合。</p>
+      <div class="hbars" id="purpose"></div>
+    </section>
+
+    <!-- 流入経路 -->
+    <section class="panel">
+      <div class="ph"><h2>認知の入口（流入経路）</h2></div>
+      <p class="pdesc" id="channel-desc">複数選択可。紹介と堀江さん経由が二大流入です。</p>
+      <div class="hbars" id="channel"></div>
+    </section>
+  </div>
+
+  <!-- データの読み方 -->
+  <section class="panel">
+    <div class="ph"><h2>データの読み方・注意点</h2></div>
+    <div class="notes" id="notes"></div>
+  </section>
+
+  <footer>
+    <span>ホリエモンAI学校株式会社 ／ 受講記録 匿名集計版</span>
+    <span class="mono" id="gen"></span>
+  </footer>
+</div>
+
+<script>
+const DATA = {
+ "kpi": {
+  "members": 5482,
+  "active": 5473,
+  "disabled": 9,
+  "with_meta": 2813,
+  "exp_tracked": 2458,
+  "survey": 608,
+  "unique_groups": 299,
+  "span_from": "2025-07-01",
+  "span_to": "2026-06-26",
+  "expired": 965,
+  "valid_future": 1493
+ },
+ "monthly": {
+  "2025-07": 273,
+  "2025-08": 175,
+  "2025-09": 125,
+  "2025-10": 178,
+  "2025-11": 166,
+  "2025-12": 189,
+  "2026-01": 575,
+  "2026-02": 172,
+  "2026-03": 306,
+  "2026-04": 202,
+  "2026-05": 249,
+  "2026-06": 203
+ },
+ "exp_monthly": {
+  "2026-06": 47,
+  "2026-07": 105,
+  "2026-08": 41,
+  "2026-09": 88,
+  "2026-10": 75,
+  "2026-11": 131,
+  "2026-12": 151,
+  "2027-01": 192,
+  "2027-02": 94,
+  "2027-03": 187,
+  "2027-04": 220,
+  "2027-05": 117,
+  "2027-06": 45
+ },
+ "cat_totals": {
+  "法人・団体": 1815,
+  "FC校": 734,
+  "講座・コンテンツ": 4430,
+  "社内・テスト": 13
+ },
+ "groups": [
+  {
+   "name": "100全動画",
+   "count": 2477,
+   "cat": "講座・コンテンツ"
+  },
+  {
+   "name": "体験入学",
+   "count": 622,
+   "cat": "講座・コンテンツ"
+  },
+  {
+   "name": "Lステップ",
+   "count": 573,
+   "cat": "講座・コンテンツ"
+  },
+  {
+   "name": "助成金資料260306ver.",
+   "count": 342,
+   "cat": "講座・コンテンツ"
+  },
+  {
+   "name": "ホリエモンAI副業",
+   "count": 333,
+   "cat": "講座・コンテンツ"
+  },
+  {
+   "name": "【FC】LIFEFUND建築校",
+   "count": 302,
+   "cat": "FC校"
+  },
+  {
+   "name": "【FC】ACG介護校",
+   "count": 109,
+   "cat": "FC校"
+  },
+  {
+   "name": "【FC】不動産校",
+   "count": 65,
+   "cat": "FC校"
+  },
+  {
+   "name": "【FC】マナビバ福岡校",
+   "count": 64,
+   "cat": "FC校"
+  },
+  {
+   "name": "【FC】GKライン新宿校",
+   "count": 64,
+   "cat": "FC校"
+  },
+  {
+   "name": "ホリエモンAI学校",
+   "count": 59,
+   "cat": "講座・コンテンツ"
+  },
+  {
+   "name": "【FC】フェローズ校",
+   "count": 51,
+   "cat": "FC校"
+  },
+  {
+   "name": "和同情報システム株式会社",
+   "count": 46,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "和同情報システム株式会社_受講2",
+   "count": 46,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ラ・アトレ",
+   "count": 38,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "イタンジ株式会社",
+   "count": 32,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "アスベックス株式会社",
+   "count": 30,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社LUMBER ONE",
+   "count": 29,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ジーケーライン",
+   "count": 29,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社嵩心",
+   "count": 27,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社コラム建設",
+   "count": 27,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社LIFEFUND",
+   "count": 26,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "第一化成株式会社",
+   "count": 25,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社イトコー",
+   "count": 24,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "AI経営塾",
+   "count": 24,
+   "cat": "講座・コンテンツ"
+  },
+  {
+   "name": "【FC】和同情報新潟校",
+   "count": 23,
+   "cat": "FC校"
+  },
+  {
+   "name": "ワタナベグループホールディングス株式会社",
+   "count": 23,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "べスカ株式会社",
+   "count": 23,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社スタジオタカノ",
+   "count": 21,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ヤサカ",
+   "count": 20,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社柿野工務店",
+   "count": 20,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社住家",
+   "count": 20,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社柳沼",
+   "count": 18,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社おおしま",
+   "count": 18,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "【FC】APパートナーズ校",
+   "count": 18,
+   "cat": "FC校"
+  },
+  {
+   "name": "株式会社APパートナーズ",
+   "count": 17,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "【FC】税理士校",
+   "count": 16,
+   "cat": "FC校"
+  },
+  {
+   "name": "社会福祉法人足羽福祉会",
+   "count": 16,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "笠井食品株式会社",
+   "count": 16,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社wholelife",
+   "count": 16,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社フェローズ",
+   "count": 16,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ACG",
+   "count": 16,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "丸楽紙業株式会社",
+   "count": 15,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ClassLab.",
+   "count": 15,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社マザーライク",
+   "count": 14,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "BEACON WORKS株式会社",
+   "count": 14,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社エスエスケイ",
+   "count": 14,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "新東昭不動産株式会社",
+   "count": 13,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "【FC】SMG経営塾校",
+   "count": 13,
+   "cat": "FC校"
+  },
+  {
+   "name": "株式会社センバドー",
+   "count": 12,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "SUPERNET digital 株式会社",
+   "count": 12,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "岡谷機電株式会社",
+   "count": 12,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社シバウラ防災製作所",
+   "count": 12,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アイユース",
+   "count": 12,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "神原汽船株式会社",
+   "count": 11,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社N-vision",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社介福本舗",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "Natureスペース株式会社",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "学校法人清光学園",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社エーワンコンサルタント",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ナガヨシ",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "高木工業株式会社",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社トライスパイド",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "社会福祉法人さわらび会",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "小山木材株式会社",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社プロモスト",
+   "count": 10,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "フジミレニアム有限会社",
+   "count": 9,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ブリステック株式会社",
+   "count": 9,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ハルマリ",
+   "count": 9,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "【FC】ブリステック病院クリニック校",
+   "count": 9,
+   "cat": "FC校"
+  },
+  {
+   "name": "北日本機械株式会社",
+   "count": 9,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社いろ葉",
+   "count": 9,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "POSCO Japan PC株式会社",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社澤井珈琲",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社Logos&Pathos Consulting",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社nanaple",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "シミズ薬品株式会社",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "日伸産業株式会社",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "時空RANNYs株式会社",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "東洋精糖株式会社",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "医療法人オキュロフェイシャルクリニックグループ",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社TANZEN",
+   "count": 8,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社吉川組",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ベルヴィ株式会社",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "川口水産株式会社",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "アイ・ウッド株式会社",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社さくらホスメディカル",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社片岡バイオ研究所",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社松島組",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アイグローブ",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "二和電設株式会社",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アイ・ティー・エフ",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ジェイ・アイ・エム",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社リベア",
+   "count": 7,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ホリエモンAI学校社内グループ",
+   "count": 7,
+   "cat": "社内・テスト"
+  },
+  {
+   "name": "タイセイエンジニアリング株式会社",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "マコトホーム株式会社",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "社会福祉法人常山会",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ディーシーエム",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ジャパン・コンストラクション・システム",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "メディカルケア株式会社",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社サワライズ",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社川豊本店",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ＣＬＥ総合研究所",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "中國商事株式会社",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "キングラントウホク株式会社",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "フジ自動車工業株式会社",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社プラネアール",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "医療法人医心会",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ラッキーネットワークサービス",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社スペースエイジ",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "一般社団法人友明会",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "スペラビ税理士法人",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社総合技研設計",
+   "count": 6,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ワクティブラボ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ダイム",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "中電不動産株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社サンワーク",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社フジキカイ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "有限会社ミセガマエヤ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社シードブレイン",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "AFURI株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "中部グローバル青果株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ラスター",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "カーサプロジェクト株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アズアリンク",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社セフニア",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社千代田企業",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社river",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ポールトゥウィン株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社つづく",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "富士隆工業有限会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社 A.t.oath",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "FirstTEAM株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社広告通信社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ギアハウス株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社今治．夢スポーツ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ワーサル",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社フードマン",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社MONOLITH",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社エスイーライフ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "新宿校体験入学",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "個人プラン無料体験",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ライフリード",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ココロマネジメント株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社マシュマロの樹",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ニューステップ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社きなりハウス",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社シオダ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社春昇建築",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "税理士法人タキグマ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ユーホームズ",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "SMG菅原経営株式会社",
+   "count": 5,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社久米田建材店",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "三楽紙工株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "社会福祉法人南高愛隣会",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アクトビューロー",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "近畿ガス工事株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アーキリム総合設計",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社DIOhomes",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社クオリティーエステート",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社OKISHIN",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社八家",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "LIG株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "東京オペラシティビル株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社フジコーポレーション",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社山口不動産",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社北海道通信ネットワーク",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "横浜Luna Clinic",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社洞口",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社Y.Sプランニング",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社きんぼし",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社T-M・サポート",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "田中青果株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "一般社団法人つなぐいのち",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ゆたか創案株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社Haab Homme",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "伊東マリンタウン株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "医療法人社団真正会",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社カクタ",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社釣八",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社グッドヌードルイノベーション",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "肌美和株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ボールド",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "圓佛産業株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アグリード",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "アイビ産業株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社さなる九州",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "医療法人社団恵怜会",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "2plus8株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "久野印刷株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社マール",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社九電工",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社シェリー",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社プライム・ワン",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社スタッフシュウエイ",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社FUNDINNO",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社小林パック工業",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社スタッフサービス・ホールディングス",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "Camp",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社KAPEN",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ファイブエージャパン株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ベルク",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社EGIJ",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "社会福祉法人天祐会",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社Y.HOUSING",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アスムコーポレーション",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アーキ・ピーアンドシー",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "下館鉄興株式会社",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社耀理不動産",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "2日Camp",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ホリエモンAI ANIME CAMP with Nonomen",
+   "count": 4,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "SNS m&c(堀江関係者テスト)",
+   "count": 4,
+   "cat": "社内・テスト"
+  },
+  {
+   "name": "株式会社TAKAYASU",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "合同会社ｉサポグループ",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "贈り物本舗じざけや有限会社",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社くらしく",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "有限会社玉木新雌",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "鋸南リゾート株式会社",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "アンザイ株式会社",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社こころ",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社DST planning",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "米田木材株式会社",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ライフデザイン株式会社",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "旧使用）福岡校",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社パルティーレ",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社シンテックホズミ",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "アダプト株式会社",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ファーリア社会保険労務士法人",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "有限会社いちぼし",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社NULL",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "Green Electric株式会社",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社IPT",
+   "count": 3,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社アイエステクノサービス",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "有限会社多良見砕石",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社エランサービス",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社関西第一ホーム",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "大紀商事株式会社",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "太陽サカコー株式会社",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ミライズクリエイト株式会社",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社テクニカル・ジャパン",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社Emiraiz",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "FIND VALUE株式会社",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社Weather",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社SKY",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社SKYホールディングス",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "アンセネクリニック築地",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "Sky Creation, Inc",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "医療法人ユナイテッド",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "医療法人社団NEXUS",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "Nozomiプログラミング＆Web株式会社",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "Ge3y’s株式会社",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "有限会社福島総建",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社S-ZEAL",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社石川設計",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "鳥井油業株式会社",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社TENKENGO",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "NECフィールディング株式会社",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "医療法人社団青和会",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社トライウェル",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社インターロジック",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社RICORDO",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "協力会社など_受講生と同じものを見せる用",
+   "count": 2,
+   "cat": "社内・テスト"
+  },
+  {
+   "name": "APパートナーズ第二陣",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社マナビバ",
+   "count": 2,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社日建",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社大岡成光建築事務所",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社あいホーム",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "Yz法律事務所",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ホテル泉慶",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社LDS",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社WithHearts",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社インフォテクノ朝日",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社まごころライフ",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社星防水",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社うちだ屋",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社こむぎの",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "有限会社イマショー",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社真魚始",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社まる優",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "有限会社モクレンジャパン",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "simpline株式会社",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ラッキーホールディングス株式会社",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "河原紙業株式会社",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "ナカソネ住設株式会社",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社Center Flow",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社ハーツ",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社SKCエナジー",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "アステナホールディングス株式会社",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社メディプロデュース",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社サイテキ",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "合同会社BLESS",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社スポーツライフ",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "Credo Clinic 新宿",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社Ling",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社HANKA",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社金禄",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "株式会社DCサポートセンター",
+   "count": 1,
+   "cat": "法人・団体"
+  },
+  {
+   "name": "アルタ",
+   "count": 1,
+   "cat": "法人・団体"
+  }
+ ],
+ "purpose": [
+  [
+   "業務効率化・生産性向上",
+   394
+  ],
+  [
+   "最新のAIツール（ChatGPT, Claude, Gemini, Cursor等）の使いこなし",
+   371
+  ],
+  [
+   "副業案件を獲得し、具体的な収入を得たい",
+   175
+  ],
+  [
+   "画像生成・動画生成スキルの習得",
+   173
+  ],
+  [
+   "バイブコーディング（コード知識なしでのアプリ・ツール自作）",
+   98
+  ],
+  [
+   "現在の本業（事務・経理・営業等）の業務効率化・生産性向上",
+   9
+  ],
+  [
+   "ルーティン作業の自動化スキル（n8n, Dify, GAS等）",
+   9
+  ],
+  [
+   "AIを活用して起業・新規事業を立ち上げたい",
+   3
+  ],
+  [
+   "AIコンサルタントやAI顧問として活躍できるスキル",
+   1
+  ],
+  [
+   "ビジネスの最新トレンドや活用事例の把握",
+   1
+  ]
+ ],
+ "channel": [
+  [
+   "知人・友人・上司の紹介",
+   357
+  ],
+  [
+   "堀江貴文氏のX (旧Twitter) 投稿・リポスト",
+   138
+  ],
+  [
+   "YouTube（ホリエモンチャンネル、出演動画、広告CM）",
+   70
+  ],
+  [
+   "Google / Yahoo! 検索広告",
+   41
+  ],
+  [
+   "ホリエモンAI学校 公式LINE",
+   20
+  ],
+  [
+   "Instagram広告 / Meta広告（Facebook含む）",
+   12
+  ],
+  [
+   "Web比較サイト・紹介サイト",
+   1
+  ]
+ ]
+};
+
+const CAT_COLOR = {
+  "講座・コンテンツ":"var(--signal)",
+  "法人・団体":"var(--indigo)",
+  "FC校":"var(--amber)",
+  "社内・テスト":"var(--slate)"
+};
+const fmt = n => n.toLocaleString("ja-JP");
+const jpYM = ym => { const [y,m]=ym.split("-"); return `${y.slice(2)}/${+m}`; };
+
+/* ---------- period ---------- */
+(function(){
+  const f=DATA.kpi.span_from.split("-"), t=DATA.kpi.span_to.split("-");
+  document.getElementById("period").textContent =
+    `${f[0]}.${f[1]} — ${t[0]}.${t[1]}`;
+  const d=new Date();
+  document.getElementById("gen").textContent =
+    `generated ${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,"0")}.${String(d.getDate()).padStart(2,"0")}`;
+})();
+
+/* ---------- KPI ---------- */
+(function(){
+  const k=DATA.kpi;
+  const rate=Math.round(k.survey/k.with_meta*100);
+  const cards=[
+    {label:"会員総数",val:k.members,u:"名",foot:"1行＝1名・全員会員",accent:true},
+    {label:"有効会員",val:k.active,u:"名",foot:`無効化済み ${k.disabled}名`},
+    {label:"所属グループ種類",val:k.unique_groups,u:"",foot:"法人・FC・講座など"},
+    {label:"加入日 記録あり",val:k.with_meta,u:"名",foot:"推移グラフのベース"},
+    {label:"アンケート回答",val:k.survey,u:"名",foot:`回答率 ${rate}%`}
+  ];
+  const el=document.getElementById("kpis");
+  el.innerHTML=cards.map(c=>`
+    <div class="kpi${c.accent?" accent":""}">
+      <div class="label">${c.label}</div>
+      <div class="val"><span class="cu" data-to="${c.val}">0</span>${c.u?`<span class="u">${c.u}</span>`:""}</div>
+      <div class="foot">${c.foot}</div>
+    </div>`).join("");
+  animateCount();
+})();
+
+function animateCount(){
+  const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  document.querySelectorAll(".cu").forEach(s=>{
+    const to=+s.dataset.to;
+    if(reduce){s.textContent=fmt(to);return;}
+    const dur=900,st=performance.now();
+    (function step(now){
+      const p=Math.min(1,(now-st)/dur), e=1-Math.pow(1-p,3);
+      s.textContent=fmt(Math.round(to*e));
+      if(p<1)requestAnimationFrame(step);
+    })(st);
+  });
+}
+
+/* ---------- trend ---------- */
+(function(){
+  const m=DATA.monthly, keys=Object.keys(m), vals=keys.map(k=>m[k]);
+  const W=920,H=300, padL=34,padR=14,padT=34,padB=34;
+  const iw=W-padL-padR, ih=H-padT-padB;
+  const max=Math.max(...vals), n=keys.length;
+  const bw=iw/n*0.5;
+  const x=i=>padL+ (i+0.5)*(iw/n);
+  const y=v=>padT+ih-(v/max*ih);
+  const peakIdx=vals.indexOf(max);
+
+  let s="";
+  // gridlines
+  for(let g=0;g<=2;g++){
+    const gv=Math.round(max*g/2), gy=y(gv);
+    s+=`<line x1="${padL}" x2="${W-padR}" y1="${gy}" y2="${gy}" stroke="var(--hair)" stroke-width="1"/>`;
+    s+=`<text x="${padL-8}" y="${gy+3}" text-anchor="end" class="axis-lbl">${gv}</text>`;
+  }
+  // area line connecting tops
+  let line="", area=`M ${x(0)} ${y(vals[0])}`;
+  keys.forEach((k,i)=>{ line+=`${i?"L":"M"} ${x(i)} ${y(vals[i])} `; if(i)area+=` L ${x(i)} ${y(vals[i])}`; });
+  area+=` L ${x(n-1)} ${padT+ih} L ${x(0)} ${padT+ih} Z`;
+  s+=`<path d="${area}" fill="var(--signal-soft)" opacity=".45"/>`;
+  // bars
+  keys.forEach((k,i)=>{
+    const bx=x(i)-bw/2, by=y(vals[i]);
+    s+=`<g class="barg" data-ym="${k}" data-v="${vals[i]}" data-cx="${x(i)}" data-cy="${by}">
+      <rect class="bar${i===peakIdx?" peak":""}" x="${bx}" y="${by}" width="${bw}" height="${padT+ih-by}" rx="3"/>
+      <rect x="${bx-6}" y="${padT}" width="${bw+12}" height="${ih}" fill="transparent"/>
+    </g>`;
+  });
+  s+=`<path d="${line}" fill="none" stroke="var(--signal)" stroke-width="2"/>`;
+  keys.forEach((k,i)=> s+=`<circle class="dot" cx="${x(i)}" cy="${y(vals[i])}" r="${i===peakIdx?3.5:2.4}"/>`);
+  // peak tag
+  s+=`<text class="peak-tag" x="${x(peakIdx)}" y="${y(max)-10}" text-anchor="middle">▲ ${max}名</text>`;
+  // x labels
+  keys.forEach((k,i)=> s+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" class="axis-lbl">${jpYM(k)}</text>`);
+
+  const svg=document.getElementById("trend"); svg.innerHTML=s;
+  const tip=document.getElementById("tip"), wrap=svg.parentElement;
+  svg.querySelectorAll(".barg").forEach(g=>{
+    g.addEventListener("mouseenter",()=>{
+      const r=svg.getBoundingClientRect(), wr=wrap.getBoundingClientRect();
+      const sx=r.width/W, sy=r.height/H;
+      tip.style.left=((+g.dataset.cx)*sx + (r.left-wr.left))+"px";
+      tip.style.top=((+g.dataset.cy)*sy + (r.top-wr.top))+"px";
+      tip.innerHTML=`${jpYM(g.dataset.ym).replace("/","年")}月 <b>${g.dataset.v}名</b>`;
+      tip.style.opacity=1;
+    });
+    g.addEventListener("mouseleave",()=>tip.style.opacity=0);
+  });
+})();
+
+/* ---------- trend count label + renewal schedule ---------- */
+document.getElementById("trend-n").textContent = `加入日が記録された ${fmt(DATA.kpi.with_meta)}名分`;
+
+(function(){
+  const k=DATA.kpi;
+  document.getElementById("exp-n").textContent=`期限管理 ${fmt(k.exp_tracked)}名`;
+  const renewPct = k.exp_tracked ? Math.round(k.valid_future/k.exp_tracked*100) : 0;
+  document.getElementById("renew-stats").innerHTML=`
+    <div class="rs ok"><div class="l">有効（未来に期限）</div><div class="v"><span class="cu" data-to="${k.valid_future}">0</span><span class="u">名</span></div></div>
+    <div class="rs warn"><div class="l">失効済み（要・再アプローチ）</div><div class="v"><span class="cu" data-to="${k.expired}">0</span><span class="u">名</span></div></div>
+    <div class="rs"><div class="l">有効継続率</div><div class="v">${renewPct}<span class="u">%</span></div></div>`;
+  animateCount();
+
+  const m=DATA.exp_monthly, keys=Object.keys(m), vals=keys.map(x=>m[x]);
+  if(!keys.length)return;
+  const W=920,H=280,padL=34,padR=14,padT=30,padB=34, iw=W-padL-padR, ih=H-padT-padB;
+  const max=Math.max(...vals), n=keys.length, bw=iw/n*0.55;
+  const x=i=>padL+(i+0.5)*(iw/n), y=v=>padT+ih-(v/max*ih);
+  // 「今月」境界（2026-06）以降が将来。最初の月にラインを引く
+  let s="";
+  for(let g=0;g<=2;g++){const gv=Math.round(max*g/2),gy=y(gv);
+    s+=`<line x1="${padL}" x2="${W-padR}" y1="${gy}" y2="${gy}" stroke="var(--hair)" stroke-width="1"/>`;
+    s+=`<text x="${padL-8}" y="${gy+3}" text-anchor="end" class="axis-lbl">${gv}</text>`;}
+  const peak=vals.indexOf(max);
+  keys.forEach((kk,i)=>{
+    const bx=x(i)-bw/2, by=y(vals[i]);
+    s+=`<g class="ebarg" data-ym="${kk}" data-v="${vals[i]}" data-cx="${x(i)}" data-cy="${by}">
+      <rect class="ebar${i===peak?" hot":""}" x="${bx}" y="${by}" width="${bw}" height="${padT+ih-by}" rx="3"/>
+      <rect x="${bx-5}" y="${padT}" width="${bw+10}" height="${ih}" fill="transparent"/></g>`;
+  });
+  s+=`<text class="peak-tag" style="fill:var(--indigo)" x="${x(peak)}" y="${y(max)-9}" text-anchor="middle">▲ ${max}名</text>`;
+  keys.forEach((kk,i)=> s+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" class="axis-lbl">${jpYM(kk)}</text>`);
+  const svg=document.getElementById("expchart"); svg.innerHTML=s;
+  const tip=document.getElementById("exptip"), wrap=svg.parentElement;
+  svg.querySelectorAll(".ebarg").forEach(g=>{
+    g.addEventListener("mouseenter",()=>{
+      const r=svg.getBoundingClientRect(), wr=wrap.getBoundingClientRect();
+      tip.style.left=((+g.dataset.cx)*(r.width/W)+(r.left-wr.left))+"px";
+      tip.style.top=((+g.dataset.cy)*(r.height/H)+(r.top-wr.top))+"px";
+      tip.innerHTML=`${jpYM(g.dataset.ym).replace("/","年")}月更新 <b>${g.dataset.v}名</b>`;
+      tip.style.opacity=1;
+    });
+    g.addEventListener("mouseleave",()=>tip.style.opacity=0);
+  });
+})();
+
+/* ---------- category stack ---------- */
+(function(){
+  const c=DATA.cat_totals, order=["講座・コンテンツ","法人・団体","FC校","社内・テスト"];
+  const tot=Object.values(c).reduce((a,b)=>a+b,0);
+  document.getElementById("cat-total").textContent=`延べ ${fmt(tot)} 件`;
+  document.getElementById("stack").innerHTML=order.map(k=>{
+    const v=c[k]||0, p=v/tot*100;
+    return `<span style="flex:${v};background:${CAT_COLOR[k]}" title="${k} ${v}">${p>9?v:""}</span>`;
+  }).join("");
+  document.getElementById("legend").innerHTML=order.map(k=>`
+    <div class="lg"><span class="sw" style="background:${CAT_COLOR[k]}"></span>${k}
+      <span class="lc">${fmt(c[k]||0)}</span></div>`).join("");
+})();
+
+/* ---------- ranking ---------- */
+(function(){
+  const groups=DATA.groups, maxC=Math.max(...groups.map(g=>g.count));
+  document.getElementById("grp-n").textContent=`全 ${groups.length} グループ`;
+  const cats=["すべて","講座・コンテンツ","法人・団体","FC校","社内・テスト"];
+  const chips=document.getElementById("chips");
+  chips.innerHTML=cats.map((c,i)=>`
+    <button class="chip" aria-pressed="${i===0}" data-cat="${c}">
+      ${c!=="すべて"?`<span class="d" style="background:${CAT_COLOR[c]}"></span>`:""}${c}
+    </button>`).join("");
+  const rank=document.getElementById("rank");
+  function render(cat){
+    const list=cat==="すべて"?groups:groups.filter(g=>g.cat===cat);
+    rank.innerHTML=list.map(g=>`
+      <div class="row">
+        <div class="name"><span class="d" style="background:${CAT_COLOR[g.cat]}"></span><span title="${g.name}">${g.name}</span></div>
+        <div class="cnt">${g.count}</div>
+        <div class="track"><div class="fill" style="background:${CAT_COLOR[g.cat]}" data-w="${g.count/maxC*100}"></div></div>
+      </div>`).join("");
+    requestAnimationFrame(()=>rank.querySelectorAll(".fill").forEach(f=>f.style.width=f.dataset.w+"%"));
+  }
+  chips.addEventListener("click",e=>{
+    const b=e.target.closest(".chip"); if(!b)return;
+    chips.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true"); render(b.dataset.cat);
+  });
+  render("すべて");
+})();
+
+/* ---------- horizontal bars ---------- */
+function hbars(id,rows,total,color){
+  const max=Math.max(...rows.map(r=>r[1]));
+  const el=document.getElementById(id);
+  el.innerHTML=rows.map(r=>`
+    <div class="hb">
+      <div class="top"><div class="t">${r[0]}</div>
+        <div class="v">${r[1]}<span class="pct">${Math.round(r[1]/total*100)}%</span></div></div>
+      <div class="track"><div class="fill" style="background:${color}" data-w="${r[1]/max*100}"></div></div>
+    </div>`).join("");
+  requestAnimationFrame(()=>el.querySelectorAll(".fill").forEach(f=>f.style.width=f.dataset.w+"%"));
+}
+hbars("purpose",DATA.purpose,DATA.kpi.survey,"var(--signal)");
+hbars("channel",DATA.channel,DATA.kpi.survey,"var(--indigo)");
+
+/* ---------- dynamic copy ---------- */
+(function(){
+  const k=DATA.kpi;
+  document.getElementById("purpose-desc").textContent=`アンケート回答 ${fmt(k.survey)}名・複数選択可。バーは回答者に対する割合。`;
+  document.getElementById("channel-desc").textContent=`アンケート回答 ${fmt(k.survey)}名・複数選択可。紹介と堀江さん経由が二大流入です。`;
+  const top=DATA.groups[0];
+  const idOnly=k.members-k.with_meta;
+  const rate=Math.round(k.survey/k.with_meta*100);
+  document.getElementById("notes").innerHTML=`
+    <b>会員総数は${fmt(k.members)}名。</b>うち、グループ名と加入日が記録されているのが${fmt(k.with_meta)}名分です。
+    残り${fmt(idOnly)}名は今回のデータ上ID（＋除外済みの氏名・メール）のみで、メタ情報が空欄でした。
+    <ul>
+      <li>「月別入会推移」「グループ別」「カテゴリ」は<b>記録のある${fmt(k.with_meta)}名分</b>の内訳です。</li>
+      <li>「契約更新スケジュール」は有効期限が入っている<b>${fmt(k.exp_tracked)}名分</b>。失効済み${fmt(k.expired)}名・有効${fmt(k.valid_future)}名。今後の更新ピークに向けた事前フォローの目安に。</li>
+      <li>「入会目的」「流入経路」は<b>アンケート回答${fmt(k.survey)}名分</b>（回答率${rate}%）。複数選択のため合計は人数を超えます。</li>
+      <li>無効化済みは <b>${fmt(k.disabled)}名</b>（有効会員 ${fmt(k.active)}名）。</li>
+      <li>最大グループは「${top.name}」で${fmt(top.count)}名。多くの会員が所属するベース受講枠です。</li>
+    </ul>`;
+})();
+</script>
+</body>
+</html>
