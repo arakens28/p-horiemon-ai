@@ -220,6 +220,25 @@
     .reco-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .reco-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
 
+    /* ===== TARGET SERVICES / 対象サービス ===== */
+    .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+    .svc-card { display:flex; flex-direction:column; background:#fff; border:2px solid var(--gray-mid); border-radius:20px; padding:36px 32px; transition:var(--transition); }
+    .svc-card:hover { border-color:var(--red); box-shadow:0 8px 32px rgba(232,0,28,.1); transform:translateY(-4px); }
+    .svc-badge { align-self:flex-start; font-size:12px; font-weight:700; letter-spacing:.06em; color:#fff; background:var(--red); border-radius:99px; padding:4px 16px; margin-bottom:18px; }
+    .svc-name { font-size:22px; font-weight:900; line-height:1.4; margin-bottom:6px; }
+    .svc-desc { font-size:14px; color:var(--gray-text); line-height:1.8; margin-bottom:20px; }
+    .svc-price { background:var(--gray-light); border-radius:12px; padding:18px 20px; margin-bottom:20px; }
+    .svc-price .row { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+    .svc-price .row + .row { margin-top:8px; padding-top:8px; border-top:1px solid var(--gray-mid); }
+    .svc-price .label { font-size:13px; font-weight:700; color:var(--gray-text); }
+    .svc-price .val { font-size:22px; font-weight:900; color:var(--black); white-space:nowrap; }
+    .svc-price .val .tax { font-size:12px; font-weight:700; color:#999; margin-left:2px; }
+    .svc-off { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:var(--red); background:var(--red-bg); border-radius:8px; padding:8px 14px; margin-bottom:22px; }
+    .svc-link { margin-top:auto; }
+    .svc-link a { display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:700; color:var(--black); border:2px solid var(--black); border-radius:99px; padding:12px 24px; transition:var(--transition); }
+    .svc-link a:hover { background:var(--black); color:#fff; }
+    .svc-note { text-align:center; font-size:13px; color:#aaa; margin-top:24px; }
+
     /* ===== TRUST / 実績 ===== */
     .trust { background: var(--black); color:#fff; }
     .trust .section-title { color:#fff; }
@@ -506,6 +525,41 @@
         <p>ホリエモンAI学校の良さを実感している方。体験を語るだけで説得力のある紹介になります。</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== TARGET SERVICES / 対象サービス ===== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">紹介できる対象サービス</h2>
+      <p class="section-sub">あなたの招待コードは、以下の2つのサービスでご利用いただけます。どちらも紹介された方は20,000円割引、あなたには1件30,000円の報酬です。</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fade-up">
+        <span class="svc-badge">対象サービス A</span>
+        <h3 class="svc-name">ホリエモンAI学校 個人プラン</h3>
+        <p class="svc-desc">個人でホリエモンAI学校を受講できる月額制プラン。AIを継続的に学びたい方向けです。</p>
+        <div class="svc-price">
+          <div class="row"><span class="label">入会金</span><span class="val">162,800円<span class="tax">（税込）</span></span></div>
+          <div class="row"><span class="label">月額</span><span class="val">16,280円<span class="tax">（税込）</span></span></div>
+        </div>
+        <span class="svc-off">🎟️ 招待コードで 20,000円 OFF</span>
+        <div class="svc-link"><a href="https://horiemon.ai/" target="_blank" rel="noopener">サービス詳細を見る →</a></div>
+      </div>
+      <div class="svc-card fade-up">
+        <span class="svc-badge">対象サービス B</span>
+        <h3 class="svc-name">ホリエモンAI学校 1日Camp</h3>
+        <p class="svc-desc">Claude Code などのエージェンティックAIを1日で習得する集中プログラム。短期で実践力をつけたい方向けです。</p>
+        <div class="svc-price">
+          <div class="row"><span class="label">受講料</span><span class="val">220,000円<span class="tax">（税込）</span></span></div>
+        </div>
+        <span class="svc-off">🎟️ 招待コードで 20,000円 OFF</span>
+        <div class="svc-link"><a href="https://p.horiemon.ai/camp/" target="_blank" rel="noopener">サービス詳細を見る →</a></div>
+      </div>
+    </div>
+    <p class="svc-note">※ 価格・内容は各サービスの案内ページの内容が優先されます。対象サービスは変更される場合があります。</p>
   </div>
 </section>
 
