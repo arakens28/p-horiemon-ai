@@ -104,7 +104,7 @@
           { "@type": "Question", "name": "ツールの使い方だけを教えてもらえますか？", "acceptedAnswer": { "@type": "Answer", "text": "ツールの操作はもちろん、その先のマクロ経済やAI経営まで扱います。『使えるようになる』だけでなく『経営・事業にどう活かすか』までを設計します。" } },
           { "@type": "Question", "name": "業界団体や協会・組合でも依頼できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。企業はもちろん、業界団体・協会・組合・自治体など、組織単位でのご依頼を承っています。会員向けセミナーや勉強会の講演もご相談ください。" } },
           { "@type": "Question", "name": "内容や時間はカスタマイズできますか？", "acceptedAnswer": { "@type": "Answer", "text": "できます。記載のメニューは目安です。対象・目的・時間に合わせて、内容や回数を柔軟に設計します。まずはご相談ください。" } },
-          { "@type": "Question", "name": "どうやって依頼すればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "公式LINEから友だち追加のうえ、ご相談ください。日程・人数・ご希望のテーマをお知らせいただければ、最適なプランをご提案します。" } }
+          { "@type": "Question", "name": "どうやって依頼すればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "ページ下部のお問い合わせフォームからご相談ください。日程・人数・ご希望のテーマをお知らせいただければ、担当者より最適なプランをご提案します。" } }
         ]
       },
       {
@@ -196,15 +196,21 @@
     .hero-targets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
     .hero-targets span { font-size: 12px; font-weight: 700; color: var(--gray-text); background: var(--gray-light); border: 1px solid var(--gray-mid); border-radius: 99px; padding: 6px 14px; }
 
-    /* 右側：講師カード */
-    .speaker-box { background: var(--black); border-radius: 20px; padding: 8px; color: #fff; box-shadow: 0 24px 64px rgba(0,0,0,.22); }
-    .speaker-illust { background: linear-gradient(160deg, #ffffff, #ffe3e7); border-radius: 14px; overflow: hidden; position: relative; aspect-ratio: 4/3; }
-    .speaker-illust svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .speaker-meta { padding: 20px 22px 14px; }
-    .speaker-meta .tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.1em; color:#ff6b7a; background:rgba(232,0,28,.16); border-radius:99px; padding:3px 12px; margin-bottom:10px; }
-    .speaker-meta .name { font-size: 22px; font-weight: 900; }
-    .speaker-meta .name .en { font-size: 12px; font-weight: 500; color:#888; margin-left:8px; }
-    .speaker-meta .role { font-size: 12px; color: var(--red); font-weight: 700; margin-top: 2px; }
+    /* 右側：研修メニュー サマリーカード */
+    .menu-box { background: var(--black); border-radius: 20px; padding: 32px 28px; color: #fff; box-shadow: 0 24px 64px rgba(0,0,0,.22); }
+    .menu-box-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #888; margin-bottom: 18px; }
+    .menu-row { display: flex; align-items: center; gap: 14px; background: #252525; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+    .menu-row:last-of-type { margin-bottom: 0; }
+    .menu-ic { font-size: 22px; flex-shrink: 0; }
+    .menu-text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .menu-text span { font-size: 12px; color: #888; }
+    .menu-val { font-size: 18px; font-weight: 900; color: var(--red); margin-left: auto; flex-shrink: 0; white-space: nowrap; }
+    .menu-box .menu-foot { font-size: 12px; color: #888; margin-top: 16px; text-align: center; }
+
+    /* ===== MANGA（4コマ） ===== */
+    .manga { background: var(--gray-light); }
+    .manga-strip { max-width: 960px; margin: 48px auto 0; }
+    .manga-strip svg { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 12px 48px rgba(0,0,0,.1); border: 1px solid var(--gray-mid); background: #fff; }
 
     /* ===== STATS バー ===== */
     .stats { background: var(--black); color:#fff; }
@@ -280,10 +286,8 @@
     .plans-note { display:flex; align-items:center; gap:10px; justify-content:center; margin-top: 32px; font-size: 14px; color: var(--gray-text); background:#fff; border:1px solid var(--gray-mid); border-radius:10px; padding:14px 20px; max-width:760px; margin-left:auto; margin-right:auto; }
 
     /* ===== INSTRUCTOR ===== */
-    .instructor-card { max-width: 880px; margin: 56px auto 0; background: var(--black); border-radius: 24px; color: #fff; display: grid; grid-template-columns: 280px 1fr; gap: 0; overflow: hidden; }
-    .instructor-photo { background: linear-gradient(160deg, #ffffff, #ffe3e7); display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px; }
-    .instructor-photo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .instructor-body { padding: 44px 40px; }
+    .instructor-card { max-width: 760px; margin: 56px auto 0; background: var(--black); border-radius: 24px; color: #fff; overflow: hidden; }
+    .instructor-body { padding: 44px 44px; }
     .instructor-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--red); background: rgba(232,0,28,.16); border-radius: 99px; padding: 4px 16px; margin-bottom: 16px; }
     .instructor-name { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 4px; }
     .instructor-name .en { font-size: 14px; font-weight: 500; color: #888; margin-left: 12px; }
@@ -326,6 +330,19 @@
     .company-table th { width: 200px; padding: 20px 24px; font-size: 14px; font-weight: 700; text-align: left; background: var(--gray-light); vertical-align: top; white-space: nowrap; }
     .company-table td { padding: 20px 24px; font-size: 14px; color: var(--gray-text); line-height: 1.8; }
 
+    /* ===== CONTACT FORM ===== */
+    .contact-section { background: var(--black); padding: 96px 0; position: relative; overflow: hidden; }
+    .contact-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(232,0,28,.16) 0%, transparent 65%); pointer-events: none; }
+    .contact-section .text-center { position: relative; z-index: 1; }
+    .contact-section .section-label { display: inline-block; margin-bottom: 16px; color:#ff6b7a; background:rgba(232,0,28,.16); }
+    .contact-section .section-title { color: #fff; margin-bottom: 16px; }
+    .contact-section .cta-desc { font-size: 17px; color: #aaa; }
+    .contact-wrapper { position: relative; z-index: 1; max-width: 720px; margin: 44px auto 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 24px 64px rgba(0,0,0,.3); }
+    .contact-title { font-size: 18px; font-weight: 800; text-align: center; margin: 12px 0 4px; color: var(--black); }
+    .contact-sub { font-size: 13px; color: var(--gray-text); text-align: center; margin-bottom: 8px; }
+    .contact-frame { width: 100%; border: none; display: block; min-height: 1500px; border-radius: 10px; }
+    .contact-note { position: relative; z-index: 1; text-align: center; font-size: 13px; color: #777; margin-top: 24px; }
+
     /* ===== SCROLL ANIMATION ===== */
     .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -334,7 +351,7 @@
     .sp-sticky-footer { display: none; }
     @media (max-width: 768px) {
       .sp-sticky-footer { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; box-shadow: 0 -2px 12px rgba(0,0,0,.15); }
-      .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 16px 4px; font-size: 15px; font-weight: 800; text-decoration: none; background: var(--line-green); color: #fff; }
+      .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 16px 4px; font-size: 15px; font-weight: 800; text-decoration: none; background: var(--red); color: #fff; }
       .sp-sticky-footer .line-ico { font-weight:900; background:#fff; color:var(--line-green); border-radius:5px; font-size:11px; padding:1px 6px; }
       body { padding-bottom: 56px; }
     }
@@ -373,7 +390,7 @@
       <ul>
         <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
         <li><a href="#plans">料金プラン</a></li>
-        <li><a href="https://lin.ee/vv6fIon" class="ai-nav-line">LINEで相談</a></li>
+        <li><a href="#contact" class="ai-nav-line" style="background:var(--red)!important;">お問い合わせ</a></li>
       </ul>
     </nav>
     <button class="ai-menu-btn" id="aiMenuBtn" aria-label="メニュー">
@@ -401,7 +418,7 @@
           現場の生産性と経営の意思決定、その両方を動かす出張研修・講演をお届けします。
         </p>
         <div class="hero-actions">
-          <a href="https://lin.ee/vv6fIon" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで相談する →</a>
+          <a href="#contact" class="btn btn-primary btn-lg">無料で相談・お問い合わせ →</a>
           <a href="#plans" class="btn btn-outline">料金プランを見る</a>
         </div>
         <div class="hero-targets">
@@ -409,40 +426,24 @@
         </div>
       </div>
       <div class="hero-visual fade-up">
-        <div class="speaker-box">
-          <div class="speaker-illust">
-            <svg viewBox="0 0 280 210" role="img" aria-label="荒木賢二郎 イラスト" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="140" cy="120" r="120" fill="#ffd2d8" opacity="0.45"/>
-              <path d="M40,210 C46,168 86,148 140,148 C194,148 234,168 240,210 Z" fill="#161616"/>
-              <path d="M122,150 C128,166 152,166 158,150 C152,176 128,176 122,150 Z" fill="#2a2a2a"/>
-              <rect x="125" y="120" width="30" height="40" rx="13" fill="#e7b189"/>
-              <ellipse cx="140" cy="78" rx="62" ry="60" fill="#f2c6a0"/>
-              <ellipse cx="140" cy="120" rx="40" ry="22" fill="#f2c6a0"/>
-              <ellipse cx="80" cy="86" rx="10" ry="15" fill="#eab98f"/>
-              <ellipse cx="200" cy="86" rx="10" ry="15" fill="#eab98f"/>
-              <ellipse cx="103" cy="102" rx="12" ry="7" fill="#f29487" opacity="0.35"/>
-              <ellipse cx="177" cy="102" rx="12" ry="7" fill="#f29487" opacity="0.35"/>
-              <path d="M80,68 C78,26 108,4 140,4 C172,4 202,26 200,68 C192,50 184,41 170,37 C152,31 128,31 110,37 C96,41 88,50 80,68 Z" fill="#191919"/>
-              <path d="M96,60 q16,-8 32,-2" stroke="#191919" stroke-width="5" stroke-linecap="round" fill="none"/>
-              <path d="M152,58 q16,-6 32,2" stroke="#191919" stroke-width="5" stroke-linecap="round" fill="none"/>
-              <circle cx="112" cy="80" r="4.5" fill="#2b2b2b"/>
-              <circle cx="168" cy="80" r="4.5" fill="#2b2b2b"/>
-              <path d="M140,84 q-6,12 -7,17 q4,4 11,2" stroke="#d89c72" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-              <path d="M124,114 q16,8 32,0" stroke="#b5614c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-              <path d="M118,106 q22,11 44,0 q-10,10 -22,10 q-12,0 -22,-10 z" fill="#1c1c1c"/>
-              <path d="M112,116 C112,140 124,152 140,152 C156,152 168,140 168,116 C160,128 149,131 140,131 C131,131 120,128 112,116 Z" fill="#1c1c1c"/>
-              <path d="M90,74 L72,80" stroke="#111" stroke-width="6" stroke-linecap="round" fill="none"/>
-              <path d="M190,74 L208,80" stroke="#111" stroke-width="6" stroke-linecap="round" fill="none"/>
-              <rect x="90" y="60" width="44" height="38" rx="12" fill="#ffffff" fill-opacity="0.16" stroke="#111" stroke-width="6"/>
-              <rect x="146" y="60" width="44" height="38" rx="12" fill="#ffffff" fill-opacity="0.16" stroke="#111" stroke-width="6"/>
-              <path d="M134,74 q6,-5 12,0" stroke="#111" stroke-width="6" stroke-linecap="round" fill="none"/>
-            </svg>
+        <div class="menu-box">
+          <div class="menu-box-label">研修メニュー（税別）</div>
+          <div class="menu-row">
+            <span class="menu-ic">🎤</span>
+            <div class="menu-text"><strong>出張講演</strong><span>90分・1回</span></div>
+            <div class="menu-val">¥200,000</div>
           </div>
-          <div class="speaker-meta">
-            <span class="tag">講師・登壇</span>
-            <div class="name">荒木 賢二郎<span class="en">Kenjiro Araki</span></div>
-            <div class="role">ホリエモンAI学校株式会社 代表取締役社長</div>
+          <div class="menu-row">
+            <span class="menu-ic">📚</span>
+            <div class="menu-text"><strong>連続研修</strong><span>90分 × 5回</span></div>
+            <div class="menu-val">¥1,000,000</div>
           </div>
+          <div class="menu-row">
+            <span class="menu-ic">🏕️</span>
+            <div class="menu-text"><strong>1日Camp研修</strong><span>Claude Code／Cowork</span></div>
+            <div class="menu-val">¥1,000,000</div>
+          </div>
+          <div class="menu-foot">内容・回数・時間はカスタマイズ可／全国出張対応</div>
         </div>
       </div>
     </div>
@@ -519,6 +520,145 @@
     </div>
     <div class="concept-msg fade-up">
       <p>ツールの使い方ではなく、<br><span class="hl">AI時代に何をやるべきか</span>まで。<br>貴社の現場と経営に、直接届けます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MANGA（4コマ） ===== -->
+<section class="section manga" id="manga">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Story</span>
+      <h2 class="section-title">マンガでわかる、出張AI研修</h2>
+      <p class="section-sub">「研修したのに成果が出ない」——その理由と、私たちの解き方を4コマで。</p>
+    </div>
+    <div class="manga-strip fade-up">
+      <svg viewBox="0 0 960 640" role="img" aria-label="4コマ漫画：AI研修をやってもツールの使い方で終わってしまう企業に、荒木賢二郎がマクロ経済・AI経営まで含めた出張研修を行い、現場と経営の両方が動き出すストーリー" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .pf{stroke:#1a1a1a;stroke-width:3;}
+            .ln{stroke:#1a1a1a;stroke-width:3;stroke-linecap:round;fill:none;}
+            .ln2{stroke:#1a1a1a;stroke-width:2;stroke-linecap:round;fill:none;}
+            .bub{fill:#fff;stroke:#1a1a1a;stroke-width:3;}
+            .tx{font-family:'Noto Sans JP',sans-serif;font-weight:700;fill:#1a1a1a;}
+            .num{font-family:'Noto Sans JP',sans-serif;font-weight:900;fill:#fff;font-size:18px;}
+            .suit{fill:#2c3e5c;}
+            .skin{fill:#f2c6a0;}
+            .hair{fill:#1c1c1c;}
+          </style>
+        </defs>
+
+        <!-- ===== PANEL 1 ===== -->
+        <rect class="pf" x="16" y="16" width="456" height="286" rx="10" fill="#f3f4f7"/>
+        <circle cx="48" cy="48" r="20" fill="#1a1a1a"/><text class="num" x="48" y="55" text-anchor="middle">1</text>
+        <!-- 社長（困り） -->
+        <g transform="translate(120,150)">
+          <path class="suit" d="M-46,118 C-44,70 -22,52 0,52 C22,52 44,70 46,118 Z"/>
+          <path d="M-14,54 L0,96 L14,54 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M-4,56 L0,90 L4,56 Z" fill="#e8001c"/>
+          <rect class="skin" x="-9" y="34" width="18" height="26" rx="8"/>
+          <circle class="skin" cx="0" cy="12" r="30"/>
+          <path class="hair" d="M-31,8 C-32,-22 -16,-34 0,-34 C16,-34 32,-22 31,8 C24,-8 16,-13 0,-13 C-16,-13 -24,-8 -31,8 Z"/>
+          <path class="ln2" d="M-16,6 q7,-6 14,0"/>
+          <path class="ln2" d="M2,6 q7,-6 14,0"/>
+          <circle cx="-9" cy="16" r="2.6" fill="#1a1a1a"/>
+          <circle cx="9" cy="16" r="2.6" fill="#1a1a1a"/>
+          <path class="ln2" d="M-8,30 q8,-5 16,0"/>
+          <!-- 汗 -->
+          <path d="M26,2 q5,9 0,13 q-5,-4 0,-13 Z" fill="#7cc4ff" stroke="#3a9be0" stroke-width="1"/>
+        </g>
+        <path class="bub" d="M196,52 h232 a14,14 0 0 1 14,14 v78 a14,14 0 0 1 -14,14 h-150 l-26,24 v-24 h-56 a14,14 0 0 1 -14,-14 v-78 a14,14 0 0 1 14,-14 Z"/>
+        <text class="tx" x="206" y="86" font-size="19"><tspan x="206" dy="0">AI研修はやった。</tspan><tspan x="206" dy="30">でも結局、ツールの</tspan><tspan x="206" dy="30">使い方を覚えて終わり…</tspan></text>
+
+        <!-- ===== PANEL 2 ===== -->
+        <rect class="pf" x="488" y="16" width="456" height="286" rx="10" fill="#f3f4f7"/>
+        <circle cx="520" cy="48" r="20" fill="#1a1a1a"/><text class="num" x="520" y="55" text-anchor="middle">2</text>
+        <!-- 社員（肩すくめ） -->
+        <g transform="translate(860,160)">
+          <path class="suit" d="M-44,108 C-42,66 -20,50 0,50 C20,50 42,66 44,108 Z" fill="#5a6b86"/>
+          <rect class="skin" x="-8" y="34" width="16" height="24" rx="7"/>
+          <circle class="skin" cx="0" cy="14" r="28"/>
+          <path class="hair" d="M-29,12 C-30,-18 -15,-30 0,-30 C15,-30 30,-18 29,12 C22,-4 14,-9 0,-9 C-14,-9 -22,-4 -29,12 Z" fill="#3a2d22"/>
+          <ellipse cx="-9" cy="16" rx="2.5" ry="3" fill="#1a1a1a"/>
+          <ellipse cx="9" cy="16" rx="2.5" ry="3" fill="#1a1a1a"/>
+          <path class="ln2" d="M-6,30 q6,3 12,0"/>
+          <text x="34" y="-6" font-family="'Noto Sans JP',sans-serif" font-weight="900" font-size="26" fill="#888">?</text>
+        </g>
+        <path class="bub" d="M520,52 h236 a14,14 0 0 1 14,14 v82 a14,14 0 0 1 -14,14 h-150 l-26,24 v-24 h-60 a14,14 0 0 1 -14,-14 v-82 a14,14 0 0 1 14,-14 Z"/>
+        <text class="tx" x="532" y="84" font-size="18"><tspan x="532" dy="0">現場にも定着しない。</tspan><tspan x="532" dy="28">経営にどう活かせば</tspan><tspan x="532" dy="28">いいのかも分からない…</tspan></text>
+
+        <!-- ===== PANEL 3 ===== -->
+        <rect class="pf" x="16" y="338" width="456" height="286" rx="10" fill="#fff0f1"/>
+        <circle cx="48" cy="370" r="20" fill="#e8001c"/><text class="num" x="48" y="377" text-anchor="middle">3</text>
+        <!-- 集中線 -->
+        <g stroke="#e8001c" stroke-width="2" opacity="0.35">
+          <line x1="120" y1="470" x2="60" y2="430"/><line x1="120" y1="470" x2="60" y2="510"/>
+          <line x1="120" y1="470" x2="80" y2="400"/><line x1="120" y1="470" x2="80" y2="540"/>
+          <line x1="120" y1="470" x2="170" y2="392"/>
+        </g>
+        <!-- 荒木（メガネ・自信） -->
+        <g transform="translate(120,478)">
+          <path class="suit" d="M-48,120 C-46,72 -23,54 0,54 C23,54 46,72 48,120 Z" fill="#1a1a1a"/>
+          <path d="M-15,56 L0,100 L15,56 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M-4,58 L0,94 L4,58 Z" fill="#e8001c"/>
+          <rect class="skin" x="-9" y="34" width="18" height="28" rx="8"/>
+          <circle class="skin" cx="0" cy="10" r="31"/>
+          <path class="hair" d="M-32,6 C-33,-24 -17,-36 0,-36 C17,-36 33,-24 32,6 C24,-10 16,-15 0,-15 C-16,-15 -24,-10 -32,6 Z"/>
+          <!-- 顎髭 -->
+          <path d="M-20,22 C-20,38 -10,46 0,46 C10,46 20,38 20,22 C13,32 6,34 0,34 C-6,34 -13,32 -20,22 Z" fill="#1c1c1c"/>
+          <path d="M-13,16 q13,7 26,0 q-6,7 -13,7 q-7,0 -13,-7 Z" fill="#1c1c1c"/>
+          <!-- メガネ -->
+          <rect x="-22" y="6" width="19" height="16" rx="5" fill="#fff" fill-opacity="0.2" stroke="#111" stroke-width="3"/>
+          <rect x="3" y="6" width="19" height="16" rx="5" fill="#fff" fill-opacity="0.2" stroke="#111" stroke-width="3"/>
+          <path class="ln2" d="M-3,12 q3,-3 6,0"/>
+          <circle cx="-12" cy="14" r="2.4" fill="#1a1a1a"/>
+          <circle cx="12" cy="14" r="2.4" fill="#1a1a1a"/>
+          <path class="ln2" d="M-9,28 q9,5 18,0"/>
+        </g>
+        <path class="bub" d="M196,372 h244 a14,14 0 0 1 14,14 v108 a14,14 0 0 1 -14,14 h-176 l-26,24 v-24 h-42 a14,14 0 0 1 -14,-14 v-108 a14,14 0 0 1 14,-14 Z"/>
+        <text class="tx" x="208" y="404" font-size="18"><tspan x="208" dy="0">ツールの先にある</tspan><tspan x="208" dy="27" fill="#e8001c">「マクロ経済」と</tspan><tspan x="208" dy="27" fill="#e8001c">「AI経営」まで、</tspan><tspan x="208" dy="27">御社に伺って</tspan><tspan x="208" dy="27">お教えします！</tspan></text>
+
+        <!-- ===== PANEL 4 ===== -->
+        <rect class="pf" x="488" y="338" width="456" height="286" rx="10" fill="#eafaf0"/>
+        <circle cx="520" cy="370" r="20" fill="#06c755"/><text class="num" x="520" y="377" text-anchor="middle">4</text>
+        <!-- キラキラ -->
+        <g fill="#f5c518">
+          <path d="M610,386 l4,10 l10,4 l-10,4 l-4,10 l-4,-10 l-10,-4 l10,-4 Z"/>
+          <path d="M905,398 l3,7 l7,3 l-7,3 l-3,7 l-3,-7 l-7,-3 l7,-3 Z"/>
+        </g>
+        <!-- 社長（笑顔・ガッツ） -->
+        <g transform="translate(620,492)">
+          <path class="suit" d="M-46,110 C-44,64 -22,46 0,46 C22,46 44,64 46,110 Z"/>
+          <path d="M-14,48 L0,90 L14,48 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M-4,50 L0,84 L4,50 Z" fill="#e8001c"/>
+          <!-- ガッツの腕 -->
+          <path class="ln" d="M34,70 C52,56 54,30 46,18" stroke-width="11" stroke="#2c3e5c"/>
+          <circle cx="46" cy="14" r="9" fill="#f2c6a0" stroke="#1a1a1a" stroke-width="2"/>
+          <rect class="skin" x="-9" y="30" width="18" height="26" rx="8"/>
+          <circle class="skin" cx="0" cy="8" r="30"/>
+          <path class="hair" d="M-31,4 C-32,-26 -16,-38 0,-38 C16,-38 32,-26 31,4 C24,-12 16,-17 0,-17 C-16,-17 -24,-12 -31,4 Z"/>
+          <path class="ln2" d="M-16,4 q7,-5 13,1"/>
+          <path class="ln2" d="M3,5 q7,-6 13,-1"/>
+          <path class="ln2" d="M-12,12 q3,3 7,3"/>
+          <path class="ln2" d="M5,15 q4,0 7,-3"/>
+          <path d="M-9,24 q9,9 18,0 q-9,4 -18,0 Z" fill="#b5614c"/>
+        </g>
+        <!-- 社員（笑顔・小） -->
+        <g transform="translate(880,508)">
+          <path class="suit" d="M-36,92 C-34,58 -16,44 0,44 C16,44 34,58 36,92 Z" fill="#5a6b86"/>
+          <rect class="skin" x="-7" y="28" width="14" height="20" rx="6"/>
+          <circle class="skin" cx="0" cy="12" r="24"/>
+          <path class="hair" d="M-25,10 C-26,-16 -13,-26 0,-26 C13,-26 26,-16 25,10 C19,-4 12,-8 0,-8 C-12,-8 -19,-4 -25,10 Z" fill="#3a2d22"/>
+          <path class="ln2" d="M-12,12 q4,4 8,0"/>
+          <path class="ln2" d="M4,12 q4,4 8,0"/>
+          <path d="M-7,22 q7,7 14,0 q-7,3 -14,0 Z" fill="#b5614c"/>
+        </g>
+        <path class="bub" d="M520,372 h232 a14,14 0 0 1 14,14 v74 a14,14 0 0 1 -14,14 h-120 l-24,22 v-22 h-68 a14,14 0 0 1 -14,-14 v-74 a14,14 0 0 1 14,-14 Z"/>
+        <text class="tx" x="532" y="404" font-size="18"><tspan x="532" dy="0">現場の生産性も、</tspan><tspan x="532" dy="28" fill="#06a548">経営の判断も</tspan><tspan x="532" dy="28">動き出した！</tspan></text>
+      </svg>
+    </div>
+    <div class="text-center fade-up" style="margin-top:40px;">
+      <a href="#contact" class="btn btn-primary btn-lg">うちでもやってほしい →</a>
     </div>
   </div>
 </section>
@@ -652,36 +792,6 @@
       <h2 class="section-title">講師紹介</h2>
     </div>
     <div class="instructor-card fade-up">
-      <div class="instructor-photo">
-        <svg viewBox="0 0 280 360" role="img" aria-label="荒木賢二郎 イラスト" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="140" cy="168" r="138" fill="#ffd2d8" opacity="0.45"/>
-          <path d="M24,360 C30,298 76,270 140,270 C204,270 250,298 256,360 Z" fill="#161616"/>
-          <path d="M118,272 C124,290 156,290 162,272 C156,300 124,300 118,272 Z" fill="#2a2a2a"/>
-          <rect x="124" y="236" width="32" height="46" rx="14" fill="#e7b189"/>
-          <ellipse cx="140" cy="176" rx="77" ry="73" fill="#f2c6a0"/>
-          <ellipse cx="140" cy="230" rx="50" ry="27" fill="#f2c6a0"/>
-          <ellipse cx="65" cy="184" rx="12" ry="18" fill="#eab98f"/>
-          <ellipse cx="215" cy="184" rx="12" ry="18" fill="#eab98f"/>
-          <ellipse cx="92" cy="206" rx="15" ry="9" fill="#f29487" opacity="0.35"/>
-          <ellipse cx="188" cy="206" rx="15" ry="9" fill="#f29487" opacity="0.35"/>
-          <path d="M62,162 C60,108 96,78 140,78 C184,78 220,108 218,162 C209,140 198,129 181,124 C159,117 121,117 99,124 C82,129 71,140 62,162 Z" fill="#191919"/>
-          <path d="M62,162 C61,182 65,196 73,202 L74,150 C68,152 64,156 62,162 Z" fill="#191919"/>
-          <path d="M218,162 C219,182 215,196 207,202 L206,150 C212,152 216,156 218,162 Z" fill="#191919"/>
-          <path d="M93,156 q18,-9 36,-2" stroke="#191919" stroke-width="6" stroke-linecap="round" fill="none"/>
-          <path d="M151,154 q18,-7 36,2" stroke="#191919" stroke-width="6" stroke-linecap="round" fill="none"/>
-          <circle cx="110" cy="180" r="5.5" fill="#2b2b2b"/>
-          <circle cx="170" cy="180" r="5.5" fill="#2b2b2b"/>
-          <path d="M140,184 q-7,16 -9,23 q5,5 14,2" stroke="#d89c72" stroke-width="4" stroke-linecap="round" fill="none"/>
-          <path d="M122,222 q18,9 36,0" stroke="#b5614c" stroke-width="4" stroke-linecap="round" fill="none"/>
-          <path d="M116,212 q24,13 48,0 q-11,11 -24,11 q-13,0 -24,-11 z" fill="#1c1c1c"/>
-          <path d="M110,224 C110,251 123,266 140,266 C157,266 170,251 170,224 C161,237 149,241 140,241 C131,241 119,237 110,224 Z" fill="#1c1c1c"/>
-          <path d="M86,172 L66,178" stroke="#111" stroke-width="7" stroke-linecap="round" fill="none"/>
-          <path d="M194,172 L214,178" stroke="#111" stroke-width="7" stroke-linecap="round" fill="none"/>
-          <rect x="86" y="156" width="48" height="42" rx="13" fill="#ffffff" fill-opacity="0.16" stroke="#111" stroke-width="7"/>
-          <rect x="146" y="156" width="48" height="42" rx="13" fill="#ffffff" fill-opacity="0.16" stroke="#111" stroke-width="7"/>
-          <path d="M134,171 q6,-6 12,0" stroke="#111" stroke-width="7" stroke-linecap="round" fill="none"/>
-        </svg>
-      </div>
       <div class="instructor-body">
         <div class="instructor-tag">講師</div>
         <div class="instructor-name">荒木 賢二郎<span class="en">Kenjiro Araki</span></div>
@@ -700,12 +810,12 @@
     <div class="text-center fade-up">
       <span class="section-label">Flow</span>
       <h2 class="section-title">ご依頼の流れ</h2>
-      <p class="section-sub">まずはLINEで、ご相談ください。最短で日程調整まで進みます。</p>
+      <p class="section-sub">まずはフォームから、お気軽にご相談ください。最短で日程調整まで進みます。</p>
     </div>
     <div class="flow-steps">
       <div class="flow-step fade-up">
         <div class="flow-num">1</div>
-        <div class="flow-body"><h3>LINEで相談</h3><p>公式LINEを友だち追加し、ご希望のテーマ・対象人数・時期をお知らせください。</p></div>
+        <div class="flow-body"><h3>フォームから問い合わせ</h3><p>お問い合わせフォームに、ご希望のテーマ・対象人数・時期をご記入ください。</p></div>
       </div>
       <div class="flow-step fade-up">
         <div class="flow-num">2</div>
@@ -753,23 +863,29 @@
       </div>
       <div class="faq-item fade-up">
         <div class="faq-question">どうやって依頼すればいいですか？</div>
-        <div class="faq-answer">公式LINEから友だち追加のうえ、ご相談ください。日程・人数・ご希望のテーマをお知らせいただければ、最適なプランをご提案します。</div>
+        <div class="faq-answer">ページ下部のお問い合わせフォームからご相談ください。日程・人数・ご希望のテーマをお知らせいただければ、担当者より最適なプランをご提案します。</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA / APPLY ===== -->
-<section class="cta-section" id="apply">
+<!-- ===== CONTACT / FORM ===== -->
+<section class="contact-section" id="contact">
   <div class="container">
-    <span class="section-label">Contact</span>
-    <h2 class="section-title">AIを、組織の力に変える。</h2>
-    <p class="cta-desc">ご相談・お見積り・日程調整は、すべて公式LINEから。<br>貴社の現場と経営に、AIを届けます。</p>
-    <div class="cta-actions">
-      <a href="https://lin.ee/vv6fIon" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで相談する →</a>
-      <a href="#plans" class="btn btn-outline" style="color:#fff;border-color:#fff;">料金プランを見る</a>
+    <div class="text-center">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">AIを、組織の力に変える。</h2>
+      <p class="cta-desc">ヒアリング・ご提案・お見積りはすべて無料です。<br>企業・業界団体・協会・組合からのご相談を承っています。</p>
     </div>
-    <p class="cta-note">※ 公式LINEの友だち追加後、メッセージにてご案内します。</p>
+    <div class="contact-wrapper">
+      <h3 class="contact-title">無料相談・お問い合わせ</h3>
+      <p class="contact-sub">内容を確認後、担当者より2営業日以内にご返信いたします。</p>
+      <iframe class="contact-frame"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdR7MWMfrlICJUJrG_REL2JlZBHBMvZo_hCWXUBNM2MWKNIQQ/viewform?embedded=true"
+        height="1500" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" title="出張AI研修 お問い合わせフォーム"
+      >読み込んでいます…</iframe>
+    </div>
+    <p class="contact-note">※ フォームが表示されない場合は、時間をおいて再度お試しください。</p>
   </div>
 </section>
 
@@ -810,7 +926,7 @@
         <ul>
           <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
           <li><a href="#plans">料金プラン</a></li>
-          <li><a href="https://lin.ee/vv6fIon">LINEで相談</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
           <li><a href="https://horiemon.ai/">運営会社サイト</a></li>
         </ul>
       </nav>
@@ -823,7 +939,7 @@
 
 <!-- ===== SP STICKY ===== -->
 <div class="sp-sticky-footer">
-  <a href="https://lin.ee/vv6fIon"><span class="line-ico">LINE</span>LINEで相談する</a>
+  <a href="#contact">✉️ 無料で相談・お問い合わせ</a>
 </div>
 
 <script>
