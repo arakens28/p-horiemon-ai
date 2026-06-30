@@ -347,6 +347,11 @@
 
     /* ===== APPLICATION FORM ===== */
     .form-section { background: var(--gray-light); }
+    .form-notice { max-width:640px; margin:36px auto; background:#fff7e6; border:2px solid #f6c84a; border-left:6px solid var(--gold); border-radius:14px; padding:20px 24px; box-shadow:0 4px 18px rgba(246,167,0,.12); }
+    .form-notice .fn-title { font-size:16px; font-weight:800; color:#9a6a00; margin-bottom:8px; line-height:1.5; }
+    .form-notice p { font-size:14px; line-height:1.85; color:#5b4a23; margin:0; }
+    .form-notice strong { color:var(--red); font-weight:800; }
+    @media (max-width:600px){ .form-notice { padding:16px 18px; } .form-notice .fn-title { font-size:15px; } }
     .form-card { max-width: 640px; margin: 48px auto 0; background:#fff; border:1px solid var(--gray-mid); border-radius: 20px; padding: 44px 40px; box-shadow: var(--shadow); }
     .form-pending { background:#fff8e1; border:1px solid #ffe49a; color:#8a6d00; border-radius:10px; padding:14px 18px; font-size:14px; line-height:1.7; margin-bottom:28px; }
     .form-pending strong { color:#7a5e00; }
@@ -417,7 +422,7 @@
         </p>
         <div class="hero-actions">
           <a href="#apply-form" class="btn btn-primary btn-lg">無料で応募する →</a>
-          <a href="https://lin.ee/zITC2uJ" class="btn btn-line"><span class="line-ico">LINE</span>LINEで相談する</a>
+          <a href="https://lin.ee/nfy650W" class="btn btn-line"><span class="line-ico">LINE</span>LINEで相談する</a>
         </div>
         <p class="hero-note">※ 参加・登録は無料／ブログ・SNSをお持ちでなくてもOK</p>
       </div>
@@ -707,7 +712,7 @@
     <p class="cta-desc">応募は無料・1分で完了。<br>ご質問やご相談は、公式LINEからお気軽にどうぞ。</p>
     <div class="cta-actions">
       <a href="#apply-form" class="btn btn-primary btn-lg">無料で応募する →</a>
-      <a href="https://lin.ee/zITC2uJ" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで相談する</a>
+      <a href="https://lin.ee/nfy650W" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで相談する</a>
     </div>
     <p class="cta-note">※ お問い合わせは公式LINEから承ります。</p>
   </div>
@@ -722,12 +727,17 @@
       <p class="section-sub">ご入力いただいたメールアドレス宛に、ご利用クーポンコードを自動でお送りします。お一人様1回限り有効です。</p>
     </div>
 
+    <div class="form-notice fade-up">
+      <p class="fn-title">【ご案内】ただいま登録申請が大変混み合っています</p>
+      <p>クーポンコードの発行は <strong>1日100名様まで</strong> とさせていただいております。100名を超えた分は <strong>翌日以降の発行</strong> となりますので、お申し込み後すぐにメールが届かなくても、<strong>1日ほど</strong> お待ちいただけますようお願いいたします。</p>
+    </div>
+
     <form class="form-card fade-up" id="affForm" novalidate>
       <!-- 受付準備中バナー：下のスクリプトで FORM_ENDPOINT を設定すると自動で非表示＆送信有効になります -->
       <div class="form-pending" id="formPending">
         <strong>ただいま受付準備中です。</strong>
         送信機能はまもなく開始します。お急ぎの方は
-        <a href="https://lin.ee/zITC2uJ">LINE</a> からご連絡ください。
+        <a href="https://lin.ee/nfy650W">LINE</a> からご連絡ください。
       </div>
 
       <p class="form-lead">ご紹介報酬のお振込のため、振込先口座情報のご入力をお願いします。<br>口座情報は報酬のお振込にのみ使用します。</p>
@@ -789,6 +799,11 @@
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       <p class="form-privacy">ご入力いただいた情報は、クーポンの発行および報酬のお振込のみに使用し、それ以外の目的では利用しません。詳しくは<a href="/aff/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>をご確認ください。</p>
     </form>
+
+    <div class="form-notice fade-up">
+      <p class="fn-title">【ご注意】メール返信まで1日ほどお待ちください</p>
+      <p>登録申請が大変多いため、クーポンコードの発行は <strong>1日100名様まで</strong> に制限しております。100名を超えた分は <strong>翌日以降の発行</strong> となります。お申し込み後すぐに返信メールが届かなくても、<strong>1日ほど</strong> お待ちください。</p>
+    </div>
   </div>
 </section>
 
@@ -847,7 +862,7 @@
 <!-- ===== SP STICKY ===== -->
 <div class="sp-sticky-footer">
   <a href="#apply-form" class="apply">無料で応募する</a>
-  <a href="https://lin.ee/zITC2uJ" class="line"><span class="line-ico">LINE</span>相談</a>
+  <a href="https://lin.ee/nfy650W" class="line"><span class="line-ico">LINE</span>相談</a>
 </div>
 
 <script>
