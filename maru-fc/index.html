@@ -138,6 +138,8 @@
       radial-gradient(circle at 70% 25%,rgba(45,226,255,.22),transparent 55%),
       repeating-linear-gradient(0deg,transparent,transparent 26px,rgba(120,160,255,.05) 27px);
   }
+  .hero-figure.has-photo::before{display:none;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
   .ph-note{
     position:absolute;top:14px;left:14px;z-index:3;
     font-size:10.5px;color:var(--muted);background:rgba(0,0,0,.45);
@@ -378,8 +380,8 @@
         </div>
       </div>
       <div class="fv-visual">
-        <div class="hero-figure">
-          <span class="ph-note">画像差替：堀江貴文 × フィジカルAI（ロボット）</span>
+        <div class="hero-figure has-photo">
+          <img class="hero-img" src="hero-horie.png" alt="堀江貴文 × フィジカルAI（ホリエモンAI）">
           <div class="hero-caption">
             <div class="big">ソフトウェアに閉じない、実社会に干渉するAI。</div>
             <div class="small">AI Agent ＋ Physical AI（ロボット）</div>
