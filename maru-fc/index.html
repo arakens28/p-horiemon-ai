@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホリエモンAI 〇〇 フランチャイズ加盟募集｜100の社会課題を、100のAIで解決する。</title>
+<meta name="description" content="堀江貴文のIP × 最先端AIで、あなたの業界に『ホリエモンAI 〇〇』を立ち上げる。IPO準備企業の公式パートナーとして、ブランド・集客・開発を本部がフルサポート。オンライン事業説明会（無料）受付中。">
+<meta property="og:title" content="ホリエモンAI 〇〇 フランチャイズ加盟募集｜100の社会課題を、100のAIで解決する。">
+<meta property="og:description" content="堀江貴文のIP × 最先端AI。IPO準備企業の公式パートナーとして、あなたの業界に『ホリエモンAI 〇〇』を。オンライン事業説明会（無料）受付中。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#06080f;
+    --bg2:#0b0f1c;
+    --panel:#0f1626;
+    --ink:#eef3ff;
+    --muted:#9aa7c4;
+    --faint:#5d6b8c;
+    --blue:#2f7bff;
+    --blue2:#1e5fff;
+    --cyan:#2de2ff;
+    --neon:#4d9bff;
+    --line:rgba(120,150,220,.16);
+    --glass:rgba(255,255,255,.045);
+    --glass2:rgba(255,255,255,.07);
+    --gold:#e8c069;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Meiryo',sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;height:auto;display:block;}
+  a{text-decoration:none;color:inherit;}
+  .en{font-family:'Oswald',sans-serif;letter-spacing:.04em;}
+
+  /* ===== background glow ===== */
+  .glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.5;z-index:0;pointer-events:none;}
+  .glow-1{width:560px;height:560px;background:radial-gradient(circle,#1e5fff66,transparent 70%);top:-180px;right:-120px;}
+  .glow-2{width:520px;height:520px;background:radial-gradient(circle,#2de2ff33,transparent 70%);top:40%;left:-200px;}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px;position:relative;z-index:2;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:200;
+    background:rgba(6,8,15,.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .hdr-inner{max-width:1120px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .brand{display:flex;align-items:center;gap:11px;}
+  .brand img{height:38px;width:auto;filter:brightness(0) invert(1);}
+  .brand .bt{font-size:13px;font-weight:900;line-height:1.25;}
+  .brand .bt small{display:block;font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.06em;}
+  .hdr-cta{
+    background:linear-gradient(95deg,var(--blue),var(--cyan));
+    color:#03060f;font-size:13px;font-weight:900;
+    padding:11px 20px;border-radius:40px;white-space:nowrap;
+    box-shadow:0 0 22px rgba(45,226,255,.35);transition:.25s;
+  }
+  .hdr-cta:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(45,226,255,.55);}
+  @media(max-width:620px){.brand .bt{font-size:11px;}.hdr-cta{padding:10px 15px;font-size:12px;}}
+
+  /* ===== FV ===== */
+  .fv{position:relative;padding:90px 0 80px;overflow:hidden;}
+  .fv-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12px;font-weight:700;letter-spacing:.04em;
+    padding:7px 14px;border-radius:40px;
+    border:1px solid var(--line);background:var(--glass);color:var(--ink);
+  }
+  .badge.ipo{border-color:rgba(232,192,105,.5);color:var(--gold);background:rgba(232,192,105,.08);}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);}
+  .badge.ipo .dot{background:var(--gold);box-shadow:0 0 10px var(--gold);}
+
+  .fv-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;}
+  .fv h1{
+    font-size:clamp(30px,5.2vw,58px);font-weight:900;line-height:1.28;letter-spacing:-.01em;
+    margin-bottom:22px;
+  }
+  .fv h1 .hl{
+    background:linear-gradient(95deg,var(--cyan),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .fv .lead{font-size:clamp(15px,2.4vw,18px);color:var(--muted);margin-bottom:30px;max-width:560px;}
+  .fv .sub{font-size:22px;font-weight:900;margin-bottom:14px;line-height:1.5;}
+
+  .fv-proof{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;}
+  .pcard{
+    border:1px solid var(--line);background:var(--glass);border-radius:14px;
+    padding:14px 18px;backdrop-filter:blur(8px);
+  }
+  .pcard b{display:block;font-size:26px;font-weight:900;line-height:1;}
+  .pcard b .en{color:var(--cyan);}
+  .pcard span{font-size:11.5px;color:var(--muted);}
+
+  .btn-primary{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    background:linear-gradient(95deg,var(--blue),var(--cyan));
+    color:#03060f;font-weight:900;font-size:16px;
+    padding:18px 34px;border-radius:50px;border:none;cursor:pointer;
+    box-shadow:0 10px 34px rgba(45,226,255,.35);transition:.25s;margin-top:34px;
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(45,226,255,.55);}
+  .btn-primary .arr{font-size:18px;}
+
+  /* visual placeholder card */
+  .fv-visual{position:relative;}
+  .hero-figure{
+    position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    background:linear-gradient(160deg,#101a30,#0a0f1e);
+    aspect-ratio:4/5;display:flex;align-items:flex-end;
+    box-shadow:0 30px 80px rgba(0,0,0,.5);
+  }
+  .hero-figure::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 70% 25%,rgba(45,226,255,.22),transparent 55%),
+      repeating-linear-gradient(0deg,transparent,transparent 26px,rgba(120,160,255,.05) 27px);
+  }
+  .ph-note{
+    position:absolute;top:14px;left:14px;z-index:3;
+    font-size:10.5px;color:var(--muted);background:rgba(0,0,0,.45);
+    border:1px dashed var(--line);border-radius:8px;padding:5px 9px;
+  }
+  .hero-caption{position:relative;z-index:2;padding:22px;width:100%;
+    background:linear-gradient(0deg,rgba(6,8,15,.92),transparent);}
+  .hero-caption .big{font-size:15px;font-weight:900;}
+  .hero-caption .small{font-size:11.5px;color:var(--cyan);}
+
+  /* ===== SECTION base ===== */
+  section.block{padding:84px 0;position:relative;z-index:2;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--cyan);margin-bottom:14px;}
+  .stitle{font-size:clamp(24px,4vw,38px);font-weight:900;line-height:1.4;margin-bottom:16px;letter-spacing:-.01em;}
+  .stitle .hl{color:var(--cyan);}
+  .sdesc{color:var(--muted);font-size:15.5px;max-width:720px;}
+  .center{text-align:center;}
+  .center .sdesc{margin:0 auto;}
+
+  /* ===== WHY NOW ===== */
+  .why{background:linear-gradient(180deg,var(--bg),#080c18);}
+  .why-stat{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin:46px 0 10px;}
+  .stat{
+    flex:1 1 240px;max-width:340px;text-align:center;
+    border:1px solid var(--line);border-radius:18px;padding:34px 24px;
+    background:var(--glass);backdrop-filter:blur(8px);
+  }
+  .stat .num{font-size:54px;font-weight:700;line-height:1;color:var(--cyan);text-shadow:0 0 26px rgba(45,226,255,.4);}
+  .stat .num small{font-size:22px;}
+  .stat .lb{font-size:14px;color:var(--muted);margin-top:12px;}
+  .why-msg{text-align:center;margin-top:40px;font-size:clamp(18px,3vw,26px);font-weight:900;}
+  .why-msg .hl{color:var(--cyan);}
+
+  /* ===== SOLUTION ===== */
+  .sol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:46px;}
+  .sol-card{
+    border:1px solid var(--line);border-radius:14px;padding:20px 18px;
+    background:var(--glass);transition:.25s;position:relative;overflow:hidden;
+  }
+  .sol-card:hover{transform:translateY(-4px);border-color:rgba(45,226,255,.4);background:var(--glass2);}
+  .sol-card .tag{font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.08em;}
+  .sol-card .nm{font-size:17px;font-weight:900;margin:4px 0 6px;}
+  .sol-card .ds{font-size:12px;color:var(--muted);line-height:1.7;}
+  .sol-more{text-align:center;margin-top:26px;color:var(--muted);font-size:14px;}
+  .sol-more b{color:var(--cyan);}
+
+  /* mock UI */
+  .mock-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;}
+  .mock{
+    border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    background:linear-gradient(160deg,#0e1730,#0a0f1f);position:relative;
+  }
+  .mock-bar{display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03);}
+  .mock-bar i{width:9px;height:9px;border-radius:50%;background:#2a3550;display:block;}
+  .mock-bar .ttl{margin-left:8px;font-size:11px;color:var(--muted);}
+  .mock-body{padding:18px;min-height:160px;}
+  .chat{display:flex;gap:9px;margin-bottom:12px;align-items:flex-start;}
+  .chat .av{width:26px;height:26px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--cyan));}
+  .chat .bub{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;padding:9px 13px;font-size:12.5px;color:var(--ink);max-width:85%;}
+  .chat.me{flex-direction:row-reverse;}
+  .chat.me .av{background:#2a3550;}
+  .chat.me .bub{background:rgba(45,226,255,.1);border-color:rgba(45,226,255,.3);}
+  .mock-cap{padding:0 18px 16px;font-size:11.5px;color:var(--cyan);}
+
+  /* ===== BENEFITS ===== */
+  .ben{background:linear-gradient(180deg,#080c18,var(--bg));}
+  .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;}
+  .ben-card{
+    border:1px solid var(--line);border-radius:20px;padding:32px 26px;
+    background:var(--glass);backdrop-filter:blur(8px);transition:.25s;
+  }
+  .ben-card:hover{transform:translateY(-5px);border-color:rgba(45,226,255,.4);}
+  .ben-card .no{font-family:'Oswald',sans-serif;font-size:14px;color:var(--cyan);letter-spacing:.1em;}
+  .ben-card .ic{font-size:34px;margin:6px 0 14px;}
+  .ben-card h3{font-size:20px;font-weight:900;margin-bottom:12px;line-height:1.4;}
+  .ben-card p{font-size:14px;color:var(--muted);}
+
+  /* ===== PLANS ===== */
+  .plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:46px;}
+  .plan{
+    border:1px solid var(--line);border-radius:22px;padding:36px 32px;
+    background:linear-gradient(165deg,var(--glass2),var(--glass));position:relative;overflow:hidden;
+  }
+  .plan::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));}
+  .plan .pno{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:.16em;color:var(--cyan);}
+  .plan h3{font-size:23px;font-weight:900;margin:8px 0 10px;}
+  .plan .formula{font-size:15px;font-weight:700;color:var(--ink);background:rgba(45,226,255,.08);border:1px solid rgba(45,226,255,.25);border-radius:10px;padding:10px 14px;margin-bottom:16px;}
+  .plan p{font-size:14px;color:var(--muted);}
+
+  /* ===== COMPARE TABLE ===== */
+  .cmp-wrap{margin-top:42px;overflow-x:auto;border:1px solid var(--line);border-radius:18px;}
+  table.cmp{width:100%;border-collapse:collapse;min-width:560px;}
+  table.cmp th,table.cmp td{padding:18px 18px;text-align:left;font-size:14px;border-bottom:1px solid var(--line);}
+  table.cmp thead th{font-size:13px;font-weight:900;background:rgba(255,255,255,.03);}
+  table.cmp thead th:nth-child(3){color:var(--cyan);background:rgba(45,226,255,.07);}
+  table.cmp td:nth-child(3){color:var(--ink);font-weight:700;background:rgba(45,226,255,.04);}
+  table.cmp td:nth-child(2){color:var(--muted);}
+  table.cmp tbody td:first-child{font-weight:700;}
+  table.cmp .x{color:#ff6b6b;}
+  table.cmp .o{color:var(--cyan);}
+
+  /* ===== ROI ===== */
+  .roi{background:linear-gradient(180deg,var(--bg),#080c18);}
+  .roi-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;margin-top:40px;}
+  .price-card{border:1px solid var(--line);border-radius:20px;padding:34px;background:var(--glass);}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px dashed var(--line);}
+  .price-row:last-child{border-bottom:none;}
+  .price-row .k{font-size:14px;color:var(--muted);}
+  .price-row .v{font-size:30px;font-weight:900;}
+  .price-row .v .en{color:var(--cyan);}
+  .price-row .v small{font-size:14px;color:var(--muted);font-weight:700;}
+  .roi-text h3{font-size:22px;font-weight:900;line-height:1.5;margin-bottom:16px;}
+  .roi-text h3 .hl{color:var(--cyan);}
+  .roi-text p{color:var(--muted);font-size:14.5px;margin-bottom:14px;}
+  .roi-note{font-size:12px;color:var(--faint);border-left:2px solid var(--line);padding-left:12px;}
+
+  /* ===== TARGET ===== */
+  .tgt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;}
+  .tgt{border:1px solid var(--line);border-radius:18px;padding:28px 24px;background:var(--glass);}
+  .tgt .ti{font-size:30px;margin-bottom:10px;}
+  .tgt h4{font-size:16px;font-weight:900;margin-bottom:10px;}
+  .tgt .pain{font-size:12.5px;color:var(--muted);margin-bottom:10px;}
+  .tgt .sol{font-size:12.5px;color:var(--cyan);font-weight:700;}
+
+  /* ===== CV / FORM ===== */
+  .cv{background:radial-gradient(circle at 50% 0%,#10234d,#06080f 60%);padding:90px 0;}
+  .cv-head{text-align:center;margin-bottom:14px;}
+  .cv h2{font-size:clamp(24px,4vw,40px);font-weight:900;line-height:1.4;margin-bottom:14px;}
+  .cv h2 .hl{color:var(--cyan);}
+  .scarcity{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--gold);background:rgba(232,192,105,.1);border:1px solid rgba(232,192,105,.4);border-radius:40px;padding:9px 18px;margin-bottom:8px;}
+  .form-box{max-width:680px;margin:36px auto 0;border:1px solid var(--line);border-radius:22px;padding:36px;background:rgba(10,14,26,.7);backdrop-filter:blur(10px);}
+  .form-row{margin-bottom:20px;}
+  .form-label{display:block;font-size:13.5px;font-weight:700;margin-bottom:9px;}
+  .required{font-size:10px;font-weight:700;color:#03060f;background:var(--cyan);border-radius:4px;padding:2px 7px;margin-left:8px;}
+  .form-input,.form-select,.form-textarea{
+    width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;
+    padding:13px 15px;font-size:14px;color:var(--ink);font-family:inherit;transition:.2s;
+  }
+  .form-input::placeholder,.form-textarea::placeholder{color:#56627e;}
+  .form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(45,226,255,.15);}
+  .form-select option{background:#0b0f1c;}
+  .form-textarea{min-height:110px;resize:vertical;}
+  .form-radio-group{display:flex;flex-wrap:wrap;gap:10px;}
+  .form-radio-label{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer;transition:.2s;}
+  .form-radio-label:hover{border-color:var(--cyan);color:var(--ink);}
+  .form-radio-label input{accent-color:var(--cyan);}
+  .policy{font-size:12.5px;color:var(--muted);margin:6px 0 14px;}
+  .policy a{color:var(--cyan);text-decoration:underline;}
+  .policy-check{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted);margin-bottom:20px;}
+  .policy-check input{accent-color:var(--cyan);width:17px;height:17px;}
+  .btn-submit{
+    width:100%;background:linear-gradient(95deg,var(--blue),var(--cyan));color:#03060f;
+    font-size:17px;font-weight:900;padding:18px;border:none;border-radius:50px;cursor:pointer;
+    box-shadow:0 10px 34px rgba(45,226,255,.35);transition:.25s;
+  }
+  .btn-submit:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(45,226,255,.55);}
+  .form-micro{text-align:center;font-size:12px;color:var(--faint);margin-top:14px;}
+
+  /* ===== FOOTER ===== */
+  footer{background:#05070d;border-top:1px solid var(--line);padding:40px 0 28px;position:relative;z-index:2;}
+  .ft-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+  .ft-brand{display:flex;align-items:center;gap:11px;}
+  .ft-brand img{height:34px;filter:brightness(0) invert(1);opacity:.85;}
+  .ft-brand .t{font-size:13px;font-weight:900;}
+  .ft-nav{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;}
+  .ft-nav a{color:var(--muted);}
+  .ft-nav a:hover{color:var(--cyan);}
+  .ft-copy{width:100%;text-align:center;font-size:11.5px;color:var(--faint);margin-top:24px;border-top:1px solid var(--line);padding-top:20px;}
+
+  /* ===== responsive ===== */
+  @media(max-width:880px){
+    .fv-grid{grid-template-columns:1fr;gap:34px;}
+    .fv-visual{max-width:380px;margin:0 auto;}
+    .ben-grid,.tgt-grid{grid-template-columns:1fr;}
+    .plan-grid{grid-template-columns:1fr;}
+    .mock-row{grid-template-columns:1fr;}
+    .roi-grid{grid-template-columns:1fr;gap:28px;}
+    section.block{padding:64px 0;}
+  }
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr-inner">
+    <a href="/" class="brand">
+      <img src="/assets/img/logo.png" alt="ホリエモンAI学校"
+        onerror="this.style.display='none'">
+      <span class="bt">ホリエモンAI 〇〇<small>FRANCHISE 加盟募集</small></span>
+    </a>
+    <a href="#contact" class="hdr-cta">無料説明会に申し込む</a>
+  </div>
+</header>
+
+<!-- FV -->
+<section class="fv">
+  <div class="wrap">
+    <div class="fv-badges">
+      <span class="badge ipo"><span class="dot"></span>IPO（新規上場）準備フェーズ</span>
+      <span class="badge"><span class="dot"></span>受講企業 410社・受講者 4,000名</span>
+    </div>
+    <div class="fv-grid">
+      <div>
+        <h1>100の社会課題を、<br><span class="hl">100のAI</span>で解決する。</h1>
+        <p class="sub">ホリエモンAI 〇〇<br>フランチャイズ加盟募集。</p>
+        <p class="lead">堀江貴文の圧倒的なIPと、最先端のAI技術を垂直統合。あなたの業界に「ホリエモンAI 〇〇」を立ち上げ、日本の停滞を突破する次世代の事業家を募集します。</p>
+        <a href="#contact" class="btn-primary">オンライン事業説明会に申し込む（無料）<span class="arr">→</span></a>
+        <div class="fv-proof">
+          <div class="pcard"><b><span class="en">410</span><small>社</small></b><span>導入企業バックボーン</span></div>
+          <div class="pcard"><b><span class="en">4,000</span><small>名</small></b><span>ホリエモンAI学校 受講者</span></div>
+          <div class="pcard"><b><span class="en">¥0</span></b><span>IP活用で集客コスト極小化</span></div>
+        </div>
+      </div>
+      <div class="fv-visual">
+        <div class="hero-figure">
+          <span class="ph-note">画像差替：堀江貴文 × フィジカルAI（ロボット）</span>
+          <div class="hero-caption">
+            <div class="big">ソフトウェアに閉じない、実社会に干渉するAI。</div>
+            <div class="small">AI Agent ＋ Physical AI（ロボット）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="block why reveal">
+  <div class="wrap center">
+    <p class="eyebrow">WHY NOW?</p>
+    <h2 class="stitle">AI導入は「選択」ではなく、<br><span class="hl">日本の生存戦略</span>である。</h2>
+    <p class="sdesc">2040年、日本経済は構造的な労働力不足という急所に直面します。この課題に対し、私たちはAIエージェント、そしてフィジカルAI（ロボット）を社会インフラとして実装します。</p>
+    <div class="why-stat">
+      <div class="stat"><div class="num"><span class="en">2040</span></div><div class="lb">日本が直面する年</div></div>
+      <div class="stat"><div class="num"><span class="en">1,100</span><small>万人</small></div><div class="lb">予測される労働力不足</div></div>
+      <div class="stat"><div class="num"><span class="en">100</span></div><div class="lb">私たちが解決する社会課題</div></div>
+    </div>
+    <p class="why-msg">これは一時的なトレンドではない。<br><span class="hl">日本が生き残るための「必然」</span>だ。</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="block reveal">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">THE PROJECT</p>
+      <h2 class="stitle">「ホリエモンAI 〇〇」という名で、<br><span class="hl">100の事業</span>を立ち上げる。</h2>
+      <p class="sdesc">あなたの業界知識、または本部が蓄積した「勝てるアイデア」を掛け合わせる。すでに具体的な事業が動き始めています。</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card"><div class="tag">RESUME</div><div class="nm">AI 履歴書</div><div class="ds">職務経歴の言語化を自動化し、内定獲得を支援。</div></div>
+      <div class="sol-card"><div class="tag">FORTUNE</div><div class="nm">AI 占い</div><div class="ds">対話型AIが24時間、個別の鑑定を提供。</div></div>
+      <div class="sol-card"><div class="tag">MOVIE</div><div class="nm">AI 動画編集</div><div class="ds">撮影素材から自動で配信用動画を生成。</div></div>
+      <div class="sol-card"><div class="tag">MATCHING</div><div class="nm">AI マッチング</div><div class="ds">最適な相手・案件をAIが高精度でレコメンド。</div></div>
+      <div class="sol-card"><div class="tag">ELECTION</div><div class="nm">AI 選挙予測</div><div class="ds">膨大なデータから情勢をリアルタイム解析。</div></div>
+      <div class="sol-card"><div class="tag">REAL ESTATE</div><div class="nm">AI 賃貸</div><div class="ds">不動産業界の非効率を、専門知見×AIで解消。</div></div>
+      <div class="sol-card"><div class="tag">MEDICAL</div><div class="nm">AI 医療</div><div class="ds">医療現場の事務・問診をAIエージェントが代替。</div></div>
+      <div class="sol-card"><div class="tag">STAFFING</div><div class="nm">AI 派遣</div><div class="ds">人材派遣の労働集約モデルをテックで再構築。</div></div>
+    </div>
+    <p class="sol-more">他にも <b>「AI 製作所」「AI 税理士」「AI 建築」</b> など——<b>残り92事業</b>のドメインが、あなたの参入を待っています。</p>
+
+    <div class="mock-row">
+      <div class="mock">
+        <div class="mock-bar"><i></i><i></i><i></i><span class="ttl">ホリエモンAI 履歴書</span></div>
+        <div class="mock-body">
+          <div class="chat me"><div class="av"></div><div class="bub">広告代理店で5年、SNS運用を担当していました。</div></div>
+          <div class="chat"><div class="av"></div><div class="bub">承知しました。「データドリブンなSNS戦略立案と、月間1,000万インプレッションの運用実績」として職務経歴書に反映しますね。</div></div>
+        </div>
+        <div class="mock-cap">▲ AIインターフェース・イメージ</div>
+      </div>
+      <div class="mock">
+        <div class="mock-bar"><i></i><i></i><i></i><span class="ttl">ホリエモンAI マッチング</span></div>
+        <div class="mock-body">
+          <div class="chat"><div class="av"></div><div class="bub">あなたの条件に合致する案件が <b>3件</b> 見つかりました。最適順に表示します。</div></div>
+          <div class="chat me"><div class="av"></div><div class="bub">1件目の詳細を見せて。</div></div>
+          <div class="chat"><div class="av"></div><div class="bub">マッチ度 <b>96%</b>。報酬・稼働条件ともに希望範囲内です。</div></div>
+        </div>
+        <div class="mock-cap">▲ AIインターフェース・イメージ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="block ben reveal">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">WHY US?</p>
+      <h2 class="stitle">本部が提供する、<span class="hl">3つの圧倒的優位性</span>。</h2>
+      <p class="sdesc">ゼロから始める必要はありません。ブランド・集客・開発——成功に必要なすべてを本部が垂直統合して提供します。</p>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-card">
+        <div class="no">BENEFIT 01</div><div class="ic">🚀</div>
+        <h3>圧倒的なブランド力<br>と集客力</h3>
+        <p>堀江貴文氏の肖像を広告に使い放題。SNS（X・YouTube）の拡散力で、広告費に依存しない自然流入を実現。「集客コストの堀」があなたのROIを最大化します。</p>
+      </div>
+      <div class="ben-card">
+        <div class="no">BENEFIT 02</div><div class="ic">🛠️</div>
+        <h3>開発フルサポート<br>（AI知識は不要）</h3>
+        <p>本部の専門エンジニアチームがシステムを構築。エンジニア採用も技術習得も不要です。あなたは業界知見と事業成長に集中できます。</p>
+      </div>
+      <div class="ben-card">
+        <div class="no">BENEFIT 03</div><div class="ic">🛡️</div>
+        <h3>IPO準拠の<br>社会的信頼性</h3>
+        <p>運営母体はIPO準備フェーズ。法令遵守と高い倫理観に基づいた「公的価値を持つプラットフォーム」の公式パートナーとして事業を運営できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="block reveal">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">COMPARISON</p>
+      <h2 class="stitle">自社開発か、<span class="hl">加盟か</span>。</h2>
+      <p class="sdesc">同じAI事業を立ち上げるなら、どちらが合理的か。比較すれば一目瞭然です。</p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>比較項目</th><th>自社での独自開発</th><th>ホリエモンAI 加盟</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ブランド力</td><td><span class="x">×</span> ゼロから構築（多大な時間）</td><td><span class="o">◎</span> 「ホリエモン」ブランドを即時活用</td></tr>
+          <tr><td>集客コスト</td><td><span class="x">×</span> 広告費に依存（高CAC）</td><td><span class="o">◎</span> IP活用による自然流入（極低CAC）</td></tr>
+          <tr><td>開発スピード</td><td><span class="x">×</span> エンジニア採用から開始</td><td><span class="o">◎</span> 本部の開発チームが最速実装</td></tr>
+          <tr><td>社会的信頼</td><td><span class="x">×</span> 未知のスタートアップ</td><td><span class="o">◎</span> IPO準備企業の公式パートナー</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="block ben reveal">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">ENTRY PLAN</p>
+      <h2 class="stitle">2つの<span class="hl">参入プラン</span>。</h2>
+      <p class="sdesc">あなたの強みに合わせて、事業の立ち上げ方を選べます。</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan">
+        <div class="pno">PLAN A</div>
+        <h3>専門知見 持ち込み型</h3>
+        <div class="formula">あなたの業界知識 × ホリエモンAI</div>
+        <p>不動産・医療・製造など、業界の非効率を熟知したあなたの専門知見を持ち込むだけ。本部がシステム開発とIP広報を完結させます。業界の商習慣を共にアップデートできるパートナーを歓迎します。</p>
+      </div>
+      <div class="plan">
+        <div class="pno">PLAN B</div>
+        <h3>本部提供アイデア型</h3>
+        <div class="formula">本部秘蔵の「勝てるリスト」から選択</div>
+        <p>独自の勝てるアイデアがなくても問題ありません。本部がストックする検証済みの事業アイデアから選択し、即座に事業を開始。テック未経験の経営者・起業家でも安心して参入できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="block roi reveal">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">ROI</p>
+      <h2 class="stitle">収益性と、<span class="hl">投資対効果</span>。</h2>
+    </div>
+    <div class="roi-grid">
+      <div class="price-card">
+        <div class="price-row"><span class="k">加盟金</span><span class="v"><span class="en">200</span><small>万円</small></span></div>
+        <div class="price-row"><span class="k">開発費（目安）</span><span class="v"><span class="en">1,200</span><small>万円〜</small></span></div>
+      </div>
+      <div class="roi-text">
+        <h3>集客を<span class="hl">IPに依存</span>できるから、<br>広告宣伝費を大幅に圧縮できる。</h3>
+        <p>通常のAIサービスが莫大な広告費を投じて認知を広げる中、本プロジェクトは堀江氏のSNS拡散力を活用。圧縮した広告費を、そのまま開発と事業成長に再投資できる構造です。</p>
+        <p>この「低いCAC（顧客獲得単価）」こそが、フランチャイズオーナーに約束される最大のROIの根源です。</p>
+        <p class="roi-note">※ 開発費は事業ドメイン・機能要件により変動します。詳細はオンライン事業説明会にてご案内します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="block reveal">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">FOR WHOM</p>
+      <h2 class="stitle">こんな方を、<span class="hl">パートナー</span>として迎えます。</h2>
+      <p class="sdesc">単なる「資金力のある投資家」は募集していません。共に業界をアップデートする、専門知識と課題解決の熱量を持つ方を厳選します。</p>
+    </div>
+    <div class="tgt-grid">
+      <div class="tgt">
+        <div class="ti">🏢</div>
+        <h4>業界知識を持つ専門家<br><small>（不動産・医療・製造 等）</small></h4>
+        <p class="pain">業界の非効率は痛感しているが、AI開発リソースもブランディング手法も持たない。</p>
+        <p class="sol">→ 専門知見を持ち込むだけで、本部がシステム開発とIP広報を完結。</p>
+      </div>
+      <div class="tgt">
+        <div class="ti">🏭</div>
+        <h4>新規事業を模索する<br>中小企業経営者</h4>
+        <p class="pain">本業の労働集約型モデルに限界。第2の柱を探すが、テック領域への参入に不安。</p>
+        <p class="sol">→ IPO準備中の信頼できる看板と、本部直伝のAI活用ノウハウを提供。</p>
+      </div>
+      <div class="tgt">
+        <div class="ti">💡</div>
+        <h4>AIで起業したい<br>個人投資家・起業家</h4>
+        <p class="pain">AIビジネスの可能性は確信しているが、勝てるアイデアや開発チームの構築に苦戦。</p>
+        <p class="sol">→ 本部がストックする「勝てるアイデア」から選択し、即座に事業開始。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CV / FORM -->
+<section class="cv" id="contact">
+  <div class="wrap">
+    <div class="cv-head">
+      <div class="scarcity">⚠ 初期エリア・業界枠は先着順です</div>
+      <h2>堀江貴文と共に、<br>AIで日本の停滞を<span class="hl">突破する</span>。</h2>
+      <p class="sdesc center" style="margin:0 auto;">まずはオンライン事業説明会（無料）で、事業の全体像と参入条件をご確認ください。特定のドメインが埋まり次第、募集を終了します。</p>
+    </div>
+    <div class="form-box">
+      <div class="form-row">
+        <label class="form-label">ご検討中の参入プラン<span class="required">必須</span></label>
+        <div class="form-radio-group">
+          <label class="form-radio-label"><input type="radio" name="plan"> 専門知見 持ち込み型</label>
+          <label class="form-radio-label"><input type="radio" name="plan"> 本部提供アイデア型</label>
+          <label class="form-radio-label"><input type="radio" name="plan"> まだ決めていない</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">会社名・屋号</label>
+        <input type="text" class="form-input" placeholder="例：株式会社〇〇">
+      </div>
+      <div class="form-row">
+        <label class="form-label">ご検討中の業界・ドメイン</label>
+        <input type="text" class="form-input" placeholder="例：不動産 / 医療 / 人材 など">
+      </div>
+      <div class="form-row">
+        <label class="form-label">お名前<span class="required">必須</span></label>
+        <input type="text" class="form-input" placeholder="例：山田 太郎">
+      </div>
+      <div class="form-row">
+        <label class="form-label">メールアドレス<span class="required">必須</span></label>
+        <input type="email" class="form-input" placeholder="例：info@example.com">
+      </div>
+      <div class="form-row">
+        <label class="form-label">電話番号</label>
+        <input type="tel" class="form-input" placeholder="例：090-1234-5678">
+      </div>
+      <div class="form-row">
+        <label class="form-label">ご質問・ご相談（任意）</label>
+        <textarea class="form-textarea" placeholder="現在のご状況や、AIで実現したいことなどをご記入ください"></textarea>
+      </div>
+      <div class="policy">
+        <a href="https://horiemon.ai/privacypolicy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意のうえ、送信してください。
+      </div>
+      <div class="policy-check">
+        <input type="checkbox" id="agree">
+        <label for="agree">プライバシーポリシーに同意する</label>
+      </div>
+      <button type="button" class="btn-submit">オンライン事業説明会に申し込む（無料）</button>
+      <p class="form-micro">※ 無理な営業は一切いたしません。フィットしない場合は、その旨を正直にお伝えします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-inner">
+      <a href="/" class="ft-brand">
+        <img src="/assets/img/logo.png" alt="ホリエモンAI学校" onerror="this.style.display='none'">
+        <span class="t">ホリエモンAI学校株式会社</span>
+      </a>
+      <nav class="ft-nav">
+        <a href="/">サービス一覧</a>
+        <a href="https://horiemon.ai/" target="_blank" rel="noopener">公式サイト</a>
+        <a href="https://horiemon.ai/privacypolicy" target="_blank" rel="noopener">プライバシーポリシー</a>
+        <a href="#contact">事業説明会に申し込む</a>
+      </nav>
+    </div>
+    <p class="ft-copy">© 2026 ホリエモンAI学校株式会社. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
