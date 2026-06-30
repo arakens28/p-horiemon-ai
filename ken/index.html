@@ -222,6 +222,33 @@
     .aud-list li { font-size: 13.5px; color: #444; line-height: 1.7; padding-left: 22px; position: relative; margin-bottom: 9px; }
     .aud-list li::before { content: '✓'; position: absolute; left: 0; color: var(--red); font-weight: 900; }
 
+    /* ===== VOICE（顧客の声） ===== */
+    .voice { background: var(--gray-light); }
+    .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .voice-card { background: #fff; border: 1px solid var(--gray-mid); border-radius: 16px; padding: 32px 28px; box-shadow: 0 2px 12px rgba(0,0,0,.04); display: flex; flex-direction: column; }
+    .voice-quote { font-size: 36px; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: 8px; font-family: Georgia, serif; }
+    .voice-text { font-size: 14.5px; color: #333; line-height: 1.85; flex: 1; }
+    .voice-who { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--gray-mid); }
+    .voice-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--red-bg); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .voice-meta strong { display: block; font-size: 13px; font-weight: 700; color: var(--black); }
+    .voice-meta span { font-size: 12px; color: var(--gray-text); }
+    .voice-note { text-align: center; font-size: 12px; color: #aaa; margin-top: 28px; }
+
+    /* ===== PLANS subheads / lecture ===== */
+    .plans-subhead { display: flex; align-items: center; gap: 12px; max-width: 1100px; margin: 56px auto 8px; font-size: 22px; font-weight: 900; }
+    .plans-subhead .pill { font-size: 12px; font-weight: 700; color: #fff; background: var(--red); border-radius: 99px; padding: 4px 14px; }
+    .plans-subhead .desc { font-size: 13px; font-weight: 500; color: var(--gray-text); margin-left: auto; }
+    .plan-lecture { background: #fff; border: 2px solid var(--gray-mid); border-radius: 20px; padding: 32px 36px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; margin-top: 12px; transition: var(--transition); }
+    .plan-lecture:hover { border-color: var(--red); box-shadow: 0 12px 40px rgba(232,0,28,.1); }
+    .plan-lecture .l-icon { font-size: 30px; }
+    .plan-lecture .l-name { font-size: 22px; font-weight: 900; margin: 6px 0; }
+    .plan-lecture .l-desc { font-size: 14px; color: var(--gray-text); line-height: 1.8; }
+    .plan-lecture .l-price { text-align: right; white-space: nowrap; }
+    .plan-lecture .l-price .v { font-size: 40px; font-weight: 900; color: var(--red); line-height: 1; }
+    .plan-lecture .l-price .v .yen { font-size: 20px; }
+    .plan-lecture .l-price .m { font-size: 13px; color: #aaa; margin-top: 6px; }
+    .plans-grid.cols3 { grid-template-columns: repeat(3, 1fr); }
+
     /* ===== TRACK RECORD（実績） ===== */
     .record { background: var(--black); color: #fff; }
     .record .section-title { color: #fff; }
@@ -388,11 +415,18 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1000px) {
       .plans-grid { grid-template-columns: repeat(2, 1fr); max-width: 640px; margin-left:auto; margin-right:auto; }
-      .aud-grid, .record-grid { grid-template-columns: 1fr; }
+      .plans-grid.cols3 { grid-template-columns: repeat(2, 1fr); }
+      .aud-grid, .record-grid, .voice-grid { grid-template-columns: 1fr; }
       .concept-cards { grid-template-columns: 1fr; }
+      .plans-subhead { padding: 0 24px; flex-wrap: wrap; }
+      .plans-subhead .desc { margin-left: 0; flex-basis: 100%; }
+    }
+    @media (max-width: 600px) {
+      .plan-lecture { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+      .plan-lecture .l-price { text-align: center; }
     }
     @media (max-width: 560px) {
-      .plans-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .plans-grid, .plans-grid.cols3 { grid-template-columns: 1fr; max-width: 420px; }
     }
     @media (max-width: 768px) {
       .section { padding: 64px 0; }
@@ -442,13 +476,13 @@
           非エンジニア・管理職・経営者向け／全国出張対応
         </div>
         <h1 class="hero-title">
-          現場から経営層まで。<br>
-          <span class="accent">階層別</span>のAI研修。
+          貴社・団体へ、<br>
+          <span class="accent">出張</span>するAI研修・講演。
         </h1>
         <p class="hero-desc">
-          非エンジニアの現場社員から、管理職、経営者・幹部まで——。<br>
-          対象に合わせて、AIツールの実践からマクロ経済・AI経営までを設計。<br>
-          大手企業・団体での登壇実績をもとに、貴社・団体へ出張します。
+          AIを取り入れたいのに、社内だけでは前に進まない——。<br>
+          そんな企業・団体のもとへ、私たちが伺います。<br>
+          現場の非エンジニアから経営層まで、対象に合わせた研修・講演を全国へ。
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary btn-lg">無料で相談・お問い合わせ →</a>
@@ -500,13 +534,46 @@
   </div>
 </section>
 
-<!-- ===== PROBLEMS ===== -->
+<!-- ===== CUSTOMER（誰のための研修か） ===== -->
+<section class="section" id="customer">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Customer</span>
+      <h2 class="section-title">こんな企業・団体のための研修です</h2>
+      <p class="section-sub">「社員のAI活用を進めたい」「会員に学びの場を届けたい」——組織ぐるみでAIに取り組みたい企業・団体を対象にしています。</p>
+    </div>
+    <div class="curri-grid">
+      <div class="curri-card fade-up">
+        <div class="ic">🏢</div>
+        <h3>企業</h3>
+        <p>全社員のAI活用を底上げし、組織全体の生産性を高めたい経営者・人事・DX推進ご担当者の方へ。</p>
+      </div>
+      <div class="curri-card fade-up">
+        <div class="ic">🤝</div>
+        <h3>業界団体・協会</h3>
+        <p>会員企業向けに、AI活用の学びの機会やセミナーを提供したい団体・協会の方へ。</p>
+      </div>
+      <div class="curri-card fade-up">
+        <div class="ic">👷</div>
+        <h3>組合</h3>
+        <p>組合員のスキルアップや、AI時代の情報提供の場をつくりたい組合の方へ。</p>
+      </div>
+      <div class="curri-card fade-up">
+        <div class="ic">🏛️</div>
+        <h3>自治体・官公庁</h3>
+        <p>職員のDX・AIリテラシーを引き上げ、業務効率と住民サービスを高めたい組織の方へ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEM（どんな困り事か） ===== -->
 <section class="section problems" id="problems" style="background:var(--gray-light)">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">こんな課題はありませんか？</span>
-      <h2 class="section-title">「AI研修をやったが、<br>成果につながらない」</h2>
-      <p class="section-sub">多くの組織が、同じ壁にぶつかっています。出張AI研修は、その壁を越えるための場です。</p>
+      <span class="section-label">Problem</span>
+      <h2 class="section-title">「AIを進めたいのに、<br>社内だけでは動かない」</h2>
+      <p class="section-sub">そんな企業・団体が、同じ壁にぶつかっています。あなたの組織にも、心当たりはありませんか？</p>
     </div>
     <div class="problems-grid">
       <div class="problem-card fade-up">
@@ -528,13 +595,50 @@
   </div>
 </section>
 
-<!-- ===== AUDIENCE（対象別） ===== -->
+<!-- ===== SOLUTION（出張だから解決できる） ===== -->
+<section class="section features" id="solution">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Solution</span>
+      <h2 class="section-title">その課題、<br>「出張」だから解決できます</h2>
+      <p class="section-sub">オンライン教材や来場型の研修では届かないところへ。こちらから伺うからこそ、組織は動き出します。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">01</div>
+        <span class="tag">全国へ出張</span>
+        <h3>会場へ伺うから<br>手配いらず</h3>
+        <p>移動・会場手配の負担なく、いつもの会議室・ホールで実施。全国どこへでも、こちらから伺います。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">02</div>
+        <span class="tag">全員を一度に</span>
+        <h3>組織全体で<br>足並みをそろえる</h3>
+        <p>一部の社員だけでなく、全社員・全会員をまとめて。組織ぐるみで取り組むから、AIが本当に定着します。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">03</div>
+        <span class="tag">自社の事例で</span>
+        <h3>「自分ごと」に<br>なる内容</h3>
+        <p>一般論ではなく、貴社の業務・業界の実例に即して設計。だから腹落ちし、現場が実際に動き出します。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">04</div>
+        <span class="tag">対面の熱量</span>
+        <h3>その場で<br>行動に変わる</h3>
+        <p>対面だからこそ、質問・実演・フィードバックがその場で完結。学びを確実に行動へつなげます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUDIENCE（対象別の設計） ===== -->
 <section class="section" id="audience">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">For</span>
-      <h2 class="section-title">対象に合わせた、3つの研修</h2>
-      <p class="section-sub">同じ「AI研修」でも、現場・管理職・経営層では学ぶべきことが違います。対象別に内容を設計します。</p>
+      <span class="section-label">Design</span>
+      <h2 class="section-title">対象に合わせて、設計します</h2>
+      <p class="section-sub">同じ「AI研修」でも、現場・管理職・経営層では学ぶべきことが違います。対象別に内容を組み立てます。</p>
     </div>
     <div class="aud-grid">
       <div class="aud-card fade-up">
@@ -747,40 +851,41 @@
   </div>
 </section>
 
-<!-- ===== FEATURES ===== -->
-<section class="section features" id="features">
+<!-- ===== VOICE（顧客の声） ===== -->
+<section class="section voice" id="voice">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Features</span>
-      <h2 class="section-title">出張AI研修が選ばれる理由</h2>
-      <p class="section-sub">数あるAI研修の中で、貴社がこの研修を選ぶ理由がここにあります。</p>
+      <span class="section-label">Voice</span>
+      <h2 class="section-title">受講した企業・団体の声</h2>
+      <p class="section-sub">「ツールで終わらない」研修だからこそ、現場と経営の両方から評価をいただいています。</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card fade-up">
-        <div class="feature-card-num">01</div>
-        <span class="tag">代表が直接登壇</span>
-        <h3>代表・荒木が<br>貴社に伺う</h3>
-        <p>外注講師ではなく、ホリエモンAI学校 代表・荒木賢二郎が自ら登壇。一次情報と実践知を、貴社の現場へ直接届けます。</p>
+    <div class="voice-grid">
+      <div class="voice-card fade-up">
+        <div class="voice-quote">“</div>
+        <p class="voice-text">ツールの研修は受けたことがありましたが、「経営にどう使うか」まで踏み込んだのは初めて。役員全員の目線がそろい、投資判断の議論が一気に進みました。</p>
+        <div class="voice-who">
+          <div class="voice-avatar">🏭</div>
+          <div class="voice-meta"><strong>製造業</strong><span>経営企画・役員クラス</span></div>
+        </div>
       </div>
-      <div class="feature-card fade-up">
-        <div class="feature-card-num">02</div>
-        <span class="tag">ツール＋経営</span>
-        <h3>使い方の先の<br>「経営」まで</h3>
-        <p>AIツールの操作にとどまらず、マクロ経済とAI経営まで一気通貫。現場と経営、両方の意思決定を動かします。</p>
+      <div class="voice-card fade-up">
+        <div class="voice-quote">“</div>
+        <p class="voice-text">非エンジニアの社員でも、その日のうちに自分の業務でAIを使い始められました。全員が同じ場で受けられる出張形式だったのが、定着の決め手でした。</p>
+        <div class="voice-who">
+          <div class="voice-avatar">🧑‍💼</div>
+          <div class="voice-meta"><strong>サービス業</strong><span>人事・教育ご担当者</span></div>
+        </div>
       </div>
-      <div class="feature-card fade-up">
-        <div class="feature-card-num">03</div>
-        <span class="tag">完全カスタマイズ</span>
-        <h3>業種・目的に<br>合わせて設計</h3>
-        <p>対象者・業種・課題に合わせて内容を設計。記載のメニューを土台に、貴社専用のプログラムに仕立てます。</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-card-num">04</div>
-        <span class="tag">400社の知見</span>
-        <h3>豊富な実績に<br>裏打ちされた内容</h3>
-        <p>受講企業400社・受講者4,000人超を支援してきた知見を凝縮。組織にAIを定着させる勘所を熟知しています。</p>
+      <div class="voice-card fade-up">
+        <div class="voice-quote">“</div>
+        <p class="voice-text">会員向けセミナーとして開催。「今の経済とAI」の話が好評で、参加者アンケートの満足度は過去最高クラス。次回開催の要望も多く届いています。</p>
+        <div class="voice-who">
+          <div class="voice-avatar">🤝</div>
+          <div class="voice-meta"><strong>業界団体</strong><span>事務局ご担当者</span></div>
+        </div>
       </div>
     </div>
+    <p class="voice-note">※ 守秘のため、お名前・団体名は伏せて掲載しています。</p>
   </div>
 </section>
 
@@ -852,21 +957,23 @@
     <div class="text-center fade-up">
       <span class="section-label">Plans</span>
       <h2 class="section-title">料金プラン</h2>
-      <p class="section-sub">出張して行うAI研修・講演のメニューです。内容・時間・回数はご相談に応じてカスタマイズします。</p>
+      <p class="section-sub">目的に合わせて、「出張講演」と「出張研修」からお選びいただけます。内容・時間・回数はご相談に応じてカスタマイズします。</p>
     </div>
-    <div class="plans-grid">
-      <div class="plan-card fade-up">
-        <div class="plan-icon">🎤</div>
-        <div class="plan-name">単発講演・研修</div>
-        <div class="plan-tagline">まずは組織全体にAIの全体像を。基調講演・キックオフに。</div>
-        <div class="plan-price"><span class="yen">¥</span>200,000</div>
-        <div class="plan-meta">90分／1回・税別</div>
-        <ul class="plan-feat">
-          <li>AIの最新動向と全体像</li>
-          <li>大人数・セミナー形式に最適</li>
-          <li>幹部・経営層向けにも対応</li>
-        </ul>
+
+    <!-- 出張講演 -->
+    <div class="plans-subhead fade-up">🎤 出張講演 <span class="pill">大人数・気づきを得る</span><span class="desc">全社員・会員向けの基調講演／キックオフに</span></div>
+    <div class="plan-lecture fade-up">
+      <div class="l-body">
+        <div class="l-icon">🎤</div>
+        <div class="l-name">出張講演</div>
+        <div class="l-desc">AIの最新動向と全体像を、わかりやすく。大人数のセミナー形式で、組織全体に「これからやるべきこと」の気づきを届けます。経営層・幹部向けにも対応。</div>
       </div>
+      <div class="l-price"><div class="v"><span class="yen">¥</span>200,000</div><div class="m">90分／1回・税別</div></div>
+    </div>
+
+    <!-- 出張研修 -->
+    <div class="plans-subhead fade-up">📚 出張研修 <span class="pill">手を動かす・定着させる</span><span class="desc">対象別に設計し、組織にAIを根付かせる</span></div>
+    <div class="plans-grid cols3">
       <div class="plan-card fade-up">
         <div class="plan-icon">⏱️</div>
         <div class="plan-name">集中研修</div>
