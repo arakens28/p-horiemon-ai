@@ -367,28 +367,6 @@
     .form-status.err { color:var(--red); font-weight:700; }
     .form-privacy { text-align:center; font-size:12px; color:#aaa; margin-top:20px; line-height:1.7; }
     @media (max-width:600px){ .form-card{ padding:28px 20px; } }
-
-    /* ===== BANK/BRANCH AUTOCOMPLETE ===== */
-    .search-wrap { position: relative; }
-    .search-wrap input[type="text"] { width: 100%; }
-    .search-dropdown {
-      position: absolute; z-index: 200; left: 0; right: 0; top: calc(100% - 1px);
-      background: #fff; border: 1.5px solid var(--red);
-      border-top: none; border-radius: 0 0 10px 10px;
-      max-height: 220px; overflow-y: auto; list-style: none;
-      box-shadow: 0 8px 24px rgba(0,0,0,.12); margin: 0; padding: 0;
-    }
-    .search-item {
-      padding: 11px 16px; font-size: 15px; cursor: pointer;
-      border-bottom: 1px solid #f0f0f0; transition: background .12s;
-      line-height: 1.4;
-    }
-    .search-item:last-child { border-bottom: none; }
-    .search-item:hover, .search-item[aria-selected="true"] { background: var(--red-bg); }
-    .search-item .item-kana { font-size: 11px; color: var(--gray-text); display: block; margin-top: 2px; }
-    .search-empty { padding: 12px 16px; font-size: 14px; color: var(--gray-text); }
-    .search-wrap input:focus { border-radius: 10px 10px 0 0; }
-    .search-wrap input:not(:focus) { border-radius: 10px; }
   </style>
 </head>
 <body>
@@ -775,26 +753,14 @@
       <div class="form-divider">振込先口座情報</div>
 
       <div class="form-field">
-        <label for="f-bank-input">銀行名<span class="req">必須</span></label>
-        <div class="search-wrap">
-          <input type="text" id="f-bank-input" autocomplete="off" spellcheck="false"
-            placeholder="銀行名を入力して検索（例: みずほ、三菱、ゆうちょ）">
-          <input type="hidden" id="f-bank" name="銀行名">
-          <input type="hidden" id="f-bank-code">
-          <ul class="search-dropdown" id="bankDropdown" hidden role="listbox"></ul>
-        </div>
+        <label for="f-bank">銀行名<span class="req">必須</span></label>
+        <input type="text" id="f-bank" name="銀行名" required placeholder="例: ○○銀行">
         <span class="form-hint">報酬のお振込にのみ使用します。</span>
       </div>
       <div class="form-field">
-        <label for="f-branch-input">支店名<span class="req">必須</span></label>
-        <div class="search-wrap">
-          <input type="text" id="f-branch-input" autocomplete="off" spellcheck="false"
-            placeholder="先に銀行名を選択してください" disabled>
-          <input type="hidden" id="f-branch" name="支店名">
-          <input type="hidden" id="f-branch-code">
-          <ul class="search-dropdown" id="branchDropdown" hidden role="listbox"></ul>
-        </div>
-        <span class="form-hint">銀行名を選択後、支店名を入力・検索できます。</span>
+        <label for="f-branch">支店名<span class="req">必須</span></label>
+        <input type="text" id="f-branch" name="支店名" required placeholder="例: ○○支店">
+        <span class="form-hint">報酬のお振込にのみ使用します。</span>
       </div>
       <div class="form-field">
         <label for="f-type">口座種別<span class="req">必須</span></label>
@@ -807,13 +773,13 @@
       </div>
       <div class="form-field">
         <label for="f-number">口座番号<span class="req">必須</span></label>
-        <input type="text" id="f-number" name="口座番号" required inputmode="numeric" maxlength="7" placeholder="例: 1234567（半角数字7桁）">
-        <span class="form-hint">半角数字7桁で入力してください。全角数字は自動で半角に変換されます。</span>
+        <input type="text" id="f-number" name="口座番号" required inputmode="numeric" placeholder="例: 1234567">
+        <span class="form-hint">報酬のお振込にのみ使用します。</span>
       </div>
       <div class="form-field">
         <label for="f-holder">口座名義<span class="req">必須</span></label>
         <input type="text" id="f-holder" name="口座名義" required placeholder="例: ヤマダ タロウ">
-        <span class="form-hint">カタカナで入力してください（例: ヤマダ タロウ）。ひらがなは自動でカタカナに変換されます。</span>
+        <span class="form-hint">例: ヤマダ タロウ。報酬のお振込にのみ使用します。</span>
       </div>
       <div class="form-field">
         <label for="f-note">備考（任意）</label>
@@ -913,192 +879,20 @@
     });
   });
 
-  // ===== ユーティリティ =====
-  function toHalfWidth(str) {
-    return str.replace(/[０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
-  }
-  function toKatakana(str) {
-    return str.replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-  }
-  function isKatakanaOnly(str) {
-    return str.length > 0 && /^[ァ-ヴーｦ-ﾟ\s　]+$/.test(str);
-  }
-  function is7Digits(str) {
-    return /^[0-9]{7}$/.test(str);
-  }
-
-  // 口座番号：全角→半角変換 & 数字のみ
-  document.getElementById('f-number').addEventListener('input', function () {
-    this.value = toHalfWidth(this.value).replace(/[^0-9]/g, '');
-  });
-
-  // 電話番号：全角→半角変換
-  document.getElementById('f-tel').addEventListener('input', function () {
-    this.value = toHalfWidth(this.value);
-  });
-
-  // 口座名義：ひらがな→カタカナ変換
-  document.getElementById('f-holder').addEventListener('input', function () {
-    this.value = toKatakana(this.value);
-  });
-
-  // ===== 銀行・支店オートコンプリート =====
-  let bankApiAvailable = false;
-  let branchApiAvailable = false;
-  let bankList = [];
-  let branchList = [];
-
-  function makeAutocomplete(inputEl, dropdownEl, hiddenEl, onSelect) {
-    let highlighted = -1;
-    let activeItems = [];
-
-    function renderItems(items) {
-      highlighted = -1;
-      activeItems = items;
-      dropdownEl.innerHTML = '';
-      if (!items.length) {
-        dropdownEl.innerHTML = '<li class="search-empty">候補が見つかりません</li>';
-      } else {
-        items.forEach((item, i) => {
-          const li = document.createElement('li');
-          li.className = 'search-item';
-          li.setAttribute('role', 'option');
-          li.dataset.idx = i;
-          li.innerHTML = item.name + '<span class="item-kana">' + (item.kana || '') + '</span>';
-          li.addEventListener('mousedown', e => { e.preventDefault(); pick(item); });
-          dropdownEl.appendChild(li);
-        });
-      }
-      dropdownEl.hidden = false;
-    }
-
-    function close() { dropdownEl.hidden = true; highlighted = -1; }
-
-    function pick(item) {
-      inputEl.value = item.name;
-      hiddenEl.value = item.name;
-      close();
-      if (onSelect) onSelect(item);
-    }
-
-    function setHL(idx) {
-      dropdownEl.querySelectorAll('.search-item').forEach((el, i) =>
-        el.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
-      highlighted = idx;
-    }
-
-    inputEl.addEventListener('keydown', e => {
-      if (dropdownEl.hidden) return;
-      const els = dropdownEl.querySelectorAll('.search-item');
-      if (e.key === 'ArrowDown') { e.preventDefault(); setHL(Math.min(highlighted + 1, els.length - 1)); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); setHL(Math.max(highlighted - 1, 0)); }
-      else if (e.key === 'Enter' && highlighted >= 0) { e.preventDefault(); pick(activeItems[highlighted]); }
-      else if (e.key === 'Escape') close();
-    });
-    inputEl.addEventListener('blur', () => setTimeout(close, 200));
-
-    return { renderItems };
-  }
-
-  async function initBankBranch() {
-    const bankInputEl   = document.getElementById('f-bank-input');
-    const bankDropdown  = document.getElementById('bankDropdown');
-    const bankHidden    = document.getElementById('f-bank');
-    const branchInputEl = document.getElementById('f-branch-input');
-    const branchDropdown= document.getElementById('branchDropdown');
-    const branchHidden  = document.getElementById('f-branch');
-
-    // 銀行一覧を取得（5秒タイムアウト）
-    try {
-      const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), 5000);
-      const res = await fetch('https://bank.teraren.com/banks.json', { signal: ctrl.signal });
-      clearTimeout(timer);
-      if (!res.ok) throw new Error();
-      bankList = await res.json();
-      bankApiAvailable = true;
-    } catch {
-      // API不可のときはテキスト入力として動作
-      bankInputEl.placeholder = '銀行名を直接入力してください（例: ○○銀行）';
-      branchInputEl.disabled = false;
-      branchInputEl.placeholder = '支店名を直接入力してください（例: ○○支店）';
-      // visible inputsの値をそのままhiddenに同期
-      bankInputEl.addEventListener('input', () => { bankHidden.value = bankInputEl.value.trim(); });
-      branchInputEl.addEventListener('input', () => { branchHidden.value = branchInputEl.value.trim(); });
-      return;
-    }
-
-    // 銀行オートコンプリート
-    const bankAC = makeAutocomplete(bankInputEl, bankDropdown, bankHidden, async (bank) => {
-      // 銀行が変わったら支店をリセット
-      branchHidden.value = '';
-      branchInputEl.value = '';
-      branchDropdown.hidden = true;
-      branchInputEl.disabled = false;
-      branchInputEl.placeholder = '支店名を読み込み中…';
-      branchList = [];
-      branchApiAvailable = false;
-
-      try {
-        const ctrl = new AbortController();
-        const timer = setTimeout(() => ctrl.abort(), 5000);
-        const res = await fetch('https://bank.teraren.com/banks/' + bank.code + '/branches.json', { signal: ctrl.signal });
-        clearTimeout(timer);
-        if (!res.ok) throw new Error();
-        branchList = await res.json();
-        branchApiAvailable = true;
-        branchInputEl.placeholder = '支店名を入力して検索';
-      } catch {
-        branchApiAvailable = false;
-        branchInputEl.placeholder = '支店名を直接入力してください';
-      }
-      branchInputEl.focus();
-    });
-
-    bankInputEl.addEventListener('input', function () {
-      bankHidden.value = '';
-      const q = this.value.trim().replace(/銀行$/, '').replace(/　/g, ' ');
-      if (!q) { bankDropdown.hidden = true; return; }
-      bankAC.renderItems(
-        bankList.filter(b =>
-          b.name.includes(q) ||
-          (b.kana && b.kana.includes(q)) ||
-          (b.roma && b.roma.toLowerCase().includes(q.toLowerCase()))
-        ).slice(0, 20)
-      );
-    });
-
-    // 支店オートコンプリート
-    const branchAC = makeAutocomplete(branchInputEl, branchDropdown, branchHidden, null);
-
-    branchInputEl.addEventListener('input', function () {
-      if (!branchApiAvailable) {
-        branchHidden.value = this.value.trim();
-        return;
-      }
-      branchHidden.value = '';
-      const q = this.value.trim().replace(/支店$/, '');
-      if (!q) { branchDropdown.hidden = true; return; }
-      branchAC.renderItems(
-        branchList.filter(b =>
-          b.name.includes(q) || (b.kana && b.kana.includes(q))
-        ).slice(0, 20)
-      );
-    });
-  }
-
-  initBankBranch();
-
   // ===== 申込フォーム =====
+  // ▼送信先URLが決まったら、この FORM_ENDPOINT に設定するだけで送信が有効化されます。
+  //   ・Formspree の場合 : "https://formspree.io/f/xxxxxxxx"
+  //   ・Google Apps Script の場合 : ウェブアプリの /exec URL
   const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxFOrI_OCVHEcc4b9H_RSXo9s1ZoAyraKlV2-JRB6twbZiTLMG19sTs1jqKLX2pWQw/exec";
 
   (function () {
-    const form      = document.getElementById('affForm');
+    const form = document.getElementById('affForm');
+    if (!form) return;
     const submitBtn = document.getElementById('formSubmit');
     const statusEl  = document.getElementById('formStatus');
     const pendingEl = document.getElementById('formPending');
-    if (!form) return;
 
+    // 送信先が未設定の間は「受付準備中」（送信無効・データは保存されません）
     if (!FORM_ENDPOINT) {
       submitBtn.disabled = true;
       submitBtn.textContent = '受付準備中';
@@ -1109,59 +903,7 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!FORM_ENDPOINT) return;
-
-      // APIなしのフォールバック：visible → hidden を同期
-      if (!bankApiAvailable) {
-        document.getElementById('f-bank').value = document.getElementById('f-bank-input').value.trim();
-      }
-      if (!branchApiAvailable) {
-        const bv = document.getElementById('f-branch');
-        if (!bv.value) bv.value = document.getElementById('f-branch-input').value.trim();
-      }
-
-      // カスタムバリデーション
-      const errors = [];
-
-      const email = document.getElementById('f-email').value.trim();
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-        errors.push('メールアドレスを正しく入力してください。');
-
-      const name = document.getElementById('f-name').value.trim();
-      if (!name) errors.push('お名前を入力してください。');
-
-      const tel = toHalfWidth(document.getElementById('f-tel').value).replace(/[-\s]/g, '');
-      if (!tel || !/^[0-9]{10,11}$/.test(tel))
-        errors.push('電話番号を正しく入力してください（10〜11桁の数字）。');
-
-      const bank = document.getElementById('f-bank').value.trim();
-      if (!bank) errors.push('銀行名を選択してください。');
-
-      const branch = document.getElementById('f-branch').value.trim();
-      if (!branch) errors.push('支店名を選択してください。');
-
-      const acType = document.getElementById('f-type').value;
-      if (!acType) errors.push('口座種別を選択してください。');
-
-      const number = document.getElementById('f-number').value.trim();
-      if (!number) {
-        errors.push('口座番号を入力してください。');
-      } else if (!is7Digits(number)) {
-        errors.push('口座番号は半角数字7桁で入力してください（現在 ' + number.length + ' 桁）。');
-      }
-
-      const holder = document.getElementById('f-holder').value.trim();
-      if (!holder) {
-        errors.push('口座名義を入力してください。');
-      } else if (!isKatakanaOnly(holder)) {
-        errors.push('口座名義はカタカナで入力してください（例: ヤマダ タロウ）。');
-      }
-
-      if (errors.length > 0) {
-        statusEl.className = 'form-status err';
-        statusEl.innerHTML = errors.join('<br>');
-        statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
+      if (!form.reportValidity()) return;
 
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中…';
@@ -1176,8 +918,6 @@
         });
         if (!res.ok) throw new Error('failed');
         form.reset();
-        document.getElementById('f-branch-input').disabled = true;
-        document.getElementById('f-branch-input').placeholder = '先に銀行名を選択してください';
         statusEl.className = 'form-status ok';
         statusEl.textContent = '送信が完了しました。ご利用クーポンコードをメールでお送りします。';
         submitBtn.textContent = '送信完了';
