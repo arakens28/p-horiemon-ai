@@ -114,6 +114,15 @@
   }
   .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(45,226,255,.55);}
   .btn-primary .arr{font-size:18px;}
+  .cta-group{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:34px;}
+  .cta-group .btn-primary{margin-top:0;}
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid rgba(45,226,255,.5);color:var(--ink);background:rgba(45,226,255,.06);
+    font-weight:800;font-size:15px;padding:17px 28px;border-radius:50px;transition:.25s;
+  }
+  .btn-ghost:hover{background:rgba(45,226,255,.14);border-color:var(--cyan);}
+  .btn-ghost .ic{font-size:16px;}
 
   /* visual placeholder card */
   .fv-visual{position:relative;}
@@ -287,6 +296,23 @@
   .btn-submit:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(45,226,255,.55);}
   .form-micro{text-align:center;font-size:12px;color:var(--faint);margin-top:14px;}
 
+  /* ===== REVENUE MODEL ===== */
+  .rev{background:linear-gradient(180deg,#080c18,var(--bg));}
+  .rev-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:42px;align-items:center;margin-top:40px;}
+  .rev-text h3{font-size:22px;font-weight:900;line-height:1.5;margin-bottom:16px;}
+  .rev-text h3 .hl{color:var(--cyan);}
+  .rev-text p{color:var(--muted);font-size:14.5px;margin-bottom:16px;}
+  .rev-points{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .rev-points li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;}
+  .rev-points li .ck{color:var(--cyan);font-weight:900;flex-shrink:0;}
+  .rev-chart{border:1px solid var(--line);border-radius:20px;padding:30px 26px 22px;background:var(--glass);}
+  .rev-chart .ct{font-size:12px;color:var(--muted);margin-bottom:18px;text-align:center;}
+  .bars{display:flex;align-items:flex-end;gap:12px;height:200px;}
+  .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;}
+  .bar{width:100%;border-radius:7px 7px 0 0;background:linear-gradient(180deg,var(--cyan),var(--blue));box-shadow:0 0 18px rgba(45,226,255,.25);transition:height .9s cubic-bezier(.2,.7,.3,1);}
+  .bar-col .yl{font-size:11px;color:var(--muted);}
+  .rev-chart .note{font-size:11px;color:var(--faint);text-align:center;margin-top:16px;}
+
   /* ===== FOOTER ===== */
   footer{background:#05070d;border-top:1px solid var(--line);padding:40px 0 28px;position:relative;z-index:2;}
   .ft-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
@@ -324,7 +350,7 @@
         onerror="this.style.display='none'">
       <span class="bt">ホリエモンAI 〇〇<small>FRANCHISE 加盟募集</small></span>
     </a>
-    <a href="#contact" class="hdr-cta">無料説明会に申し込む</a>
+    <a href="#contact" class="hdr-cta">無料で資料請求・申込</a>
   </div>
 </header>
 
@@ -334,13 +360,17 @@
     <div class="fv-badges">
       <span class="badge ipo"><span class="dot"></span>IPO（新規上場）準備フェーズ</span>
       <span class="badge"><span class="dot"></span>受講企業 410社・受講者 4,000名</span>
+      <span class="badge"><span class="dot"></span>AI知識・開発スキルは不要</span>
     </div>
     <div class="fv-grid">
       <div>
         <h1>100の社会課題を、<br><span class="hl">100のAI</span>で解決する。</h1>
         <p class="sub">ホリエモンAI 〇〇<br>フランチャイズ加盟募集。</p>
         <p class="lead">堀江貴文の圧倒的なIPと、最先端のAI技術を垂直統合。あなたの業界に「ホリエモンAI 〇〇」を立ち上げ、日本の停滞を突破する次世代の事業家を募集します。</p>
-        <a href="#contact" class="btn-primary">オンライン事業説明会に申し込む（無料）<span class="arr">→</span></a>
+        <div class="cta-group">
+          <a href="#contact" class="btn-primary">オンライン事業説明会に申し込む（無料）<span class="arr">→</span></a>
+          <a href="#contact" class="btn-ghost"><span class="ic">📄</span>まずは無料資料をダウンロード</a>
+        </div>
         <div class="fv-proof">
           <div class="pcard"><b><span class="en">410</span><small>社</small></b><span>導入企業バックボーン</span></div>
           <div class="pcard"><b><span class="en">4,000</span><small>名</small></b><span>ホリエモンAI学校 受講者</span></div>
@@ -516,6 +546,40 @@
   </div>
 </section>
 
+<!-- REVENUE MODEL -->
+<section class="block rev reveal">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">REVENUE MODEL</p>
+      <h2 class="stitle">ストック型で、<span class="hl">収益が積み上がる</span>。</h2>
+      <p class="sdesc">単発で売り切るビジネスではありません。AIサービスの月額課金・顧問契約を基盤に、契約が積み重なるほど収益が安定して伸びていく構造です。</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-text">
+        <h3>未経験から、<span class="hl">開業初日</span>に<br>「ホリエモン」ブランドで集客する。</h3>
+        <p>AIの知識も開発スキルも不要。本部のブランドとIP拡散力を使えるため、ゼロから認知を広げる必要がありません。開業初日から指名で問い合わせが入る状態を目指せます。</p>
+        <ul class="rev-points">
+          <li><span class="ck">✓</span><span>月額課金・顧問モデルでストック収益が積み上がる</span></li>
+          <li><span class="ck">✓</span><span>AI知識・開発スキルは不要。本部が技術を担当</span></li>
+          <li><span class="ck">✓</span><span>広告費に頼らないIP集客で、利益率が高い</span></li>
+          <li><span class="ck">✓</span><span>事業ドメインは100種類。あなたの強みに合わせて選択</span></li>
+        </ul>
+      </div>
+      <div class="rev-chart">
+        <p class="ct">契約の積み上がりイメージ（ストック収益）</p>
+        <div class="bars">
+          <div class="bar-col"><div class="bar" style="height:22%"></div><span class="yl">1ヶ月目</span></div>
+          <div class="bar-col"><div class="bar" style="height:40%"></div><span class="yl">3ヶ月目</span></div>
+          <div class="bar-col"><div class="bar" style="height:62%"></div><span class="yl">6ヶ月目</span></div>
+          <div class="bar-col"><div class="bar" style="height:82%"></div><span class="yl">12ヶ月目</span></div>
+          <div class="bar-col"><div class="bar" style="height:100%"></div><span class="yl">24ヶ月目</span></div>
+        </div>
+        <p class="note">※ 収益はイメージです。具体的な収益シミュレーションは無料資料・説明会にてご案内します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TARGET -->
 <section class="block reveal">
   <div class="wrap">
@@ -553,9 +617,17 @@
     <div class="cv-head">
       <div class="scarcity">⚠ 初期エリア・業界枠は先着順です</div>
       <h2>堀江貴文と共に、<br>AIで日本の停滞を<span class="hl">突破する</span>。</h2>
-      <p class="sdesc center" style="margin:0 auto;">まずはオンライン事業説明会（無料）で、事業の全体像と参入条件をご確認ください。特定のドメインが埋まり次第、募集を終了します。</p>
+      <p class="sdesc center" style="margin:0 auto;">まずは無料資料のダウンロード、またはオンライン事業説明会で、事業の全体像・収益モデル・参入条件をご確認ください。特定のドメインが埋まり次第、募集を終了します。</p>
     </div>
     <div class="form-box">
+      <div class="form-row">
+        <label class="form-label">ご希望<span class="required">必須</span></label>
+        <div class="form-radio-group">
+          <label class="form-radio-label"><input type="radio" name="want"> 無料資料がほしい</label>
+          <label class="form-radio-label"><input type="radio" name="want"> 説明会に参加したい</label>
+          <label class="form-radio-label"><input type="radio" name="want"> どちらも</label>
+        </div>
+      </div>
       <div class="form-row">
         <label class="form-label">ご検討中の参入プラン<span class="required">必須</span></label>
         <div class="form-radio-group">
@@ -595,7 +667,7 @@
         <input type="checkbox" id="agree">
         <label for="agree">プライバシーポリシーに同意する</label>
       </div>
-      <button type="button" class="btn-submit">オンライン事業説明会に申し込む（無料）</button>
+      <button type="button" class="btn-submit">無料で申し込む（資料請求・説明会）</button>
       <p class="form-micro">※ 無理な営業は一切いたしません。フィットしない場合は、その旨を正直にお伝えします。</p>
     </div>
   </div>
