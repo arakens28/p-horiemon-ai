@@ -573,11 +573,9 @@
 
     /* ===== PRICING ===== */
     .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      display: flex;
+      justify-content: center;
       margin-top: 56px;
-      align-items: start;
     }
     .pricing-card {
       border: 2px solid var(--gray-mid);
@@ -1328,68 +1326,21 @@
       <p class="section-sub">まずはお気軽にご相談ください。チャンネル規模や用途に合わせた最適なプランをご提案します。</p>
     </div>
     <div class="pricing-grid">
-      <div class="pricing-card fade-up">
-        <div class="pricing-plan">スタータープラン</div>
-        <div class="pricing-price">¥9,800<span>〜/月（税抜）</span></div>
-        <p class="pricing-desc">副業・個人チャンネル向け。まずは試してみたい方に。</p>
-        <ul class="pricing-features">
-          <li>月10本までショート動画生成</li>
-          <li>自動字幕・テロップ付き</li>
-          <li>縦型フォーマット自動変換</li>
-          <li class="disabled">複数チャンネル対応</li>
-          <li class="disabled">専任サポート</li>
+      <div class="pricing-card fade-up" style="border-color:#111;background:#111;color:#fff;max-width:560px;width:100%;position:relative;">
+        <div class="pricing-badge" style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#E8001C;color:#fff;font-size:12px;font-weight:700;padding:5px 20px;border-radius:99px;white-space:nowrap;">テスト運用中につき半額提供中</div>
+        <div class="pricing-plan" style="color:#e8e8e8;margin-top:8px;">自動切り抜き代行プラン</div>
+        <div class="pricing-price" style="color:#fff;">¥99,800<span style="color:#aaa;">/月（税抜）</span></div>
+        <p class="pricing-desc" style="color:#aaa;border-color:#333;">ご登録いただいたYouTubeチャンネルの更新を自動で検知し、切り抜きからSNS投稿まですべて代行します。</p>
+        <ul class="pricing-features" style="color:#fff;">
+          <li style="color:#fff;">（１）YouTubeのURLを事前にお知らせいただく</li>
+          <li style="color:#fff;">（２）YouTubeが更新されたら自動で切り抜き</li>
+          <li style="color:#fff;">（３）YouTubeショートとXに自動投稿</li>
         </ul>
-        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
-        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
-      </div>
-      <div class="pricing-card featured fade-up">
-        <div class="pricing-badge">一番人気</div>
-        <div class="pricing-plan">スタンダードプラン</div>
-        <div class="pricing-price">¥29,800<span>〜/月（税抜）</span></div>
-        <p class="pricing-desc">本格的にショート展開したいチャンネル・切り抜き職人向け。</p>
-        <ul class="pricing-features">
-          <li>月50本までショート動画生成</li>
-          <li>自動字幕・テロップ付き</li>
-          <li>縦型フォーマット自動変換</li>
-          <li>複数チャンネル対応（3件まで）</li>
-          <li class="disabled">専任サポート</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary pricing-cta">詳細を問い合わせる</a>
-        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
-      </div>
-      <div class="pricing-card fade-up">
-        <div class="pricing-plan">エンタープライズ</div>
-        <div class="pricing-price">要相談<span>（個別見積）</span></div>
-        <p class="pricing-desc">企業・複数チャンネル運営向け。完全カスタマイズ対応。</p>
-        <ul class="pricing-features">
-          <li>生成本数 無制限</li>
-          <li>自動字幕・テロップ付き</li>
-          <li>縦型フォーマット自動変換</li>
-          <li>複数チャンネル対応（無制限）</li>
-          <li>専任サポート・SLA保証</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline pricing-cta">詳細を問い合わせる</a>
-        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
-      </div>
-      <div class="pricing-card fade-up" style="border-color:#111;background:#111;color:#fff;">
-        <div class="pricing-badge" style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fff;color:#111;font-size:12px;font-weight:700;padding:5px 20px;border-radius:99px;white-space:nowrap;">完全丸投げ</div>
-        <div style="position:relative;">
-          <div class="pricing-plan" style="color:#e8e8e8;">切り抜き代行プラン</div>
-          <div class="pricing-price" style="color:#fff;">¥99,800<span style="color:#aaa;">〜/月（税抜）</span></div>
-          <p class="pricing-desc" style="color:#aaa;border-color:#333;">ツール操作ゼロ。プロが動画の選定・編集・納品まですべて代行します。</p>
-          <ul class="pricing-features" style="color:#fff;">
-            <li style="color:#fff;">切り抜き作業を全て代行</li>
-            <li style="color:#fff;">字幕・テロップ編集込み</li>
-            <li style="color:#fff;">本数・スケジュール管理込み</li>
-            <li style="color:#fff;">専任ディレクター担当</li>
-            <li style="color:#fff;">ツール操作不要・完全丸投げOK</li>
-          </ul>
-          <a href="#contact" class="btn pricing-cta" style="background:#fff;color:#111;font-weight:700;width:100%;text-align:center;">詳細を問い合わせる</a>
-          <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link" style="border-color:#06C755;color:#06C755;margin-top:12px;"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
-        </div>
+        <p style="font-size:13px;color:#aaa;margin-bottom:28px;">例）10本切り抜いて1時間おきに自動投稿など、本数・スケジュールは自由にご相談可能</p>
+        <a href="#contact" class="btn pricing-cta" style="background:#E8001C;color:#fff;font-weight:700;width:100%;text-align:center;display:block;margin-bottom:12px;">詳細を問い合わせる</a>
+        <a href="https://lin.ee/9vju16s" target="_blank" rel="noopener" class="pricing-line-link" style="border-color:#06C755;color:#06C755;"><span class="line-badge" style="background:#06C755;color:#fff;">LINE</span> LINEで相談する</a>
       </div>
     </div>
-    <p style="text-align:center;margin-top:32px;font-size:13px;color:#aaa;">※ 料金は規模・ご要望に応じてお見積もりします。まずはお気軽にご相談ください。</p>
   </div>
 </section>
 
