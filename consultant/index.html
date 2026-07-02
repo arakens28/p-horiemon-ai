@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホリエモンAIコンサル｜何から始めればいいか分からない企業のためのAI導入支援</title>
+<meta name="description" content="ChatGPTやGeminiは触ってみたが、業務改善につながっていない中小企業へ。課題発見からAIによる解決まで伴走するコンサルティングです。30分無料相談受付中。">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/assets/img/logo.png">
+<link rel="apple-touch-icon" href="/assets/img/logo.png">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://p.horiemon.ai/consultant/">
+<meta property="og:title" content="ホリエモンAIコンサル｜何から始めればいいか分からない企業のためのAI導入支援">
+<meta property="og:description" content="ChatGPTやGeminiは触ってみたが、業務改善につながっていない中小企業へ。課題発見からAIによる解決まで伴走するコンサルティングです。30分無料相談受付中。">
+<meta property="og:image" content="https://p.horiemon.ai/assets/img/logo.png">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="ホリエモンAI学校株式会社">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://p.horiemon.ai/assets/img/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/common.css">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.75; font-size: 16px; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  :root {
+    --navy: #16324f;
+    --navy-dark: #0f2438;
+    --gold: #b8893f;
+    --black: #1a1a1a;
+    --gray-light: #f7f7f7;
+    --gray-mid: #ebebeb;
+    --gray-text: #666;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,.08);
+    --transition: .25s ease;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 96px 0; }
+  .section-sm { padding: 64px 0; }
+  .section-label {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--navy); background: #eef3f7;
+    border-radius: 99px; padding: 4px 16px; margin-bottom: 16px;
+  }
+  .section-title { font-size: clamp(26px, 3.6vw, 38px); font-weight: 900; line-height: 1.4; margin-bottom: 16px; }
+  .section-sub { font-size: 16px; color: var(--gray-text); max-width: 620px; }
+  .text-center { text-align: center; }
+  .text-center .section-sub { margin: 0 auto; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px; font-family: inherit; font-weight: 700; font-size: 16px;
+    border: none; cursor: pointer; border-radius: 8px; padding: 16px 40px;
+    transition: var(--transition);
+  }
+  .btn-primary { background: var(--navy); color: #fff; box-shadow: 0 6px 24px rgba(22,50,79,.25); }
+  .btn-primary:hover { background: var(--navy-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(22,50,79,.35); }
+  .btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
+  .btn-outline:hover { background: var(--black); color: #fff; }
+  .btn-lg { font-size: 17px; padding: 18px 48px; }
+
+  /* ===== HERO ===== */
+  .hero { background: #fff; padding: 32px 0 48px; overflow: hidden; position: relative; }
+  .hero-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+  .hero-eyebrow {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--navy);
+    background: #eef3f7; border-radius: 99px; padding: 6px 16px; margin-bottom: 24px;
+  }
+  .hero-title { font-size: clamp(28px, 3.8vw, 42px); font-weight: 900; line-height: 1.45; letter-spacing: -.01em; margin-bottom: 24px; }
+  .hero-title .accent { color: var(--navy); }
+  .hero-desc { font-size: 16px; color: var(--gray-text); margin-bottom: 40px; line-height: 1.9; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .hero-note { font-size: 13px; color: #999; margin-top: 16px; }
+
+  .hero-visual-box { background: var(--navy-dark); border-radius: 16px; padding: 36px 32px; color: #fff; box-shadow: 0 24px 64px rgba(0,0,0,.15); }
+  .hero-visual-label { font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #a9bccc; margin-bottom: 20px; }
+  .hero-item { display: flex; gap: 14px; align-items: flex-start; background: rgba(255,255,255,.06); border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+  .hero-item:last-child { margin-bottom: 0; }
+  .hero-item-num { width: 26px; height: 26px; flex-shrink: 0; background: var(--gold); color: #fff; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .hero-item-text { font-size: 14px; line-height: 1.7; color: #dbe4ec; }
+
+  /* ===== PROBLEMS ===== */
+  .problems { background: var(--gray-light); }
+  .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px; }
+  .problem-card { background: #fff; border-radius: var(--radius); padding: 32px; border-left: 4px solid var(--gray-mid); transition: var(--transition); }
+  .problem-card:hover { border-left-color: var(--navy); transform: translateY(-4px); box-shadow: var(--shadow); }
+  .problem-card p { font-size: 15px; color: #333; line-height: 1.8; }
+
+  /* ===== SOLUTION ===== */
+  .solution-two-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .sol-card { border: 2px solid var(--gray-mid); border-radius: 16px; padding: 40px 36px; transition: var(--transition); }
+  .sol-card:hover { border-color: var(--navy); box-shadow: 0 8px 32px rgba(22,50,79,.1); }
+  .sol-card-dark { background: var(--navy-dark); border-color: var(--navy-dark); color: #fff; }
+  .sol-card-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--navy); background: #eef3f7; border-radius: 99px; padding: 4px 14px; margin-bottom: 16px; }
+  .sol-card-dark .sol-card-tag { background: rgba(255,255,255,.12); color: #fff; }
+  .sol-card-title { font-size: 21px; font-weight: 900; line-height: 1.5; margin-bottom: 16px; }
+  .sol-card-dark .sol-card-title { color: #fff; }
+  .sol-card-desc { font-size: 14px; line-height: 1.9; color: var(--gray-text); margin-bottom: 20px; }
+  .sol-card-dark .sol-card-desc { color: #c9d4dd; }
+  .sol-card-example { font-size: 13px; background: var(--gray-light); border-radius: 8px; padding: 14px 16px; line-height: 1.8; color: #444; }
+  .sol-card-dark .sol-card-example { background: rgba(255,255,255,.08); color: #dbe4ec; }
+  .sol-card-example strong { color: var(--navy); }
+  .sol-card-dark .sol-card-example strong { color: #fff; }
+  @media (max-width: 768px) {
+    .solution-two-cards { grid-template-columns: 1fr; }
+    .sol-card { padding: 32px 24px; }
+  }
+
+  /* ===== MENU / PRICING ===== */
+  .menu { background: var(--gray-light); }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 56px; }
+  .menu-card { background: #fff; border: 2px solid var(--gray-mid); border-radius: var(--radius); padding: 28px 28px; transition: var(--transition); display: flex; flex-direction: column; }
+  .menu-card:hover { border-color: var(--navy); box-shadow: var(--shadow); }
+  .menu-card.featured { border-color: var(--gold); background: #fffaf2; }
+  .menu-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .menu-price { font-size: 26px; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+  .menu-price span { font-size: 13px; font-weight: 500; color: var(--gray-text); }
+  .menu-desc { font-size: 13px; color: var(--gray-text); line-height: 1.8; }
+  .menu-note { text-align: center; margin-top: 32px; font-size: 13px; color: #999; }
+
+  /* ===== CASE STUDY ===== */
+  .case-card { max-width: 860px; margin: 56px auto 0; background: #fff; border: 1px solid var(--gray-mid); border-radius: 20px; padding: 48px 44px; box-shadow: var(--shadow); }
+  .case-tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--gold); background: #fdf5e9; border-radius: 99px; padding: 4px 16px; margin-bottom: 20px; }
+  .case-title { font-size: 20px; font-weight: 900; line-height: 1.7; margin-bottom: 24px; }
+  .case-body p { font-size: 14px; color: #444; line-height: 2; margin-bottom: 16px; }
+  .case-body p:last-child { margin-bottom: 0; }
+  .case-result { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--gray-mid); }
+  .case-result-label { font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--navy); margin-bottom: 10px; }
+  @media (max-width: 600px) { .case-card { padding: 32px 24px; } }
+
+  /* ===== FAQ ===== */
+  .faq { background: var(--gray-light); }
+  .faq-list { margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .faq-item { background: #fff; border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+  .faq-question { padding: 22px 26px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+  .faq-question::after { content: '+'; font-size: 22px; color: var(--navy); flex-shrink: 0; transition: var(--transition); font-weight: 300; }
+  .faq-item.open .faq-question::after { content: '−'; }
+  .faq-answer { display: none; padding: 0 26px 22px; font-size: 14px; color: var(--gray-text); line-height: 1.85; border-top: 1px solid var(--gray-mid); }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* ===== CTA + CONTACT ===== */
+  .cta-section { background: var(--navy-dark); padding: 96px 0; text-align: center; }
+  .cta-section .section-title { color: #fff; }
+  .cta-section .section-label { color: #fff; background: rgba(255,255,255,.1); }
+  .cta-desc { font-size: 16px; color: #b7c4cf; margin-bottom: 48px; }
+
+  .form-card { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 44px 40px; box-shadow: 0 20px 60px rgba(0,0,0,.15); text-align: left; }
+  .form-pending { background: #fff8e1; border: 1px solid #ffe49a; color: #8a6d00; border-radius: 10px; padding: 14px 18px; font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
+  .form-field { margin-bottom: 20px; }
+  .form-field label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .form-field .req { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; background: var(--navy); border-radius: 4px; padding: 1px 8px; margin-left: 6px; vertical-align: 1px; }
+  .form-field .opt { display: inline-block; font-size: 11px; font-weight: 700; color: #888; background: var(--gray-mid); border-radius: 4px; padding: 1px 8px; margin-left: 6px; vertical-align: 1px; }
+  .form-field input, .form-field textarea { width: 100%; font-family: inherit; font-size: 16px; color: var(--black); border: 1.5px solid var(--gray-mid); border-radius: 8px; padding: 13px 16px; background: #fff; transition: border-color .2s, box-shadow .2s; }
+  .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(22,50,79,.1); }
+  .form-field textarea { resize: vertical; line-height: 1.7; }
+  .form-submit { width: 100%; }
+  .form-submit:disabled { background: #c9c9c9; box-shadow: none; cursor: not-allowed; transform: none; }
+  .form-status { text-align: center; font-size: 14px; margin-top: 16px; min-height: 1em; line-height: 1.7; }
+  .form-status.ok { color: var(--navy); font-weight: 700; }
+  .form-status.err { color: #c0392b; font-weight: 700; }
+  @media (max-width: 600px) { .form-card { padding: 32px 24px; } }
+
+  /* ===== SCROLL ANIMATION ===== */
+  .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== SP STICKY ===== */
+  .sp-sticky-footer { display: none; }
+  @media (max-width: 768px) {
+    .sp-sticky-footer { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; box-shadow: 0 -2px 12px rgba(0,0,0,.15); }
+    .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px 4px; font-size: 14px; font-weight: 800; background: var(--navy); color: #fff; }
+    body { padding-bottom: 56px; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .section { padding: 64px 0; }
+    .hero { padding: 16px 0 32px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<site-header></site-header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content fade-up">
+        <span class="hero-eyebrow">中小企業向け AI導入支援</span>
+        <h1 class="hero-title">
+          AIを使いたい。<br>
+          でも、<span class="accent">何から始めればいいか</span><br>
+          わからない企業へ。
+        </h1>
+        <p class="hero-desc">
+          ChatGPTやGeminiは、もう触ってみた。<br>
+          でも、会社の業務改善にも生産性向上にも、まだつながっていない——。<br>
+          ホリエモンAIコンサルは、御社の業務課題を見つけ、AIで解決まで伴走する専門サービスです。
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">30分無料相談に申し込む →</a>
+        </div>
+        <p class="hero-note">※ 相談だけで終わっても構いません。無理な営業は一切行いません。</p>
+      </div>
+      <div class="hero-visual fade-up">
+        <div class="hero-visual-box">
+          <div class="hero-visual-label">ご相談いただけること</div>
+          <div class="hero-item">
+            <span class="hero-item-num">1</span>
+            <span class="hero-item-text">紙業務の電子化・AI OCR・既存システムとの連携</span>
+          </div>
+          <div class="hero-item">
+            <span class="hero-item-num">2</span>
+            <span class="hero-item-text">経営層・管理職向けのAI理解促進（講演・研修）</span>
+          </div>
+          <div class="hero-item">
+            <span class="hero-item-num">3</span>
+            <span class="hero-item-text">Claude Code・Codex等を使った簡易システム構築</span>
+          </div>
+          <div class="hero-item">
+            <span class="hero-item-num">4</span>
+            <span class="hero-item-text">社員が実際にAIを使える状態までの実践導入</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEMS ===== -->
+<section class="section problems" id="problems">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">こんなお悩みはありませんか</span>
+      <h2 class="section-title">AIを触ってはみたけれど、<br>会社としては何も変わっていない。</h2>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card fade-up">
+        <p>ChatGPTやGeminiを導入したが、業務改善につながっていない</p>
+      </div>
+      <div class="problem-card fade-up">
+        <p>社員が個人で少し試しているだけで、会社全体の生産性向上になっていない</p>
+      </div>
+      <div class="problem-card fade-up">
+        <p>AIで何ができるのか、どこから始めるべきか分からない</p>
+      </div>
+      <div class="problem-card fade-up">
+        <p>自社の業務にAIをどう組み込めばよいか分からない</p>
+      </div>
+      <div class="problem-card fade-up">
+        <p>経営層や管理職がAIを理解できておらず、意思決定が進まない</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="section" id="solution">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:56px;">
+      <span class="section-label">Solution</span>
+      <h2 class="section-title">課題を発見し、<br>AIで解決まで支援します。</h2>
+      <p class="section-sub">ホリエモンAIコンサルの仕事は、大きく2つです。</p>
+    </div>
+    <div class="solution-two-cards fade-up">
+      <div class="sol-card">
+        <div class="sol-card-tag">1. 課題発見</div>
+        <h3 class="sol-card-title">御社の業務に潜む<br>「AIで解決できる課題」を見つけます。</h3>
+        <p class="sol-card-desc">現場をヒアリングし、どこにボトルネックがあるのか、どこをAIで解決できるのかを整理します。専門知識がなくても構いません。まずは課題を可視化することから始めます。</p>
+        <div class="sol-card-example"><strong>例：</strong>紙の書類を電子化し、AI OCRで読み取り、既存システムと連携すれば解決できる、といった業務課題を発見します。</div>
+      </div>
+      <div class="sol-card sol-card-dark">
+        <div class="sol-card-tag">2. 課題解決</div>
+        <h3 class="sol-card-title">見つけた課題を、<br>実際に使える状態まで解決します。</h3>
+        <p class="sol-card-desc">Claude CodeやCodexなどを使い、企業に必要な簡易システムを構築します。また講演や研修を通じて社内のAI理解を高め、実際に現場でAIを使える状態まで支援します。</p>
+        <div class="sol-card-example"><strong>手段：</strong>簡易システム開発／経営層・管理職向け講演・研修／実践型ハンズオン研修</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="section menu" id="menu">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Menu</span>
+      <h2 class="section-title">提供メニュー</h2>
+      <p class="section-sub">まずは無料相談から。御社の状況に合わせて、必要なメニューをご提案します。</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card featured fade-up">
+        <div class="menu-name">30分無料相談</div>
+        <div class="menu-price">無料</div>
+        <p class="menu-desc">現状の課題やAI活用の可能性を整理します。まずはここから。</p>
+      </div>
+      <div class="menu-card fade-up">
+        <div class="menu-name">90分講演</div>
+        <div class="menu-price">20万円</div>
+        <p class="menu-desc">60分講演＋30分Q&A。経営層・管理職向けのAI理解促進に最適です。</p>
+      </div>
+      <div class="menu-card fade-up">
+        <div class="menu-name">90分講演 × 5回セット</div>
+        <div class="menu-price">100万円</div>
+        <p class="menu-desc">2週間に1回、約2か月半かけて実施。経営層・管理職のAI理解を深め、意思決定を早くします。</p>
+      </div>
+      <div class="menu-card fade-up">
+        <div class="menu-name">4時間半日研修</div>
+        <div class="menu-price">40万円</div>
+        <p class="menu-desc">40名程度を想定。短時間でAI活用の全体像を学ぶ研修です。</p>
+      </div>
+      <div class="menu-card fade-up">
+        <div class="menu-name">1日Camp</div>
+        <div class="menu-price">100万円</div>
+        <p class="menu-desc">10名程度を想定。朝9時〜18時程度。Claude Codeなどをインストールし、実際に使えるように指導する実践型研修です。</p>
+      </div>
+      <div class="menu-card fade-up">
+        <div class="menu-name">初期調査＋簡単なモデル作成</div>
+        <div class="menu-price">150万円</div>
+        <p class="menu-desc">業務課題を調査し、簡単なプロトタイプやモデルを作成します。</p>
+      </div>
+      <div class="menu-card fade-up">
+        <div class="menu-name">システム構築</div>
+        <div class="menu-price">300万円〜<span>都度見積もり</span></div>
+        <p class="menu-desc">業務に合わせてAI活用システムを構築します。</p>
+      </div>
+      <div class="menu-card fade-up">
+        <div class="menu-name">月額顧問</div>
+        <div class="menu-price">月10万円〜</div>
+        <p class="menu-desc">税理士・弁護士の顧問のように、毎月一定範囲でAI活用の相談や支援を行います。</p>
+      </div>
+    </div>
+    <p class="menu-note">※ 表示価格はすべて税抜です。まずは無料相談で最適なメニューをご提案します。</p>
+  </div>
+</section>
+
+<!-- ===== CASE STUDY ===== -->
+<section class="section" id="case">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">実績・事例</span>
+      <h2 class="section-title">大手上場企業への<br>導入実績</h2>
+    </div>
+    <div class="case-card fade-up">
+      <span class="case-tag">上場企業 経営層・管理職向け研修</span>
+      <h3 class="case-title">時価総額の大きい上場企業から、経営層・管理職・部長クラス向けのAI勉強会を依頼</h3>
+      <div class="case-body">
+        <p>エンジニアはすでにAIを使い始めていましたが、ビジネス層はAIの理解が浅く、ChatGPTを少し触っている程度にとどまっていました。</p>
+        <p>そこで、7〜8名の幹部層に対して、60分講演＋30分Q&Aの90分勉強会を、2週間に1回、合計5回実施しました。</p>
+      </div>
+      <div class="case-result">
+        <div class="case-result-label">結果</div>
+        <p style="font-size:14px;color:#444;line-height:2;">AIへの理解が深まり、意思決定が迅速になりました。その後、グループ会社向けに4時間研修として展開され、さらに系列会社にも広がっています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-question">AIの専門知識がなくても相談できますか？</div>
+        <div class="faq-answer">はい。専門知識は不要です。AIが分からないからこそ、コンサルに相談いただくサービスです。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">どれくらいで成果が出ますか？</div>
+        <div class="faq-answer">内容によります。経営層のAI理解や意思決定の迅速化であれば、90分講演だけでも効果が期待できます。実際に成果物を作る場合は、1日Campと追加の実践日を組み合わせることで、3日目には自分たちで作れる状態を目指します。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">既存システムとの連携はできますか？</div>
+        <div class="faq-answer">可能です。一般的なシステムであれば連携できる可能性が高いです。独自システムの場合は、事前調査が必要です。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">コンサル終了後のサポートはありますか？</div>
+        <div class="faq-answer">単発の講演・研修・プロジェクト終了後の継続サポートは含まれません。継続的に相談したい場合は、月額顧問契約をご利用ください。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">まず何を依頼すればいいですか？</div>
+        <div class="faq-answer">まずは30分無料相談で、現状の課題やAI活用の可能性を整理します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA + CONTACT ===== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <span class="section-label" style="display:inline-block;margin-bottom:16px;">Contact</span>
+    <h2 class="section-title" style="margin-bottom:16px;">まずは30分無料相談に<br>申し込む</h2>
+    <p class="cta-desc">現状の課題整理から、AI活用の可能性のご提案まで。ご相談は無料です。</p>
+    <div class="form-card fade-up">
+      <div class="form-pending" id="formPending">
+        <strong>ただいま受付準備中です。</strong>
+        送信機能はまもなく開始します。お急ぎの方はお問い合わせ窓口までご連絡ください。
+      </div>
+      <form id="consultForm" novalidate>
+        <div class="form-field">
+          <label for="f-company">会社名<span class="req">必須</span></label>
+          <input type="text" id="f-company" name="会社名" required placeholder="例: 株式会社〇〇">
+        </div>
+        <div class="form-field">
+          <label for="f-name">お名前<span class="req">必須</span></label>
+          <input type="text" id="f-name" name="お名前" required autocomplete="name" placeholder="例: 山田 太郎">
+        </div>
+        <div class="form-field">
+          <label for="f-email">メールアドレス<span class="req">必須</span></label>
+          <input type="email" id="f-email" name="メールアドレス" required autocomplete="email" placeholder="example@email.com">
+        </div>
+        <div class="form-field">
+          <label for="f-tel">電話番号<span class="opt">任意</span></label>
+          <input type="tel" id="f-tel" name="電話番号" autocomplete="tel" inputmode="tel" placeholder="例: 09012345678">
+        </div>
+        <div class="form-field">
+          <label for="f-message">ご相談内容<span class="opt">任意</span></label>
+          <textarea id="f-message" name="ご相談内容" rows="4" placeholder="現在の課題やご相談したい内容があればご記入ください"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg form-submit" id="formSubmit">30分無料相談に申し込む</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<site-footer></site-footer>
+
+<div class="sp-sticky-footer">
+  <a href="#contact">30分無料相談に申し込む →</a>
+</div>
+
+<script src="/components/components.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ===== 申込フォーム =====
+  // ▼送信先URLが決まったら、この FORM_ENDPOINT に設定するだけで送信が有効化されます。
+  //   ・Google Apps Script の場合 : ウェブアプリの /exec URL
+  const FORM_ENDPOINT = "";
+
+  (function () {
+    const form = document.getElementById('consultForm');
+    if (!form) return;
+    const submitBtn = document.getElementById('formSubmit');
+    const statusEl  = document.getElementById('formStatus');
+    const pendingEl = document.getElementById('formPending');
+
+    if (!FORM_ENDPOINT) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '受付準備中';
+    } else {
+      if (pendingEl) pendingEl.style.display = 'none';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!FORM_ENDPOINT) return;
+      if (!form.reportValidity()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中…';
+      statusEl.className = 'form-status';
+      statusEl.textContent = '';
+
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (!res.ok) throw new Error('failed');
+        form.reset();
+        statusEl.className = 'form-status ok';
+        statusEl.textContent = '送信が完了しました。担当者より2営業日以内にご連絡いたします。';
+        submitBtn.textContent = '送信完了';
+      } catch (err) {
+        statusEl.className = 'form-status err';
+        statusEl.textContent = '送信に失敗しました。お手数ですが再度お試しください。';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '30分無料相談に申し込む';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
