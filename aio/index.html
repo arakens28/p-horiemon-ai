@@ -93,19 +93,24 @@
   /* ===== HERO ===== */
   .hero {
     background: linear-gradient(120deg, #eaf0ff 0%, #e3ecff 28%, #eef6ff 52%, #f0eeff 76%, #eaf0ff 100%);
-    padding: 48px 0 56px; overflow: hidden; position: relative;
+    padding: 56px 0 0; position: relative; overflow: visible;
   }
   .hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
     background: repeating-linear-gradient(125deg, rgba(255,255,255,.55) 0 3px, transparent 3px 48px);
   }
   .hero .container { position: relative; z-index: 1; }
-  .hero-inner { display: grid; grid-template-columns: 240px 1fr 380px; gap: 32px; align-items: end; }
-  .hero-photo { align-self: end; }
-  .hero-photo img { width: 100%; height: auto; display: block; filter: drop-shadow(0 20px 36px rgba(15,36,56,.25)); }
+  .hero-inner { display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start; padding-left: 300px; padding-bottom: 56px; }
+  .hero-photo {
+    position: absolute; left: 0; bottom: 0; width: 320px; z-index: 2; pointer-events: none;
+  }
+  .hero-photo img { width: 100%; height: auto; display: block; filter: drop-shadow(0 24px 32px rgba(15,36,56,.3)); }
+  @media (max-width: 1180px) {
+    .hero-inner { padding-left: 250px; }
+    .hero-photo { width: 270px; }
+  }
   @media (max-width: 1080px) {
-    .hero-inner { grid-template-columns: 180px 1fr; }
-    .hero-form { grid-column: 1 / -1; }
+    .hero-inner { grid-template-columns: 1fr; padding-left: 240px; }
   }
   .hero-eyebrow {
     display: inline-block; font-size: 13px; font-weight: 700; color: var(--navy);
@@ -296,9 +301,9 @@
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
     .section { padding: 64px 0; }
-    .hero { padding: 24px 0 32px; }
-    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
-    .hero-photo { order: -1; max-width: 180px; margin: 0 auto; }
+    .hero { padding: 24px 0 0; }
+    .hero-inner { grid-template-columns: 1fr; gap: 24px; padding-left: 0; padding-bottom: 32px; }
+    .hero-photo { position: static; width: 200px; margin: 0 auto 8px; }
     .not-for-inner { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 8px; }
     .not-for-sep { display: none; }
   }
