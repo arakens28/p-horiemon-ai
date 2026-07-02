@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホリエモンAI AIO｜SEO会社様向け AIO事業参入支援 SEO業者様募集</title>
+<meta name="description" content="SEO会社がAIO会社にもなれる。SEO事業者様向けに、AIO（AI最適化）を自社メニューに追加するためのツール・研修・コンサルティングを提供します。一般企業向けのAIO代行サービスではありません。SEO業者様限定、資料請求・30分無料相談受付中。">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/assets/img/logo.png">
+<link rel="apple-touch-icon" href="/assets/img/logo.png">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://p.horiemon.ai/aio/">
+<meta property="og:title" content="ホリエモンAI AIO｜SEO会社様向け AIO事業参入支援 SEO業者様募集">
+<meta property="og:description" content="SEO会社がAIO会社にもなれる。SEO事業者様向けに、AIOを自社メニューに追加するためのツール・研修・コンサルティングを提供します。一般企業向けAIO代行ではありません。資料請求・30分無料相談受付中。">
+<meta property="og:image" content="https://p.horiemon.ai/assets/img/logo.png">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="ホリエモンAI学校株式会社">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://p.horiemon.ai/assets/img/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/common.css">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.75; font-size: 16px; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  :root {
+    --navy: #16324f;
+    --navy-dark: #0f2438;
+    --orange: #e8622c;
+    --orange-dark: #c94f1f;
+    --orange-light: #fdeee7;
+    --black: #1a1a1a;
+    --gray-light: #f7f7f7;
+    --gray-mid: #ebebeb;
+    --gray-text: #666;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,.08);
+    --transition: .25s ease;
+  }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 96px 0; }
+  .section-sm { padding: 64px 0; }
+  .section-label {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--navy); background: #eef3f7;
+    border-radius: 99px; padding: 4px 16px; margin-bottom: 16px;
+  }
+  .section-title { font-size: clamp(26px, 3.6vw, 38px); font-weight: 900; line-height: 1.4; margin-bottom: 16px; }
+  .section-sub { font-size: 16px; color: var(--gray-text); max-width: 640px; }
+  .text-center { text-align: center; }
+  .text-center .section-sub { margin: 0 auto; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px; font-family: inherit; font-weight: 700; font-size: 16px;
+    border: none; cursor: pointer; border-radius: 8px; padding: 16px 40px;
+    transition: var(--transition);
+  }
+  .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 6px 24px rgba(232,98,44,.3); }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,98,44,.4); }
+  .btn-navy { background: var(--navy); color: #fff; box-shadow: 0 6px 24px rgba(22,50,79,.25); }
+  .btn-navy:hover { background: var(--navy-dark); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--orange); border: 2px solid var(--orange); }
+  .btn-outline:hover { background: var(--orange); color: #fff; }
+  .btn-outline-light { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.6); }
+  .btn-outline-light:hover { background: #fff; color: var(--navy-dark); }
+  .btn-lg { font-size: 17px; padding: 18px 48px; }
+  .btn-block { width: 100%; }
+
+  /* ===== STICKY CTA BAR ===== */
+  .sticky-cta { position: sticky; top: 0; z-index: 300; background: #fff; border-bottom: 1px solid var(--gray-mid); box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+  .sticky-cta-inner { max-width: 1120px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .sticky-cta-msg { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .sticky-cta-msg span { color: var(--orange); }
+  .sticky-cta-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .sticky-cta-actions .btn { padding: 10px 22px; font-size: 13px; border-radius: 99px; }
+  @media (max-width: 768px) { .sticky-cta { display: none; } }
+
+  /* ===== HERO ===== */
+  .hero { background: linear-gradient(180deg, #f4f7fa 0%, #fff 60%); padding: 48px 0 56px; overflow: hidden; position: relative; }
+  .hero-inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: start; }
+  .hero-eyebrow {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--navy);
+    background: #eef3f7; border-radius: 99px; padding: 6px 16px; margin-bottom: 20px;
+  }
+  .hero-title { font-size: clamp(26px, 3.2vw, 36px); font-weight: 900; line-height: 1.5; letter-spacing: -.01em; margin-bottom: 20px; }
+  .hero-title .mark { display: inline-block; background: var(--orange); color: #fff; padding: 2px 10px; border-radius: 4px; transform: rotate(-1deg); }
+  .hero-title .accent { color: var(--orange); }
+  .hero-desc { font-size: 15.5px; color: var(--gray-text); margin-bottom: 24px; line-height: 1.9; }
+  .hero-target-box { background: #fff; border: 1.5px solid var(--navy); border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; font-size: 13.5px; color: #333; line-height: 1.85; box-shadow: var(--shadow); }
+  .hero-target-box strong { color: var(--navy); }
+
+  .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--navy); background: #eef3f7; border: 1px solid #d9e3ec; border-radius: 99px; padding: 7px 16px; }
+  .hero-badge::before { content: '✓'; color: var(--orange); font-weight: 900; }
+
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .hero-note { font-size: 12.5px; color: #999; margin-top: 14px; }
+
+  /* Hero embedded lead form (資料請求) */
+  .hero-form-card { background: #fff; border-radius: 16px; padding: 28px 26px; box-shadow: 0 20px 60px rgba(0,0,0,.12); border-top: 5px solid var(--orange); }
+  .hero-form-title { font-size: 15px; font-weight: 900; text-align: center; margin-bottom: 4px; }
+  .hero-form-sub { font-size: 12px; color: var(--gray-text); text-align: center; margin-bottom: 20px; }
+  .hero-form-field { margin-bottom: 14px; }
+  .hero-form-field label { display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
+  .hero-form-field .req { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; background: var(--orange); border-radius: 4px; padding: 1px 7px; margin-left: 5px; vertical-align: 1px; }
+  .hero-form-field .opt { display: inline-block; font-size: 10px; font-weight: 700; color: #888; background: var(--gray-mid); border-radius: 4px; padding: 1px 7px; margin-left: 5px; vertical-align: 1px; }
+  .hero-form-field input { width: 100%; font-family: inherit; font-size: 14px; color: var(--black); border: 1.5px solid var(--gray-mid); border-radius: 7px; padding: 10px 13px; background: #fff; }
+  .hero-form-field input:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(232,98,44,.12); }
+  .hero-form-pending { background: #fff6f2; border: 1px solid #ffd9c4; color: #a64a1f; border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 16px; }
+  .hero-form-status { text-align: center; font-size: 12.5px; margin-top: 12px; min-height: 1em; }
+  .hero-form-status.ok { color: var(--navy); font-weight: 700; }
+  .hero-form-status.err { color: #c0392b; font-weight: 700; }
+
+  /* ===== NOT-FOR (誤認防止バー) ===== */
+  .not-for { background: var(--navy-dark); padding: 18px 0; }
+  .not-for-inner { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .not-for-row { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #dbe4ec; }
+  .not-for-x { color: #ff8a5c; font-weight: 900; }
+  .not-for-o { color: #6fd3a3; font-weight: 900; }
+  .not-for-sep { color: rgba(255,255,255,.2); }
+
+  /* ===== BEFORE / AFTER (お悩み→解決) ===== */
+  .ba-wrap { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .ba-col { display: flex; flex-direction: column; gap: 0; }
+  .ba-before { background: #fff; border: 1.5px solid var(--gray-mid); border-radius: var(--radius) var(--radius) 0 0; padding: 26px 24px; }
+  .ba-before-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--gray-light); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 16px; }
+  .ba-before-text { font-size: 14px; font-weight: 700; line-height: 1.7; color: #333; }
+  .ba-arrow { text-align: center; padding: 10px 0; color: var(--orange); font-size: 20px; font-weight: 900; background: #fff; border-left: 1.5px solid var(--gray-mid); border-right: 1.5px solid var(--gray-mid); }
+  .ba-after { background: var(--orange-light); border: 1.5px solid #f5cfb8; border-top: none; border-radius: 0 0 var(--radius) var(--radius); padding: 26px 24px; }
+  .ba-after-tag { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; background: var(--orange); border-radius: 99px; padding: 3px 12px; margin-bottom: 12px; }
+  .ba-after-text { font-size: 13.5px; color: #5c3a26; line-height: 1.85; }
+  @media (max-width: 900px) { .ba-wrap { grid-template-columns: 1fr; } }
+
+  /* ===== MID CTA (two cards) ===== */
+  .mid-cta { background: var(--gray-light); padding: 64px 0; }
+  .mid-cta-head { text-align: center; margin-bottom: 36px; }
+  .mid-cta-head span { display: inline-block; font-size: 14px; font-weight: 900; color: var(--navy); }
+  .mid-cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 880px; margin: 0 auto; }
+  .mid-cta-card { background: #fff; border-radius: 16px; padding: 32px 28px; box-shadow: var(--shadow); text-align: center; }
+  .mid-cta-card-title { font-size: 16px; font-weight: 900; margin-bottom: 14px; }
+  .mid-cta-list { list-style: none; text-align: left; margin-bottom: 22px; }
+  .mid-cta-list li { font-size: 13px; color: #444; line-height: 1.8; padding-left: 20px; position: relative; margin-bottom: 6px; }
+  .mid-cta-list li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 900; }
+  @media (max-width: 700px) { .mid-cta-grid { grid-template-columns: 1fr; } }
+
+  /* ===== ALT FEATURES (01/02/03) ===== */
+  .alt-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 48px 0; border-bottom: 1px solid var(--gray-mid); }
+  .alt-feature:last-child { border-bottom: none; }
+  .alt-feature.rev .alt-visual { order: 2; }
+  .alt-feature.rev .alt-text { order: 1; }
+  .alt-num { font-size: 56px; font-weight: 900; color: var(--gray-mid); line-height: 1; margin-bottom: 12px; font-style: italic; }
+  .alt-text-title { font-size: 20px; font-weight: 900; margin-bottom: 14px; }
+  .alt-text-desc { font-size: 14px; color: var(--gray-text); line-height: 1.9; }
+  .alt-visual { background: var(--navy-dark); border-radius: 16px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .alt-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(232,98,44,.35), transparent 60%); }
+  .alt-visual svg { width: 88px; height: 88px; position: relative; z-index: 1; }
+  @media (max-width: 800px) {
+    .alt-feature, .alt-feature.rev { grid-template-columns: 1fr; gap: 20px; }
+    .alt-feature.rev .alt-visual, .alt-feature.rev .alt-text { order: initial; }
+  }
+
+  /* ===== VALUE PROP BANNER ===== */
+  .value-banner { background: var(--navy-dark); color: #fff; text-align: center; padding: 56px 0; }
+  .value-banner .section-label { color: #fff; background: rgba(255,255,255,.12); }
+  .value-banner h3 { font-size: clamp(20px, 2.6vw, 28px); font-weight: 900; line-height: 1.6; }
+  .value-banner h3 .accent { color: #ff9d6e; }
+
+  /* ===== BENEFITS ===== */
+  .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+  .benefit-card { background: #fff; border: 1.5px solid var(--gray-mid); border-radius: 20px; padding: 40px 36px; }
+  .benefit-num-tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--orange); background: var(--orange-light); border-radius: 99px; padding: 4px 16px; margin-bottom: 18px; }
+  .benefit-title { font-size: 19px; font-weight: 900; line-height: 1.6; margin-bottom: 16px; }
+  .benefit-desc { font-size: 14px; color: #444; line-height: 1.9; margin-bottom: 20px; }
+  .benefit-list { list-style: none; }
+  .benefit-list li { font-size: 13.5px; color: #333; line-height: 1.8; padding-left: 22px; position: relative; margin-bottom: 8px; }
+  .benefit-list li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 900; }
+  @media (max-width: 768px) { .benefits-grid { grid-template-columns: 1fr; } .benefit-card { padding: 32px 24px; } }
+
+  /* ===== COMPARE TABLE ===== */
+  .compare-wrap { margin-top: 56px; overflow-x: auto; }
+  .compare-table { width: 100%; min-width: 640px; border-collapse: separate; border-spacing: 0; }
+  .compare-table th, .compare-table td { padding: 18px 16px; text-align: center; font-size: 13.5px; border-bottom: 1px solid var(--gray-mid); }
+  .compare-table th:first-child, .compare-table td:first-child { text-align: left; font-weight: 700; color: #333; width: 30%; }
+  .compare-table thead th { font-size: 13px; font-weight: 900; padding: 18px 16px; }
+  .compare-table thead th.col-own { background: var(--orange); color: #fff; border-radius: 12px 12px 0 0; }
+  .compare-table thead th.col-other { background: var(--gray-light); color: #666; }
+  .compare-table tbody td.col-own { background: var(--orange-light); font-weight: 700; color: var(--orange-dark); }
+  .compare-table tbody tr:last-child td.col-own { border-radius: 0 0 12px 12px; }
+  .compare-check { color: var(--orange); font-weight: 900; }
+  .compare-dim { color: #ccc; }
+
+  /* ===== PROOF / 実績 ===== */
+  .proof-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; margin-top: 56px; align-items: stretch; }
+  .proof-card { background: #fff; border: 1px solid var(--gray-mid); border-radius: 20px; padding: 40px 36px; box-shadow: var(--shadow); }
+  .proof-tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--navy); background: #eef3f7; border-radius: 99px; padding: 4px 16px; margin-bottom: 20px; }
+  .proof-title { font-size: 18px; font-weight: 900; line-height: 1.7; margin-bottom: 20px; }
+  .proof-body p { font-size: 14px; color: #444; line-height: 2; margin-bottom: 14px; }
+  .proof-shot { background: var(--navy-dark); border-radius: 20px; padding: 32px 28px; color: #fff; display: flex; flex-direction: column; justify-content: center; }
+  .proof-shot-label { font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #a9bccc; margin-bottom: 16px; }
+  .proof-shot-mock { background: rgba(255,255,255,.06); border: 1px dashed rgba(255,255,255,.25); border-radius: 12px; padding: 24px 20px; font-size: 13px; line-height: 1.9; color: #dbe4ec; }
+  .proof-shot-mock .q { color: #ff9d6e; font-weight: 700; margin-bottom: 8px; }
+  @media (max-width: 768px) { .proof-grid { grid-template-columns: 1fr; } }
+
+  /* ===== FLOW ===== */
+  .flow { background: var(--gray-light); }
+  .flow-list { margin-top: 56px; max-width: 820px; margin-left: auto; margin-right: auto; }
+  .flow-step { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--gray-mid); }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-num { width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 18px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+  .flow-step.is-key .flow-num { background: var(--orange); }
+  .flow-step-title { font-size: 16px; font-weight: 900; margin-bottom: 8px; }
+  .flow-step-desc { font-size: 14px; color: var(--gray-text); line-height: 1.85; }
+  .flow-note { max-width: 820px; margin: 32px auto 0; text-align: center; font-size: 13px; color: #999; }
+
+  /* ===== PRICING ===== */
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px; }
+  .price-card { background: #fff; border: 2px solid var(--gray-mid); border-radius: var(--radius); padding: 36px 32px; transition: var(--transition); }
+  .price-card:hover { border-color: var(--orange); box-shadow: var(--shadow); }
+  .price-card-tag { font-size: 12px; font-weight: 700; color: var(--orange); background: var(--orange-light); border-radius: 99px; padding: 4px 14px; display: inline-block; margin-bottom: 16px; }
+  .price-card-name { font-size: 17px; font-weight: 900; margin-bottom: 10px; }
+  .price-card-price { font-size: 24px; font-weight: 900; color: var(--navy); margin-bottom: 14px; }
+  .price-card-price span { font-size: 13px; font-weight: 500; color: var(--gray-text); }
+  .price-card-desc { font-size: 13.5px; color: var(--gray-text); line-height: 1.85; }
+  .subsidy-box { max-width: 820px; margin: 40px auto 0; background: var(--orange-light); border: 1px solid #f5cfb8; border-radius: var(--radius); padding: 24px 28px; font-size: 14px; color: #7a3d1c; line-height: 1.9; text-align: center; }
+  .subsidy-box strong { color: var(--orange-dark); }
+  .menu-note { text-align: center; margin-top: 20px; font-size: 13px; color: #999; }
+
+  /* ===== FAQ ===== */
+  .faq-list { margin-top: 56px; max-width: 780px; margin-left: auto; margin-right: auto; }
+  .faq-item { background: #fff; border: 1px solid var(--gray-mid); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+  .faq-question { padding: 22px 26px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+  .faq-question::after { content: '+'; font-size: 22px; color: var(--orange); flex-shrink: 0; transition: var(--transition); font-weight: 300; }
+  .faq-item.open .faq-question::after { content: '−'; }
+  .faq-answer { display: none; padding: 0 26px 22px; font-size: 14px; color: var(--gray-text); line-height: 1.9; border-top: 1px solid var(--gray-mid); padding-top: 18px; }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* ===== CTA + CONTACT ===== */
+  .cta-section { background: var(--navy-dark); padding: 96px 0; text-align: center; }
+  .cta-section .section-title { color: #fff; }
+  .cta-desc { font-size: 16px; color: #b7c4cf; margin-bottom: 16px; }
+  .cta-recruit { display: inline-block; font-size: 13px; font-weight: 700; color: #ff9d6e; background: rgba(255,157,110,.12); border-radius: 99px; padding: 6px 20px; margin-bottom: 24px; }
+
+  .cta-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 40px auto 0; }
+  .cta-card { background: #fff; border-radius: 16px; padding: 32px 28px; text-align: left; }
+  .cta-card-title { font-size: 15px; font-weight: 900; color: var(--black); margin-bottom: 10px; }
+  .cta-card-desc { font-size: 13.5px; color: var(--gray-text); line-height: 1.8; margin-bottom: 22px; }
+  .cta-card .btn { width: 100%; }
+  @media (max-width: 700px) { .cta-two-col { grid-template-columns: 1fr; } }
+
+  /* ===== SCROLL ANIMATION ===== */
+  .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== SP STICKY ===== */
+  .sp-sticky-footer { display: none; }
+  @media (max-width: 768px) {
+    .sp-sticky-footer { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; box-shadow: 0 -2px 12px rgba(0,0,0,.15); }
+    .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; padding: 14px 4px; font-size: 13px; font-weight: 800; }
+    .sp-sticky-footer a.sticky-outline { background: #fff; color: var(--navy); border-top: 3px solid var(--navy); }
+    .sp-sticky-footer a.sticky-primary { background: var(--orange); color: #fff; }
+    body { padding-bottom: 60px; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .section { padding: 64px 0; }
+    .hero { padding: 24px 0 32px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .not-for-inner { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 8px; }
+    .not-for-sep { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<site-header></site-header>
+
+<!-- ===== STICKY CTA BAR ===== -->
+<div class="sticky-cta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-msg"><span>SEO会社様限定</span>｜AIO事業参入支援プログラム</div>
+    <div class="sticky-cta-actions">
+      <a href="#doc" class="btn btn-outline">資料請求</a>
+      <a href="#contact" class="btn btn-primary">30分無料相談 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content fade-up">
+        <span class="hero-eyebrow">SEO事業者様向け AIO参入支援プログラム</span>
+        <h1 class="hero-title">
+          <span class="mark">SEO会社様募集</span><br>
+          SEO会社が、<span class="accent">AIO会社</span>にもなれる。
+        </h1>
+        <p class="hero-desc">
+          Google検索だけでなく、ChatGPTやGeminiに「聞く」時代がやってきました。<br>
+          その変化を、脅威ではなくチャンスに変えるのが、SEO事業者様への「AIO参入支援」です。<br>
+          ツール・研修・コンサルティングで、御社のSEO事業にAIOという新しいメニューを追加します。
+        </p>
+        <div class="hero-target-box">
+          <strong>本サービスは、</strong>一般企業に向けたAIO代行サービスではありません。<br>
+          <strong>SEO会社・Webマーケティング支援会社様</strong>が、自社の顧客にAIOを提供できるようになるためのBtoB支援サービスです。
+        </div>
+        <div class="hero-badges">
+          <span class="hero-badge">SEO業者様限定</span>
+          <span class="hero-badge">補助金活用可能</span>
+          <span class="hero-badge">初期顧客は二人三脚で伴走</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">30分無料相談に申し込む →</a>
+        </div>
+        <p class="hero-note">※ 相談だけで終わっても構いません。無理な営業は一切行いません。</p>
+      </div>
+
+      <!-- 資料請求フォーム -->
+      <div class="hero-form fade-up" id="doc">
+        <div class="hero-form-card">
+          <div class="hero-form-title">AIO参入支援 資料請求</div>
+          <div class="hero-form-sub">サービス内容・料金・導入フローがわかる資料をお送りします</div>
+          <div class="hero-form-pending" id="heroFormPending">
+            <strong>ただいま受付準備中です。</strong> 送信機能はまもなく開始します。
+          </div>
+          <form id="docForm" novalidate>
+            <div class="hero-form-field">
+              <label for="d-company">会社名<span class="req">必須</span></label>
+              <input type="text" id="d-company" name="会社名" required placeholder="例: 株式会社〇〇">
+            </div>
+            <div class="hero-form-field">
+              <label for="d-name">お名前<span class="req">必須</span></label>
+              <input type="text" id="d-name" name="お名前" required autocomplete="name" placeholder="例: 山田 太郎">
+            </div>
+            <div class="hero-form-field">
+              <label for="d-email">メールアドレス<span class="req">必須</span></label>
+              <input type="email" id="d-email" name="メールアドレス" required autocomplete="email" placeholder="example@email.com">
+            </div>
+            <div class="hero-form-field">
+              <label for="d-tel">電話番号<span class="opt">任意</span></label>
+              <input type="tel" id="d-tel" name="電話番号" autocomplete="tel" inputmode="tel" placeholder="例: 09012345678">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="docSubmit">資料請求する</button>
+            <p class="hero-form-status" id="docStatus"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOT FOR ===== -->
+<section class="not-for">
+  <div class="container">
+    <div class="not-for-inner">
+      <div class="not-for-row"><span class="not-for-x">✕</span> 一般企業向けのAIO代行サービス</div>
+      <span class="not-for-sep">|</span>
+      <div class="not-for-row"><span class="not-for-o">○</span> SEO会社がAIOを自社メニュー化するための支援</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEMS → SOLUTION (before/after) ===== -->
+<section class="section" id="problems">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">こんなお悩みはありませんか</span>
+      <h2 class="section-title">SEOの知見はある。<br>でも、AI時代にどう事業を広げればいいか分からない。</h2>
+      <p class="section-sub">SEOで培った知見と顧客基盤は、AI時代においても大きな資産です。問題は「どう立ち上げるか」がわからないことだけです。</p>
+    </div>
+    <div class="ba-wrap fade-up">
+      <div class="ba-col">
+        <div class="ba-before">
+          <div class="ba-before-icon">💬</div>
+          <div class="ba-before-text">既存顧客から「ChatGPTに出るようにしたい」「AI検索でも表示されたい」と相談され始めている</div>
+        </div>
+        <div class="ba-arrow">↓</div>
+        <div class="ba-after">
+          <span class="ba-after-tag">解決</span>
+          <div class="ba-after-text">AIOツールを導入し、AI検索での表示状況を確認・改善できる体制を整えます。</div>
+        </div>
+      </div>
+      <div class="ba-col">
+        <div class="ba-before">
+          <div class="ba-before-icon">🧩</div>
+          <div class="ba-before-text">AIOはSEOと似ている部分もあるが、技術的・運用的に異なり、自社だけでは提供しづらい</div>
+        </div>
+        <div class="ba-arrow">↓</div>
+        <div class="ba-after">
+          <span class="ba-after-tag">解決</span>
+          <div class="ba-after-text">担当者様がAIOを使いこなせるようになるまで、基礎から実務運用まで研修します。</div>
+        </div>
+      </div>
+      <div class="ba-col">
+        <div class="ba-before">
+          <div class="ba-before-icon">📉</div>
+          <div class="ba-before-text">AIOを新サービスにしたいが、ノウハウ・営業資料・運用体制が不足している</div>
+        </div>
+        <div class="ba-arrow">↓</div>
+        <div class="ba-after">
+          <span class="ba-after-tag">解決</span>
+          <div class="ba-after-text">営業開始まで伴走コンサルティング。初期顧客は二人三脚でサポートします。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MID CTA ===== -->
+<section class="mid-cta">
+  <div class="container">
+    <div class="mid-cta-head fade-up">
+      <span>まずはお気軽にご相談ください</span>
+    </div>
+    <div class="mid-cta-grid">
+      <div class="mid-cta-card fade-up">
+        <div class="mid-cta-card-title">すぐに相談したい方</div>
+        <ul class="mid-cta-list">
+          <li>御社の現状・既存顧客をヒアリング</li>
+          <li>AIO展開の可能性を一緒に整理</li>
+          <li>相談だけで終わってもOK・無理な営業なし</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-block">30分無料相談はこちら →</a>
+      </div>
+      <div class="mid-cta-card fade-up">
+        <div class="mid-cta-card-title">まずは資料で確認したい方</div>
+        <ul class="mid-cta-list">
+          <li>サービス内容・提供メニューがわかる</li>
+          <li>導入フローや費用感をつかめる</li>
+          <li>社内共有・比較検討にそのまま使える</li>
+        </ul>
+        <a href="#doc" class="btn btn-outline btn-block">資料請求はこちら →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION (01/02/03) ===== -->
+<section class="section" id="solution">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:16px;">
+      <span class="section-label">Solution</span>
+      <h2 class="section-title">SEO会社様が、<br>AIOを自社メニューに追加できるようになる。</h2>
+      <p class="section-sub">SEOの知見を活かして、AIOを新サービス化するために必要なものを、ツール・研修・コンサルティングとしてワンストップで提供します。</p>
+    </div>
+
+    <div class="alt-feature fade-up">
+      <div class="alt-text">
+        <div class="alt-num">01</div>
+        <h3 class="alt-text-title">AIOツールの導入 ＋ 使い方研修</h3>
+        <p class="alt-text-desc">AI検索・生成AIにおける自社・顧客企業の表示状況を確認・改善するためのツールを導入し、御社の担当者様が基礎から実務運用まで使いこなせる状態になるまで研修します。</p>
+      </div>
+      <div class="alt-visual">
+        <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="34" stroke="#ff9d6e" stroke-width="3"/><path d="M35 52l10 10 20-22" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <div class="alt-feature rev fade-up">
+      <div class="alt-text">
+        <div class="alt-num">02</div>
+        <h3 class="alt-text-title">顧客提案・営業開始までのコンサルティング</h3>
+        <p class="alt-text-desc">既存顧客・新規顧客への提案の切り口づくりから、営業開始まで、AIO事業の立ち上げをコンサルティングで支援します。</p>
+      </div>
+      <div class="alt-visual">
+        <svg viewBox="0 0 100 100" fill="none"><rect x="24" y="40" width="14" height="34" rx="2" fill="#fff"/><rect x="43" y="28" width="14" height="46" rx="2" fill="#ff9d6e"/><rect x="62" y="18" width="14" height="56" rx="2" fill="#fff"/></svg>
+      </div>
+    </div>
+
+    <div class="alt-feature fade-up">
+      <div class="alt-text">
+        <div class="alt-num">03</div>
+        <h3 class="alt-text-title">初期顧客の伴走支援 ＋ 継続アップデート</h3>
+        <p class="alt-text-desc">最初の案件は当社も二人三脚で伴走。AIモデルやアルゴリズムの変化にも、継続的な情報アップデートとコンサルティングで対応します。</p>
+      </div>
+      <div class="alt-visual">
+        <svg viewBox="0 0 100 100" fill="none"><circle cx="38" cy="42" r="12" fill="#fff"/><circle cx="66" cy="42" r="12" fill="#ff9d6e"/><path d="M20 78c2-16 14-24 30-24" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M80 78c-2-16-14-24-30-24" stroke="#ff9d6e" stroke-width="5" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE BANNER ===== -->
+<section class="value-banner fade-up">
+  <div class="container">
+    <span class="section-label">Value</span>
+    <h3>SEO会社のためのAIO参入支援。<br>SEO事業に、<span class="accent">次の収益源</span>を。</h3>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="section" id="benefits">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Benefit</span>
+      <h2 class="section-title">SEO会社様が得られる、<br>2つの大きなメリット</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up">
+        <span class="benefit-num-tag">Benefit 1</span>
+        <h3 class="benefit-title">既存顧客のLTV向上・離脱防止</h3>
+        <p class="benefit-desc">既存のSEO顧客がAI検索やChatGPT・Geminiでの表示対策に関心を持ったタイミングで、AIOメニューを提案できるようになります。</p>
+        <ul class="benefit-list">
+          <li>既存顧客への追加提案ができる</li>
+          <li>顧客単価が上がり、LTVが向上する</li>
+          <li>「AI対応できないなら他社へ」という離脱を防げる</li>
+          <li>SEO契約に加えて、AIO契約を獲得できる</li>
+        </ul>
+      </div>
+      <div class="benefit-card fade-up">
+        <span class="benefit-num-tag">Benefit 2</span>
+        <h3 class="benefit-title">新規顧客獲得の新しい切り口になる</h3>
+        <p class="benefit-desc">「SEOはもういい」と言われがちな新規開拓の場面で、「AIOをやりませんか」という新しい切り口で提案できるようになります。</p>
+        <ul class="benefit-list">
+          <li>新規営業のフックができる</li>
+          <li>AI時代の新サービスとして差別化できる</li>
+          <li>SEO会社としての提案領域が広がる</li>
+          <li>競合SEO会社との差別化につながる</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARE TABLE ===== -->
+<section class="section" style="background:var(--gray-light);" id="compare">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Compare</span>
+      <h2 class="section-title">自己流での立ち上げとの違い</h2>
+      <p class="section-sub">AIOツールを単体導入するだけでは、事業として立ち上がりません。営業開始・伴走・継続アップデートまで一気通貫で支援します。</p>
+    </div>
+    <div class="compare-wrap fade-up">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="col-other">自己流で対応</th>
+            <th class="col-other">ツール導入のみ</th>
+            <th class="col-own">ホリエモンAI AIO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AIOツールの提供</td>
+            <td class="compare-dim">✕</td>
+            <td class="compare-check">○</td>
+            <td class="col-own">○</td>
+          </tr>
+          <tr>
+            <td>使い方研修</td>
+            <td class="compare-dim">✕</td>
+            <td class="compare-dim">✕</td>
+            <td class="col-own">○</td>
+          </tr>
+          <tr>
+            <td>営業資料・提案支援</td>
+            <td class="compare-dim">✕</td>
+            <td class="compare-dim">✕</td>
+            <td class="col-own">○</td>
+          </tr>
+          <tr>
+            <td>初期顧客への伴走</td>
+            <td class="compare-dim">✕</td>
+            <td class="compare-dim">✕</td>
+            <td class="col-own">○</td>
+          </tr>
+          <tr>
+            <td>継続的なアップデート対応</td>
+            <td class="compare-dim">✕</td>
+            <td class="compare-dim">△</td>
+            <td class="col-own">○</td>
+          </tr>
+          <tr>
+            <td>補助金活用支援</td>
+            <td class="compare-dim">✕</td>
+            <td class="compare-dim">✕</td>
+            <td class="col-own">○</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROOF ===== -->
+<section class="section" id="proof">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">実績・信頼</span>
+      <h2 class="section-title">机上の空論ではなく、<br>自社でAIOを実践・検証しています。</h2>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card fade-up">
+        <span class="proof-tag">自社実践</span>
+        <h3 class="proof-title">ホリエモンAI学校自身が、AIOを実践・検証してきました。</h3>
+        <div class="proof-body">
+          <p>私たちは、生成AIに関する情報発信や講座提供を行う中で、自社に対する生成AIの回答結果を継続的に検証してきました。AI検索に企業情報が正しく認識・表示されるかどうかは、実際に自社で試し、改善を重ねなければわかりません。</p>
+          <p>ホリエモンAI AIOは、その実践の中で得た知見を、SEO会社様が実務で使える形でツールとコンサルティングに落とし込んだものです。</p>
+        </div>
+      </div>
+      <div class="proof-shot fade-up">
+        <div class="proof-shot-label">表示検証イメージ</div>
+        <div class="proof-shot-mock">
+          <div class="q">Q. 「ホリエモンAI学校とは？」とGeminiに質問</div>
+          <div>A. ホリエモンAI学校株式会社は、企業向けにAI教育・研修を提供する会社です……</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLOW ===== -->
+<section class="section flow" id="flow">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Flow</span>
+      <h2 class="section-title">導入から営業開始までの流れ</h2>
+      <p class="section-sub">初期打ち合わせから最初の顧客獲得までは、早ければ3ヶ月程度。補助金採択を含めると6ヶ月程度を想定しています。</p>
+    </div>
+    <div class="flow-list">
+      <div class="flow-step fade-up">
+        <div class="flow-num">1</div>
+        <div>
+          <div class="flow-step-title">問い合わせ・打ち合わせ</div>
+          <div class="flow-step-desc">まずはお問い合わせいただき、営業担当と打ち合わせを行います。御社の現状、既存顧客、AIO展開の可能性をヒアリングします。</div>
+        </div>
+      </div>
+      <div class="flow-step is-key fade-up">
+        <div class="flow-num">2</div>
+        <div>
+          <div class="flow-step-title">補助金申請</div>
+          <div class="flow-step-desc">ツール導入にあたり、補助金の活用を想定しています。ご契約前に補助金申請を行います。</div>
+        </div>
+      </div>
+      <div class="flow-step fade-up">
+        <div class="flow-num">3</div>
+        <div>
+          <div class="flow-step-title">補助金採択後、ツール契約</div>
+          <div class="flow-step-desc">補助金が採択された後、AIOツールをご契約いただきます。</div>
+        </div>
+      </div>
+      <div class="flow-step fade-up">
+        <div class="flow-num">4</div>
+        <div>
+          <div class="flow-step-title">AIOツール研修</div>
+          <div class="flow-step-desc">AIOツールを使いこなせるよう、当社が研修を実施します。基礎から実務運用まで理解できる状態を目指します。</div>
+        </div>
+      </div>
+      <div class="flow-step fade-up">
+        <div class="flow-num">5</div>
+        <div>
+          <div class="flow-step-title">営業開始</div>
+          <div class="flow-step-desc">AIOサービスとして、既存顧客・新規顧客への提案を開始します。</div>
+        </div>
+      </div>
+      <div class="flow-step is-key fade-up">
+        <div class="flow-num">6</div>
+        <div>
+          <div class="flow-step-title">初期顧客は二人三脚でサポート</div>
+          <div class="flow-step-desc">最初の顧客獲得後は、当社も一緒に伴走します。初期案件を通じて、AIO提供の流れを理解し、自社メニューとして展開できるよう支援します。</div>
+        </div>
+      </div>
+    </div>
+    <p class="flow-note">※ 期間はあくまで目安です。御社の体制や補助金の申請状況によって前後します。</p>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Price</span>
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-sub">料金は「ツール導入費用」と「月額コンサルティング費用」の2構成です。御社の規模・体制に合わせてご提案します。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card fade-up">
+        <span class="price-card-tag">STEP 1</span>
+        <div class="price-card-name">ツール導入費用</div>
+        <div class="price-card-price">ご相談の上ご案内<span>初期費用</span></div>
+        <p class="price-card-desc">AIOツールの導入にかかる初期費用です。詳細な金額は個別にご案内します。補助金の活用を想定しています。</p>
+      </div>
+      <div class="price-card fade-up">
+        <span class="price-card-tag">STEP 2</span>
+        <div class="price-card-name">月額コンサルティング費用</div>
+        <div class="price-card-price">ご相談の上ご案内<span>月額</span></div>
+        <p class="price-card-desc">研修・営業支援・初期案件の伴走・継続的なアップデート対応を含む月額のコンサルティング費用です。</p>
+      </div>
+    </div>
+    <div class="subsidy-box fade-up">
+      <strong>補助金活用可能</strong>：ツール導入費用については、システム導入に関する補助金を活用できる可能性があります。<br>
+      ※ 補助金の採択を保証するものではありません。詳細は個別にご相談ください。
+    </div>
+    <p class="menu-note">※ 表示価格はすべて税抜です。具体的な金額は御社の状況をお伺いした上でご案内します。</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-question">AIOとは何ですか？</div>
+        <div class="faq-answer">AIOとは、ChatGPTやGeminiなどの生成AIに、自社や顧客企業の情報を正しく認識・表示してもらうための対策です。SEOが検索エンジン最適化であるのに対し、AIOはAI時代の情報最適化です。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">このサービスは一般企業向けのAIO代行ですか？</div>
+        <div class="faq-answer">いいえ。一般企業向けにAIOを代行するサービスではありません。SEO会社・SEO事業者様が、自社の顧客にAIOサービスを提供できるようになるための支援サービスです。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">SEOの知識があればAIOも提供できますか？</div>
+        <div class="faq-answer">SEOとAIOは似ている部分もありますが、まったく同じではありません。AIに情報を正しく認識させるためには、AIO特有の知識・検証・運用が必要です。当社ではツールと研修、コンサルティングでその立ち上げを支援します。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">既存のSEOツールと連携しますか？</div>
+        <div class="faq-answer">直接的に既存SEOツールと連携するものではありません。ただし、検索エンジンに正しく情報を認識させるSEOの考え方と、AIに正しく情報を認識させるAIOの考え方には近い部分があるため、SEO会社様は一般企業よりもAIOを理解・提供しやすいと考えています。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">いつから既存顧客に提案できますか？</div>
+        <div class="faq-answer">基本的には、ツール導入と研修が完了し、AIOの提案・提供体制が整ってから既存顧客に提案することを推奨します。ただし、初期顧客向けの特別プランなどを設計する場合は、契約後早い段階で営業開始することも可能です。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">AIのアップデートにはどう対応しますか？</div>
+        <div class="faq-answer">AIモデルやアルゴリズムは常に変化します。そのため、当社が継続的に情報をアップデートし、コンサルティングを通じて必要な修正・改善を支援します。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">一度研修を受ければ自社だけで運用できますか？</div>
+        <div class="faq-answer">AIOはAIモデルやアルゴリズムの変化に影響を受けるため、継続的なアップデートが重要です。SEOと同じように、継続的な検証・改善・サポートが必要な領域だと考えています。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-question">補助金は使えますか？</div>
+        <div class="faq-answer">ツール導入部分について、補助金の活用を想定しています。詳細は個別にご相談ください。なお、補助金の採択を保証するものではありません。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA + CONTACT ===== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <span class="cta-recruit">SEO業者様募集｜AIOを自社メニューに追加したいSEO会社様へ</span>
+    <h2 class="section-title" style="margin-bottom:16px;">SEO事業へのAIO導入を、<br>まずはご相談ください</h2>
+    <p class="cta-desc">既存顧客のLTV向上にも、新規開拓の切り口にも。SEO会社がAIO会社になるための第一歩です。</p>
+    <div class="cta-two-col">
+      <div class="cta-card fade-up">
+        <div class="cta-card-title">まずは資料で確認したい方</div>
+        <div class="cta-card-desc">サービス内容・提供メニュー・導入フローをまとめた資料をお送りします。</div>
+        <a href="#doc" class="btn btn-outline">AIO参入支援の資料を受け取る</a>
+      </div>
+      <div class="cta-card fade-up">
+        <div class="cta-card-title">すぐに相談したい方</div>
+        <div class="cta-card-desc">御社の現状をお伺いし、AIO展開の可能性を一緒に整理します。相談は無料です。</div>
+        <a href="#" class="btn btn-primary">30分無料相談に申し込む →</a>
+      </div>
+    </div>
+    <p class="hero-note" style="margin-top:32px;color:#88a0b3;">※ 日程調整リンクは準備中です。担当者より折り返しご連絡いたします。</p>
+  </div>
+</section>
+
+<site-footer></site-footer>
+
+<div class="sp-sticky-footer">
+  <a href="#doc" class="sticky-outline">資料請求</a>
+  <a href="#contact" class="sticky-primary">30分無料相談 →</a>
+</div>
+
+<script src="/components/components.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ===== 資料請求フォーム =====
+  // ▼送信先URLが決まったら、この DOC_FORM_ENDPOINT に設定するだけで送信が有効化されます。
+  const DOC_FORM_ENDPOINT = "";
+
+  (function () {
+    const form = document.getElementById('docForm');
+    if (!form) return;
+    const submitBtn = document.getElementById('docSubmit');
+    const statusEl  = document.getElementById('docStatus');
+    const pendingEl = document.getElementById('heroFormPending');
+
+    if (!DOC_FORM_ENDPOINT) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '受付準備中';
+    } else {
+      if (pendingEl) pendingEl.style.display = 'none';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!DOC_FORM_ENDPOINT) return;
+      if (!form.reportValidity()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中…';
+      statusEl.className = 'hero-form-status';
+      statusEl.textContent = '';
+
+      try {
+        const res = await fetch(DOC_FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (!res.ok) throw new Error('failed');
+        form.reset();
+        statusEl.className = 'hero-form-status ok';
+        statusEl.textContent = '送信が完了しました。担当者より2営業日以内にご連絡いたします。';
+        submitBtn.textContent = '送信完了';
+      } catch (err) {
+        statusEl.className = 'hero-form-status err';
+        statusEl.textContent = '送信に失敗しました。お手数ですが再度お試しください。';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '資料請求する';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
