@@ -8,8 +8,8 @@
   "background_color": "#ffffff",
   "theme_color": "#e8001c",
   "icons": [
+    { "src": "/keiei/favicon.png", "sizes": "32x24", "type": "image/png" },
     { "src": "/keiei/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
-    { "src": "/keiei/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "/keiei/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" }
+    { "src": "/keiei/icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
