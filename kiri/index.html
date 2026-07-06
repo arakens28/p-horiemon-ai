@@ -200,10 +200,11 @@
       pointer-events: none;
     }
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+      gap: 40px;
     }
     .hero-eyebrow {
       display: inline-flex;
@@ -233,7 +234,7 @@
       margin-bottom: 40px;
       line-height: 1.8;
     }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: center; }
     .hero-note { font-size: 13px; color: #aaa; margin-top: 16px; }
     .hero-visual {
       position: relative;
@@ -849,8 +850,8 @@
     @media (max-width: 768px) {
       .section { padding: 64px 0; }
       .hero { padding: 16px 0 32px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero-visual { order: -1; }
+      .hero-inner { gap: 32px; }
+      .hero-visual { order: 1; }
       .solution-inner { grid-template-columns: 1fr; gap: 40px; }
       .steps::before { display: none; }
       .steps { grid-template-columns: 1fr; gap: 32px; }
@@ -1036,11 +1037,11 @@
         </a>
         <p class="hero-note">※ 初回相談・資料請求は完全無料です</p>
       </div>
-      <div class="hero-visual fade-up">
+      <div class="hero-visual fade-up" style="width:100%;">
         <img
-          src="hero-screen.png"
-          alt="ホリエモンAI切り抜き 操作画面"
-          style="width:100%;border-radius:16px;display:block;box-shadow:0 24px 64px rgba(0,0,0,.15);"
+          src="hero-manga.png"
+          alt="ホリエモンAI切り抜き サービス紹介"
+          style="width:100%;border-radius:20px;display:block;box-shadow:0 24px 64px rgba(0,0,0,.18);"
         >
       </div>
     </div>
