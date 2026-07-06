@@ -189,6 +189,15 @@
   .icon-card-title { font-size: 18px; font-weight: 900; margin-bottom: 12px; line-height: 1.6; }
   .icon-card-desc { font-size: 13.5px; color: var(--gray-text); line-height: 1.9; }
 
+  /* ===== SCOPE BOX (提供領域) ===== */
+  .scope-box { margin-top: 56px; background: var(--navy-dark); border-radius: 20px; padding: 40px 36px; }
+  .scope-box-title { font-size: 18px; font-weight: 900; color: #fff; margin-bottom: 12px; }
+  .scope-box-lead { font-size: 13.5px; color: #b7c4cf; line-height: 1.85; margin-bottom: 24px; max-width: 720px; }
+  .scope-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .scope-tag { display: inline-block; font-size: 12.5px; font-weight: 700; color: #fff; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 99px; padding: 8px 18px; }
+  .scope-tag-future { background: rgba(255,203,61,.14); border-color: rgba(255,203,61,.4); color: var(--yellow); }
+  @media (max-width: 600px) { .scope-box { padding: 32px 24px; } }
+
   /* ===== VALUE PROP BANNER ===== */
   .value-banner { background: var(--navy-dark); color: #fff; text-align: center; padding: 56px 0; }
   .value-banner .section-label { color: #fff; background: rgba(255,255,255,.12); }
@@ -230,6 +239,14 @@
   .proof-shot-mock { background: rgba(255,255,255,.06); border: 1px dashed rgba(255,255,255,.25); border-radius: 12px; padding: 24px 20px; font-size: 13px; line-height: 1.9; color: #dbe4ec; }
   .proof-shot-mock .q { color: #ffcb3d; font-weight: 700; margin-bottom: 8px; }
   @media (max-width: 768px) { .proof-grid { grid-template-columns: 1fr; } }
+
+  /* ===== FOUNDER MESSAGE ===== */
+  .founder-msg { background: var(--navy-dark); }
+  .founder-msg .section-title { color: #fff; }
+  .founder-card { max-width: 780px; margin: 48px auto 0; }
+  .founder-card p { font-size: 15px; color: #c9d4dd; line-height: 2; margin-bottom: 20px; }
+  .founder-highlight { font-size: 16px; font-weight: 700; color: #fff; border-left: 3px solid var(--yellow); padding-left: 18px; }
+  .founder-sign { margin-top: 28px; text-align: right; font-size: 13px; color: #8ea3b8; font-weight: 700; }
 
   /* ===== FLOW ===== */
   .flow { background: var(--gray-light); }
@@ -500,6 +517,22 @@
         <p class="icon-card-desc">最初の案件は当社も二人三脚で伴走。AIモデルやアルゴリズムの変化にも、継続的な情報アップデートとコンサルティングで対応します。</p>
       </div>
     </div>
+
+    <div class="scope-box fade-up">
+      <div class="scope-box-title">私たちが目指す、AIOの一気通貫体制</div>
+      <p class="scope-box-lead">単に「AIO記事を作る」だけの会社ではなく、戦略設計から分析、コンテンツ制作、内製化支援、将来的なツール提供までを一気通貫で担える体制を目指しています。</p>
+      <div class="scope-tags">
+        <span class="scope-tag">AIO戦略設計</span>
+        <span class="scope-tag">ChatGPT・Gemini・Perplexity等での露出／引用状況分析</span>
+        <span class="scope-tag">競合分析</span>
+        <span class="scope-tag">AIに引用されやすいコンテンツ制作</span>
+        <span class="scope-tag">FAQ・比較ページ・導入事例・専門家記事の整備</span>
+        <span class="scope-tag">サイト構造・情報設計の改善</span>
+        <span class="scope-tag">PR・YouTube・SNSとの連動</span>
+        <span class="scope-tag">社内でAIOを回すための内製化支援</span>
+        <span class="scope-tag scope-tag-future">AIOの分析・可視化ツール提供（提供予定）</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -629,6 +662,23 @@
           <div>A. ホリエモンAI学校株式会社は、企業向けにAI教育・研修を提供する会社です……</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER MESSAGE ===== -->
+<section class="section founder-msg" id="founder-message">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">代表からのメッセージ</span>
+      <h2 class="section-title">「AIOといえばこの会社」を、<br>目指しています。</h2>
+    </div>
+    <div class="founder-card fade-up">
+      <p>SEO業界には、SEOコンサルティング・コンテンツ制作・ツール提供・内製化支援・教育・営業支援までを一気通貫で担い、「SEOといえばこの会社」と第一想起される、業界を代表する企業があります。</p>
+      <p>私たちは、AIO領域で同じポジションを目指しています。単にAIO記事を作るだけの会社ではなく、戦略設計・分析・コンテンツ制作・内製化支援、そして将来的なツール提供までを一気通貫で担う「AIOといえばこの会社」という状態をつくっていきたいと考えています。</p>
+      <p>そして、AIOを入り口にSEOの専門的な支援が必要になった際には、それぞれの領域を代表する信頼できるSEO会社様と連携できる関係を築いていきたいと考えています。</p>
+      <p class="founder-highlight">AIOは、SEO会社様にとっての競合ではなく、既存のSEO事業を守り・伸ばすための「入り口」でありたい。それが私たちの願いです。</p>
+      <div class="founder-sign">ホリエモンAI学校株式会社　代表</div>
     </div>
   </div>
 </section>
