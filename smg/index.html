@@ -48,15 +48,15 @@
     { "@type": "WebPage", "@id": "https://p.horiemon.ai/smg/#webpage", "url": "https://p.horiemon.ai/smg/", "name": "スガワラくんAI学校 SMG校", "description": "節税・資金繰りの実務知にAI活用を掛け合わせる、税理士・経営者のための実践スクール。", "inLanguage": "ja" },
     { "@type": "Course", "name": "スガワラくんAI学校 SMG校", "url": "https://p.horiemon.ai/smg/", "description": "脱・税理士スガワラくん（菅原由一）監修。節税・資金繰りの実務知にAI活用を掛け合わせる実践スクール。", "inLanguage": "ja", "provider": { "@id": "https://horiemon.ai/#organization" },
       "offers": [
-        { "@type": "Offer", "name": "個人プラン 入学金（税込）", "price": "162800", "priceCurrency": "JPY", "url": "https://horiemon.ai/service" },
-        { "@type": "Offer", "name": "個人プラン 月額（税込）", "price": "16280", "priceCurrency": "JPY", "url": "https://horiemon.ai/service" },
-        { "@type": "Offer", "name": "法人プラン 年間利用料／人（税抜）", "price": "310000", "priceCurrency": "JPY", "url": "https://horiemon.ai/service" }
+        { "@type": "Offer", "name": "個人プラン 入学金（税込）", "price": "162800", "priceCurrency": "JPY", "url": "https://buy.stripe.com/28EeVd1VC2AP5UQgiDdIA1h" },
+        { "@type": "Offer", "name": "個人プラン 月額（税込）", "price": "16280", "priceCurrency": "JPY", "url": "https://buy.stripe.com/28EeVd1VC2AP5UQgiDdIA1h" },
+        { "@type": "Offer", "name": "法人プラン 年間利用料／人（税抜）", "price": "310000", "priceCurrency": "JPY", "url": "https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/YPvrY50o_fKgN5ujlqyCm/confirm" }
       ] },
     { "@type": "FAQPage", "mainEntity": [
         { "@type": "Question", "name": "税理士でなくても受講できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。税理士・税理士事務所の方はもちろん、節税や資金繰りを踏まえた経営判断にAIを活かしたい経営者・個人事業主の方も対象です。" } },
         { "@type": "Question", "name": "AIの知識がなくても大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "問題ありません。基礎から実務での活用事例まで講義動画で解説しています。" } },
         { "@type": "Question", "name": "料金はいくらですか？", "acceptedAnswer": { "@type": "Answer", "text": "個人プランは入学金162,800円（税込）・月額16,280円（税込）。法人プランは年間310,000円／人（税抜）で、要件を満たす場合は人材開発支援助成金（最大24万円／人）の対象になります。" } },
-        { "@type": "Question", "name": "申し込み方法を教えてください。", "acceptedAnswer": { "@type": "Answer", "text": "ホリエモンAI学校 公式サイトから個人・法人プランをお申し込みいただけます。まずは無料相談のご予約をおすすめしています。" } }
+        { "@type": "Question", "name": "申し込み方法を教えてください。", "acceptedAnswer": { "@type": "Answer", "text": "個人プランはStripeの決済ページからお申し込みいただけます。法人プランは面談予約フォームからご予約ください。" } }
       ] },
     { "@type": "BreadcrumbList", "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://horiemon.ai/" },
@@ -295,9 +295,12 @@ footer{border-top:1px solid var(--line);padding:48px 0}
 /* ===== SP STICKY ===== */
 .sp-sticky{display:none}
 @media (max-width:768px){
-  .sp-sticky{display:block;position:fixed;bottom:0;left:0;right:0;z-index:500;padding:14px 16px;background:rgba(7,7,10,.9);backdrop-filter:blur(12px);border-top:1px solid var(--line-strong)}
-  .sp-sticky a{display:block;text-align:center;background:var(--grad);color:#0a0a0a;font-weight:800;padding:15px;border-radius:99px;font-size:15px}
-  body{padding-bottom:78px}
+  .sp-sticky{display:flex;gap:10px;position:fixed;bottom:0;left:0;right:0;z-index:500;padding:12px 16px;background:rgba(7,7,10,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line-strong)}
+  .sp-sticky a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;text-align:center;padding:9px 6px;border-radius:16px;font-size:13.5px;font-weight:800;line-height:1.3}
+  .sp-sticky a small{font-weight:600;font-size:10px;opacity:.85}
+  .sp-sticky a.sp-personal{background:var(--grad);color:#0a0a0a}
+  .sp-sticky a.sp-corporate{background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--line-strong)}
+  body{padding-bottom:72px}
 }
 
 /* ===== REVEAL / RESPONSIVE ===== */
@@ -330,7 +333,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
       <a href="#features">特徴</a>
       <a href="#pricing">料金</a>
       <a href="#instructor">監修者</a>
-      <a href="https://horiemon.ai/service" class="hdr-cta">お申し込み</a>
+      <a href="#pricing" class="hdr-cta">お申し込み</a>
     </nav>
   </div>
 </header>
@@ -349,7 +352,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
         コンサル実績200社超・YouTube登録者100万人超の「脱・税理士スガワラくん」こと菅原由一氏と、受講企業400社のホリエモンAI学校がタッグ。節税・資金繰りの現場知見に、AIの実践力を掛け合わせた新しいスクールです。
       </p>
       <div class="hero-actions">
-        <a href="https://horiemon.ai/service" class="btn btn-grad btn-lg">お申し込み・詳細はこちら →</a>
+        <a href="#pricing" class="btn btn-grad btn-lg">お申し込み・詳細はこちら →</a>
         <a href="#pricing" class="btn btn-ghost btn-lg">料金プランを見る</a>
       </div>
       <p class="hero-note">監修：菅原由一氏（SMG菅原経営株式会社 代表取締役／SMG税理士事務所 代表税理士）</p>
@@ -494,7 +497,8 @@ footer{border-top:1px solid var(--line);padding:48px 0}
         <div class="plan-tax">税込</div>
         <div class="plan-line"><span class="l">月額利用料</span><span class="v"><span class="yen">¥</span>16,280<span class="per">/月</span></span></div>
         <div class="plan-tax">税込</div>
-        <div class="plan-btn"><a href="https://horiemon.ai/service" class="btn btn-grad btn-block">個人プランを申し込む →</a></div>
+        <div class="plan-btn"><a href="https://buy.stripe.com/28EeVd1VC2AP5UQgiDdIA1h" class="btn btn-grad btn-block" target="_blank" rel="noopener">個人プランを申し込む →</a></div>
+        <div class="plan-btn" style="margin-top:12px"><a href="https://lin.ee/7bDp9wZ" class="btn btn-ghost btn-block" target="_blank" rel="noopener">LINEで無料相談する →</a></div>
       </div>
       <div class="plan">
         <div class="plan-kicker">2名からご利用可能</div>
@@ -502,7 +506,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
         <div class="plan-line"><span class="l">年間利用料／人</span><span class="v"><span class="yen">¥</span>310,000</span></div>
         <div class="plan-tax">税抜</div>
         <div class="plan-note">1人あたり年間最大24万円の人材開発支援助成金あり（要件を満たす場合）。役員は助成金の対象外です。</div>
-        <div class="plan-btn"><a href="https://horiemon.ai/service" class="btn btn-ghost btn-block">法人プランを問い合わせる →</a></div>
+        <div class="plan-btn"><a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/YPvrY50o_fKgN5ujlqyCm/confirm" class="btn btn-ghost btn-block" target="_blank" rel="noopener">法人プランの面談を予約する →</a></div>
       </div>
     </div>
     <div class="outline-mini reveal">
@@ -580,7 +584,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
       </div>
       <div class="faq-item">
         <div class="faq-q">申し込み方法を教えてください。<span class="plus"></span></div>
-        <div class="faq-a"><p>ホリエモンAI学校 公式サイトから個人・法人プランをお申し込みいただけます。まずは無料相談のご予約をおすすめしています。</p></div>
+        <div class="faq-a"><p>個人プランはStripeの決済ページからそのままお申し込みいただけます。不安な点があれば公式LINEで無料相談も可能です。法人プランは面談予約フォームからご都合の良い日時をご予約ください。</p></div>
       </div>
     </div>
   </div>
@@ -593,7 +597,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
     <h2 class="section-title">節税・資金繰りの知見に、AIの実践力を。</h2>
     <p class="cta-desc">まずは無料相談から。あなたのビジネスに合ったAI活用方法をご案内します。</p>
     <div class="cta-actions">
-      <a href="https://horiemon.ai/service" class="btn btn-grad btn-lg">お申し込み・詳細はこちら →</a>
+      <a href="#pricing" class="btn btn-grad btn-lg">お申し込み・詳細はこちら →</a>
       <a href="#pricing" class="btn btn-ghost btn-lg">料金プランを見る</a>
     </div>
     <p class="cta-note">お申し込み・お問い合わせはホリエモンAI学校 公式サイトから承ります。</p>
@@ -640,7 +644,10 @@ footer{border-top:1px solid var(--line);padding:48px 0}
   </div>
 </footer>
 
-<div class="sp-sticky"><a href="https://horiemon.ai/service">お申し込み・詳細はこちら →</a></div>
+<div class="sp-sticky">
+  <a href="https://lin.ee/7bDp9wZ" class="sp-personal" target="_blank" rel="noopener"><small>個人の方</small>LINE相談</a>
+  <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/YPvrY50o_fKgN5ujlqyCm/confirm" class="sp-corporate" target="_blank" rel="noopener"><small>法人の方</small>面談予約</a>
+</div>
 
 <script>
   const hdr = document.getElementById('hdr');
