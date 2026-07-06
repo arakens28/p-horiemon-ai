@@ -1,0 +1,15 @@
+{
+  "name": "AI経営塾 | ホリエモンAI学校",
+  "short_name": "AI経営塾",
+  "description": "経営者限定・月1回のAI実践勉強会。AI時代に経営者が「何をやるべきか」を学ぶ。",
+  "start_url": "/keiei/",
+  "scope": "/keiei/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e8001c",
+  "icons": [
+    { "src": "/keiei/favicon.png", "sizes": "32x24", "type": "image/png" },
+    { "src": "/keiei/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/keiei/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
