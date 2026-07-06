@@ -133,10 +133,14 @@
 
   /* ===== CASE STUDY ===== */
   .case-card { max-width: 860px; margin: 56px auto 0; background: #fff; border: 1px solid var(--gray-mid); border-radius: 20px; padding: 48px 44px; box-shadow: var(--shadow); }
+  .case-card + .case-card { margin-top: 32px; }
   .case-tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--gold); background: #fdf5e9; border-radius: 99px; padding: 4px 16px; margin-bottom: 20px; }
   .case-title { font-size: 20px; font-weight: 900; line-height: 1.7; margin-bottom: 24px; }
   .case-body p { font-size: 14px; color: #444; line-height: 2; margin-bottom: 16px; }
   .case-body p:last-child { margin-bottom: 0; }
+  .case-topics { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 16px; background: var(--gray-light); border-radius: 8px; padding: 18px 20px; margin: 4px 0 16px; }
+  .case-topics li { font-size: 13px; color: #444; line-height: 1.7; }
+  .case-topics li strong { color: var(--navy); font-weight: 700; margin-right: 4px; }
   .case-result { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--gray-mid); }
   .case-result-label { font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--navy); margin-bottom: 10px; }
   @media (max-width: 600px) { .case-card { padding: 32px 24px; } }
@@ -366,6 +370,26 @@
       <div class="case-result">
         <div class="case-result-label">結果</div>
         <p style="font-size:14px;color:#444;line-height:2;">AIへの理解が深まり、意思決定が迅速になりました。その後、グループ会社向けに4時間研修として展開され、さらに系列会社にも広がっています。</p>
+      </div>
+    </div>
+
+    <div class="case-card fade-up">
+      <span class="case-tag">大手スポーツグループ協会 幹部向けAI研修</span>
+      <h3 class="case-title">会長以下幹部のAI理解が進まず、経営判断ができない状態から90分研修を受注</h3>
+      <div class="case-body">
+        <p>会長以下幹部のAIリテラシーが低く、AIをどう活用すればよいか経営判断ができていない状態にあり、90分間のAI研修のご依頼をいただきました。</p>
+        <p>先方の会議室へ出張し、幹部8名に対して70分の講義と、参加者8名全員からの質問に答えるQ&amp;Aを実施。講義は以下5テーマで構成しました。</p>
+        <ul class="case-topics">
+          <li><strong>①</strong>LLMから世界モデルへ</li>
+          <li><strong>②</strong>Chat型AIからAIエージェントへ</li>
+          <li><strong>③</strong>フィジカルAI</li>
+          <li><strong>④</strong>AIリストラは日本にやってくるのか</li>
+          <li><strong>⑤</strong>事業ドメインの知識</li>
+        </ul>
+      </div>
+      <div class="case-result">
+        <div class="case-result-label">結果</div>
+        <p style="font-size:14px;color:#444;line-height:2;">幹部8名が、AIをめぐるマクロ経済およびAI・生成AIの現在地を正しく把握できるようになりました。「AIエージェントを導入したい」との要望を受け、次回は職員25名を対象に、Claude Codeのインストールから初期設定・初期研修までを半日で実施することが決定し、組織全体へのAI導入を継続的に支援しています。</p>
       </div>
     </div>
   </div>
