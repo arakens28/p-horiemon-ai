@@ -221,17 +221,27 @@
     .aud-list li { font-size: 13.5px; color: #444; line-height: 1.7; padding-left: 22px; position: relative; margin-bottom: 9px; }
     .aud-list li::before { content: '✓'; position: absolute; left: 0; color: var(--red); font-weight: 900; }
 
-    /* ===== VOICE（顧客の声） ===== */
-    .voice { background: var(--gray-light); }
-    .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
-    .voice-card { background: #fff; border: 1px solid var(--gray-mid); border-radius: 16px; padding: 32px 28px; box-shadow: 0 2px 12px rgba(0,0,0,.04); display: flex; flex-direction: column; }
-    .voice-quote { font-size: 36px; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: 8px; font-family: Georgia, serif; }
-    .voice-text { font-size: 14.5px; color: #333; line-height: 1.85; flex: 1; }
-    .voice-who { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--gray-mid); }
-    .voice-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--red-bg); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-    .voice-meta strong { display: block; font-size: 13px; font-weight: 700; color: var(--black); }
-    .voice-meta span { font-size: 12px; color: var(--gray-text); }
-    .voice-note { text-align: center; font-size: 12px; color: #aaa; margin-top: 28px; }
+    /* ===== CASES（導入事例） ===== */
+    .cases { background: var(--gray-light); }
+    .case-list { max-width: 940px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 36px; }
+    .case { background: #fff; border: 1px solid var(--gray-mid); border-radius: 22px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,.08); }
+    .case-head { background: var(--black); color: #fff; padding: 30px 40px; }
+    .case-head-top { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .case-badge { background: var(--red); color: #fff; font-weight: 900; font-size: 14px; letter-spacing: .04em; border-radius: 99px; padding: 7px 20px; flex-shrink: 0; }
+    .case-title { font-size: clamp(19px, 2.4vw, 25px); font-weight: 900; color: #fff; line-height: 1.35; }
+    .case-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+    .case-meta span { font-size: 12px; font-weight: 700; color: #ddd; background: #2c2c2c; border: 1px solid #3a3a3a; border-radius: 99px; padding: 5px 13px; }
+    .case-meta span.hl { color: #ff8b97; background: rgba(232,0,28,.14); border-color: rgba(232,0,28,.3); }
+    .case-body { padding: 36px 40px; }
+    .case-block { margin-bottom: 26px; }
+    .case-tag { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .04em; color: var(--red); background: var(--red-bg); border-radius: 99px; padding: 5px 15px; margin-bottom: 12px; }
+    .case-block p { font-size: 15px; color: #333; line-height: 1.95; }
+    .case-themes { list-style: none; margin: 16px 0 0; display: grid; gap: 9px; }
+    .case-themes li { font-size: 14.5px; color: #222; background: var(--gray-light); border-left: 4px solid var(--red); border-radius: 6px; padding: 12px 18px; font-weight: 500; }
+    .case-themes li b { color: var(--red); font-weight: 900; margin-right: 8px; }
+    .case-result { background: var(--red-bg); border: 1px solid #ffd0d6; border-radius: 16px; padding: 24px 28px; }
+    .case-result-label { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 900; color: var(--red); margin-bottom: 10px; }
+    .case-result p { font-size: 15px; color: #222; line-height: 1.95; }
 
     /* ===== PLANS subheads / lecture ===== */
     .plans-subhead { display: flex; align-items: center; gap: 12px; max-width: 1100px; margin: 56px auto 8px; font-size: 22px; font-weight: 900; }
@@ -415,7 +425,8 @@
     @media (max-width: 1000px) {
       .plans-grid { grid-template-columns: repeat(2, 1fr); max-width: 640px; margin-left:auto; margin-right:auto; }
       .plans-grid.cols3 { grid-template-columns: repeat(2, 1fr); }
-      .aud-grid, .record-grid, .voice-grid { grid-template-columns: 1fr; }
+      .aud-grid, .record-grid { grid-template-columns: 1fr; }
+      .case-head, .case-body { padding-left: 24px; padding-right: 24px; }
       .concept-cards { grid-template-columns: 1fr; }
       .plans-subhead { padding: 0 24px; flex-wrap: wrap; }
       .plans-subhead .desc { margin-left: 0; flex-basis: 100%; }
@@ -850,41 +861,78 @@
   </div>
 </section>
 
-<!-- ===== VOICE（顧客の声） ===== -->
-<section class="section voice" id="voice">
+<!-- ===== CASES（導入事例） ===== -->
+<section class="section cases" id="cases">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Voice</span>
-      <h2 class="section-title">受講した企業・団体の声</h2>
-      <p class="section-sub">「ツールで終わらない」研修だからこそ、現場と経営の両方から評価をいただいています。</p>
+      <span class="section-label">Case Study</span>
+      <h2 class="section-title">出張研修 導入事例</h2>
+      <p class="section-sub">実際に、どんな課題を、どう解決したのか。出張研修の具体的な事例をご紹介します。</p>
     </div>
-    <div class="voice-grid">
-      <div class="voice-card fade-up">
-        <div class="voice-quote">“</div>
-        <p class="voice-text">ツールの研修は受けたことがありましたが、「経営にどう使うか」まで踏み込んだのは初めて。役員全員の目線がそろい、投資判断の議論が一気に進みました。</p>
-        <div class="voice-who">
-          <div class="voice-avatar">🏭</div>
-          <div class="voice-meta"><strong>製造業</strong><span>経営企画・役員クラス</span></div>
+    <div class="case-list">
+
+      <!-- 事例1 -->
+      <article class="case fade-up">
+        <div class="case-head">
+          <div class="case-head-top">
+            <span class="case-badge">事例 1</span>
+            <h3 class="case-title">上場企業 経営層・管理職向け研修</h3>
+          </div>
+          <div class="case-meta">
+            <span>上場企業</span><span>経営層・管理職・部長クラス</span><span class="hl">90分 × 全5回</span>
+          </div>
         </div>
-      </div>
-      <div class="voice-card fade-up">
-        <div class="voice-quote">“</div>
-        <p class="voice-text">非エンジニアの社員でも、その日のうちに自分の業務でAIを使い始められました。全員が同じ場で受けられる出張形式だったのが、定着の決め手でした。</p>
-        <div class="voice-who">
-          <div class="voice-avatar">🧑‍💼</div>
-          <div class="voice-meta"><strong>サービス業</strong><span>人事・教育ご担当者</span></div>
+        <div class="case-body">
+          <div class="case-block">
+            <span class="case-tag">背景・課題</span>
+            <p>時価総額の大きい上場企業から、経営層・管理職・部長クラス向けのAI勉強会をご依頼いただきました。エンジニアはすでにAIを使い始めていた一方、ビジネス層はAIの理解が浅く、ChatGPTを少し触っている程度にとどまっていました。</p>
+          </div>
+          <div class="case-block">
+            <span class="case-tag">実施内容</span>
+            <p>7〜8名の幹部層に対して、「60分講演＋30分Q&A」の90分勉強会を、2週間に1回・合計5回にわたって実施しました。</p>
+          </div>
+          <div class="case-result">
+            <div class="case-result-label">🎯 結果</div>
+            <p>AIへの理解が深まり、意思決定が迅速になりました。その後、グループ会社向けに4時間研修として展開され、さらに系列会社にも広がっています。</p>
+          </div>
         </div>
-      </div>
-      <div class="voice-card fade-up">
-        <div class="voice-quote">“</div>
-        <p class="voice-text">会員向けセミナーとして開催。「今の経済とAI」の話が好評で、参加者アンケートの満足度は過去最高クラス。次回開催の要望も多く届いています。</p>
-        <div class="voice-who">
-          <div class="voice-avatar">🤝</div>
-          <div class="voice-meta"><strong>業界団体</strong><span>事務局ご担当者</span></div>
+      </article>
+
+      <!-- 事例2 -->
+      <article class="case fade-up">
+        <div class="case-head">
+          <div class="case-head-top">
+            <span class="case-badge">事例 2</span>
+            <h3 class="case-title">会長以下・幹部向け 90分AI研修<br>——「経営判断できない」状態からの受注</h3>
+          </div>
+          <div class="case-meta">
+            <span>幹部8名</span><span>会議室へ出張</span><span class="hl">90分（70分講義＋Q&A）</span>
+          </div>
         </div>
-      </div>
+        <div class="case-body">
+          <div class="case-block">
+            <span class="case-tag">背景・課題</span>
+            <p>会長以下、幹部のAIリテラシーが低く、AIをどう活用すればよいか経営判断ができていない状態にありました。この状況から、90分間のAI研修のご依頼をいただきました。</p>
+          </div>
+          <div class="case-block">
+            <span class="case-tag">実施内容</span>
+            <p>先方の会議室へ出張し、幹部8名に対して70分の講義と、参加者8名全員からの質問に答えるQ&Aを実施。講義は以下の5テーマで構成しました。</p>
+            <ul class="case-themes">
+              <li><b>①</b>LLMから世界モデルへ</li>
+              <li><b>②</b>Chat型AIからAIエージェントへ</li>
+              <li><b>③</b>フィジカルAI</li>
+              <li><b>④</b>AIリストラは日本にやってくるのか</li>
+              <li><b>⑤</b>事業ドメインの知識</li>
+            </ul>
+          </div>
+          <div class="case-result">
+            <div class="case-result-label">🎯 結果</div>
+            <p>幹部8名が、AIをめぐるマクロ経済および生成AIの現在地を正しく把握できるようになりました。「AIエージェントを導入したい」との要望を受け、次回は職員25名を対象に、Claude Codeのインストールから初期設定・初期研修までを半日で実施することが決定。組織全体へのAI導入を継続的に支援しています。</p>
+          </div>
+        </div>
+      </article>
+
     </div>
-    <p class="voice-note">※ 守秘のため、お名前・団体名は伏せて掲載しています。</p>
   </div>
 </section>
 
