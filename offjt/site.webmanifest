@@ -1,0 +1,15 @@
+{
+  "name": "出張型AI研修 | ホリエモンAI学校",
+  "short_name": "AI研修(出張型)",
+  "description": "非エンジニア向けに特化した、企業向け出張型AI研修。経営判断から現場活用まで支援します。",
+  "start_url": "/offjt/",
+  "scope": "/offjt/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a56db",
+  "icons": [
+    { "src": "/offjt/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/offjt/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/offjt/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" }
+  ]
+}
