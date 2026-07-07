@@ -22,11 +22,9 @@
   <meta name="format-detection" content="telephone=no">
   <link rel="canonical" href="https://p.horiemon.ai/horie-camp/">
 
-  <!-- Favicon / App icons -->
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <link rel="apple-touch-icon" href="/assets/img/logo.png">
 
-  <!-- OGP -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://p.horiemon.ai/horie-camp/">
   <meta property="og:title" content="第１回 堀江貴文のスパルタ対面Camp 〜Claude Code編〜">
@@ -34,7 +32,6 @@
   <meta property="og:image" content="https://p.horiemon.ai/assets/img/logo.png">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="ホリエモンAI学校株式会社">
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="第１回 堀江貴文のスパルタ対面Camp 〜Claude Code編〜">
   <meta name="twitter:description" content="未経験から2日でClaudeCodeを使い倒す。堀江貴文氏発案・主催の完全対面スパルタ講座。">
@@ -42,10 +39,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/common.css">
 
-  <!-- 構造化データ（JSON-LD） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -92,241 +88,192 @@
   </script>
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans JP', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.75; font-size: 16px; font-feature-settings: "palt"; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-    ::selection { background: var(--red); color: #fff; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Noto Sans JP',sans-serif;color:#1a2b3c;background:#fbfdff;line-height:1.8;font-size:16px;font-feature-settings:"palt"}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    ::selection{background:#0284c7;color:#fff}
 
-    :root {
-      /* common.css の共通ヘッダー/フッター配色をこのページだけ上書き（他ページには影響しません） */
-      --ai-red: #0284c7;
-      --ai-red-dark: #075985;
-      --ai-black: #0b2545;
-      --red: #0284c7;
-      --red-dark: #075985;
-      --red-bg: #e6f6ff;
-      --black: #0b2545;
-      --gray-light: #f5faff;
-      --gray-mid: #e2eef7;
-      --gray-text: #52667a;
-      --line-green: #06c755;
-      --gold: #f6a700;
-      --radius: 12px;
-      --shadow: 0 4px 24px rgba(2,132,199,.1);
-      --transition: .25s ease;
+    :root{
+      --ai-red:#0284c7; --ai-red-dark:#075985; --ai-black:#0b2545;
+      --sky:#0284c7; --sky-dark:#075985; --sky-bg:#e6f6ff;
+      --navy:#0b2545; --navy-light:#12314f;
+      --gold:#f6a700; --line-green:#06c755;
+      --text:#1a2b3c; --text-soft:#52667a;
+      --line-mid:#d8e8f4;
     }
 
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .section { padding: 96px 0; }
-    .section-label {
-      display: inline-block; font-size: 12px; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--red); background: var(--red-bg);
-      border-radius: 99px; padding: 4px 16px; margin-bottom: 16px;
-    }
-    .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.3; margin-bottom: 16px; }
-    .section-sub { font-size: 17px; color: var(--gray-text); max-width: 640px; }
-    .text-center { text-align: center; }
-    .text-center .section-sub { margin: 0 auto; }
+    .display{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:900;letter-spacing:.22em;color:var(--sky);margin-bottom:18px}
+    .eyebrow::before{content:'';width:26px;height:2px;background:var(--sky)}
+    .eyebrow.gold{color:var(--gold)}
+    .eyebrow.gold::before{background:var(--gold)}
+    .eyebrow.onnavy{color:#8fd3ff}
+    .section-head{margin-bottom:56px}
+    .section-head h2{font-family:'Zen Kaku Gothic New',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:900;line-height:1.4;letter-spacing:-.01em}
+    .section-head p{margin-top:14px;color:var(--text-soft);font-size:15px;max-width:640px}
 
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 8px; font-family: inherit; font-weight: 700; font-size: 16px;
-      border: none; cursor: pointer; border-radius: 99px; padding: 16px 40px;
-      transition: var(--transition);
-    }
-    .btn-primary { background: var(--gold); color: var(--black); box-shadow: 0 6px 24px rgba(246,167,0,.35); }
-    .btn-primary:hover { background: #ffbe2e; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(246,167,0,.5); color: var(--black); }
-    .btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
-    .btn-outline:hover { background: var(--black); color: #fff; }
-    .btn-line { background: var(--line-green); color: #fff; box-shadow: 0 6px 24px rgba(6,199,85,.3); }
-    .btn-line:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(6,199,85,.4); color:#fff; }
-    .btn-line .line-ico { font-weight: 900; background:#fff; color:var(--line-green); border-radius:5px; font-size:11px; padding:1px 6px; }
-    .btn-lg { font-size: 18px; padding: 20px 56px; }
-
-    /* ===== HEADER（このページ専用） ===== */
-    .ai-nav-line { background: var(--line-green) !important; color:#fff !important; border-radius:20px !important; font-weight:700; }
-    .ai-nav-line:hover { opacity:.9; background: var(--line-green) !important; color:#fff !important; }
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-weight:800;font-size:16px;border:none;cursor:pointer;border-radius:8px;padding:17px 34px;transition:.2s ease;white-space:nowrap}
+    .btn-line{background:var(--line-green);color:#fff;box-shadow:0 6px 20px rgba(6,199,85,.28)}
+    .btn-line:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(6,199,85,.4)}
+    .btn-line .ico{font-weight:900;background:#fff;color:var(--line-green);border-radius:4px;font-size:11px;padding:1px 6px}
+    .btn-pay{background:var(--gold);color:var(--navy);box-shadow:0 6px 20px rgba(246,167,0,.32)}
+    .btn-pay:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(246,167,0,.45)}
+    .btn-lg{padding:20px 44px;font-size:17px}
 
     /* ===== HERO ===== */
-    .hero { background: linear-gradient(180deg, #eaf7ff 0%, #fff 60%); padding: 40px 0 56px; overflow: hidden; position: relative; }
-    .hero::before {
-      content: ''; position: absolute; top: -60px; right: -120px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(2,132,199,.10) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: ''; position: absolute; bottom: -100px; left: -120px;
-      width: 480px; height: 480px;
-      background: radial-gradient(circle, rgba(246,167,0,.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .wave-divider { line-height:0; background:#fff; }
-    .wave-divider svg { width:100%; height:56px; display:block; }
-    .hero-inner { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 13px; font-weight: 700; color: var(--red);
-      background: var(--red-bg); border-radius: 99px; padding: 6px 16px; margin-bottom: 24px;
-    }
-    .hero-eyebrow .dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
-    .hero-badge { display:inline-block; font-size:12px; font-weight:800; color:#fff; background:var(--black); border-radius:6px; padding:4px 12px; margin-bottom:14px; letter-spacing:.04em; }
-    .hero-title { font-size: clamp(32px, 4.6vw, 54px); font-weight: 900; line-height: 1.2; letter-spacing: -.03em; margin-bottom: 24px; }
-    .hero-title .accent { color: var(--red); }
-    .hero-desc { font-size: 17px; color: var(--gray-text); margin-bottom: 24px; line-height: 1.9; }
-    .hero-host { font-size: 14px; color: var(--gray-text); background: var(--gray-light); border-radius: 10px; padding: 14px 18px; margin-bottom: 32px; line-height: 1.8; }
-    .hero-host strong { color: var(--black); }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-    .hero-note { font-size: 13px; color: #aaa; margin-top: 16px; }
+    .hero{position:relative;padding:64px 0 0;overflow:hidden;background:#fff}
+    .hero-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+    .hero-tag{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.18em;color:var(--sky);border:1.5px solid var(--sky);border-radius:99px;padding:6px 16px;margin-bottom:28px}
+    .hero-head{font-family:'Zen Kaku Gothic New',sans-serif;font-size:clamp(38px,6.2vw,74px);font-weight:900;line-height:1.14;letter-spacing:-.02em;margin-bottom:28px}
+    .hero-head .accent{color:var(--sky);position:relative;display:inline-block}
+    .hero-lead{font-size:16px;color:var(--text-soft);line-height:1.95;margin-bottom:8px;max-width:480px}
+    .hero-lead strong{color:var(--navy)}
+    .hero-sub{font-size:13.5px;color:var(--text-soft);margin-bottom:34px}
+    .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+    .hero-note{font-size:12.5px;color:#8ba0b4}
 
-    /* 右側：黒カード サマリー */
-    .offer-box { background: var(--black); border-radius: 20px; padding: 32px; color: #fff; box-shadow: 0 24px 64px rgba(0,0,0,.22); }
-    .offer-box-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #888; margin-bottom: 18px; text-align:center; text-transform:uppercase; }
-    .offer-rows { display: flex; flex-direction: column; gap: 12px; }
-    .offer-row { background: #12314f; border-radius: 14px; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .offer-row .k { font-size: 13px; font-weight: 700; color: #bbb; flex-shrink:0; }
-    .offer-row .v { font-size: 15px; font-weight: 800; color: #fff; text-align: right; line-height: 1.6; }
-    .offer-row .v .big { font-size: 26px; color: var(--gold); }
-    .offer-row .v .small { font-size: 12px; font-weight: 700; color: #888; }
-    .offer-foot { text-align:center; font-size: 12px; color: #888; margin-top: 18px; line-height:1.8; }
-    .offer-foot strong { color: var(--gold); }
-    .offer-cta { margin-top: 20px; }
-    .offer-cta .btn { width: 100%; }
+    .hero-stamp{display:flex;justify-content:center;align-items:center;position:relative}
+    .stamp{width:100%;max-width:280px;aspect-ratio:1/1;border-radius:50%;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-9deg);position:relative;box-shadow:0 24px 50px rgba(11,37,69,.28)}
+    .stamp::before{content:'';position:absolute;inset:12px;border:1.5px dashed rgba(255,255,255,.35);border-radius:50%}
+    .stamp .s-top{font-size:12px;letter-spacing:.2em;color:var(--gold);font-weight:800;margin-bottom:6px}
+    .stamp .s-days{font-family:'Zen Kaku Gothic New',sans-serif;font-size:56px;font-weight:900;line-height:1}
+    .stamp .s-month{font-size:15px;font-weight:800;margin-top:4px}
+    .stamp .s-bottom{font-size:10.5px;letter-spacing:.15em;color:#9fc4de;margin-top:10px}
 
-    /* ===== STEPS / PROBLEM ===== */
-    .steps { background: var(--gray-light); }
-    .reco-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 56px; }
-    .reco-card { background: #fff; border-radius: var(--radius); padding: 32px; border-left: 4px solid var(--gray-mid); transition: var(--transition); box-shadow: 0 2px 12px rgba(0,0,0,.04); }
-    .reco-card:hover { border-left-color: var(--red); transform: translateY(-4px); box-shadow: var(--shadow); }
-    .reco-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .reco-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+    /* ===== TICKER ===== */
+    .ticker{background:var(--navy);color:#fff;overflow:hidden;white-space:nowrap;margin-top:56px}
+    .ticker-track{display:inline-flex;animation:ticker 26s linear infinite;padding:13px 0}
+    .ticker-track span{display:inline-flex;align-items:center;font-size:13px;font-weight:700;letter-spacing:.04em;padding:0 22px}
+    .ticker-track span.dot{color:var(--gold);padding:0}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    /* ===== 目玉企画 ===== */
-    .highlight-section { background: var(--black); color:#fff; position: relative; overflow: hidden; }
-    .highlight-section::before { content:''; position:absolute; top:-100px; left:50%; transform:translateX(-50%); width:900px; height:900px; background: radial-gradient(circle, rgba(246,167,0,.14) 0%, transparent 65%); pointer-events:none; }
-    .highlight-section .section-label { color:var(--black); background: var(--gold); }
-    .highlight-section .section-title { color:#fff; }
-    .highlight-section .section-sub { color:#bbb; }
-    .highlight-badge { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:800; color:var(--gold); background: rgba(246,167,0,.14); border:1px solid rgba(246,167,0,.4); border-radius:99px; padding:8px 20px; margin-bottom:24px; position:relative; z-index:1; }
-    .highlight-card { position: relative; z-index:1; margin-top: 56px; background:#12314f; border:1px solid rgba(246,167,0,.3); border-radius: 24px; padding: 48px 44px; display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items:center; }
-    .highlight-names { font-size: clamp(22px, 3vw, 30px); font-weight:900; line-height:1.5; margin-bottom:16px; }
-    .highlight-names .gold { color: var(--gold); }
-    .highlight-desc { font-size:15px; color:#ccc; line-height:1.9; }
-    .highlight-stats { display:flex; flex-direction:column; gap: 20px; text-align:center; }
-    .highlight-stat { background:#0b2545; border-radius:14px; padding:20px 28px; min-width:180px; }
-    .highlight-stat .num { font-size: 34px; font-weight:900; color: var(--gold); line-height:1; }
-    .highlight-stat .lbl { font-size:12px; color:#999; margin-top:8px; font-weight:700; letter-spacing:.04em; }
-    .highlight-note { position:relative; z-index:1; text-align:center; font-size:13px; color:#888; margin-top: 28px; }
+    /* ===== MISSION / PROBLEM (editorial index list) ===== */
+    .mission{padding:96px 0}
+    .mission-list{border-top:1px solid var(--line-mid)}
+    .mission-item{display:grid;grid-template-columns:110px 1fr;gap:32px;padding:34px 0;border-bottom:1px solid var(--line-mid);align-items:start}
+    .mission-item .num{font-family:'Zen Kaku Gothic New',sans-serif;font-size:46px;font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--sky);line-height:1}
+    .mission-item h3{font-size:18px;font-weight:800;margin-bottom:8px;color:var(--navy)}
+    .mission-item p{font-size:14.5px;color:var(--text-soft);max-width:560px}
 
-    /* ===== 2日間の流れ / タイムライン ===== */
-    .flow-day { margin-top: 56px; }
-    .flow-day + .flow-day { margin-top: 40px; }
-    .flow-day-head { display:flex; align-items:center; gap:16px; margin-bottom: 24px; }
-    .flow-day-badge { flex-shrink:0; width:64px; height:64px; border-radius:16px; background:var(--red); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:900; box-shadow: 0 8px 20px rgba(2,132,199,.28); }
-    .flow-day-badge .d { font-size:11px; letter-spacing:.06em; }
-    .flow-day-badge .n { font-size:22px; line-height:1; }
-    .flow-day-title { font-size:19px; font-weight:800; }
-    .flow-day-title span { display:block; font-size:13px; font-weight:600; color: var(--gray-text); margin-top:4px; }
-    .flow-timeline { border-left: 2px dashed var(--gray-mid); margin-left: 32px; padding-left: 32px; display:flex; flex-direction:column; gap: 24px; }
-    .flow-item { position: relative; }
-    .flow-item::before { content:''; position:absolute; left:-40px; top:6px; width:12px; height:12px; border-radius:50%; background: var(--red); box-shadow: 0 0 0 4px var(--red-bg); }
-    .flow-item.gold::before { background: var(--gold); box-shadow: 0 0 0 4px rgba(246,167,0,.18); }
-    .flow-item .time { font-size:12px; font-weight:700; color: var(--red); margin-bottom:4px; letter-spacing:.03em; }
-    .flow-item.gold .time { color:#b07800; }
-    .flow-item h4 { font-size:16px; font-weight:800; margin-bottom:6px; }
-    .flow-item p { font-size:14px; color: var(--gray-text); line-height:1.8; }
-    .flow-item.gold { background: #fff9ec; border: 1px solid #ffe3a3; border-radius: 12px; padding: 16px 20px; margin-left: -20px; }
-    .flow-item.gold h4 { color:#8a5a00; }
+    /* ===== SPOTLIGHT (highlight session) ===== */
+    .spotlight{background:var(--navy);color:#fff;padding:104px 0;text-align:center;position:relative;overflow:hidden}
+    .spotlight::before{content:'';position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(246,167,0,.14) 0%,transparent 62%);pointer-events:none}
+    .spotlight-inner{position:relative;z-index:1;max-width:820px;margin:0 auto}
+    .spotlight-badge{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--navy);background:var(--gold);border-radius:99px;padding:7px 20px;margin-bottom:28px}
+    .spotlight-quote{font-family:'Zen Kaku Gothic New',sans-serif;font-size:clamp(26px,4.4vw,44px);font-weight:900;line-height:1.55;margin-bottom:32px}
+    .spotlight-quote .x{color:var(--gold)}
+    .spotlight-desc{font-size:14.5px;color:#bcd3e6;line-height:2;margin-bottom:36px}
+    .spotlight-meta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+    .spotlight-meta span{font-size:13px;font-weight:800;background:rgba(255,255,255,.08);border:1px solid rgba(246,167,0,.35);color:var(--gold);border-radius:99px;padding:9px 22px}
+    .spotlight-note{position:relative;z-index:1;font-size:12px;color:#6f8ba3;margin-top:28px}
 
-    /* ===== こんな方におすすめ ===== */
-    .targets { background: var(--gray-light); }
-    .targets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 56px; }
-    .target-card { background:#fff; border-radius: var(--radius); padding: 32px 28px; text-align:center; box-shadow: 0 2px 12px rgba(0,0,0,.04); border: 1px solid var(--gray-mid); }
-    .target-card .t-icon { width:48px; height:48px; border-radius:50%; background: var(--red-bg); color: var(--red); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:18px; margin: 0 auto 16px; }
-    .target-card h3 { font-size:16px; font-weight:700; margin-bottom:8px; }
-    .target-card p { font-size:13px; color: var(--gray-text); line-height:1.7; }
+    /* ===== TIMELINE (2-day flow) ===== */
+    .timeline{padding:104px 0}
+    .timeline-track{position:relative;margin-top:20px}
+    .timeline-track::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--line-mid);transform:translateX(-50%)}
+    .t-day{display:grid;grid-template-columns:1fr 64px 1fr;align-items:start;gap:0;margin-bottom:8px}
+    .t-day .t-card{background:#fff;border:1px solid var(--line-mid);border-radius:16px;padding:30px 32px;box-shadow:0 6px 26px rgba(11,37,69,.05)}
+    .t-day.left .t-card{grid-column:1;text-align:right}
+    .t-day.right .t-card{grid-column:3}
+    .t-dot{grid-column:2;justify-self:center;width:64px;height:64px;border-radius:50%;background:var(--sky);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;box-shadow:0 8px 20px rgba(2,132,199,.32);z-index:1}
+    .t-dot span{font-size:10px;font-weight:700;letter-spacing:.1em}
+    .t-dot b{font-size:22px;line-height:1}
+    .t-dot.gold{background:var(--gold);box-shadow:0 8px 20px rgba(246,167,0,.35)}
+    .t-date{display:inline-block;font-size:12px;font-weight:800;color:var(--sky);letter-spacing:.03em;margin-bottom:10px}
+    .t-card h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:14px;line-height:1.5}
+    .t-card ul{list-style:none}
+    .t-day.left .t-card ul{margin-left:auto}
+    .t-card li{font-size:13.5px;color:var(--text-soft);padding:7px 0;border-top:1px dashed var(--line-mid)}
+    .t-card li:first-child{border-top:none}
+    .t-card li strong{color:var(--navy);margin-right:6px}
+    .t-card.gold-card{border-color:rgba(246,167,0,.4);background:#fffaf0}
 
-    /* ===== 開催概要（表） ===== */
-    .overview-table-wrap { max-width: 760px; margin: 56px auto 0; border: 1px solid var(--gray-mid); border-radius: var(--radius); overflow: hidden; }
-    .overview-table { width: 100%; border-collapse: collapse; }
-    .overview-table tr { border-bottom: 1px solid var(--gray-mid); }
-    .overview-table tr:last-child { border-bottom: none; }
-    .overview-table th { width: 160px; padding: 20px 24px; font-size: 14px; font-weight: 700; text-align: left; background: var(--gray-light); vertical-align: top; }
-    .overview-table td { padding: 20px 24px; font-size: 14px; color: var(--gray-text); line-height: 1.9; }
-    .overview-table td strong { color: var(--black); }
-    .overview-note { max-width:760px; margin: 20px auto 0; font-size:12px; color:#999; line-height:1.8; text-align:center; }
+    /* ===== TICKET (overview) ===== */
+    .ticket-section{padding:104px 0;background:var(--sky-bg)}
+    .ticket{max-width:840px;margin:0 auto;display:grid;grid-template-columns:1fr 260px;background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(11,37,69,.12);overflow:hidden}
+    .ticket-main{padding:40px 40px}
+    .ticket-row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line-mid)}
+    .ticket-row:first-child{padding-top:0}
+    .ticket-row:last-child{border-bottom:none}
+    .ticket-row span{font-size:12.5px;font-weight:800;color:var(--text-soft);letter-spacing:.04em;flex-shrink:0}
+    .ticket-row strong{font-size:14px;color:var(--navy);text-align:right;font-weight:700;line-height:1.7}
+    .ticket-stub{position:relative;background:var(--navy);color:#fff;padding:40px 28px;display:flex;flex-direction:column;justify-content:center;gap:22px;text-align:center}
+    .ticket-stub::before{content:'';position:absolute;left:-11px;top:-11px;width:22px;height:22px;border-radius:50%;background:var(--sky-bg)}
+    .ticket-stub::after{content:'';position:absolute;left:-11px;bottom:-11px;width:22px;height:22px;border-radius:50%;background:var(--sky-bg)}
+    .stub-label{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;color:#8fc4e6;margin-bottom:6px}
+    .stub-price{font-family:'Zen Kaku Gothic New',sans-serif;font-size:30px;font-weight:900;color:var(--gold);line-height:1}
+    .stub-price small{display:block;font-family:'Noto Sans JP',sans-serif;font-size:11px;font-weight:700;color:#bcd3e6;margin-top:6px}
+    .stub-cap{font-size:16px;font-weight:800}
+    .stub-cap small{display:block;font-size:11px;font-weight:700;color:#bcd3e6;margin-top:4px}
+    .ticket-note{max-width:840px;margin:22px auto 0;font-size:12px;color:var(--text-soft);text-align:center}
 
-    /* ===== FAQ ===== */
-    .faq-list { margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
-    .faq-item { background: var(--gray-light); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
-    .faq-question { padding: 24px 28px; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
-    .faq-question::after { content: '+'; font-size: 24px; color: var(--red); flex-shrink: 0; transition: var(--transition); font-weight: 300; }
-    .faq-item.open .faq-question::after { content: '−'; }
-    .faq-answer { display: none; padding: 0 28px 24px; font-size: 14px; color: var(--gray-text); line-height: 1.8; }
-    .faq-item.open .faq-answer { display: block; }
+    /* ===== FAQ (native details, no card chrome) ===== */
+    .faq{padding:104px 0}
+    .faq-list{max-width:760px;margin:0 auto;border-top:1px solid var(--line-mid)}
+    .faq-list details{border-bottom:1px solid var(--line-mid);padding:24px 0}
+    .faq-list summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:16px;font-size:16px;font-weight:800;color:var(--navy)}
+    .faq-list summary::-webkit-details-marker{display:none}
+    .faq-list summary .qm{font-family:'Zen Kaku Gothic New',sans-serif;font-size:20px;font-weight:900;color:var(--sky);flex-shrink:0}
+    .faq-list summary .arrow{margin-left:auto;font-size:13px;color:var(--text-soft);transition:transform .2s}
+    .faq-list details[open] summary .arrow{transform:rotate(180deg)}
+    .faq-list .faq-a{font-size:14px;color:var(--text-soft);line-height:1.95;margin-top:14px;padding-left:36px}
 
-    /* ===== CTA / APPLY ===== */
-    .cta-section { background: var(--black); padding: 96px 0; text-align: center; position: relative; overflow: hidden; }
-    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(246,167,0,.18) 0%, transparent 65%); pointer-events: none; }
-    .cta-section .section-label { display: inline-block; margin-bottom: 16px; position: relative; z-index: 1; color:var(--gold); background:rgba(246,167,0,.16); }
-    .cta-section .section-title { color: #fff; margin-bottom: 16px; position: relative; z-index: 1; }
-    .cta-desc { font-size: 17px; color: #aaa; margin-bottom: 16px; position: relative; z-index: 1; }
-    .cta-flow { position:relative; z-index:1; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom: 32px; font-size:13px; color:#999; }
-    .cta-flow span { background:#12314f; border-radius:99px; padding:8px 18px; }
-    .cta-actions { position: relative; z-index: 1; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    .cta-note { position: relative; z-index: 1; margin-top: 24px; font-size: 13px; color: #777; }
+    /* ===== FINALE / APPLY ===== */
+    .finale{background:var(--navy);color:#fff;padding:120px 0;text-align:center;position:relative;overflow:hidden}
+    .finale::before{content:'';position:absolute;bottom:-160px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(2,132,199,.35) 0%,transparent 65%);pointer-events:none}
+    .finale-inner{position:relative;z-index:1}
+    .finale h2{font-family:'Zen Kaku Gothic New',sans-serif;font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.4;margin-bottom:20px}
+    .finale p.finale-desc{font-size:14.5px;color:#bcd3e6;margin-bottom:40px}
+    .finale-cta{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    .finale-note{margin-top:26px;font-size:12px;color:#6f8ba3}
 
-    /* ===== COMPANY ===== */
-    .company { background: #fff; }
-    .company-table-wrap { max-width: 760px; margin: 56px auto 0; border: 1px solid var(--gray-mid); border-radius: var(--radius); overflow: hidden; }
-    .company-table { width: 100%; border-collapse: collapse; }
-    .company-table tr { border-bottom: 1px solid var(--gray-mid); }
-    .company-table tr:last-child { border-bottom: none; }
-    .company-table th { width: 200px; padding: 20px 24px; font-size: 14px; font-weight: 700; text-align: left; background: var(--gray-light); vertical-align: top; white-space: nowrap; }
-    .company-table td { padding: 20px 24px; font-size: 14px; color: var(--gray-text); line-height: 1.8; }
+    /* ===== COMPANY (fine print) ===== */
+    .company-mini{padding:48px 0;background:#f5faff}
+    .company-mini p{max-width:840px;margin:0 auto;font-size:12.5px;color:var(--text-soft);line-height:1.9;text-align:center}
 
-    /* ===== SCROLL ANIMATION ===== */
-    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    /* ===== SCROLL FADE ===== */
+    .fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
 
     /* ===== SP STICKY ===== */
-    .sp-sticky-footer { display: none; }
-    @media (max-width: 768px) {
-      .sp-sticky-footer { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; box-shadow: 0 -2px 12px rgba(0,0,0,.15); }
-      .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 16px 4px; font-size: 15px; font-weight: 800; text-decoration: none; }
-      .sp-sticky-footer .apply { background: var(--line-green); color:#fff; }
-      .sp-sticky-footer .pay { background: var(--gold); color: var(--black); }
-      .sp-sticky-footer .line-ico { font-weight:900; background:#fff; color:var(--line-green); border-radius:5px; font-size:11px; padding:1px 6px; }
-      body { padding-bottom: 56px; }
+    .sp-cta{display:none}
+    @media(max-width:768px){
+      .sp-cta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:200;box-shadow:0 -2px 16px rgba(0,0,0,.12)}
+      .sp-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:15px 4px;font-size:14px;font-weight:800}
+      .sp-cta .line{background:var(--line-green);color:#fff}
+      .sp-cta .pay{background:var(--gold);color:var(--navy)}
+      body{padding-bottom:58px}
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .section { padding: 64px 0; }
-      .hero { padding: 24px 0 40px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .highlight-card { grid-template-columns: 1fr; padding: 32px 24px; gap: 28px; }
-      .highlight-stats { flex-direction: row; }
-      .highlight-stat { flex: 1; min-width: 0; padding: 16px 12px; }
-      .flow-timeline { margin-left: 16px; padding-left: 20px; }
-      .flow-item::before { left: -26px; }
-      .flow-item.gold { margin-left: -8px; }
-      .flow-day-badge { width: 56px; height: 56px; }
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr;text-align:left}
+      .hero-stamp{margin-top:36px;justify-content:flex-start}
+      .stamp{max-width:200px}
+      .ticket{grid-template-columns:1fr}
+      .ticket-stub::before,.ticket-stub::after{display:none}
+      .t-day{grid-template-columns:56px 1fr}
+      .t-dot{grid-column:1;width:48px;height:48px}
+      .t-dot b{font-size:16px}
+      .t-day.left .t-card,.t-day.right .t-card{grid-column:2;text-align:left}
+      .t-day.left .t-card ul{margin-left:0}
+      .timeline-track::before{left:28px}
+      .mission-item{grid-template-columns:64px 1fr;gap:18px}
+      .mission-item .num{font-size:32px}
     }
-    @media (max-width: 600px) {
-      .company-table th, .overview-table th { width: 110px; padding: 16px; font-size: 13px; }
-      .company-table td, .overview-table td { padding: 16px; font-size: 13px; }
-      .highlight-names { font-size: 22px; }
+    @media(max-width:600px){
+      .hero{padding-top:48px}
+      .mission,.timeline,.ticket-section,.faq,.finale,.spotlight{padding:64px 0}
+      .ticket-main{padding:28px 24px}
+      .company-mini p{padding:0 24px}
     }
   </style>
 </head>
 <body>
 
-<!-- ===== HEADER（このページ専用） ===== -->
 <header class="ai-header">
   <div class="ai-header-inner">
     <a href="https://horiemon.ai/service" class="ai-logo">
@@ -340,7 +287,7 @@
         <li><a href="#highlight">目玉企画</a></li>
         <li><a href="#overview">開催概要</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#apply" class="ai-nav-line">LINEで申し込む</a></li>
+        <li><a href="https://lin.ee/Qbu1lB6" class="ai-nav-cta">LINEで申し込む</a></li>
       </ul>
     </nav>
     <button class="ai-menu-btn" id="aiMenuBtn" aria-label="メニュー">
@@ -351,343 +298,225 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="about">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-content fade-up">
-        <span class="hero-badge">第１回 初開催</span>
-        <div class="hero-eyebrow">
-          <span class="dot"></span>
-          堀江貴文 本人発案・主催
-        </div>
-        <h1 class="hero-title">
-          未経験から2日で<br>
-          <span class="accent">ClaudeCode</span>を使い倒す。
-        </h1>
-        <p class="hero-desc">
-          「第１回 堀江貴文のスパルタ対面Camp 〜Claude Code編〜」。<br>
-          完全対面・2日間集中のスパルタ形式で、未経験からClaude Codeを実務で使えるレベルまで引き上げます。
-        </p>
-        <p class="hero-host">
-          <strong>主催・発案：堀江貴文氏</strong>／運営：ホリエモンAI学校株式会社<br>
-          2日目の朝には、堀江貴文氏・林社長が会場に来場し、参加者のビジネスアイデアに直接フィードバックする特別セッションを実施します。
-        </p>
-        <div class="hero-actions">
-          <a href="https://lin.ee/Qbu1lB6" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>友だち追加して申し込む</a>
-          <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-primary btn-lg">カードで今すぐ決済する →</a>
-        </div>
-        <p class="hero-note">※ LINE公式アカウントを友だち追加後、自動返信で決済URLが届きます。すぐお申し込みの方はカード決済も直接ご利用いただけます</p>
+  <div class="hero-grid">
+    <div class="hero-copy fade-up">
+      <span class="hero-tag">第１回 初開催 ／ 堀江貴文 本人発案・主催</span>
+      <h1 class="hero-head">未経験から<br><span class="accent">2日</span>で<br>ClaudeCodeを<br>使い倒す。</h1>
+      <p class="hero-lead"><strong>「第１回 堀江貴文のスパルタ対面Camp 〜Claude Code編〜」。</strong>完全対面・2日間集中のスパルタ形式で、未経験からClaude Codeを実務で使えるレベルまで引き上げます。</p>
+      <p class="hero-sub">2日目の朝には、堀江貴文氏・林社長が会場に来場し、参加者のビジネスアイデアに直接フィードバックする特別セッションを実施します。</p>
+      <div class="hero-cta">
+        <a href="https://lin.ee/Qbu1lB6" class="btn btn-line btn-lg"><span class="ico">LINE</span>友だち追加して申し込む</a>
+        <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay btn-lg">カードで今すぐ決済する →</a>
       </div>
-      <div class="hero-visual fade-up">
-        <div class="offer-box">
-          <div class="offer-box-label">開催概要サマリー</div>
-          <div class="offer-rows">
-            <div class="offer-row">
-              <span class="k">日程</span>
-              <span class="v">2026年7月30日（木）<br>・31日（金）</span>
-            </div>
-            <div class="offer-row">
-              <span class="k">時間</span>
-              <span class="v">各日 9:00〜18:00</span>
-            </div>
-            <div class="offer-row">
-              <span class="k">参加費</span>
-              <span class="v"><span class="big">99,800円</span><br><span class="small">税込109,780円</span></span>
-            </div>
-            <div class="offer-row">
-              <span class="k">定員</span>
-              <span class="v">最大100名<br><span class="small">最小催行10名</span></span>
-            </div>
-            <div class="offer-row">
-              <span class="k">会場</span>
-              <span class="v"><span class="small">会議室FOREST<br>（新宿御苑前駅1分）</span></span>
-            </div>
-          </div>
-          <div class="offer-cta" style="display:flex;flex-direction:column;gap:10px;">
-            <a href="https://lin.ee/Qbu1lB6" class="btn btn-line"><span class="line-ico">LINE</span>LINEで申し込む</a>
-            <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-primary">カードで今すぐ決済する</a>
-          </div>
-          <p class="offer-foot">※ 開催時間は主催者にて最終確認中です。変更の可能性があります。</p>
-        </div>
+      <p class="hero-note">※ LINE公式アカウントを友だち追加後、自動返信でも決済URLが届きます。すぐお申し込みの方はカード決済も直接ご利用いただけます</p>
+    </div>
+    <div class="hero-stamp fade-up">
+      <div class="stamp">
+        <span class="s-top">SUMMER CAMP</span>
+        <span class="s-days">30<small style="font-size:24px;">-</small>31</span>
+        <span class="s-month">2026年7月</span>
+        <span class="s-bottom">2 DAYS ・ 会議室FOREST</span>
       </div>
     </div>
   </div>
 </section>
 
-<div class="wave-divider">
-  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,32 C240,80 480,0 720,32 C960,64 1200,16 1440,32 L1440,80 L0,80 Z" fill="#f5faff"></path>
-  </svg>
+<div class="ticker">
+  <div class="ticker-track">
+    <span>2026.07.30–31 開催</span><span class="dot">◆</span>
+    <span>会議室FOREST（新宿御苑前駅1分）</span><span class="dot">◆</span>
+    <span>定員100名・最小催行10名</span><span class="dot">◆</span>
+    <span>参加費 99,800円（税込109,780円）</span><span class="dot">◆</span>
+    <span>2026.07.30–31 開催</span><span class="dot">◆</span>
+    <span>会議室FOREST（新宿御苑前駅1分）</span><span class="dot">◆</span>
+    <span>定員100名・最小催行10名</span><span class="dot">◆</span>
+    <span>参加費 99,800円（税込109,780円）</span><span class="dot">◆</span>
+  </div>
 </div>
 
-<!-- ===== こんな課題ありませんか ===== -->
-<section class="section steps" id="problem">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">Problem</span>
-      <h2 class="section-title">こんな不安、ありませんか？</h2>
-      <p class="section-sub">「Claude Code」という言葉は知っていても、実際に触ったことがない方がほとんどです。その不安、2日間のスパルタで解消します。</p>
+<!-- ===== MISSION / PROBLEM ===== -->
+<section class="mission" id="problem">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="eyebrow">WHY THIS CAMP</span>
+      <h2>こんな不安、ありませんか？</h2>
+      <p>「Claude Code」という言葉は知っていても、実際に触ったことがない方がほとんどです。その不安、2日間のスパルタで解消します。</p>
     </div>
-    <div class="reco-grid">
-      <div class="reco-card fade-up">
-        <h3>プログラミング未経験で不安</h3>
-        <p>コードという文字を見ただけで身構えてしまう。エンジニアではない自分に使いこなせるのか、そもそも自信がない。</p>
+    <div class="mission-list">
+      <div class="mission-item fade-up">
+        <span class="num">01</span>
+        <div><h3>プログラミング未経験で不安</h3><p>コードという文字を見ただけで身構えてしまう。エンジニアではない自分に使いこなせるのか、そもそも自信がない。</p></div>
       </div>
-      <div class="reco-card fade-up">
-        <h3>2日間で本当に習得できるのか</h3>
-        <p>短期集中と聞くと魅力的だが、たった2日間で実務レベルまで到達できるのか、正直半信半疑。</p>
+      <div class="mission-item fade-up">
+        <span class="num">02</span>
+        <div><h3>2日間で本当に習得できるのか</h3><p>短期集中と聞くと魅力的だが、たった2日間で実務レベルまで到達できるのか、正直半信半疑。</p></div>
       </div>
-      <div class="reco-card fade-up">
-        <h3>環境構築の時点で挫折しそう</h3>
-        <p>ターミナルを開くことすら慣れていない。インストールや初期設定でつまずいて、そこで学習が止まってしまう。</p>
+      <div class="mission-item fade-up">
+        <span class="num">03</span>
+        <div><h3>環境構築の時点で挫折しそう</h3><p>ターミナルを開くことすら慣れていない。インストールや初期設定でつまずいて、そこで学習が止まってしまう。</p></div>
       </div>
-      <div class="reco-card fade-up">
-        <h3>独学・動画教材が続かない</h3>
-        <p>これまで何度も動画教材で学ぼうとしたが、最後まで見終わらずに挫折した経験がある。</p>
+      <div class="mission-item fade-up">
+        <span class="num">04</span>
+        <div><h3>独学・動画教材が続かない</h3><p>これまで何度も動画教材で学ぼうとしたが、最後まで見終わらずに挫折した経験がある。</p></div>
       </div>
-      <div class="reco-card fade-up">
-        <h3>周りはAIを使いこなし始めている</h3>
-        <p>経営者仲間や同僚がAIを使って成果を出し始めている。自分だけが置いていかれている焦りがある。</p>
+      <div class="mission-item fade-up">
+        <span class="num">05</span>
+        <div><h3>周りはAIを使いこなし始めている</h3><p>経営者仲間や同僚がAIを使って成果を出し始めている。自分だけが置いていかれている焦りがある。</p></div>
       </div>
-      <div class="reco-card fade-up">
-        <h3>質問できる相手がいない</h3>
-        <p>一人で学んでいると、つまずいたときに聞ける相手がいない。結局わからないまま放置してしまう。</p>
+      <div class="mission-item fade-up">
+        <span class="num">06</span>
+        <div><h3>質問できる相手がいない</h3><p>一人で学んでいると、つまずいたときに聞ける相手がいない。結局わからないまま放置してしまう。</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== 目玉企画：壁打ちセッション ===== -->
-<section class="section highlight-section" id="highlight">
-  <div class="container">
-    <div class="text-center fade-up">
-      <div class="highlight-badge">★ 本Camp最大の目玉企画</div>
-      <span class="section-label">Special Session</span>
-      <h2 class="section-title">堀江貴文 × 林社長<br>ビジネスアイデア壁打ちセッション</h2>
-      <p class="section-sub">2日目の朝、わずか1時間だけの特別枠。堀江貴文氏と林社長が会場に直接来場し、参加者のビジネスアイデアに生でフィードバックします。</p>
+<!-- ===== SPOTLIGHT / 目玉企画 ===== -->
+<section class="spotlight" id="highlight">
+  <div class="spotlight-inner">
+    <span class="spotlight-badge">★ 本Camp最大の目玉企画</span>
+    <p class="spotlight-quote fade-up">堀江貴文 <span class="x">×</span> 林社長が、<br>あなたのビジネスアイデアに<br>直接ツッコむ。</p>
+    <p class="spotlight-desc fade-up">動画やオンラインではなく、堀江貴文氏・林社長が実際に会場へ足を運び、参加者一人ひとりのビジネスアイデアに直接フィードバックを行う特別セッションです。Claude Codeを学んだ先に「自分のビジネスにどう活かすか」まで、その場で壁打ちできる機会は滅多にありません。</p>
+    <div class="spotlight-meta fade-up">
+      <span>2日目 朝</span>
+      <span>1時間限定</span>
     </div>
-    <div class="highlight-card fade-up">
-      <div>
-        <div class="highlight-names">堀江貴文氏 <span class="gold">×</span> 林社長が<br>会場で直接<span class="gold">壁打ち</span>してくれる</div>
-        <p class="highlight-desc">
-          動画やオンラインではなく、堀江貴文氏・林社長が実際に会場へ足を運び、参加者一人ひとりのビジネスアイデアに直接フィードバックを行う特別セッションです。<br>
-          Claude Codeを学んだ先に「自分のビジネスにどう活かすか」まで、その場で壁打ちできる機会は滅多にありません。この1時間のためだけに参加する価値があると言っても過言ではない、本Camp最大の目玉企画です。
-        </p>
-      </div>
-      <div class="highlight-stats">
-        <div class="highlight-stat">
-          <div class="num">2日目 朝</div>
-          <div class="lbl">開催タイミング</div>
-        </div>
-        <div class="highlight-stat">
-          <div class="num">1時間限定</div>
-          <div class="lbl">特別セッション</div>
-        </div>
-      </div>
-    </div>
-    <p class="highlight-note">※ セッションの内容・進行は当日の状況により変更となる場合があります。</p>
+    <p class="spotlight-note">※ セッションの内容・進行は当日の状況により変更となる場合があります。</p>
   </div>
 </section>
 
-<!-- ===== 2日間の流れ ===== -->
-<section class="section" id="flow">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">Schedule Flow</span>
-      <h2 class="section-title">2日間の流れ</h2>
-      <p class="section-sub">1日目は基礎の徹底習得、2日目は実務適用と壁打ちセッション。未経験からでも段階的にステップアップできる構成です。</p>
+<!-- ===== TIMELINE / 2日間の流れ ===== -->
+<section class="timeline" id="flow">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="eyebrow">SCHEDULE</span>
+      <h2>2日間の流れ</h2>
+      <p>1日目は基礎の徹底習得、2日目は実務適用と壁打ちセッション。未経験からでも段階的にステップアップできる構成です。</p>
     </div>
-
-    <div class="flow-day fade-up">
-      <div class="flow-day-head">
-        <div class="flow-day-badge"><span class="d">DAY</span><span class="n">1</span></div>
-        <div class="flow-day-title">環境構築から基本操作の徹底習得<span>2026年7月30日（木）9:00〜18:00</span></div>
+    <div class="timeline-track">
+      <div class="t-day left fade-up">
+        <div class="t-card">
+          <span class="t-date">2026年7月30日（木）9:00〜18:00</span>
+          <h3>環境構築から基本操作の徹底習得</h3>
+          <ul>
+            <li><strong>午前</strong>環境構築・基本操作。Claude Codeのインストールから初期設定まで対面でサポート</li>
+            <li><strong>午後</strong>実践演習。手を動かしながら簡単なタスクをこなす演習を繰り返す</li>
+          </ul>
+        </div>
+        <div class="t-dot"><span>DAY</span><b>1</b></div>
+        <div></div>
       </div>
-      <div class="flow-timeline">
-        <div class="flow-item">
-          <div class="time">午前</div>
-          <h4>環境構築・基本操作</h4>
-          <p>Claude Codeのインストールから初期設定まで、未経験者でもつまずかないよう一つひとつ対面でサポートします。</p>
-        </div>
-        <div class="flow-item">
-          <div class="time">午後</div>
-          <h4>実践演習</h4>
-          <p>基本操作を踏まえ、実際に手を動かしながら簡単なタスクをこなす演習を繰り返します。わからない点はその場で質問・解決。</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flow-day fade-up">
-      <div class="flow-day-head">
-        <div class="flow-day-badge"><span class="d">DAY</span><span class="n">2</span></div>
-        <div class="flow-day-title">応用・実務適用と壁打ちセッション<span>2026年7月31日（金）9:00〜18:00</span></div>
-      </div>
-      <div class="flow-timeline">
-        <div class="flow-item gold">
-          <div class="time">朝 1時間</div>
-          <h4>堀江貴文氏・林社長 ビジネスアイデア壁打ちセッション</h4>
-          <p>本Camp最大の目玉企画。会場に来場した堀江貴文氏・林社長が、参加者のビジネスアイデアに直接フィードバックします。</p>
-        </div>
-        <div class="flow-item">
-          <div class="time">午前〜午後</div>
-          <h4>応用・実務適用</h4>
-          <p>1日目で習得した基礎をもとに、自身の業務に近いテーマでClaude Codeを実践活用。より実務に近い課題に取り組みます。</p>
-        </div>
-        <div class="flow-item">
-          <div class="time">夕方</div>
-          <h4>成果発表</h4>
-          <p>2日間の集大成として、取り組んだ成果を発表。参加者同士で学びを共有し合う時間を設けます。</p>
+      <div class="t-day right fade-up">
+        <div></div>
+        <div class="t-dot gold"><span>DAY</span><b>2</b></div>
+        <div class="t-card gold-card">
+          <span class="t-date" style="color:var(--gold)">2026年7月31日（金）9:00〜18:00</span>
+          <h3>応用・実務適用と壁打ちセッション</h3>
+          <ul>
+            <li><strong>朝1時間</strong>堀江貴文氏・林社長 ビジネスアイデア壁打ちセッション</li>
+            <li><strong>午前〜午後</strong>応用・実務適用。自身の業務に近いテーマでClaude Codeを実践活用</li>
+            <li><strong>夕方</strong>成果発表。2日間の集大成として取り組んだ成果を共有</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== こんな方におすすめ ===== -->
-<section class="section targets" id="targets">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">For you</span>
-      <h2 class="section-title">こんな方におすすめです</h2>
-      <p class="section-sub">プログラミング経験は問いません。本気でAIを使いこなしたいという意志さえあれば、どなたでも参加いただけます。</p>
+<!-- ===== TICKET / 開催概要 ===== -->
+<section class="ticket-section" id="overview">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="eyebrow">OVERVIEW</span>
+      <h2>開催概要</h2>
+      <p>第１回 堀江貴文のスパルタ対面Camp 〜Claude Code編〜 の開催概要です。</p>
     </div>
-    <div class="targets-grid">
-      <div class="target-card fade-up">
-        <div class="t-icon">1</div>
-        <h3>未経験の個人事業主</h3>
-        <p>自分の事業にAIを取り入れたいが、何から始めればいいかわからない方。</p>
+    <div class="ticket fade-up">
+      <div class="ticket-main">
+        <div class="ticket-row"><span>主催・発案</span><strong>堀江貴文氏（本人発案・主催）</strong></div>
+        <div class="ticket-row"><span>運営</span><strong>ホリエモンAI学校株式会社</strong></div>
+        <div class="ticket-row"><span>日程</span><strong>2026年7月30日（木）・31日（金）<br>各日 9:00〜18:00</strong></div>
+        <div class="ticket-row"><span>会場</span><strong>会議室FOREST<br>東京都新宿区新宿1丁目2-9 JF新宿御苑ビル6階<br>新宿御苑前駅1分・新宿三丁目駅8分</strong></div>
+        <div class="ticket-row"><span>申込方法</span><strong>LINE公式アカウント経由、<br>またはカード直接決済</strong></div>
       </div>
-      <div class="target-card fade-up">
-        <div class="t-icon">2</div>
-        <h3>経営者・意思決定者</h3>
-        <p>自社にAI導入を検討しているが、まずは自分自身が使いこなせるようになりたい方。</p>
-      </div>
-      <div class="target-card fade-up">
-        <div class="t-icon">3</div>
-        <h3>チームリーダー・管理職</h3>
-        <p>チームにAI活用を広めたいが、自分が先陣を切って習得する必要がある方。</p>
-      </div>
-      <div class="target-card fade-up">
-        <div class="t-icon">4</div>
-        <h3>自分のビジネスアイデアを持つ方</h3>
-        <p>アイデアはあるが形にできていない方。堀江貴文氏・林社長との壁打ちで一気に前進させたい方。</p>
+      <div class="ticket-stub">
+        <div>
+          <span class="stub-label">参加費</span>
+          <span class="stub-price">¥99,800<small>税込109,780円</small></span>
+        </div>
+        <div>
+          <span class="stub-label">定員</span>
+          <span class="stub-cap">最大100名<small>最小催行10名</small></span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== 開催概要 ===== -->
-<section class="section" id="overview">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">Overview</span>
-      <h2 class="section-title">開催概要</h2>
-      <p class="section-sub">第１回 堀江貴文のスパルタ対面Camp 〜Claude Code編〜 の開催概要です。</p>
-    </div>
-    <div class="overview-table-wrap fade-up">
-      <table class="overview-table">
-        <tbody>
-          <tr><th>企画名</th><td>第１回 堀江貴文のスパルタ対面Camp 〜Claude Code編〜</td></tr>
-          <tr><th>主催・発案</th><td>堀江貴文氏（本人発案・主催）</td></tr>
-          <tr><th>運営</th><td>ホリエモンAI学校株式会社</td></tr>
-          <tr><th>形式</th><td>完全対面・2日間集中スパルタ形式（第１回＝初開催）</td></tr>
-          <tr><th>日程</th><td><strong>2026年7月30日（木）・31日（金）</strong>の2日間<br>各日 9:00〜18:00<br><span style="font-size:12px;color:#999;">※開催時間は主催者にて最終確認中のため、変更となる可能性があります。</span></td></tr>
-          <tr><th>参加費</th><td><strong>99,800円</strong>（税込109,780円）</td></tr>
-          <tr><th>定員</th><td>最大100名（最小催行人数10名。10名に満たない場合、開催中止となる可能性があります）</td></tr>
-          <tr><th>会場</th><td>会議室FOREST<br>東京都新宿区新宿1丁目2-9 JF新宿御苑ビル 6階<br>新宿御苑前駅から徒歩1分、新宿三丁目駅から徒歩8分</td></tr>
-          <tr><th>目玉企画</th><td>2日目朝、堀江貴文氏・林社長によるビジネスアイデア壁打ちセッション（1時間）</td></tr>
-          <tr><th>申込方法</th><td>専用LINE公式アカウントを友だち追加後、自動返信で届く決済URLよりお手続き</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="overview-note">※ 価格・日程・定員・会場等の情報は本ページ作成時点のものです。最新情報はLINE公式アカウントにてご確認ください。</p>
+    <p class="ticket-note">※ 開催時間は主催者にて最終確認中のため、変更となる場合があります。最新情報はLINE公式アカウントにてご確認ください。</p>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="section" id="faq" style="background:var(--gray-light)">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">FAQ</span>
-      <h2 class="section-title">よくある質問</h2>
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="eyebrow">FAQ</span>
+      <h2>よくある質問</h2>
     </div>
-    <div class="faq-list">
-      <div class="faq-item fade-up">
-        <div class="faq-question">本当にプログラミング未経験でも大丈夫ですか？</div>
-        <div class="faq-answer">はい。未経験の方を主な対象として設計しています。1日目に環境構築・基本操作から丁寧にスタートし、2日間の対面スパルタ形式でつきっきりでサポートします。わからない点はその場で質問・解決しながら進められるのが対面開催の強みです。</div>
-      </div>
-      <div class="faq-item fade-up">
-        <div class="faq-question">日程の時間は9:00〜18:00で確定ですか？</div>
-        <div class="faq-answer">現時点の予定として9:00〜18:00をご案内していますが、主催者にて最終確認中のため、時間が変更になる可能性があります。確定次第、本ページおよびLINE公式アカウントにてご案内します。</div>
-      </div>
-      <div class="faq-item fade-up">
-        <div class="faq-question">最小催行人数に満たない場合はどうなりますか？</div>
-        <div class="faq-answer">本Campは最小催行人数10名を設定しております。お申し込み状況が10名に満たない場合、開催を中止させていただく可能性がございます。その場合は事前にご連絡いたします。</div>
-      </div>
-      <div class="faq-item fade-up">
-        <div class="faq-question">堀江貴文氏・林社長との壁打ちセッションは全員参加できますか？</div>
-        <div class="faq-answer">2日目朝の1時間、会場にお越しの参加者全員が対象のセッションです。人数によっては壁打ちの時間配分が調整される可能性がありますが、全参加者に堀江貴文氏・林社長のフィードバックが届く場を目指して設計しています。</div>
-      </div>
-      <div class="faq-item fade-up">
-        <div class="faq-question">申し込みの流れを教えてください。</div>
-        <div class="faq-answer">2通りの方法があります。（1）専用LINE公式アカウントを友だち追加後、自動返信で届く決済URLからお手続き、（2）ページ内の「カードで今すぐ決済する」ボタンから直接クレジットカード決済、のいずれかで参加費（99,800円・税込109,780円）をお支払いください。</div>
-      </div>
-      <div class="faq-item fade-up">
-        <div class="faq-question">キャンセルはできますか？</div>
-        <div class="faq-answer">開催日の7日前までのキャンセルは参加費を全額返金します。7日前を過ぎてからのキャンセルおよび当日欠席は返金不可です。最小催行人数（10名）に満たない場合や、天災その他やむを得ない事由で当社が開催を中止する場合は全額返金します。詳細は<a href="/horie-camp/terms.html">利用規約</a>をご確認ください。</div>
-      </div>
-      <div class="faq-item fade-up">
-        <div class="faq-question">会場へのアクセスを教えてください。</div>
-        <div class="faq-answer">会議室FOREST（東京都新宿区新宿1丁目2-9 JF新宿御苑ビル6階）での開催です。新宿御苑前駅から徒歩1分、新宿三丁目駅から徒歩8分です。</div>
-      </div>
-      <div class="faq-item fade-up">
-        <div class="faq-question">定員は何名ですか？</div>
-        <div class="faq-answer">最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA / APPLY ===== -->
-<section class="cta-section" id="apply">
-  <div class="container">
-    <span class="section-label">Apply</span>
-    <h2 class="section-title">未経験から2日で、<br>ClaudeCodeを使い倒す。</h2>
-    <p class="cta-desc">公式LINEの友だち追加、またはカード決済で直接お申し込みいただけます。</p>
-    <div class="cta-flow">
-      <span>1. LINE友だち追加 or カード決済</span>
-      <span>2. お支払い手続き</span>
-      <span>3. 参加確定のご連絡</span>
-    </div>
-    <div class="cta-actions">
-      <a href="https://lin.ee/Qbu1lB6" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>友だち追加して申し込む</a>
-      <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-primary btn-lg">カードで今すぐ決済する →</a>
-    </div>
-    <p class="cta-note">※ 定員（最大100名）に達し次第、締め切らせていただきます。最小催行人数10名に満たない場合は開催中止となる可能性があります。</p>
-  </div>
-</section>
-
-<!-- ===== COMPANY ===== -->
-<section class="section company" id="company">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">Company</span>
-      <h2 class="section-title">運営会社</h2>
-    </div>
-    <div class="company-table-wrap fade-up">
-      <table class="company-table">
-        <tbody>
-          <tr><th>会社名</th><td>ホリエモンAI学校株式会社</td></tr>
-          <tr><th>設立</th><td>2024年3月6日</td></tr>
-          <tr><th>取締役</th><td>荒木 賢二郎（代表取締役）、山根 由嗣、堀江 貴文、田中 尚幸</td></tr>
-          <tr><th>本社</th><td>〒160-0022<br>東京都新宿区新宿4-3-15 レイフラット新宿B棟3F</td></tr>
-          <tr><th>主な業務内容</th><td>オンライン研修の運営、オンラインスクール、セミナー・講演、などAI人材育成に関する事業全般</td></tr>
-        </tbody>
-      </table>
+    <div class="faq-list fade-up">
+      <details>
+        <summary><span class="qm">Q</span>本当にプログラミング未経験でも大丈夫ですか？<span class="arrow">▾</span></summary>
+        <p class="faq-a">はい。未経験の方を主な対象として設計しています。1日目に環境構築・基本操作から丁寧にスタートし、2日間の対面スパルタ形式でつきっきりでサポートします。わからない点はその場で質問・解決しながら進められるのが対面開催の強みです。</p>
+      </details>
+      <details>
+        <summary><span class="qm">Q</span>日程の時間は9:00〜18:00で確定ですか？<span class="arrow">▾</span></summary>
+        <p class="faq-a">現時点の予定として9:00〜18:00をご案内していますが、主催者にて最終確認中のため、時間が変更になる可能性があります。確定次第、本ページおよびLINE公式アカウントにてご案内します。</p>
+      </details>
+      <details>
+        <summary><span class="qm">Q</span>最小催行人数に満たない場合はどうなりますか？<span class="arrow">▾</span></summary>
+        <p class="faq-a">本Campは最小催行人数10名を設定しております。お申し込み状況が10名に満たない場合、開催を中止させていただく可能性がございます。その場合は事前にご連絡いたします。</p>
+      </details>
+      <details>
+        <summary><span class="qm">Q</span>堀江貴文氏・林社長との壁打ちセッションは全員参加できますか？<span class="arrow">▾</span></summary>
+        <p class="faq-a">2日目朝の1時間、会場にお越しの参加者全員が対象のセッションです。人数によっては壁打ちの時間配分が調整される可能性がありますが、全参加者に堀江貴文氏・林社長のフィードバックが届く場を目指して設計しています。</p>
+      </details>
+      <details>
+        <summary><span class="qm">Q</span>申し込みの流れを教えてください。<span class="arrow">▾</span></summary>
+        <p class="faq-a">2通りの方法があります。（1）専用LINE公式アカウントを友だち追加後、自動返信で届く決済URLからお手続き、（2）ページ内の「カードで今すぐ決済する」ボタンから直接クレジットカード決済、のいずれかで参加費（99,800円・税込109,780円）をお支払いください。</p>
+      </details>
+      <details>
+        <summary><span class="qm">Q</span>キャンセルはできますか？<span class="arrow">▾</span></summary>
+        <p class="faq-a">開催日の7日前までのキャンセルは参加費を全額返金します。7日前を過ぎてからのキャンセルおよび当日欠席は返金不可です。最小催行人数に満たない場合や当社都合で中止する場合は全額返金します。詳細は<a href="/horie-camp/terms.html" style="color:var(--sky);text-decoration:underline">利用規約</a>をご確認ください。</p>
+      </details>
+      <details>
+        <summary><span class="qm">Q</span>会場へのアクセスを教えてください。<span class="arrow">▾</span></summary>
+        <p class="faq-a">会議室FOREST（東京都新宿区新宿1丁目2-9 JF新宿御苑ビル6階）での開催です。新宿御苑前駅から徒歩1分、新宿三丁目駅から徒歩8分です。</p>
+      </details>
+      <details>
+        <summary><span class="qm">Q</span>定員は何名ですか？<span class="arrow">▾</span></summary>
+        <p class="faq-a">最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。</p>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER（このページ専用） ===== -->
+<!-- ===== FINALE / APPLY ===== -->
+<section class="finale" id="apply">
+  <div class="wrap finale-inner">
+    <span class="eyebrow gold" style="justify-content:center">JOIN US</span>
+    <h2>未経験から2日で、<br>ClaudeCodeを使い倒す。</h2>
+    <p class="finale-desc">公式LINEの友だち追加、またはカード決済で直接お申し込みいただけます。</p>
+    <div class="finale-cta">
+      <a href="https://lin.ee/Qbu1lB6" class="btn btn-line btn-lg"><span class="ico">LINE</span>友だち追加して申し込む</a>
+      <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay btn-lg">カードで今すぐ決済する →</a>
+    </div>
+    <p class="finale-note">※ 定員（最大100名）に達し次第、締め切らせていただきます。最小催行人数10名に満たない場合は開催中止となる可能性があります。</p>
+  </div>
+</section>
+
+<!-- ===== COMPANY (fine print) ===== -->
+<section class="company-mini">
+  <p>ホリエモンAI学校株式会社／設立 2024年3月6日／取締役 荒木賢二郎（代表取締役）・山根由嗣・堀江貴文・田中尚幸／〒160-0022 東京都新宿区新宿4-3-15 レイフラット新宿B棟3F／オンライン研修の運営、オンラインスクール、セミナー・講演、などAI人材育成に関する事業全般</p>
+</section>
+
 <footer class="ai-footer">
   <div class="ai-footer-inner">
     <div class="ai-footer-top">
@@ -719,14 +548,12 @@
   </div>
 </footer>
 
-<!-- ===== SP STICKY ===== -->
-<div class="sp-sticky-footer">
-  <a href="https://lin.ee/Qbu1lB6" class="apply"><span class="line-ico">LINE</span>友だち追加</a>
+<div class="sp-cta">
+  <a href="https://lin.ee/Qbu1lB6" class="line"><span class="ico" style="font-weight:900;background:#fff;color:var(--line-green);border-radius:4px;font-size:10px;padding:1px 5px">LINE</span>友だち追加</a>
   <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="pay">カードで決済</a>
 </div>
 
 <script>
-  // ハンバーガーメニュー
   const menuBtn = document.getElementById('aiMenuBtn');
   const nav = document.getElementById('aiNav');
   menuBtn.addEventListener('click', () => {
@@ -734,22 +561,10 @@
     menuBtn.classList.toggle('active');
   });
 
-  // スクロールでふわっと表示
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // FAQアコーディオン
-  document.querySelectorAll('.faq-question').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
 </script>
 </body>
 </html>
-<!-- rebuild trigger 20260706233621 -->
