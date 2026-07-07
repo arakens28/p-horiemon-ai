@@ -135,13 +135,8 @@
     .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px}
     .hero-note{font-size:12.5px;color:#8ba0b4}
 
-    .hero-stamp{display:flex;justify-content:center;align-items:center;position:relative}
-    .stamp{width:100%;max-width:280px;aspect-ratio:1/1;border-radius:50%;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-9deg);position:relative;box-shadow:0 24px 50px rgba(11,37,69,.28)}
-    .stamp::before{content:'';position:absolute;inset:12px;border:1.5px dashed rgba(255,255,255,.35);border-radius:50%}
-    .stamp .s-top{font-size:12px;letter-spacing:.2em;color:var(--gold);font-weight:800;margin-bottom:6px}
-    .stamp .s-days{font-family:'Zen Kaku Gothic New',sans-serif;font-size:56px;font-weight:900;line-height:1}
-    .stamp .s-month{font-size:15px;font-weight:800;margin-top:4px}
-    .stamp .s-bottom{font-size:10.5px;letter-spacing:.15em;color:#9fc4de;margin-top:10px}
+    .hero-stamp{display:flex;justify-content:center;align-items:flex-start;position:relative}
+    .hero-manga-img{width:100%;max-width:360px;border-radius:16px;box-shadow:0 24px 50px rgba(11,37,69,.22)}
 
     /* ===== TICKER ===== */
     .ticker{background:var(--navy);color:#fff;overflow:hidden;white-space:nowrap;margin-top:56px}
@@ -252,7 +247,7 @@
     @media(max-width:900px){
       .hero-grid{grid-template-columns:1fr;text-align:left}
       .hero-stamp{margin-top:36px;justify-content:flex-start}
-      .stamp{max-width:200px}
+      .hero-manga-img{max-width:300px}
       .ticket{grid-template-columns:1fr}
       .ticket-stub::before,.ticket-stub::after{display:none}
       .t-day{grid-template-columns:56px 1fr}
@@ -311,12 +306,7 @@
       <p class="hero-note">※ LINE公式アカウントを友だち追加後、自動返信でも決済URLが届きます。すぐお申し込みの方はカード決済も直接ご利用いただけます</p>
     </div>
     <div class="hero-stamp fade-up">
-      <div class="stamp">
-        <span class="s-top">SUMMER CAMP</span>
-        <span class="s-days">30<small style="font-size:24px;">-</small>31</span>
-        <span class="s-month">2026年7月</span>
-        <span class="s-bottom">2 DAYS ・ 会議室FOREST</span>
-      </div>
+      <img src="/horie-camp/images/hero-manga.png" alt="ホリエモンAIスパルタ式Camp" class="hero-manga-img">
     </div>
   </div>
 </section>
