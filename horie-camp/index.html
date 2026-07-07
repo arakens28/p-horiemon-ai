@@ -73,7 +73,8 @@
           { "@type": "Question", "name": "申し込みの流れを教えてください。", "acceptedAnswer": { "@type": "Answer", "text": "2通りの方法があります。（1）専用LINE公式アカウントを友だち追加後、自動返信で届く決済URLからお手続き、（2）ページ内の「カードで今すぐ決済する」ボタンから直接クレジットカード決済、のいずれかで参加費（99,800円・税込109,780円）をお支払いください。" } },
           { "@type": "Question", "name": "キャンセルはできますか？", "acceptedAnswer": { "@type": "Answer", "text": "開催日の7日前までのキャンセルは参加費を全額返金します。7日前を過ぎてからのキャンセルおよび当日欠席は返金不可です。最小催行人数に満たない場合や当社都合で中止する場合は全額返金します。詳細は利用規約をご確認ください。" } },
           { "@type": "Question", "name": "会場へのアクセスを教えてください。", "acceptedAnswer": { "@type": "Answer", "text": "会議室FOREST（東京都新宿区新宿1丁目2-9 JF新宿御苑ビル6階）での開催です。新宿御苑前駅から徒歩1分、新宿三丁目駅から徒歩8分です。" } },
-          { "@type": "Question", "name": "定員は何名ですか？", "acceptedAnswer": { "@type": "Answer", "text": "最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。" } }
+          { "@type": "Question", "name": "定員は何名ですか？", "acceptedAnswer": { "@type": "Answer", "text": "最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。" } },
+          { "@type": "Question", "name": "Camp終了後、作ったWebサービスはどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "8月1日〜8月31日の1ヶ月間、作ったWebサービスを公開し、参加者同士で売上・PVを競う実践期間を予定しています。9月には成績優秀者の表彰や、優れたサービスへの協業・支援の機会も予定しています。詳細は別途ご案内します。" } }
         ]
       },
       {
@@ -145,13 +146,14 @@
     .ticker-track span.dot{color:var(--gold);padding:0}
     @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    /* ===== MISSION / PROBLEM (editorial index list) ===== */
-    .mission{padding:96px 0}
-    .mission-list{border-top:1px solid var(--line-mid)}
-    .mission-item{display:grid;grid-template-columns:110px 1fr;gap:32px;padding:34px 0;border-bottom:1px solid var(--line-mid);align-items:start}
-    .mission-item .num{font-family:'Zen Kaku Gothic New',sans-serif;font-size:46px;font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--sky);line-height:1}
-    .mission-item h3{font-size:18px;font-weight:800;margin-bottom:8px;color:var(--navy)}
-    .mission-item p{font-size:14.5px;color:var(--text-soft);max-width:560px}
+    /* ===== SPEAKERS ===== */
+    .speakers{padding:96px 0;background:var(--sky-bg)}
+    .speaker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+    .speaker-card{background:#fff;border:1px solid var(--line-mid);border-radius:20px;padding:36px 32px;box-shadow:0 10px 30px rgba(11,37,69,.06)}
+    .speaker-avatar{width:72px;height:72px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:22px;font-weight:900;margin-bottom:18px}
+    .speaker-role{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--gold);background:rgba(246,167,0,.12);border-radius:99px;padding:5px 14px;margin-bottom:12px}
+    .speaker-card h3{font-family:'Zen Kaku Gothic New',sans-serif;font-size:22px;font-weight:900;color:var(--navy);margin-bottom:12px}
+    .speaker-card p{font-size:14px;color:var(--text-soft);line-height:1.85}
 
     /* ===== SPOTLIGHT (highlight session) ===== */
     .spotlight{background:var(--navy);color:#fff;padding:104px 0;text-align:center;position:relative;overflow:hidden}
@@ -185,6 +187,29 @@
     .t-card li:first-child{border-top:none}
     .t-card li strong{color:var(--navy);margin-right:6px}
     .t-card.gold-card{border-color:rgba(246,167,0,.4);background:#fffaf0}
+
+    /* ===== AFTER THE CAMP ===== */
+    .afterparty-card{max-width:880px;margin:56px auto 0;background:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:44px 40px;text-align:center;box-shadow:0 16px 40px rgba(246,167,0,.14)}
+    .afterparty-card h3{font-family:'Zen Kaku Gothic New',sans-serif;font-size:clamp(19px,2.8vw,25px);font-weight:900;color:var(--navy);margin:14px 0 32px}
+    .afterparty-steps{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+    .ap-step{flex:1;min-width:220px;max-width:320px}
+    .ap-period{display:block;font-family:'Zen Kaku Gothic New',sans-serif;font-size:22px;font-weight:900;color:var(--gold);margin-bottom:10px}
+    .ap-step p{font-size:13.5px;color:var(--text-soft);line-height:1.85}
+    .ap-step p strong{color:var(--navy)}
+    .ap-arrow{font-size:22px;color:var(--gold);font-weight:900}
+    .afterparty-note{margin-top:26px;font-size:12px;color:var(--text-soft)}
+    @media(max-width:600px){.ap-arrow{transform:rotate(90deg)} .afterparty-card{padding:32px 24px}}
+
+    /* ===== VENUE ACCESS ===== */
+    .venue{padding:96px 0}
+    .venue-card{max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--line-mid);border-radius:20px;padding:36px 40px;box-shadow:0 10px 30px rgba(11,37,69,.06)}
+    .venue-info h3{font-family:'Zen Kaku Gothic New',sans-serif;font-size:20px;font-weight:900;color:var(--navy);margin-bottom:14px}
+    .venue-info p{font-size:14.5px;color:var(--text-soft);line-height:1.9;margin-bottom:16px}
+    .venue-access-list{list-style:none;margin-bottom:22px}
+    .venue-access-list li{font-size:13.5px;color:var(--text-soft);padding:8px 0;border-top:1px dashed var(--line-mid)}
+    .venue-access-list li:first-child{border-top:none}
+    .venue-map-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:800;color:var(--sky)}
+    .venue-map-link:hover{text-decoration:underline}
 
     /* ===== TICKET (overview) ===== */
     .ticket-section{padding:104px 0;background:var(--sky-bg)}
@@ -256,8 +281,7 @@
       .t-day.left .t-card,.t-day.right .t-card{grid-column:2;text-align:left}
       .t-day.left .t-card ul{margin-left:0}
       .timeline-track::before{left:28px}
-      .mission-item{grid-template-columns:64px 1fr;gap:18px}
-      .mission-item .num{font-size:32px}
+      .speaker-grid{grid-template-columns:1fr}
     }
     @media(max-width:600px){
       .hero{padding-top:48px}
@@ -279,7 +303,8 @@
     <nav class="ai-nav" id="aiNav">
       <ul>
         <li><a href="#about">概要</a></li>
-        <li><a href="#highlight">目玉企画</a></li>
+        <li><a href="#speakers">登壇者</a></li>
+        <li><a href="#flow">プログラム</a></li>
         <li><a href="#overview">開催概要</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="https://lin.ee/Qbu1lB6" class="ai-nav-cta">LINEで申し込む</a></li>
@@ -317,45 +342,35 @@
     <span>会議室FOREST（新宿御苑前駅1分）</span><span class="dot">◆</span>
     <span>定員100名・最小催行10名</span><span class="dot">◆</span>
     <span>参加費 99,800円（税込109,780円）</span><span class="dot">◆</span>
+    <span>8月は公開したサービスで売上・PV競争</span><span class="dot">◆</span>
     <span>2026.07.30–31 開催</span><span class="dot">◆</span>
     <span>会議室FOREST（新宿御苑前駅1分）</span><span class="dot">◆</span>
     <span>定員100名・最小催行10名</span><span class="dot">◆</span>
     <span>参加費 99,800円（税込109,780円）</span><span class="dot">◆</span>
+    <span>8月は公開したサービスで売上・PV競争</span><span class="dot">◆</span>
   </div>
 </div>
 
-<!-- ===== MISSION / PROBLEM ===== -->
-<section class="mission" id="problem">
+<!-- ===== SPEAKERS ===== -->
+<section class="speakers" id="speakers">
   <div class="wrap">
     <div class="section-head fade-up">
-      <span class="eyebrow">WHY THIS CAMP</span>
-      <h2>こんな不安、ありませんか？</h2>
-      <p>「Claude Code」という言葉は知っていても、実際に触ったことがない方がほとんどです。その不安、2日間のスパルタで解消します。</p>
+      <span class="eyebrow">SPEAKERS</span>
+      <h2>登壇者</h2>
+      <p>本Campの発案・主催者、そして2日目の特別セッションにご登壇いただくゲストです。</p>
     </div>
-    <div class="mission-list">
-      <div class="mission-item fade-up">
-        <span class="num">01</span>
-        <div><h3>プログラミング未経験で不安</h3><p>コードという文字を見ただけで身構えてしまう。エンジニアではない自分に使いこなせるのか、そもそも自信がない。</p></div>
+    <div class="speaker-grid">
+      <div class="speaker-card fade-up">
+        <div class="speaker-avatar">堀江</div>
+        <div class="speaker-role">発案・主催</div>
+        <h3>堀江貴文</h3>
+        <p>本Campの発案者・主催者。2日目10:30〜11:30の「AIビジネス壁打ちセッション」にも登壇し、参加者の制作物に直接フィードバックします。</p>
       </div>
-      <div class="mission-item fade-up">
-        <span class="num">02</span>
-        <div><h3>2日間で本当に習得できるのか</h3><p>短期集中と聞くと魅力的だが、たった2日間で実務レベルまで到達できるのか、正直半信半疑。</p></div>
-      </div>
-      <div class="mission-item fade-up">
-        <span class="num">03</span>
-        <div><h3>環境構築の時点で挫折しそう</h3><p>ターミナルを開くことすら慣れていない。インストールや初期設定でつまずいて、そこで学習が止まってしまう。</p></div>
-      </div>
-      <div class="mission-item fade-up">
-        <span class="num">04</span>
-        <div><h3>独学・動画教材が続かない</h3><p>これまで何度も動画教材で学ぼうとしたが、最後まで見終わらずに挫折した経験がある。</p></div>
-      </div>
-      <div class="mission-item fade-up">
-        <span class="num">05</span>
-        <div><h3>周りはAIを使いこなし始めている</h3><p>経営者仲間や同僚がAIを使って成果を出し始めている。自分だけが置いていかれている焦りがある。</p></div>
-      </div>
-      <div class="mission-item fade-up">
-        <span class="num">06</span>
-        <div><h3>質問できる相手がいない</h3><p>一人で学んでいると、つまずいたときに聞ける相手がいない。結局わからないまま放置してしまう。</p></div>
+      <div class="speaker-card fade-up">
+        <div class="speaker-avatar">林</div>
+        <div class="speaker-role">スペシャルゲスト</div>
+        <h3>林社長</h3>
+        <p>2日目10:30〜11:30の「AIビジネス壁打ちセッション」にご登壇。堀江貴文氏とともに、参加者のビジネスアイデアに直接フィードバックします。</p>
       </div>
     </div>
   </div>
@@ -381,16 +396,17 @@
     <div class="section-head fade-up">
       <span class="eyebrow">SCHEDULE</span>
       <h2>2日間の流れ</h2>
-      <p>1日目はClaude Codeの初期設定から。あとはひたすら手を動かして、自分のWebサービスを作り上げます。</p>
+      <p>1日目はClaude Codeの初期設定から。あとはひたすら手を動かして、自分のWebサービスを作り上げます。Campが終わっても実践は続きます。</p>
     </div>
     <div class="timeline-track">
       <div class="t-day left fade-up">
         <div class="t-card">
-          <span class="t-date">2026年7月30日（木）9:00〜18:00</span>
+          <span class="t-date">2026年7月30日（木）</span>
           <h3>Claude Codeの初期設定＆Webサービス制作スタート</h3>
           <ul>
-            <li><strong>午前</strong>Claude Codeのインストール・課金設定・使える状態までの初期設定</li>
-            <li><strong>午後</strong>各自Webサービス作り</li>
+            <li><strong>9:00-12:00</strong>Claude Codeのインストール・初期設定</li>
+            <li><strong>12:00-13:00</strong>昼休憩</li>
+            <li><strong>13:00-18:00</strong>Webサービス作り（並行してClaude Codeの便利な使い方も習得）</li>
           </ul>
         </div>
         <div class="t-dot"><span>DAY</span><b>1</b></div>
@@ -400,14 +416,53 @@
         <div></div>
         <div class="t-dot gold"><span>DAY</span><b>2</b></div>
         <div class="t-card gold-card">
-          <span class="t-date" style="color:var(--gold)">2026年7月31日（金）9:00〜18:00</span>
+          <span class="t-date" style="color:var(--gold)">2026年7月31日（金）</span>
           <h3>Webサービス制作の続き＆壁打ちセッション</h3>
           <ul>
-            <li><strong>午前</strong>各自Webサービス作り</li>
-            <li><strong>10:30〜11:30</strong>堀江貴文氏・林社長 AIビジネス壁打ちセッション</li>
-            <li><strong>午後</strong>各自Webサービス作り（引き続き）</li>
+            <li><strong>9:00-10:30</strong>制作</li>
+            <li><strong>10:30-11:30</strong>堀江貴文氏・林社長 AIビジネス壁打ちセッション</li>
+            <li><strong>11:30-12:30</strong>昼休憩</li>
+            <li><strong>12:30-18:00</strong>制作</li>
           </ul>
         </div>
+      </div>
+    </div>
+
+    <div class="afterparty-card fade-up">
+      <span class="eyebrow gold" style="justify-content:center">AFTER THE CAMP</span>
+      <h3>Camp後も終わらない。1ヶ月間の実践期間へ。</h3>
+      <div class="afterparty-steps">
+        <div class="ap-step">
+          <span class="ap-period">8/1 - 8/31</span>
+          <p>作ったWebサービスを公開し、参加者同士で<strong>売上・PVを競う</strong>実践期間</p>
+        </div>
+        <div class="ap-arrow">→</div>
+        <div class="ap-step">
+          <span class="ap-period">9月</span>
+          <p>成績優秀者を<strong>表彰</strong>。優れたサービスには<strong>協業・支援</strong>の機会も</p>
+        </div>
+      </div>
+      <p class="afterparty-note">※ 表彰内容・協業条件等の詳細は別途ご案内します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VENUE ACCESS ===== -->
+<section class="venue" id="venue">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="eyebrow">VENUE ACCESS</span>
+      <h2>会場アクセス</h2>
+    </div>
+    <div class="venue-card fade-up">
+      <div class="venue-info">
+        <h3>会議室FOREST</h3>
+        <p>〒160-0022<br>東京都新宿区新宿1丁目2-9 JF新宿御苑ビル 6階</p>
+        <ul class="venue-access-list">
+          <li>新宿御苑前駅から徒歩1分</li>
+          <li>新宿三丁目駅から徒歩8分</li>
+        </ul>
+        <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E6%96%B0%E5%AE%BF1%E4%B8%81%E7%9B%AE2-9" target="_blank" rel="noopener" class="venue-map-link">Googleマップで開く →</a>
       </div>
     </div>
   </div>
@@ -484,6 +539,10 @@
         <summary><span class="qm">Q</span>定員は何名ですか？<span class="arrow">▾</span></summary>
         <p class="faq-a">最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。</p>
       </details>
+      <details>
+        <summary><span class="qm">Q</span>Camp終了後、作ったWebサービスはどうなりますか？<span class="arrow">▾</span></summary>
+        <p class="faq-a">8月1日〜8月31日の1ヶ月間、作ったWebサービスを公開し、参加者同士で売上・PVを競う実践期間を予定しています。9月には成績優秀者の表彰や、優れたサービスへの協業・支援の機会も予定しています。詳細は別途ご案内します。</p>
+      </details>
     </div>
   </div>
 </section>
@@ -521,7 +580,9 @@
       <nav class="ai-footer-nav">
         <ul>
           <li><a href="#about">概要</a></li>
-          <li><a href="#highlight">目玉企画</a></li>
+          <li><a href="#speakers">登壇者</a></li>
+          <li><a href="#flow">プログラム</a></li>
+          <li><a href="#venue">会場アクセス</a></li>
           <li><a href="#overview">開催概要</a></li>
           <li><a href="#faq">よくある質問</a></li>
           <li><a href="/horie-camp/terms.html">利用規約</a></li>
