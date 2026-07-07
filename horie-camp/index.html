@@ -18,7 +18,7 @@
   <meta name="keywords" content="堀江貴文,Claude Code,スパルタ,対面Camp,AI研修,ホリエモンAI学校,壁打ち,新宿御苑">
   <meta name="author" content="ホリエモンAI学校株式会社">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <meta name="theme-color" content="#e8001c">
+  <meta name="theme-color" content="#0284c7">
   <meta name="format-detection" content="telephone=no">
   <link rel="canonical" href="https://p.horiemon.ai/horie-camp/">
 
@@ -100,17 +100,21 @@
     ::selection { background: var(--red); color: #fff; }
 
     :root {
-      --red: #e8001c;
-      --red-dark: #c0001a;
-      --red-bg: #fff0f0;
-      --black: #1a1a1a;
-      --gray-light: #f7f7f7;
-      --gray-mid: #ebebeb;
-      --gray-text: #666;
+      /* common.css の共通ヘッダー/フッター配色をこのページだけ上書き（他ページには影響しません） */
+      --ai-red: #0284c7;
+      --ai-red-dark: #075985;
+      --ai-black: #0b2545;
+      --red: #0284c7;
+      --red-dark: #075985;
+      --red-bg: #e6f6ff;
+      --black: #0b2545;
+      --gray-light: #f5faff;
+      --gray-mid: #e2eef7;
+      --gray-text: #52667a;
       --line-green: #06c755;
       --gold: #f6a700;
       --radius: 12px;
-      --shadow: 0 4px 24px rgba(0,0,0,.08);
+      --shadow: 0 4px 24px rgba(2,132,199,.1);
       --transition: .25s ease;
     }
 
@@ -133,8 +137,8 @@
       border: none; cursor: pointer; border-radius: 99px; padding: 16px 40px;
       transition: var(--transition);
     }
-    .btn-primary { background: var(--red); color: #fff; box-shadow: 0 6px 24px rgba(232,0,28,.3); }
-    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,0,28,.4); color:#fff; }
+    .btn-primary { background: var(--gold); color: var(--black); box-shadow: 0 6px 24px rgba(246,167,0,.35); }
+    .btn-primary:hover { background: #ffbe2e; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(246,167,0,.5); color: var(--black); }
     .btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
     .btn-outline:hover { background: var(--black); color: #fff; }
     .btn-line { background: var(--line-green); color: #fff; box-shadow: 0 6px 24px rgba(6,199,85,.3); }
@@ -147,13 +151,21 @@
     .ai-nav-line:hover { opacity:.9; background: var(--line-green) !important; color:#fff !important; }
 
     /* ===== HERO ===== */
-    .hero { background: #fff; padding: 40px 0 56px; overflow: hidden; position: relative; }
+    .hero { background: linear-gradient(180deg, #eaf7ff 0%, #fff 60%); padding: 40px 0 56px; overflow: hidden; position: relative; }
     .hero::before {
       content: ''; position: absolute; top: -60px; right: -120px;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(232,0,28,.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(2,132,199,.10) 0%, transparent 70%);
       pointer-events: none;
     }
+    .hero::after {
+      content: ''; position: absolute; bottom: -100px; left: -120px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(246,167,0,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wave-divider { line-height:0; background:#fff; }
+    .wave-divider svg { width:100%; height:56px; display:block; }
     .hero-inner { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
@@ -175,7 +187,7 @@
     .offer-box { background: var(--black); border-radius: 20px; padding: 32px; color: #fff; box-shadow: 0 24px 64px rgba(0,0,0,.22); }
     .offer-box-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #888; margin-bottom: 18px; text-align:center; text-transform:uppercase; }
     .offer-rows { display: flex; flex-direction: column; gap: 12px; }
-    .offer-row { background: #252525; border-radius: 14px; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .offer-row { background: #12314f; border-radius: 14px; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
     .offer-row .k { font-size: 13px; font-weight: 700; color: #bbb; flex-shrink:0; }
     .offer-row .v { font-size: 15px; font-weight: 800; color: #fff; text-align: right; line-height: 1.6; }
     .offer-row .v .big { font-size: 26px; color: var(--gold); }
@@ -196,16 +208,16 @@
     /* ===== 目玉企画 ===== */
     .highlight-section { background: var(--black); color:#fff; position: relative; overflow: hidden; }
     .highlight-section::before { content:''; position:absolute; top:-100px; left:50%; transform:translateX(-50%); width:900px; height:900px; background: radial-gradient(circle, rgba(246,167,0,.14) 0%, transparent 65%); pointer-events:none; }
-    .highlight-section .section-label { color:#1a1a1a; background: var(--gold); }
+    .highlight-section .section-label { color:var(--black); background: var(--gold); }
     .highlight-section .section-title { color:#fff; }
     .highlight-section .section-sub { color:#bbb; }
     .highlight-badge { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:800; color:var(--gold); background: rgba(246,167,0,.14); border:1px solid rgba(246,167,0,.4); border-radius:99px; padding:8px 20px; margin-bottom:24px; position:relative; z-index:1; }
-    .highlight-card { position: relative; z-index:1; margin-top: 56px; background:#232323; border:1px solid rgba(246,167,0,.3); border-radius: 24px; padding: 48px 44px; display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items:center; }
+    .highlight-card { position: relative; z-index:1; margin-top: 56px; background:#12314f; border:1px solid rgba(246,167,0,.3); border-radius: 24px; padding: 48px 44px; display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items:center; }
     .highlight-names { font-size: clamp(22px, 3vw, 30px); font-weight:900; line-height:1.5; margin-bottom:16px; }
     .highlight-names .gold { color: var(--gold); }
     .highlight-desc { font-size:15px; color:#ccc; line-height:1.9; }
     .highlight-stats { display:flex; flex-direction:column; gap: 20px; text-align:center; }
-    .highlight-stat { background:#1a1a1a; border-radius:14px; padding:20px 28px; min-width:180px; }
+    .highlight-stat { background:#0b2545; border-radius:14px; padding:20px 28px; min-width:180px; }
     .highlight-stat .num { font-size: 34px; font-weight:900; color: var(--gold); line-height:1; }
     .highlight-stat .lbl { font-size:12px; color:#999; margin-top:8px; font-weight:700; letter-spacing:.04em; }
     .highlight-note { position:relative; z-index:1; text-align:center; font-size:13px; color:#888; margin-top: 28px; }
@@ -214,7 +226,7 @@
     .flow-day { margin-top: 56px; }
     .flow-day + .flow-day { margin-top: 40px; }
     .flow-day-head { display:flex; align-items:center; gap:16px; margin-bottom: 24px; }
-    .flow-day-badge { flex-shrink:0; width:64px; height:64px; border-radius:16px; background:var(--red); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:900; box-shadow: 0 8px 20px rgba(232,0,28,.28); }
+    .flow-day-badge { flex-shrink:0; width:64px; height:64px; border-radius:16px; background:var(--red); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:900; box-shadow: 0 8px 20px rgba(2,132,199,.28); }
     .flow-day-badge .d { font-size:11px; letter-spacing:.06em; }
     .flow-day-badge .n { font-size:22px; line-height:1; }
     .flow-day-title { font-size:19px; font-weight:800; }
@@ -259,12 +271,12 @@
 
     /* ===== CTA / APPLY ===== */
     .cta-section { background: var(--black); padding: 96px 0; text-align: center; position: relative; overflow: hidden; }
-    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(232,0,28,.18) 0%, transparent 65%); pointer-events: none; }
-    .cta-section .section-label { display: inline-block; margin-bottom: 16px; position: relative; z-index: 1; color:#ff6b7a; background:rgba(232,0,28,.16); }
+    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(246,167,0,.18) 0%, transparent 65%); pointer-events: none; }
+    .cta-section .section-label { display: inline-block; margin-bottom: 16px; position: relative; z-index: 1; color:var(--gold); background:rgba(246,167,0,.16); }
     .cta-section .section-title { color: #fff; margin-bottom: 16px; position: relative; z-index: 1; }
     .cta-desc { font-size: 17px; color: #aaa; margin-bottom: 16px; position: relative; z-index: 1; }
     .cta-flow { position:relative; z-index:1; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom: 32px; font-size:13px; color:#999; }
-    .cta-flow span { background:#252525; border-radius:99px; padding:8px 18px; }
+    .cta-flow span { background:#12314f; border-radius:99px; padding:8px 18px; }
     .cta-actions { position: relative; z-index: 1; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .cta-note { position: relative; z-index: 1; margin-top: 24px; font-size: 13px; color: #777; }
 
@@ -287,7 +299,7 @@
       .sp-sticky-footer { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; box-shadow: 0 -2px 12px rgba(0,0,0,.15); }
       .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 16px 4px; font-size: 15px; font-weight: 800; text-decoration: none; }
       .sp-sticky-footer .apply { background: var(--line-green); color:#fff; }
-      .sp-sticky-footer .pay { background: var(--red); color:#fff; }
+      .sp-sticky-footer .pay { background: var(--gold); color: var(--black); }
       .sp-sticky-footer .line-ico { font-weight:900; background:#fff; color:var(--line-green); border-radius:5px; font-size:11px; padding:1px 6px; }
       body { padding-bottom: 56px; }
     }
@@ -400,6 +412,12 @@
     </div>
   </div>
 </section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,32 C240,80 480,0 720,32 C960,64 1200,16 1440,32 L1440,80 L0,80 Z" fill="#f5faff"></path>
+  </svg>
+</div>
 
 <!-- ===== こんな課題ありませんか ===== -->
 <section class="section steps" id="problem">
