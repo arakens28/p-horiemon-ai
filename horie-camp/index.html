@@ -75,7 +75,8 @@
           { "@type": "Question", "name": "会場へのアクセスを教えてください。", "acceptedAnswer": { "@type": "Answer", "text": "会議室FOREST（東京都新宿区新宿1丁目2-9 JF新宿御苑ビル6階）での開催です。新宿御苑前駅から徒歩1分、新宿三丁目駅から徒歩8分です。" } },
           { "@type": "Question", "name": "定員は何名ですか？", "acceptedAnswer": { "@type": "Answer", "text": "オンライン・対面あわせて最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。" } },
           { "@type": "Question", "name": "オンラインでも参加できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。事前の選択は不要です。当日会場にお越しいただければ対面、難しい方はオンラインでご参加いただけます。オンライン参加の方は、Chatworkでご案内するZOOM URLよりご参加ください。参加形式にかかわらず内容・参加費は同じで、壁打ちセッションもオンラインで視聴・参加可能です。" } },
-          { "@type": "Question", "name": "Camp終了後、作ったWebサービスはどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "8月1日〜8月31日の1ヶ月間、作ったWebサービスを公開し、参加者同士で売上・PVを競う実践期間を予定しています。9月には成績優秀者の表彰や、優れたサービスへの協業・支援の機会も予定しています。詳細は別途ご案内します。" } }
+          { "@type": "Question", "name": "Camp終了後、作ったWebサービスはどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "8月1日〜8月31日の1ヶ月間、作ったWebサービスを公開し、参加者同士で売上・PVを競う実践期間を予定しています。9月には成績優秀者の表彰や、優れたサービスへの協業・支援の機会も予定しています。詳細は別途ご案内します。" } },
+          { "@type": "Question", "name": "2日間とも参加できない場合はどうすればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "途中退室・再入室は自由です。また、開催日の前後に別途補講日を設けていますので、1日しか参加できない方も、参加できなかった分は別日の補講で受講いただけます。" } }
         ]
       },
       {
@@ -150,6 +151,8 @@
     .btn-line .ico{font-weight:900;background:#fff;color:var(--line-green);border-radius:4px;font-size:11px;padding:1px 6px}
     .btn-pay{background:var(--gold);color:var(--navy);box-shadow:0 6px 20px rgba(255,149,0,.32)}
     .btn-pay:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,149,0,.45)}
+    .btn-pay-online{background:var(--cyan);color:#fff;box-shadow:0 6px 20px rgba(0,196,209,.32)}
+    .btn-pay-online:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,196,209,.45);color:#fff}
     .btn-lg{padding:20px 44px;font-size:17px}
 
     /* ===== HERO ===== */
@@ -186,6 +189,11 @@
     .format-list li{font-size:13.5px;color:var(--text-soft);padding:9px 0;border-top:1px dashed var(--line-mid)}
     .format-list li:first-child{border-top:none}
     .format-note{text-align:center;font-size:12px;color:var(--text-soft);margin-top:24px}
+    .notice-card{max-width:720px;margin:32px auto 0;background:#fffbea;border:2px solid var(--gold);border-radius:16px;padding:28px 32px}
+    .notice-tag{display:inline-block;font-size:13px;font-weight:900;color:#fff;background:var(--gold);border-radius:99px;padding:6px 18px;margin-bottom:16px}
+    .notice-list{list-style:none}
+    .notice-list li{position:relative;font-size:13.5px;color:var(--text);line-height:1.9;padding:6px 0 6px 22px}
+    .notice-list li::before{content:'✓';position:absolute;left:0;top:6px;color:var(--gold);font-weight:900}
     @media(max-width:700px){.format-grid{grid-template-columns:1fr}}
 
     /* ===== SPEAKERS ===== */
@@ -319,8 +327,9 @@
     .sp-cta{display:none}
     @media(max-width:768px){
       .sp-cta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:200;box-shadow:0 -2px 16px rgba(0,0,0,.12)}
-      .sp-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;padding:13px 3px;font-size:12px;font-weight:800;text-align:center;line-height:1.3}
+      .sp-cta a{flex:1;display:flex;align-items:center;justify-content:center;padding:13px 2px;font-size:11px;font-weight:800;text-align:center;line-height:1.3}
       .sp-cta .line{background:var(--line-green);color:#fff}
+      .sp-cta .pay-online{background:var(--cyan);color:#fff}
       .sp-cta .pay{background:var(--gold);color:var(--navy)}
       body{padding-bottom:58px}
     }
@@ -365,6 +374,8 @@
   </div>
 </header>
 
+<img src="/horie-camp/images/main1.png" alt="ホリキャン 2日でClaude Code習得→Webサービス公開→1ヶ月売上バトル" class="kv-banner fade-up">
+
 <!-- ===== HERO ===== -->
 <section class="hero" id="about">
   <div class="hero-grid">
@@ -374,8 +385,11 @@
       <p class="hero-lead"><strong>「第１回 ホリキャン 〜Claude Code編〜」。</strong>対面・オンラインから参加形式を選べる、2日間集中のスパルタ形式で、未経験からClaude Codeを実務で使えるレベルまで引き上げます。</p>
       <p class="hero-sub">2日目10:30〜11:30には、堀江貴文氏・林社長が会場に来場し、参加者のビジネスアイデアに直接フィードバックする特別セッションを実施します。</p>
       <div class="hero-cta">
+        <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay-online btn-lg">全国オンライン参加で申し込む（決済） →</a>
+        <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay btn-lg">東京対面参加で申し込む（決済） →</a>
+      </div>
+      <div class="hero-cta" style="margin-top:12px">
         <a href="https://lin.ee/Qbu1lB6" class="btn btn-line btn-lg"><span class="ico">LINE</span>LINEで質問・相談する</a>
-        <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay btn-lg">申し込み（カード決済） →</a>
       </div>
       <p class="hero-note">※ ご質問・ご相談は公式LINEまで。お申し込みはカード決済からお手続きいただけます</p>
     </div>
@@ -401,8 +415,6 @@
     <span>8月は公開したサービスで売上・PV競争</span><span class="dot">◆</span>
   </div>
 </div>
-
-<img src="/horie-camp/images/main1.png" alt="ホリキャン 2日でClaude Code習得→Webサービス公開→1ヶ月売上バトル" class="kv-banner fade-up">
 
 <!-- ===== FORMAT / 参加形式 ===== -->
 <section class="format" id="format">
@@ -435,6 +447,15 @@
       </div>
     </div>
     <p class="format-note">※ お申し込み手続きは対面・オンラインで共通です。参加方法はChatworkにてご案内します。</p>
+
+    <div class="notice-card fade-up">
+      <span class="notice-tag">2日間参加できない方へ</span>
+      <ul class="notice-list">
+        <li>途中退室・再入室は自由です。ご都合に合わせて出入りいただけます。</li>
+        <li>開催前後に別途、補講日を設けています。</li>
+        <li>1日しか参加できない方も、参加できなかった分は別日の補講で受講いただけます。</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -623,7 +644,7 @@
         <div class="howto-num">2</div>
         <div class="howto-body">
           <h3>クレジットカードで決済</h3>
-          <p>ページ内の「申し込み（カード決済）」ボタンからお手続きください。手続きは対面・オンラインで共通です。<br>※割引コードをお持ちの方は、決済時にご入力ください。</p>
+          <p>ページ内の「全国オンライン参加で申し込む」または「東京対面参加で申し込む」ボタンからお手続きください。<br>※割引コードをお持ちの方は、決済時にご入力ください。</p>
         </div>
       </div>
       <div class="howto-step fade-up">
@@ -686,7 +707,7 @@
       </details>
       <details>
         <summary><span class="qm">Q</span>申し込みの流れを教えてください。<span class="arrow">▾</span></summary>
-        <p class="faq-a">ページ内の「申し込み（カード決済）」ボタンからクレジットカードでお手続きいただけます（参加費99,800円・税込109,780円）。決済後、Chatworkにてご案内をお送りします。ご不明点があれば公式LINEからご質問・ご相談ください。詳しい流れは<a href="#howto" style="color:var(--sky);text-decoration:underline">「申し込みの流れ」セクション</a>をご覧ください。</p>
+        <p class="faq-a">ページ内の「全国オンライン参加で申し込む」または「東京対面参加で申し込む」ボタンからクレジットカードでお手続きいただけます（参加費99,800円・税込109,780円）。決済後、Chatworkにてご案内をお送りします。ご不明点があれば公式LINEからご質問・ご相談ください。詳しい流れは<a href="#howto" style="color:var(--sky);text-decoration:underline">「申し込みの流れ」セクション</a>をご覧ください。</p>
       </details>
       <details>
         <summary><span class="qm">Q</span>キャンセルはできますか？<span class="arrow">▾</span></summary>
@@ -708,6 +729,10 @@
         <summary><span class="qm">Q</span>Camp終了後、作ったWebサービスはどうなりますか？<span class="arrow">▾</span></summary>
         <p class="faq-a">8月1日〜8月31日の1ヶ月間、作ったWebサービスを公開し、参加者同士で売上・PVを競う実践期間を予定しています。9月には成績優秀者の表彰や、優れたサービスへの協業・支援の機会も予定しています。詳細は別途ご案内します。</p>
       </details>
+      <details>
+        <summary><span class="qm">Q</span>2日間とも参加できない場合はどうすればいいですか？<span class="arrow">▾</span></summary>
+        <p class="faq-a">途中退室・再入室は自由です。また、開催日の前後に別途補講日を設けていますので、1日しか参加できない方も、参加できなかった分は別日の補講で受講いただけます。</p>
+      </details>
     </div>
   </div>
 </section>
@@ -721,8 +746,11 @@
     <h2>未経験から2日でAI習得。<br>Webサービス作って公開する。</h2>
     <p class="finale-desc">ご質問・ご相談は公式LINEまで。お申し込みはカード決済からお手続きいただけます。</p>
     <div class="finale-cta">
+      <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay-online btn-lg">全国オンライン参加で申し込む（決済） →</a>
+      <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay btn-lg">東京対面参加で申し込む（決済） →</a>
+    </div>
+    <div class="finale-cta" style="margin-top:14px">
       <a href="https://lin.ee/Qbu1lB6" class="btn btn-line btn-lg"><span class="ico">LINE</span>LINEで質問・相談する</a>
-      <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay btn-lg">申し込み（カード決済） →</a>
     </div>
     <p class="finale-note">※ 定員（オンライン・対面あわせて最大100名）に達し次第、締め切らせていただきます。最小催行人数10名に満たない場合は開催中止となる可能性があります。</p>
   </div>
@@ -769,8 +797,9 @@
 </footer>
 
 <div class="sp-cta">
-  <a href="https://lin.ee/Qbu1lB6" class="line"><span class="ico" style="font-weight:900;background:#fff;color:var(--line-green);border-radius:4px;font-size:10px;padding:1px 5px">LINE</span>LINEで質問・相談</a>
-  <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="pay">申し込み（カード決済）</a>
+  <a href="https://lin.ee/Qbu1lB6" class="line">LINE相談</a>
+  <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="pay-online">オンライン申込</a>
+  <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="pay">対面申込</a>
 </div>
 
 <script>
