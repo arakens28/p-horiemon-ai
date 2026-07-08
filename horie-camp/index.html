@@ -73,7 +73,7 @@
           { "@type": "Question", "name": "申し込みの流れを教えてください。", "acceptedAnswer": { "@type": "Answer", "text": "ページ内の「申し込み（カード決済）」ボタンからクレジットカードでお手続きいただけます（参加費99,800円・税込109,780円）。決済後、Chatworkにてご案内をお送りします。ご不明点があれば公式LINEからご質問・ご相談ください。詳しい流れは「申し込みの流れ」セクションをご覧ください。" } },
           { "@type": "Question", "name": "キャンセルはできますか？", "acceptedAnswer": { "@type": "Answer", "text": "開催日の7日前までのキャンセルは参加費を全額返金します。7日前を過ぎてからのキャンセルおよび当日欠席は返金不可です。最小催行人数に満たない場合や当社都合で中止する場合は全額返金します。詳細は利用規約をご確認ください。" } },
           { "@type": "Question", "name": "会場へのアクセスを教えてください。", "acceptedAnswer": { "@type": "Answer", "text": "会議室FOREST（東京都新宿区新宿1丁目2-9 JF新宿御苑ビル6階）での開催です。新宿御苑前駅から徒歩1分、新宿三丁目駅から徒歩8分です。" } },
-          { "@type": "Question", "name": "定員は何名ですか？", "acceptedAnswer": { "@type": "Answer", "text": "最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。" } },
+          { "@type": "Question", "name": "定員は何名ですか？", "acceptedAnswer": { "@type": "Answer", "text": "オンライン・対面あわせて最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。" } },
           { "@type": "Question", "name": "オンラインでも参加できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。事前の選択は不要です。当日会場にお越しいただければ対面、難しい方はオンラインでご参加いただけます。オンライン参加の方は、Chatworkでご案内するZOOM URLよりご参加ください。参加形式にかかわらず内容・参加費は同じで、壁打ちセッションもオンラインで視聴・参加可能です。" } },
           { "@type": "Question", "name": "Camp終了後、作ったWebサービスはどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "8月1日〜8月31日の1ヶ月間、作ったWebサービスを公開し、参加者同士で売上・PVを競う実践期間を予定しています。9月には成績優秀者の表彰や、優れたサービスへの協業・支援の機会も予定しています。詳細は別途ご案内します。" } }
         ]
@@ -184,24 +184,22 @@
 
     /* ===== TIMELINE (2-day flow) ===== */
     .timeline{padding:104px 0}
-    .timeline-track{position:relative;margin-top:20px}
-    .timeline-track::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--line-mid);transform:translateX(-50%)}
-    .t-day{display:grid;grid-template-columns:1fr 64px 1fr;align-items:start;gap:0;margin-bottom:8px}
-    .t-day .t-card{background:#fff;border:1px solid var(--line-mid);border-radius:16px;padding:30px 32px;box-shadow:0 6px 26px rgba(11,37,69,.05)}
-    .t-day.left .t-card{grid-column:1;text-align:right}
-    .t-day.right .t-card{grid-column:3}
-    .t-dot{grid-column:2;justify-self:center;width:64px;height:64px;border-radius:50%;background:var(--sky);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;box-shadow:0 8px 20px rgba(2,132,199,.32);z-index:1}
-    .t-dot span{font-size:10px;font-weight:700;letter-spacing:.1em}
-    .t-dot b{font-size:22px;line-height:1}
-    .t-dot.gold{background:var(--gold);box-shadow:0 8px 20px rgba(246,167,0,.35)}
-    .t-date{display:inline-block;font-size:12px;font-weight:800;color:var(--sky);letter-spacing:.03em;margin-bottom:10px}
-    .t-card h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:14px;line-height:1.5}
-    .t-card ul{list-style:none}
-    .t-day.left .t-card ul{margin-left:auto}
-    .t-card li{font-size:13.5px;color:var(--text-soft);padding:7px 0;border-top:1px dashed var(--line-mid)}
-    .t-card li:first-child{border-top:none}
-    .t-card li strong{color:var(--navy);margin-right:6px}
-    .t-card.gold-card{border-color:rgba(246,167,0,.4);background:#fffaf0}
+    .timeline-track{max-width:760px;margin:20px auto 0}
+    .tl-day-label{display:flex;align-items:baseline;gap:14px;margin:40px 0 16px}
+    .tl-day-label:first-child{margin-top:0}
+    .tl-day-badge{display:inline-block;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:14px;color:#fff;background:var(--sky);border-radius:8px;padding:6px 16px;letter-spacing:.04em}
+    .tl-day-badge.gold{background:var(--gold);color:var(--navy)}
+    .tl-day-date{font-size:14px;font-weight:700;color:var(--text-soft)}
+    .tl-items{border-left:2px solid var(--line-mid);margin-left:10px;padding-left:26px;display:flex;flex-direction:column;gap:10px}
+    .tl-item{position:relative;background:#fff;border:1px solid var(--line-mid);border-radius:12px;padding:16px 22px;display:flex;gap:20px;align-items:baseline;box-shadow:0 4px 16px rgba(11,37,69,.04)}
+    .tl-item::before{content:'';position:absolute;left:-32px;top:22px;width:10px;height:10px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 3px var(--sky-bg)}
+    .tl-item.highlight{border-color:rgba(246,167,0,.5);background:#fffaf0}
+    .tl-item.highlight::before{background:var(--gold);box-shadow:0 0 0 3px rgba(246,167,0,.18)}
+    .tl-time{flex-shrink:0;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:14px;color:var(--sky);min-width:100px}
+    .tl-item.highlight .tl-time{color:#b07800}
+    .tl-body h4{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:4px}
+    .tl-body p{font-size:13px;color:var(--text-soft);line-height:1.7}
+    @media(max-width:600px){.tl-items{margin-left:4px;padding-left:20px}.tl-item{flex-direction:column;gap:4px;padding:14px 18px}.tl-item::before{left:-26px}}
 
     /* ===== AFTER THE CAMP ===== */
     .afterparty-card{max-width:880px;margin:56px auto 0;background:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:44px 40px;text-align:center;box-shadow:0 16px 40px rgba(246,167,0,.14)}
@@ -305,12 +303,6 @@
       .hero-manga-img{max-width:300px}
       .ticket{grid-template-columns:1fr}
       .ticket-stub::before,.ticket-stub::after{display:none}
-      .t-day{grid-template-columns:56px 1fr}
-      .t-dot{grid-column:1;width:48px;height:48px}
-      .t-dot b{font-size:16px}
-      .t-day.left .t-card,.t-day.right .t-card{grid-column:2;text-align:left}
-      .t-day.left .t-card ul{margin-left:0}
-      .timeline-track::before{left:28px}
       .speaker-grid{grid-template-columns:1fr}
     }
     @media(max-width:600px){
@@ -388,7 +380,7 @@
   <div class="wrap">
     <div class="section-head fade-up">
       <span class="eyebrow">FORMAT</span>
-      <h2>参加形式を選べます</h2>
+      <h2>9:00-18:00開催、参加形式を選べます</h2>
       <p>対面・オンラインのどちらでも、同じ内容・同じ参加費でご参加いただけます。事前の選択は不要です。当日会場にお越しいただければ対面、難しい方はオンラインでご参加いただけます。</p>
     </div>
     <div class="format-grid">
@@ -465,31 +457,45 @@
       <p>1日目はClaude Codeの初期設定から。あとはひたすら手を動かして、自分のWebサービスを作り上げます。Campが終わっても実践は続きます。</p>
     </div>
     <div class="timeline-track">
-      <div class="t-day left fade-up">
-        <div class="t-card">
-          <span class="t-date">2026年7月30日（木）</span>
-          <h3>Claude Codeの初期設定＆Webサービス制作スタート</h3>
-          <ul>
-            <li><strong>9:00-12:00</strong>Claude Codeのインストール・初期設定</li>
-            <li><strong>12:00-13:00</strong>昼休憩</li>
-            <li><strong>13:00-18:00</strong>Webサービス作り（並行してClaude Codeの便利な使い方も習得）</li>
-          </ul>
-        </div>
-        <div class="t-dot"><span>DAY</span><b>1</b></div>
-        <div></div>
+      <div class="tl-day-label fade-up">
+        <span class="tl-day-badge">DAY 1</span>
+        <span class="tl-day-date">2026年7月30日（木）</span>
       </div>
-      <div class="t-day right fade-up">
-        <div></div>
-        <div class="t-dot gold"><span>DAY</span><b>2</b></div>
-        <div class="t-card gold-card">
-          <span class="t-date" style="color:var(--gold)">2026年7月31日（金）</span>
-          <h3>Webサービス制作の続き＆壁打ちセッション</h3>
-          <ul>
-            <li><strong>9:00-10:30</strong>制作</li>
-            <li><strong>10:30-11:30</strong>堀江貴文氏・林社長 AIビジネス壁打ちセッション</li>
-            <li><strong>11:30-12:30</strong>昼休憩</li>
-            <li><strong>12:30-18:00</strong>制作</li>
-          </ul>
+      <div class="tl-items">
+        <div class="tl-item fade-up">
+          <span class="tl-time">9:00-12:00</span>
+          <div class="tl-body"><h4>Claude Codeのインストール・初期設定</h4></div>
+        </div>
+        <div class="tl-item fade-up">
+          <span class="tl-time">12:00-13:00</span>
+          <div class="tl-body"><h4>昼休憩</h4></div>
+        </div>
+        <div class="tl-item fade-up">
+          <span class="tl-time">13:00-18:00</span>
+          <div class="tl-body"><h4>Webサービス作り</h4><p>並行してClaude Codeの便利な使い方も習得します</p></div>
+        </div>
+      </div>
+
+      <div class="tl-day-label fade-up">
+        <span class="tl-day-badge gold">DAY 2</span>
+        <span class="tl-day-date">2026年7月31日（金）</span>
+      </div>
+      <div class="tl-items">
+        <div class="tl-item fade-up">
+          <span class="tl-time">9:00-10:30</span>
+          <div class="tl-body"><h4>制作</h4></div>
+        </div>
+        <div class="tl-item highlight fade-up">
+          <span class="tl-time">10:30-11:30</span>
+          <div class="tl-body"><h4>堀江貴文氏・林社長 AIビジネス壁打ちセッション</h4></div>
+        </div>
+        <div class="tl-item fade-up">
+          <span class="tl-time">11:30-12:30</span>
+          <div class="tl-body"><h4>昼休憩</h4></div>
+        </div>
+        <div class="tl-item fade-up">
+          <span class="tl-time">12:30-18:00</span>
+          <div class="tl-body"><h4>制作</h4></div>
         </div>
       </div>
     </div>
@@ -560,7 +566,7 @@
         </div>
         <div>
           <span class="stub-label">定員</span>
-          <span class="stub-cap">最大100名<small>最小催行10名</small></span>
+          <span class="stub-cap">最大100名<small>オンライン・対面合わせて／最小催行10名</small></span>
         </div>
       </div>
     </div>
@@ -662,7 +668,7 @@
       </details>
       <details>
         <summary><span class="qm">Q</span>定員は何名ですか？<span class="arrow">▾</span></summary>
-        <p class="faq-a">最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。</p>
+        <p class="faq-a">オンライン・対面あわせて最大100名までとなります。人気企画のため、定員に達し次第お申し込みを締め切らせていただきます。</p>
       </details>
       <details>
         <summary><span class="qm">Q</span>オンラインでも参加できますか？<span class="arrow">▾</span></summary>
@@ -686,7 +692,7 @@
       <a href="https://lin.ee/Qbu1lB6" class="btn btn-line btn-lg"><span class="ico">LINE</span>LINEで質問・相談する</a>
       <a href="https://buy.stripe.com/8x27sLdEk6R5cje6I3dIA1u" target="_blank" rel="noopener" class="btn btn-pay btn-lg">申し込み（カード決済） →</a>
     </div>
-    <p class="finale-note">※ 定員（最大100名）に達し次第、締め切らせていただきます。最小催行人数10名に満たない場合は開催中止となる可能性があります。</p>
+    <p class="finale-note">※ 定員（オンライン・対面あわせて最大100名）に達し次第、締め切らせていただきます。最小催行人数10名に満たない場合は開催中止となる可能性があります。</p>
   </div>
 </section>
 
