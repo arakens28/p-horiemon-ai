@@ -31,13 +31,19 @@
   <meta property="og:url" content="https://p.horiemon.ai/partner/">
   <meta property="og:title" content="業界特化AI 活用推進パートナー募集 | 各業界1社限定">
   <meta property="og:description" content="業界に知見のあるパートナー企業と組み、法人向けの「教育×コンサル×AIエージェント」を三層構造で提供。各業界1社限定で、業界課題の解決を加速します。">
-  <meta property="og:image" content="https://p.horiemon.ai/assets/img/logo.png">
+  <meta property="og:image" content="https://p.horiemon.ai/partner/head.jpg">
+  <meta property="og:image:secure_url" content="https://p.horiemon.ai/partner/head.jpg">
+  <meta property="og:image:width" content="1916">
+  <meta property="og:image:height" content="1078">
+  <meta property="og:image:alt" content="業界特化型AI 活用推進パートナー募集開始！各業界1社限定">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="ホリエモンAI学校株式会社">
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="業界特化AI 活用推進パートナー募集 | 各業界1社限定">
   <meta name="twitter:description" content="教育×コンサル×AIエージェントの三層構造で、業界課題の解決を加速するパートナーを各業界1社限定で募集します。">
+  <meta name="twitter:image" content="https://p.horiemon.ai/partner/head.jpg">
+  <meta name="twitter:image:alt" content="業界特化型AI 活用推進パートナー募集開始！各業界1社限定">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,7 +78,8 @@
         "name": "業界特化AI 活用推進パートナー募集 | 各業界1社限定 | ホリエモンAI学校",
         "description": "業界に知見のあるパートナー企業と組み、法人向けの「教育×コンサル×AIエージェント」を三層構造で提供。各業界1社限定で、業界課題の解決を加速します。",
         "inLanguage": "ja",
-        "isPartOf": { "@id": "https://p.horiemon.ai/#website" }
+        "isPartOf": { "@id": "https://p.horiemon.ai/#website" },
+        "primaryImageOfPage": "https://p.horiemon.ai/partner/head.jpg"
       },
       {
         "@type": "FAQPage",
@@ -146,37 +153,14 @@
     }
     .ai-nav-contact:hover { opacity:.9; background: var(--red) !important; color:#fff !important; }
 
-    /* ===== HERO ===== */
-    .hero { background: #fff; padding: 40px 0 56px; overflow: hidden; position: relative; }
-    .hero::before {
-      content: ''; position: absolute; top: -60px; right: -120px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(232,0,28,.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-inner { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 13px; font-weight: 700; color: var(--red);
-      background: var(--red-bg); border-radius: 99px; padding: 6px 16px; margin-bottom: 24px;
-    }
-    .hero-eyebrow .dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
-    .hero-title { font-size: clamp(30px, 4.4vw, 52px); font-weight: 900; line-height: 1.24; letter-spacing: -.03em; margin-bottom: 24px; }
-    .hero-title .accent { color: var(--red); }
+    /* ===== HERO（キービジュアル：全幅どーん） ===== */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .hero-kv { background: #fff; }
+    .hero-kv img { width: 100%; height: auto; display: block; }
+    .hero-lead { padding: 48px 0 64px; text-align: center; }
     .hero-desc { font-size: 17px; color: var(--gray-text); margin-bottom: 36px; line-height: 1.9; }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: center; }
     .hero-note { font-size: 13px; color: #aaa; margin-top: 16px; }
-
-    /* 右側：募集概要カード */
-    .overview-box { background: var(--black); border-radius: 20px; padding: 36px 32px; color: #fff; box-shadow: 0 24px 64px rgba(0,0,0,.22); }
-    .overview-box-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #888; margin-bottom: 20px; }
-    .overview-row { display: flex; align-items: center; gap: 16px; background: #252525; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
-    .overview-row:last-child { margin-bottom: 0; }
-    .overview-icon { font-size: 24px; flex-shrink: 0; }
-    .overview-text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
-    .overview-text span { font-size: 12px; color: #888; }
-    .overview-val { font-size: 20px; font-weight: 900; color: var(--red); margin-left: auto; flex-shrink: 0; white-space: nowrap; }
 
     /* ===== PROBLEMS ===== */
     .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px; }
@@ -323,57 +307,26 @@
 
 <!-- ===== 業界特化AI 活用推進パートナー募集 ランディングページ ===== -->
 
-<!-- ===== HERO ===== -->
-<section class="hero">
+<!-- ===== HERO（キービジュアル） ===== -->
+<section class="hero-kv">
+  <h1 class="sr-only">業界特化型AI 活用推進パートナー募集開始 | 各業界1社限定 | ホリエモンAI学校</h1>
+  <img src="/partner/head.jpg" width="1916" height="1078" fetchpriority="high" decoding="async"
+    alt="業界特化型AI 活用推進パートナー募集開始！各業界1社限定。AIで業界課題解決を加速。対象：各産業のDXを推進する企業様（ホリエモンAI学校）">
+</section>
+
+<!-- ===== HERO CTA ===== -->
+<section class="hero-lead">
   <div class="container">
-    <div class="hero-inner">
-      <div class="hero-content fade-up">
-        <div class="hero-eyebrow">
-          <span class="dot"></span>
-          各業界1社限定・パートナー募集開始
-        </div>
-        <h1 class="hero-title">
-          あなたの業界のAI活用を、<br>
-          <span class="accent">あなたの会社</span>と<br>
-          進めたい。
-        </h1>
-        <p class="hero-desc">
-          ホリエモンAI学校は、業界特化型AIの「活用推進パートナー」の募集を開始しました。<br>
-          業界に知見のあるパートナー企業と組み、法人向けの<strong>「教育 × コンサル × AIエージェント」</strong>を三層構造で提供。<br>
-          各業界1社限定で、業界課題の解決を加速します。
-        </p>
-        <div class="hero-actions">
-          <a href="https://horiemon.ai/contact" class="btn btn-primary btn-lg">お問い合わせフォームへ →</a>
-          <a href="#outline" class="btn btn-outline">募集要項を見る</a>
-        </div>
-        <p class="hero-note">※ すでにパートナーが決定した業界は、募集を終了する場合があります。</p>
-      </div>
-      <div class="hero-visual fade-up">
-        <div class="overview-box">
-          <div class="overview-box-label">募集概要</div>
-          <div class="overview-row">
-            <span class="overview-icon">🏢</span>
-            <div class="overview-text"><strong>募集枠</strong><span>同業界での競合なし</span></div>
-            <div class="overview-val">各業界1社</div>
-          </div>
-          <div class="overview-row">
-            <span class="overview-icon">🧩</span>
-            <div class="overview-text"><strong>提供モデル</strong><span>教育×コンサル×AIエージェント</span></div>
-            <div class="overview-val">三層構造</div>
-          </div>
-          <div class="overview-row">
-            <span class="overview-icon">🎯</span>
-            <div class="overview-text"><strong>対象</strong><span>業界知見・顧客基盤のある法人</span></div>
-            <div class="overview-val">法人</div>
-          </div>
-          <div class="overview-row">
-            <span class="overview-icon">📊</span>
-            <div class="overview-text"><strong>当社実績</strong><span>受講企業400社・受講者4,000人超</span></div>
-            <div class="overview-val">400社</div>
-          </div>
-        </div>
-      </div>
+    <p class="hero-desc fade-up">
+      ホリエモンAI学校は、業界特化型AIの「活用推進パートナー」の募集を開始しました。<br>
+      業界に知見のあるパートナー企業と組み、法人向けの<strong>「教育 × コンサル × AIエージェント」</strong>を三層構造で提供。<br>
+      各業界1社限定で、業界課題の解決を加速します。
+    </p>
+    <div class="hero-actions fade-up">
+      <a href="https://horiemon.ai/contact" class="btn btn-primary btn-lg">お問い合わせフォームへ →</a>
+      <a href="#outline" class="btn btn-outline">募集要項を見る</a>
     </div>
+    <p class="hero-note">※ すでにパートナーが決定した業界は、募集を終了する場合があります。</p>
   </div>
 </section>
 
