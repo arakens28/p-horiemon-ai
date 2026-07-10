@@ -80,8 +80,8 @@
           { "@type": "Question", "name": "どんな業界の企業が応募できますか？", "acceptedAnswer": { "@type": "Answer", "text": "建設、会計・税務、医療、不動産、製造、物流、士業など、業界を問わず募集しています。すでにパートナーが決定している業界は募集を終了している場合がありますので、まずはお気軽にご相談ください。" } },
           { "@type": "Question", "name": "「各業界1社限定」とはどういう意味ですか？", "acceptedAnswer": { "@type": "Answer", "text": "1つの業界につき、パートナーは1社のみです。同業界内での競合を避け、パートナー企業がその業界のAI活用推進を独占的なポジションで進められるようにするためです。" } },
           { "@type": "Question", "name": "AIの専門知識がなくても大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。AIの教育コンテンツ・コンサルティングノウハウ・AIエージェントの技術はホリエモンAI学校が提供します。パートナー企業に求めるのは、業界の知見と顧客基盤、そして業界課題を解決したいという意志です。" } },
-          { "@type": "Question", "name": "費用や契約条件はどうなっていますか？", "acceptedAnswer": { "@type": "Answer", "text": "業界特性や事業規模によって設計が異なるため、個別面談にてご案内しています。まずはLINEからご相談ください。" } },
-          { "@type": "Question", "name": "どうやって応募すればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "公式LINEからご相談・ご応募いただけます。ページ内の「LINEで相談する」ボタンから友だち追加のうえ、業界名と会社概要をお送りください。" } }
+          { "@type": "Question", "name": "費用や契約条件はどうなっていますか？", "acceptedAnswer": { "@type": "Answer", "text": "業界特性や事業規模によって設計が異なるため、個別面談にてご案内しています。まずはお問い合わせフォームからご相談ください。" } },
+          { "@type": "Question", "name": "どうやって応募すればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "お問い合わせフォーム（https://horiemon.ai/contact）から、業界名と会社概要をお送りください。担当者よりメールでご連絡します。" } }
         ]
       },
       {
@@ -111,7 +111,6 @@
       --gray-light: #f7f7f7;
       --gray-mid: #ebebeb;
       --gray-text: #666;
-      --line-green: #06c755;
       --radius: 12px;
       --shadow: 0 4px 24px rgba(0,0,0,.08);
       --transition: .25s ease;
@@ -137,18 +136,15 @@
       transition: var(--transition);
     }
     .btn-primary { background: var(--red); color: #fff; box-shadow: 0 6px 24px rgba(232,0,28,.3); }
-    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,0,28,.4); }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,0,28,.4); color:#fff; }
     .btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
     .btn-outline:hover { background: var(--black); color: #fff; }
-    .btn-line { background: var(--line-green); color: #fff; box-shadow: 0 6px 24px rgba(6,199,85,.3); }
-    .btn-line:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(6,199,85,.4); color:#fff; }
-    .btn-line .line-ico { font-weight: 900; background:#fff; color:var(--line-green); border-radius:5px; font-size:11px; padding:1px 6px; }
     .btn-lg { font-size: 18px; padding: 20px 56px; }
 
-    .ai-nav-line {
-      background: var(--line-green) !important; color:#fff !important; border-radius:20px !important; font-weight:700;
+    .ai-nav-contact {
+      background: var(--red) !important; color:#fff !important; border-radius:20px !important; font-weight:700;
     }
-    .ai-nav-line:hover { opacity:.9; background: var(--line-green) !important; color:#fff !important; }
+    .ai-nav-contact:hover { opacity:.9; background: var(--red) !important; color:#fff !important; }
 
     /* ===== HERO ===== */
     .hero { background: #fff; padding: 40px 0 56px; overflow: hidden; position: relative; }
@@ -191,7 +187,6 @@
     .problem-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
 
     /* ===== LAYERS（三層構造） ===== */
-    .layers { background: var(--gray-light); }
     .layer-stack { max-width: 780px; margin: 56px auto 0; }
     .layer { display: flex; align-items: center; gap: 24px; background: #fff; border: 2px solid var(--gray-mid); border-radius: 18px; padding: 32px 36px; transition: var(--transition); }
     .layer:hover { border-color: var(--red); box-shadow: 0 8px 32px rgba(232,0,28,.1); transform: translateY(-2px); }
@@ -260,8 +255,8 @@
 
     /* ===== CTA ===== */
     .cta-section { background: var(--black); padding: 96px 0; text-align: center; position: relative; overflow: hidden; }
-    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(6,199,85,.16) 0%, transparent 65%); pointer-events: none; }
-    .cta-section .section-label { display: inline-block; margin-bottom: 16px; position: relative; z-index: 1; color:#7CFAB0; background:rgba(6,199,85,.16); }
+    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(232,0,28,.18) 0%, transparent 65%); pointer-events: none; }
+    .cta-section .section-label { display: inline-block; margin-bottom: 16px; position: relative; z-index: 1; color:#ff6b7a; background:rgba(232,0,28,.16); }
     .cta-section .section-title { color: #fff; margin-bottom: 16px; position: relative; z-index: 1; }
     .cta-desc { font-size: 17px; color: #aaa; margin-bottom: 40px; position: relative; z-index: 1; }
     .cta-actions { position: relative; z-index: 1; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
@@ -284,8 +279,7 @@
     .sp-sticky-footer { display: none; }
     @media (max-width: 768px) {
       .sp-sticky-footer { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; box-shadow: 0 -2px 12px rgba(0,0,0,.15); }
-      .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 16px 4px; font-size: 15px; font-weight: 800; text-decoration: none; background: var(--line-green); color: #fff; }
-      .sp-sticky-footer .line-ico { font-weight:900; background:#fff; color:var(--line-green); border-radius:5px; font-size:11px; padding:1px 6px; }
+      .sp-sticky-footer a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 16px 4px; font-size: 15px; font-weight: 800; text-decoration: none; background: var(--red); color: #fff; }
       body { padding-bottom: 56px; }
     }
 
@@ -318,7 +312,7 @@
       <ul>
         <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
         <li><a href="#outline">募集要項</a></li>
-        <li><a href="https://lin.ee/nfy650W" class="ai-nav-line">LINEで相談</a></li>
+        <li><a href="https://horiemon.ai/contact" class="ai-nav-contact">お問い合わせ</a></li>
       </ul>
     </nav>
     <button class="ai-menu-btn" id="aiMenuBtn" aria-label="メニュー">
@@ -349,7 +343,7 @@
           各業界1社限定で、業界課題の解決を加速します。
         </p>
         <div class="hero-actions">
-          <a href="https://lin.ee/nfy650W" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで相談する →</a>
+          <a href="https://horiemon.ai/contact" class="btn btn-primary btn-lg">お問い合わせフォームへ →</a>
           <a href="#outline" class="btn btn-outline">募集要項を見る</a>
         </div>
         <p class="hero-note">※ すでにパートナーが決定した業界は、募集を終了する場合があります。</p>
@@ -412,7 +406,7 @@
 </section>
 
 <!-- ===== LAYERS（三層構造） ===== -->
-<section class="section layers" id="layers" style="background:#fff">
+<section class="section" id="layers" style="background:#fff">
   <div class="container">
     <div class="text-center fade-up">
       <span class="section-label">Model</span>
@@ -541,7 +535,7 @@
           </tbody>
         </table>
       </div>
-      <div class="outline-note fade-up">💡 「うちの業界はまだ空いているか？」だけのご確認も歓迎です。お気軽にLINEでお問い合わせください。</div>
+      <div class="outline-note fade-up">💡 「うちの業界はまだ空いているか？」だけのご確認も歓迎です。お気軽にフォームからお問い合わせください。</div>
     </div>
   </div>
 </section>
@@ -557,8 +551,8 @@
       <div class="flow-step fade-up">
         <div class="flow-num">1</div>
         <div class="flow-body">
-          <h3>LINEで相談</h3>
-          <p>公式LINEから、業界名と会社概要をお送りください。募集状況（その業界の枠が空いているか）をご回答します。</p>
+          <h3>フォームからお問い合わせ</h3>
+          <p><a href="https://horiemon.ai/contact" style="color:var(--red);font-weight:700;text-decoration:underline;">お問い合わせフォーム</a>から、業界名と会社概要をお送りください。募集状況（その業界の枠が空いているか）をメールでご回答します。</p>
         </div>
       </div>
       <div class="flow-step fade-up">
@@ -608,11 +602,11 @@
       </div>
       <div class="faq-item fade-up">
         <div class="faq-question">費用や契約条件はどうなっていますか？</div>
-        <div class="faq-answer">業界特性や事業規模によって設計が異なるため、個別面談にてご案内しています。まずはLINEからご相談ください。</div>
+        <div class="faq-answer">業界特性や事業規模によって設計が異なるため、個別面談にてご案内しています。まずはお問い合わせフォームからご相談ください。</div>
       </div>
       <div class="faq-item fade-up">
         <div class="faq-question">どうやって応募すればいいですか？</div>
-        <div class="faq-answer">公式LINEからご相談・ご応募いただけます。ページ内の「LINEで相談する」ボタンから友だち追加のうえ、業界名と会社概要をお送りください。</div>
+        <div class="faq-answer"><a href="https://horiemon.ai/contact" style="color:var(--red);font-weight:700;text-decoration:underline;">お問い合わせフォーム</a>から、業界名と会社概要をお送りください。担当者よりメールでご連絡します。</div>
       </div>
     </div>
   </div>
@@ -623,12 +617,10 @@
   <div class="container">
     <span class="section-label">Contact</span>
     <h2 class="section-title">あなたの業界の「1社」に。</h2>
-    <p class="cta-desc">ご相談・ご応募は公式LINEから。<br>業界名と会社概要をお送りいただければ、募集状況をご回答します。</p>
+    <p class="cta-desc">ご相談・ご応募はお問い合わせフォームから。<br>業界名と会社概要をお送りいただければ、募集状況をメールでご回答します。</p>
     <div class="cta-actions">
-      <a href="https://lin.ee/nfy650W" class="btn btn-line btn-lg"><span class="line-ico">LINE</span>LINEで相談する →</a>
-      <a href="#outline" class="btn btn-outline" style="color:#fff;border-color:#fff;">募集要項をもう一度見る</a>
+      <a href="https://horiemon.ai/contact" class="btn btn-primary btn-lg">お問い合わせフォームへ →</a>
     </div>
-    <p class="cta-note">※ 公式LINEの友だち追加後、メッセージにてご案内します。</p>
   </div>
 </section>
 
@@ -669,7 +661,7 @@
         <ul>
           <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
           <li><a href="#outline">募集要項</a></li>
-          <li><a href="https://lin.ee/nfy650W">LINEで相談</a></li>
+          <li><a href="https://horiemon.ai/contact">お問い合わせ</a></li>
           <li><a href="https://horiemon.ai/">運営会社サイト</a></li>
         </ul>
       </nav>
@@ -682,7 +674,7 @@
 
 <!-- ===== SP STICKY ===== -->
 <div class="sp-sticky-footer">
-  <a href="https://lin.ee/nfy650W"><span class="line-ico">LINE</span>LINEで相談する</a>
+  <a href="https://horiemon.ai/contact">お問い合わせフォームへ →</a>
 </div>
 
 <script>
@@ -709,6 +701,7 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
 </script>
 </body>
 </html>
