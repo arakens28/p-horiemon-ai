@@ -82,6 +82,25 @@
   .btn-lg { font-size: 17px; padding: 18px 48px; }
   .btn-block { width: 100%; }
 
+  /* ===== VIDEO HERO ===== */
+  .video-hero {
+    position: relative; width: 100%; height: 56vh; min-height: 420px; max-height: 640px;
+    overflow: hidden; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  }
+  .video-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .video-hero-overlay { position: absolute; inset: 0; background: rgba(8, 16, 28, .78); }
+  .video-hero-content {
+    position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 24px;
+  }
+  .video-hero-logo { height: 40px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
+  .video-hero-tagline { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .04em; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); border-radius: 99px; padding: 8px 22px; }
+  @media (max-width: 768px) {
+    .video-hero { height: 42vh; min-height: 280px; }
+    .video-hero-logo { height: 30px; }
+    .video-hero-tagline { font-size: 12.5px; padding: 7px 16px; }
+  }
+
   /* ===== STICKY CTA BAR ===== */
   .sticky-cta { position: sticky; top: 0; z-index: 300; background: #fff; border-bottom: 1px solid var(--gray-mid); box-shadow: 0 2px 12px rgba(0,0,0,.05); }
   .sticky-cta-inner { max-width: 1120px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -320,7 +339,17 @@
 </head>
 <body>
 
-<site-header></site-header>
+<!-- ===== VIDEO HERO ===== -->
+<section class="video-hero">
+  <video class="video-hero-bg" autoplay muted loop playsinline poster="/aio/img/video-poster.jpg">
+    <source src="/aio/img/hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="video-hero-overlay"></div>
+  <div class="video-hero-content">
+    <img src="/assets/img/logo.png" alt="ホリエモンAI学校" class="video-hero-logo">
+    <p class="video-hero-tagline">SEO会社様限定｜AIO事業参入支援プログラム</p>
+  </div>
+</section>
 
 <!-- ===== STICKY CTA BAR ===== -->
 <div class="sticky-cta">
@@ -828,7 +857,7 @@
       <div class="cta-card fade-up">
         <div class="cta-card-title">すぐに相談したい方</div>
         <div class="cta-card-desc">御社の現状をお伺いし、AIO展開の可能性を一緒に整理します。相談は無料です。</div>
-        <a href="#" class="btn btn-primary">30分無料相談に申し込む →</a>
+        <a href="#doc" class="btn btn-primary">30分無料相談に申し込む →</a>
       </div>
     </div>
     <p class="hero-note" style="margin-top:32px;color:#88a0b3;">※ 日程調整リンクは準備中です。担当者より折り返しご連絡いたします。</p>
@@ -860,7 +889,7 @@
 
   // ===== 資料請求フォーム =====
   // ▼送信先URLが決まったら、この DOC_FORM_ENDPOINT に設定するだけで送信が有効化されます。
-  const DOC_FORM_ENDPOINT = "";
+  const DOC_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbz_x7aDIDCGNyraHk9pGdwGvvJUHkbhycuBV9b_ueXGTLUGtNx357bWAjw3cMc00uobDA/exec";
 
   (function () {
     const form = document.getElementById('docForm');
