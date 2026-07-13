@@ -220,13 +220,32 @@
     .outline-table td { padding: 20px 24px; font-size: 15px; color: #333; line-height: 1.8; }
     .outline-note { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 24px; font-size: 14px; color: var(--gray-text); background: var(--gray-light); border-radius: 10px; padding: 14px 20px; }
 
-    /* ===== FLOW ===== */
+    /* ===== FLOW（加盟の流れ：2年間タイムライン） ===== */
     .flow { background: var(--gray-light); }
-    .flow-list { max-width: 720px; margin: 56px auto 0; }
-    .flow-step { display: flex; gap: 24px; align-items: flex-start; background: #fff; border-radius: var(--radius); padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.04); }
-    .flow-num { flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 900; font-size: 20px; display: flex; align-items: center; justify-content: center; }
-    .flow-body h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
-    .flow-body p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+    .tl-phase { max-width: 880px; margin: 0 auto 64px; }
+    .tl-phase:last-of-type { margin-bottom: 0; }
+    .tl-phase-head { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; flex-wrap: wrap; }
+    .tl-phase-badge { flex-shrink: 0; font-size: 12px; font-weight: 900; letter-spacing: .08em; color: #fff; background: var(--black); border-radius: 99px; padding: 6px 18px; }
+    .tl-phase-title { font-size: clamp(19px, 2.6vw, 26px); font-weight: 900; line-height: 1.4; }
+    .tl-list { position: relative; padding-left: 118px; }
+    .tl-list::before { content: ''; position: absolute; left: 96px; top: 12px; bottom: 12px; width: 3px; background: #ddd; border-radius: 2px; }
+    .tl-item { position: relative; background: #fff; border: 1px solid var(--gray-mid); border-radius: 14px; padding: 24px 28px; margin-bottom: 18px; box-shadow: 0 2px 12px rgba(0,0,0,.04); }
+    .tl-item::before { content: ''; position: absolute; left: -30px; top: 28px; width: 13px; height: 13px; background: var(--red); border: 3px solid var(--gray-light); border-radius: 50%; box-shadow: 0 0 0 2px var(--red); }
+    .tl-item--key { border: 2px solid var(--red); }
+    .tl-item--key h3 { color: var(--red); }
+    .tl-date { position: absolute; left: -118px; top: 24px; width: 84px; text-align: center; font-weight: 900; font-size: 14px; color: #fff; background: var(--red); border-radius: 8px; padding: 6px 0; line-height: 1.4; }
+    .tl-item--key .tl-date { background: var(--black); }
+    .tl-item h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .tl-item p { font-size: 14px; color: var(--gray-text); line-height: 1.8; }
+    .tl-note { background: #fff7e6; border: 1px solid #f0d9a0; border-radius: 12px; padding: 18px 22px; font-size: 14px; color: #6b5518; line-height: 1.9; margin: 24px 0 0; }
+    .tl-note strong { color: #4d3c0e; }
+    @media (max-width: 768px) {
+      .tl-list { padding-left: 24px; }
+      .tl-list::before { left: 4px; }
+      .tl-item { padding: 20px 20px; }
+      .tl-item::before { left: -28px; top: 24px; }
+      .tl-date { position: static; display: inline-block; width: auto; padding: 4px 16px; margin-bottom: 10px; }
+    }
 
     /* ===== FAQ ===== */
     .faq-list { margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
@@ -295,6 +314,7 @@
     <nav class="ai-nav" id="aiNav">
       <ul>
         <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
+        <li><a href="#flow">加盟の流れ</a></li>
         <li><a href="#outline">募集要項</a></li>
         <li><a href="https://horiemon.ai/contact" class="ai-nav-contact">お問い合わせ</a></li>
       </ul>
@@ -397,6 +417,145 @@
   </div>
 </section>
 
+<!-- ===== FLOW（加盟の流れ：2年間タイムライン） ===== -->
+<section class="section flow" id="flow">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Flow</span>
+      <h2 class="section-title">加盟の流れ</h2>
+      <p class="section-sub">仮に1月1日に検討を開始した場合の、2年間のモデルスケジュールです。いきなり契約ではなく、面談3回 → まず自社で受講 → それでも協業したい場合にFC契約、という順番で進みます。</p>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="tl-phase fade-up" style="margin-top:56px;">
+      <div class="tl-phase-head">
+        <span class="tl-phase-badge">STEP 1｜1〜2ヶ月目</span>
+        <h3 class="tl-phase-title">まずは30分面談から（計3回）</h3>
+      </div>
+      <div class="tl-list">
+        <div class="tl-item">
+          <div class="tl-date">1/1</div>
+          <h3>初回30分面談</h3>
+          <p>まずはWeb会議で30分話しましょう。FC協業の概要、御社の事業概要、どんな業界（エリア）の課題解決をしようとしているのか、販路がどこなのか、大枠をディスカッションさせてください。社員42名から300名程度の会社様のAI事業参入が、最も合うプランです。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">1/15</div>
+          <h3>2回目の30分面談</h3>
+          <p>社内で話し合っていただいた結果のQ&amp;Aについてお答えします。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2/1</div>
+          <h3>3回目の30分面談</h3>
+          <p>加盟に向けた最終的な流れや、解決しておきたい疑問などに対応します。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="tl-phase fade-up">
+      <div class="tl-phase-head">
+        <span class="tl-phase-badge">STEP 2｜2〜6ヶ月目</span>
+        <h3 class="tl-phase-title">まずは受講：社員全員をAI人材に</h3>
+      </div>
+      <div class="tl-list">
+        <div class="tl-item tl-item--key">
+          <div class="tl-date">2/15</div>
+          <h3>受講契約</h3>
+          <p>いきなりFC協業契約を行うことは原則としてお勧めしておりません。まずは受講となりますので、受講契約を結びます。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2/15</div>
+          <h3>助成金申請のサポート</h3>
+          <p>当社では助成金申請の支援を行なっておりませんので、ご希望の場合には、サポートを担当する社労士を紹介させていただきます。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">3/1</div>
+          <h3>計画書提出</h3>
+          <p>各都道府県労働局へ、助成金計画書を提出します。提出から1ヶ月後からの受講開始となります。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">4/1</div>
+          <h3>受講開始</h3>
+          <p>社内説明会実施（キックオフミーティング）により、非エンジニア社員全員が生成AIを使いこなせるようにスクールを進めます。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">5/1</div>
+          <h3>助成金申請</h3>
+          <p>受講2ヶ月目、社員全員が10時間以上受講すると、実際に助成金が申請可能になります。当社の方で修了者名簿の作成を行いますので、指定の書式に沿って各都道府県の労働局宛に助成金を申請ください。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">6/1</div>
+          <h3>社員がAI人材に</h3>
+          <p>受講3ヶ月目で、AIの基礎、さまざまな生成AIツール、業務自動化、と3つのコースを受講いただき、基礎が終了します。自社で実際にAIを活用した改善事例を積み重ねます。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="tl-phase fade-up">
+      <div class="tl-phase-head">
+        <span class="tl-phase-badge">STEP 3｜7〜12ヶ月目</span>
+        <h3 class="tl-phase-title">FC協業契約・開講・初受注</h3>
+      </div>
+      <div class="tl-list">
+        <div class="tl-item">
+          <div class="tl-date">7/1</div>
+          <h3>FCキックオフミーティング</h3>
+          <p>実際に3ヶ月間の社内受講を経て、それでもFC協業したいとご希望される場合には、初回面談に進みます。FC契約内容の確認、担当する領域（業種やエリア）の確認、販路や販売戦略の確認などがあります。</p>
+        </div>
+        <div class="tl-item tl-item--key">
+          <div class="tl-date">7/15</div>
+          <h3>FC協業契約</h3>
+          <p>FC協業契約書へサインいただくと公開準備を行います。LPの準備、公開プレスリリースの準備、担当者との隔週面談日程調整、営業研修や営業資料などの提供、事務手続きなどが進みます。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">8/1</div>
+          <h3>FC協業校の開講</h3>
+          <p>まずはホリエモンAI学校◯◯校として、担当する業種（エリア）の困りごとを解決するオンラインスクールを運営していただきます。法人向けが95%となります。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">9/1</div>
+          <h3>初受注</h3>
+          <p>販路に対して営業活動を開始します。初回や2回目の営業では本部スタッフもWeb会議に同行しますのでご安心ください。初受注後は、1つずつ契約の流れを確認してまいります。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">10/1</div>
+          <h3>初顧客サポート</h3>
+          <p>お客様の受講初日に社内説明会実施（キックオフミーティング）を開催します。自社で受講経験されているので、今後は逆の立場で説明する側になります。最初の3ヶ月は、3つの基礎コース。その後の9ヶ月は毎月の面談を通じて顧客課題の解決に伴走していただきます。</p>
+        </div>
+      </div>
+      <div class="tl-note">※ 以降、AI学校のオンラインスクール提供に慣れたら、1日で行うCampや、出張講演、出張研修などにも広げていただきます。</div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="tl-phase fade-up">
+      <div class="tl-phase-head">
+        <span class="tl-phase-badge">STEP 4｜2年目</span>
+        <h3 class="tl-phase-title">教育×コンサル×AIエージェントの三層構造へ</h3>
+      </div>
+      <div class="tl-list">
+        <div class="tl-item">
+          <div class="tl-date">1/1〜</div>
+          <h3>コンサルの提供開始</h3>
+          <p>AI学校は「教える」ことによって最終的に業務改善を行うのは受講企業の社員さんですが、コンサルは業務改善を私たちが行うプランです。客先にお伺いして課題の特定、AIによる解決方法の仮説、実際のAI構築まで、協業校に担当していただきます。お客様に対して、社員が業務改善するか、我々AI学校に業務改善してもらうか、どちらがいいのか選べるように提案可能になります。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2/1〜</div>
+          <h3>AIエージェントの改善・販売</h3>
+          <p>AI学校は「教える」ことで社員さんが業務を改善するプラン、コンサルは私たちが業務を改善するプラン、AIエージェントは業務改善するツールを有償で提供するプランになります。FC活動や日々の本業の中で感じている業務課題を解決するAIエージェントを作っていきますが、最初は本部で開発しているAIエージェントを業界（エリア）に合わせてカスタマイズして販売することから始まります。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">3/1〜</div>
+          <h3>AIエージェントの企画も歓迎</h3>
+          <p>本部開発AIエージェントの改善・販売を行いながら、必要に応じてAIエージェントの企画も歓迎です。「こんなAIエージェントがあれば、お客さんの課題を解決できる」と、現場から拾った業務課題をぜひ本部へお届けください。AI開発は本部で行いますのでご安心ください。</p>
+        </div>
+      </div>
+      <div class="tl-note">※ 以降、教える・コンサル・AIエージェントの三層構造で、業界特化（地域特化）の課題解決を進めてまいりましょう。</div>
+      <div class="tl-note"><strong>契約期間について：</strong>契約から2年でFC契約が終了となりますが、お互いの同意で無償延長となります。2年間で平均10万円しか売っていないなどの場合には延長をお断りしますので、年間5,000万円（2年で1億円）の売上目標に対してどの程度達成したか、確認させてください。</div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== SCHEME（役割分担） ===== -->
 <section class="section" id="scheme" style="background:var(--gray-light)">
   <div class="container">
@@ -493,46 +652,6 @@
   </div>
 </section>
 
-<!-- ===== FLOW ===== -->
-<section class="section flow" id="flow">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">Flow</span>
-      <h2 class="section-title">パートナー決定までの流れ</h2>
-    </div>
-    <div class="flow-list">
-      <div class="flow-step fade-up">
-        <div class="flow-num">1</div>
-        <div class="flow-body">
-          <h3>フォームからお問い合わせ</h3>
-          <p><a href="https://horiemon.ai/contact" style="color:var(--red);font-weight:700;text-decoration:underline;">お問い合わせフォーム</a>から、業界名と会社概要をお送りください。募集状況（その業界の枠が空いているか）をメールでご回答します。</p>
-        </div>
-      </div>
-      <div class="flow-step fade-up">
-        <div class="flow-num">2</div>
-        <div class="flow-body">
-          <h3>個別面談</h3>
-          <p>事業内容・業界課題・目指す姿をお聞かせください。当社からは提供モデルと契約条件の詳細をご説明します。</p>
-        </div>
-      </div>
-      <div class="flow-step fade-up">
-        <div class="flow-num">3</div>
-        <div class="flow-body">
-          <h3>事業設計</h3>
-          <p>業界の課題に合わせて、教育×コンサル×AIエージェントの提供内容を共同で設計します。</p>
-        </div>
-      </div>
-      <div class="flow-step fade-up">
-        <div class="flow-num">4</div>
-        <div class="flow-body">
-          <h3>パートナー契約・共同展開</h3>
-          <p>契約締結後、業界向けの共同展開をスタート。以降、その業界のパートナーは貴社1社のみです。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== FAQ ===== -->
 <section class="section" id="faq">
   <div class="container">
@@ -613,6 +732,7 @@
       <nav class="ai-footer-nav">
         <ul>
           <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
+          <li><a href="#flow">加盟の流れ</a></li>
           <li><a href="#outline">募集要項</a></li>
           <li><a href="https://horiemon.ai/contact">お問い合わせ</a></li>
           <li><a href="https://horiemon.ai/">運営会社サイト</a></li>
