@@ -39,6 +39,29 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "利用は無料ですか?",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい、診断のご利用は完全無料です。会員登録も不要です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "診断結果は受給を保証するものですか?",
+      "acceptedAnswer": { "@type": "Answer", "text": "いいえ。本診断は公開情報に基づき対象になる可能性のある制度をご案内するものであり、受給を保証するものではありません。実際の受給可否は労働局・自治体等の審査によります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "診断にはどのくらい時間がかかりますか?",
+      "acceptedAnswer": { "@type": "Answer", "text": "6〜7個の質問に答えるだけで、約1分程度で結果が表示されます。" }
+    }
+  ]
+}
+</script>
 <style>
   :root {
     --navy: #1b2a4a;
@@ -206,6 +229,15 @@
     padding: 11px 28px; border-radius: 999px; font-size: 14px; cursor: pointer;
   }
 
+  /* seo-info */
+  .seo-info { padding: 10px 0 20px; }
+  .seo-info h2 { font-size: 16px; color: var(--navy); margin-bottom: 8px; }
+  .seo-info > .container > p { font-size: 12.5px; color: var(--text-sub); margin-bottom: 18px; }
+  .seo-info h3 { font-size: 14px; color: var(--navy); margin-bottom: 8px; }
+  .faq-item { margin-bottom: 12px; }
+  .faq-item dt { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .faq-item dd { font-size: 12.5px; color: var(--text-sub); }
+
   /* disclaimer / footer */
   .disclaimer {
     background: var(--bg-soft); border-radius: 14px; padding: 16px;
@@ -297,6 +329,28 @@
       <strong>ご利用にあたっての注意</strong><br>
       本診断は、公開情報に基づき「対象になる可能性のある制度」をご案内するものであり、受給を保証するものではありません。実際の受給可否は労働局・自治体等の審査によります。制度の内容・締切は変更される場合がありますので、必ず各制度の公式情報をご確認ください。申請の際は社会保険労務士等の専門家にご相談ください。
     </div>
+  </div>
+</section>
+
+<section class="seo-info">
+  <div class="container">
+    <h2>助成金・補助金かんたん診断について</h2>
+    <p>本ツールは、AI活用やDX推進に取り組む中小企業・法人向けに、国や東京都をはじめとする道府県の助成金・補助金制度の中から、貴社が対象になる可能性のある制度を無料で診断するサービスです。人材開発支援助成金などの研修系助成金や、IT導入補助金・ものづくり補助金といった導入・開発系の補助金を含む、全国18制度のデータベースをもとに、所在地・従業員数・業種・目的から候補をご案内します。</p>
+    <h3>よくある質問</h3>
+    <dl class="faq">
+      <div class="faq-item">
+        <dt>利用は無料ですか?</dt>
+        <dd>はい、診断のご利用は完全無料です。会員登録も不要です。</dd>
+      </div>
+      <div class="faq-item">
+        <dt>診断結果は受給を保証するものですか?</dt>
+        <dd>いいえ。本診断は公開情報に基づき対象になる可能性のある制度をご案内するものであり、受給を保証するものではありません。実際の受給可否は労働局・自治体等の審査によります。</dd>
+      </div>
+      <div class="faq-item">
+        <dt>診断にはどのくらい時間がかかりますか?</dt>
+        <dd>6〜7個の質問に答えるだけで、約1分程度で結果が表示されます。</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
