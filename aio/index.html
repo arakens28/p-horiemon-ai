@@ -82,24 +82,6 @@
   .btn-lg { font-size: 17px; padding: 18px 48px; }
   .btn-block { width: 100%; }
 
-  /* ===== VIDEO HERO ===== */
-  .video-hero {
-    position: relative; width: 100%; height: 56vh; min-height: 420px; max-height: 640px;
-    overflow: hidden; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
-  }
-  .video-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .video-hero-overlay { position: absolute; inset: 0; background: rgba(8, 16, 28, .78); }
-  .video-hero-content {
-    position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; text-align: center; padding: 24px;
-  }
-  .video-hero-logo { height: 40px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
-  .video-hero-tagline { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .04em; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); border-radius: 99px; padding: 8px 22px; }
-  @media (max-width: 768px) {
-    .video-hero { height: 42vh; min-height: 280px; }
-    .video-hero-logo { height: 30px; }
-    .video-hero-tagline { font-size: 12.5px; padding: 7px 16px; }
-  }
 
   /* ===== STICKY CTA BAR ===== */
   .sticky-cta { position: sticky; top: 0; z-index: 300; background: #fff; border-bottom: 1px solid var(--gray-mid); box-shadow: 0 2px 12px rgba(0,0,0,.05); }
@@ -333,6 +315,15 @@
   .cta-card .btn { width: 100%; }
   @media (max-width: 700px) { .cta-two-col { grid-template-columns: 1fr; } }
 
+  .contact-info { margin-top: 40px; text-align: center; }
+  .contact-info-title { font-size: 13px; color: #8ea3b8; margin-bottom: 12px; }
+  .contact-info-row { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; font-size: 15px; font-weight: 700; color: #fff; }
+  .contact-info-row a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+  .contact-info-row a:hover { color: var(--yellow); }
+
+  .partner-credit { background: var(--gray-light); padding: 20px 0; text-align: center; font-size: 12.5px; color: var(--gray-text); line-height: 1.8; }
+  .partner-credit strong { color: var(--navy); }
+
   /* ===== SCROLL ANIMATION ===== */
   .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -359,25 +350,13 @@
 </head>
 <body>
 
-<!-- ===== VIDEO HERO ===== -->
-<section class="video-hero">
-  <video class="video-hero-bg" autoplay muted loop playsinline poster="/aio/img/video-poster.jpg">
-    <source src="/aio/img/hero-bg.mp4" type="video/mp4">
-  </video>
-  <div class="video-hero-overlay"></div>
-  <div class="video-hero-content">
-    <img src="/assets/img/logo.png" alt="ホリエモンAI学校" class="video-hero-logo">
-    <p class="video-hero-tagline">SEO会社様限定｜AIO事業参入支援プログラム</p>
-  </div>
-</section>
-
 <!-- ===== STICKY CTA BAR ===== -->
 <div class="sticky-cta">
   <div class="sticky-cta-inner">
     <div class="sticky-cta-msg"><span>SEO会社様限定</span>｜AIO事業参入支援プログラム</div>
     <div class="sticky-cta-actions">
       <a href="#doc" class="btn btn-outline">資料請求</a>
-      <a href="#contact" class="btn btn-primary">30分無料相談 →</a>
+      <a href="https://app.spirinc.com/t/Q6cjZse32yT9kqQH8MRWt/as/BkknZpZFL7Tk1siS76Tk8/confirm" class="btn btn-primary" target="_blank" rel="noopener">30分無料相談 →</a>
     </div>
   </div>
 </div>
@@ -395,7 +374,7 @@
           <span class="hero-badge">初期顧客は二人三脚で伴走</span>
         </div>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary btn-lg">30分無料相談に申し込む →</a>
+          <a href="https://app.spirinc.com/t/Q6cjZse32yT9kqQH8MRWt/as/BkknZpZFL7Tk1siS76Tk8/confirm" class="btn btn-primary btn-lg" target="_blank" rel="noopener">30分無料相談に申し込む →</a>
         </div>
         <p class="hero-note">※ 相談だけで終わっても構いません。無理な営業は一切行いません。</p>
       </div>
@@ -523,7 +502,7 @@
           <li>AIO展開の可能性を一緒に整理</li>
           <li>相談だけで終わってもOK・無理な営業なし</li>
         </ul>
-        <a href="#contact" class="btn btn-primary btn-block">30分無料相談はこちら →</a>
+        <a href="https://app.spirinc.com/t/Q6cjZse32yT9kqQH8MRWt/as/BkknZpZFL7Tk1siS76Tk8/confirm" class="btn btn-primary btn-block" target="_blank" rel="noopener">30分無料相談はこちら →</a>
       </div>
       <div class="mid-cta-card fade-up">
         <div class="mid-cta-card-title">まずは資料で確認したい方</div>
@@ -922,18 +901,30 @@
       <div class="cta-card fade-up">
         <div class="cta-card-title">すぐに相談したい方</div>
         <div class="cta-card-desc">御社の現状をお伺いし、AIO展開の可能性を一緒に整理します。相談は無料です。</div>
-        <a href="#doc" class="btn btn-primary">30分無料相談に申し込む →</a>
+        <a href="https://app.spirinc.com/t/Q6cjZse32yT9kqQH8MRWt/as/BkknZpZFL7Tk1siS76Tk8/confirm" class="btn btn-primary" target="_blank" rel="noopener">30分無料相談に申し込む →</a>
       </div>
     </div>
-    <p class="hero-note" style="margin-top:32px;color:#88a0b3;">※ 日程調整リンクは準備中です。担当者より折り返しご連絡いたします。</p>
+    <div class="contact-info fade-up">
+      <div class="contact-info-title">お電話・メールでのお問い合わせ</div>
+      <div class="contact-info-row">
+        <span>TEL：<a href="tel:09038989276">090-3898-9276</a></span>
+        <span>Email：<a href="mailto:kazuma@kingprotea.jp">kazuma@kingprotea.jp</a></span>
+      </div>
+    </div>
   </div>
 </section>
+
+<div class="partner-credit">
+  <div class="container">
+    本プログラムは、ホリエモンAI学校株式会社が、AIO対策の専門パートナーである<strong>株式会社キングプロテア</strong>（代表取締役 岸本 一翔）と連携して提供します。
+  </div>
+</div>
 
 <site-footer></site-footer>
 
 <div class="sp-sticky-footer">
   <a href="#doc" class="sticky-outline">資料請求</a>
-  <a href="#contact" class="sticky-primary">30分無料相談 →</a>
+  <a href="https://app.spirinc.com/t/Q6cjZse32yT9kqQH8MRWt/as/BkknZpZFL7Tk1siS76Tk8/confirm" class="sticky-primary" target="_blank" rel="noopener">30分無料相談 →</a>
 </div>
 
 <script src="/components/components.js"></script>
