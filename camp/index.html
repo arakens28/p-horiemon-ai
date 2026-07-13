@@ -1287,6 +1287,12 @@ footer{
         <div class="date-card-place">東京都</div>
         <div class="date-card-availability"></div>
       </div>
+      <div class="date-card" data-type="offline" data-date="2026-08-21">
+        <span class="date-card-type offline">🏢 対面開催</span>
+        <div class="date-card-date">8/21(金)</div>
+        <div class="date-card-place">福岡県</div>
+        <div class="date-card-availability"></div>
+      </div>
       <div class="date-card" data-type="offline" data-date="2026-08-22">
         <span class="date-card-type offline">🏢 対面開催</span>
         <div class="date-card-date">8/22(土)</div>
@@ -1611,8 +1617,6 @@ footer{
 // キー = data-date の値、値 = 残席数（0で満席表示）
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const SLOTS = {
-  '2026-07-08': 10,
-  '2026-07-11': 10,
   '2026-07-14': 10,
   '2026-07-21': 10,
   '2026-07-25': 10,
@@ -1620,6 +1624,7 @@ const SLOTS = {
   '2026-08-05': 10,
   '2026-08-08': 10,
   '2026-08-18': 10,
+  '2026-08-21': 10,
   '2026-08-22': 10,
 };
 
