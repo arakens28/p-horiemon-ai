@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>助成金・補助金 かんたん診断 | ホリエモンAI学校</title>
+<meta name="description" content="6つの質問に答えるだけで、貴社で活用できる可能性のある助成金・補助金を無料で診断します。AI研修・DX推進に使える制度もご案内。">
+<link rel="canonical" href="https://p.horiemon.ai/joseikin-shindan/">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="助成金・補助金 かんたん診断 | ホリエモンAI学校">
+<meta property="og:description" content="6つの質問に答えるだけで、貴社で活用できる可能性のある助成金・補助金を無料で診断します。AI研修・DX推進に使える制度もご案内。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://p.horiemon.ai/assets/img/logo.png">
+<meta property="og:url" content="https://p.horiemon.ai/joseikin-shindan/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="助成金・補助金 かんたん診断 | ホリエモンAI学校">
+<meta name="twitter:description" content="6つの質問に答えるだけで、貴社で活用できる可能性のある助成金・補助金を無料で診断します。">
+<meta name="twitter:image" content="https://p.horiemon.ai/assets/img/logo.png">
+<link rel="icon" href="/assets/img/logo.png" type="image/png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "助成金・補助金 かんたん診断",
+  "url": "https://p.horiemon.ai/joseikin-shindan/",
+  "description": "6つの質問に答えるだけで、貴社で活用できる可能性のある助成金・補助金を無料で診断するツールです。",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "provider": {
+    "@type": "Organization",
+    "name": "ホリエモンAI学校"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  }
+}
+</script>
+<style>
+  :root {
+    --navy: #1b2a4a;
+    --navy-light: #2e4370;
+    --gold: #b8963e;
+    --gold-light: #d9bc6f;
+    --bg: #ffffff;
+    --bg-soft: #f6f7fa;
+    --text: #26303f;
+    --text-sub: #66707f;
+    --border: #e3e7ee;
+    --danger: #b04a3a;
+    --ok: #2e7d4f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+  }
+  .container { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+
+  /* header */
+  header {
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 0;
+  }
+  header .container { display: flex; align-items: center; gap: 10px; }
+  .brand-logo {
+    background: #fff; border-radius: 8px; padding: 4px 8px;
+    display: flex; align-items: center; flex-shrink: 0;
+  }
+  .brand-logo img { height: 34px; width: auto; display: block; }
+  .brand-text { font-size: 13px; opacity: .85; }
+  .brand-text strong { display: block; font-size: 15px; opacity: 1; }
+
+  /* hero */
+  .hero { background: var(--navy); color: #fff; padding: 36px 0 44px; text-align: center; }
+  .hero h1 { font-size: 25px; line-height: 1.45; margin-bottom: 14px; }
+  .hero h1 .accent { color: var(--gold-light); }
+  .hero p { font-size: 14px; opacity: .88; margin-bottom: 24px; }
+  .hero .cta {
+    display: inline-block; background: var(--gold); color: #fff;
+    font-size: 17px; font-weight: 700; padding: 15px 40px; border-radius: 999px;
+    text-decoration: none; border: none; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .hero .cta:active { transform: scale(.97); }
+  .hero .meta { font-size: 12px; opacity: .7; margin-top: 12px; }
+
+  /* survey */
+  #survey { display: none; padding: 28px 0 60px; }
+  .progress-wrap { margin-bottom: 22px; }
+  .progress-label { font-size: 12px; color: var(--text-sub); margin-bottom: 6px; }
+  .progress-bar { height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); width: 0%; transition: width .3s; }
+
+  .q-title { font-size: 19px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .q-sub { font-size: 13px; color: var(--text-sub); margin-bottom: 18px; }
+
+  .opt-list { display: flex; flex-direction: column; gap: 10px; }
+  .opt-btn {
+    display: block; width: 100%; text-align: left;
+    background: var(--bg); border: 1.5px solid var(--border); border-radius: 12px;
+    padding: 15px 16px; font-size: 16px; color: var(--text); cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  .opt-btn:hover, .opt-btn:focus-visible { border-color: var(--gold); background: #fdfaf2; }
+  .opt-btn.selected { border-color: var(--gold); background: #fdf6e5; font-weight: 700; }
+
+  select, input[type="text"], input[type="number"] {
+    width: 100%; padding: 14px; font-size: 16px;
+    border: 1.5px solid var(--border); border-radius: 12px; background: #fff;
+    color: var(--text); appearance: none;
+  }
+  select:focus, input:focus { outline: none; border-color: var(--gold); }
+  .field + .field { margin-top: 14px; }
+  .field label { display: block; font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .field .hint { font-size: 12px; color: var(--text-sub); margin-top: 4px; }
+
+  .nav-row { display: flex; gap: 10px; margin-top: 24px; }
+  .btn {
+    flex: 1; padding: 14px; font-size: 16px; font-weight: 700;
+    border-radius: 999px; border: none; cursor: pointer;
+  }
+  .btn-back { background: var(--bg-soft); color: var(--text-sub); border: 1.5px solid var(--border); flex: 0 0 30%; }
+  .btn-next { background: var(--navy); color: #fff; }
+  .btn-next:disabled { background: #b9c0cc; cursor: not-allowed; }
+
+  /* results */
+  #results { display: none; padding: 28px 0 40px; }
+  .result-head { text-align: center; margin-bottom: 26px; }
+  .result-head .count { font-size: 15px; color: var(--text-sub); }
+  .result-head .count strong { color: var(--navy); font-size: 22px; }
+
+  .section-label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 16px; font-weight: 700; color: var(--navy);
+    margin: 30px 0 4px;
+  }
+  .section-label .bar { width: 5px; height: 20px; background: var(--gold); border-radius: 3px; }
+  .section-desc { font-size: 12.5px; color: var(--text-sub); margin-bottom: 14px; }
+
+  .ai-banner {
+    background: linear-gradient(135deg, #fdf6e5, #fbf1d8);
+    border: 1.5px solid var(--gold-light);
+    border-radius: 14px; padding: 18px 16px; margin-bottom: 16px;
+  }
+  .ai-banner .t { font-weight: 700; color: var(--navy); font-size: 15px; margin-bottom: 6px; }
+  .ai-banner p { font-size: 13.5px; margin-bottom: 12px; }
+  .ai-banner .consult-btn {
+    display: block; text-align: center; background: var(--gold); color: #fff;
+    font-weight: 700; font-size: 16px; padding: 14px; border-radius: 999px;
+    text-decoration: none;
+  }
+
+  .card {
+    border: 1.5px solid var(--border); border-radius: 14px;
+    padding: 18px 16px; margin-bottom: 12px; background: #fff;
+  }
+  .card.ai { border-color: var(--gold-light); box-shadow: 0 2px 10px rgba(184,150,62,.10); }
+  .card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .tag {
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+  }
+  .tag.area { background: var(--bg-soft); color: var(--text-sub); border: 1px solid var(--border); }
+  .tag.ai-tag { background: var(--navy); color: var(--gold-light); }
+  .tag.soon { background: #fbeae6; color: var(--danger); }
+  .tag.caution { background: #fff6e0; color: #8a6d1f; }
+  .card h3 { font-size: 16px; color: var(--navy); line-height: 1.5; margin-bottom: 10px; }
+  .card dl { font-size: 13.5px; }
+  .card dl div { display: flex; gap: 10px; padding: 5px 0; border-top: 1px dashed var(--border); }
+  .card dt { flex: 0 0 74px; color: var(--text-sub); font-weight: 700; font-size: 12.5px; padding-top: 2px; }
+  .card dd { flex: 1; }
+  .card .notes { font-size: 12px; color: var(--text-sub); margin-top: 10px; background: var(--bg-soft); border-radius: 8px; padding: 9px 11px; }
+  .card .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 8px; }
+  .card .official {
+    font-size: 13.5px; font-weight: 700; color: var(--navy);
+    text-decoration: none; border: 1.5px solid var(--navy); border-radius: 999px; padding: 8px 18px;
+  }
+  .card .checked { font-size: 11px; color: var(--text-sub); }
+
+  .ai-search-box {
+    border: 1.5px dashed var(--gold); border-radius: 14px;
+    padding: 18px 16px; margin: 16px 0; background: #fffdf7;
+    font-size: 13.5px;
+  }
+  .ai-search-box .t { font-weight: 700; color: var(--navy); margin-bottom: 6px; font-size: 14.5px; }
+  .ai-search-box .coming { color: var(--text-sub); font-size: 12.5px; }
+  .dots::after { content: ""; animation: dots 1.5s steps(4, end) infinite; }
+  @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+
+  .empty-msg {
+    text-align: center; padding: 30px 10px; color: var(--text-sub); font-size: 14px;
+    background: var(--bg-soft); border-radius: 14px;
+  }
+
+  .retry-row { text-align: center; margin-top: 28px; }
+  .retry-btn {
+    background: none; border: 1.5px solid var(--border); color: var(--text-sub);
+    padding: 11px 28px; border-radius: 999px; font-size: 14px; cursor: pointer;
+  }
+
+  /* disclaimer / footer */
+  .disclaimer {
+    background: var(--bg-soft); border-radius: 14px; padding: 16px;
+    font-size: 12px; color: var(--text-sub); margin-top: 30px; line-height: 1.8;
+  }
+  .disclaimer strong { color: var(--text); }
+  footer { background: var(--navy); color: rgba(255,255,255,.7); font-size: 11.5px; text-align: center; padding: 22px 16px; margin-top: 50px; line-height: 1.8; }
+  .footer-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .footer-links button {
+    background: transparent; border: 1px solid rgba(255,255,255,.35); color: #fff;
+    font-size: 12.5px; padding: 7px 16px; border-radius: 999px; cursor: pointer;
+  }
+  .footer-links button:hover { background: rgba(255,255,255,.1); }
+
+  /* legal modal */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(20,25,40,.55);
+    z-index: 100; padding: 24px 14px; overflow-y: auto;
+  }
+  .modal-overlay.open { display: block; }
+  .modal-box {
+    background: #fff; max-width: 640px; margin: 0 auto; border-radius: 16px;
+    padding: 26px 22px 28px; position: relative;
+  }
+  .modal-box h2 { color: var(--navy); font-size: 18px; margin-bottom: 16px; padding-right: 30px; }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px; width: 30px; height: 30px;
+    border-radius: 50%; border: none; background: var(--bg-soft); color: var(--text-sub);
+    font-size: 16px; cursor: pointer; line-height: 1;
+  }
+  .modal-body { font-size: 13.5px; color: var(--text); max-height: 65vh; overflow-y: auto; padding-right: 4px; }
+  .modal-body p { margin-bottom: 12px; }
+  .modal-body h3 { font-size: 14px; color: var(--navy); margin: 16px 0 6px; }
+  .modal-body table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .modal-body table th, .modal-body table td { text-align: left; padding: 8px 4px; border-top: 1px solid var(--border); vertical-align: top; }
+  .modal-body table th { width: 30%; color: var(--text-sub); font-weight: 700; white-space: nowrap; }
+  .modal-body a { color: var(--navy); }
+
+  @media (min-width: 480px) {
+    .hero h1 { font-size: 30px; }
+    .opt-list.grid2 { flex-direction: row; flex-wrap: wrap; }
+    .opt-list.grid2 .opt-btn { flex: 1 1 45%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand-logo"><img src="data:image/png;base64,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" alt="ホリエモンAI学校"></div>
+    <div class="brand-text"><strong>助成金・補助金 かんたん診断</strong>ホリエモンAI学校 提供</div>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="container">
+    <h1>貴社で使える<br><span class="accent">助成金・補助金</span>を<br>60秒で無料診断</h1>
+    <p>6つの質問に答えるだけ。AI研修・DX推進に活用できる<br>可能性のある制度をその場でご案内します。</p>
+    <button class="cta" id="startBtn">無料で診断をはじめる</button>
+    <div class="meta">登録不要・所要時間 約1分</div>
+  </div>
+</section>
+
+<section id="survey">
+  <div class="container">
+    <div class="progress-wrap">
+      <div class="progress-label">質問 <span id="qNum">1</span> / <span id="qTotal">7</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <div id="qArea"></div>
+    <div class="nav-row">
+      <button class="btn btn-back" id="backBtn">戻る</button>
+      <button class="btn btn-next" id="nextBtn">次へ</button>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="container">
+    <div class="result-head">
+      <h2 style="color:var(--navy); font-size:21px; margin-bottom:8px;">診断結果</h2>
+      <div class="count" id="resultCount"></div>
+    </div>
+    <div id="resultBody"></div>
+    <div class="retry-row">
+      <button class="retry-btn" id="retryBtn">条件を変えてもう一度診断する</button>
+    </div>
+    <div class="disclaimer">
+      <strong>ご利用にあたっての注意</strong><br>
+      本診断は、公開情報に基づき「対象になる可能性のある制度」をご案内するものであり、受給を保証するものではありません。実際の受給可否は労働局・自治体等の審査によります。制度の内容・締切は変更される場合がありますので、必ず各制度の公式情報をご確認ください。申請の際は社会保険労務士等の専門家にご相談ください。
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <button type="button" data-modal="company">会社概要</button>
+    <button type="button" data-modal="privacy">プライバシーポリシー</button>
+    <button type="button" data-modal="terms">利用規約</button>
+  </div>
+  ホリエモンAI学校 | 助成金・補助金 かんたん診断<br>
+  掲載情報は各制度の公式サイトをもとに作成しています。最新情報は必ず公式サイトでご確認ください。
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button type="button" class="modal-close" id="modalClose" aria-label="閉じる">✕</button>
+    <h2 id="modalTitle"></h2>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const PREFS = ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"];
+
+const INDUSTRIES = ["製造業","建設業","運輸業","卸売業","小売業","宿泊業・飲食サービス業","情報通信業","医療・福祉","教育・学習支援業","金融・保険業","不動産業","サービス業(その他)","その他"];
+
+const EMP_BANDS = [
+  { label: "5人以下", min: 1, max: 5 },
+  { label: "6〜20人", min: 6, max: 20 },
+  { label: "21〜50人", min: 21, max: 50 },
+  { label: "51〜300人", min: 51, max: 300 },
+  { label: "301人以上", min: 301, max: 99999 }
+];
+
+const answers = {
+  pref: "", city: "", empBand: null, industry: "",
+  purpose: "", approach: "", budget: "",
+  insurance: "", trainCount: ""
+};
+
+// 研修・人材育成が関係する回答かどうか
+function trainingRelevant() {
+  if (answers.purpose === "社員のAIスキルを高めたい(研修・リスキリング)") return true;
+  if (answers.purpose === "まだ決まっていない・情報収集中") return true;
+  return answers.approach === "自社の社員ができるようになりたい(内製化)"
+      || answers.approach === "両方・まだ決めていない";
+}
+
+// 回答から探すべき制度カテゴリを決める(nullなら全カテゴリ)
+function desiredCategories() {
+  const p = answers.purpose, a = answers.approach;
+  if (p === "まだ決まっていない・情報収集中") return null;
+  if (p === "社員のAIスキルを高めたい(研修・リスキリング)") return ["training"];
+  const base = p === "AIサービス・AIツールを開発したい" ? "development" : "tool_adoption";
+  if (a === "外部の専門会社に任せたい(外注)") return [base];
+  return ["training", base]; // 内製化 or 両方・未定
+}
+
+let subsidies = [];
+let step = 0;
+
+const $ = (id) => document.getElementById(id);
+
+// ---------- questions ----------
+const QUESTIONS = [
+  {
+    title: "会社の所在地を教えてください",
+    sub: "所在地の自治体独自の制度も含めてご案内するために使用します。",
+    render(area) {
+      area.innerHTML = `
+        <div class="field">
+          <label>都道府県</label>
+          <select id="prefSelect">
+            <option value="">選択してください</option>
+            ${PREFS.map(p => `<option value="${p}" ${answers.pref===p?"selected":""}>${p}</option>`).join("")}
+          </select>
+        </div>
+        <div class="field">
+          <label>市区町村</label>
+          <input type="text" id="cityInput" placeholder="例: 渋谷区、横浜市" value="${escapeHtml(answers.city)}" maxlength="20">
+          <div class="hint">市区町村独自の制度を調べるために使用します(任意)。</div>
+        </div>`;
+      $("prefSelect").addEventListener("change", validate);
+    },
+    save() {
+      answers.pref = $("prefSelect").value;
+      answers.city = $("cityInput").value.trim();
+    },
+    valid: () => $("prefSelect").value !== ""
+  },
+  {
+    title: "従業員数を教えてください",
+    sub: "正社員・パートを含むおおよその人数で構いません。",
+    render(area) {
+      area.innerHTML = `<div class="opt-list">${
+        EMP_BANDS.map((b,i) => `<button type="button" class="opt-btn ${answers.empBand===i?"selected":""}" data-i="${i}">${b.label}</button>`).join("")
+      }</div>`;
+      area.querySelectorAll(".opt-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          answers.empBand = Number(btn.dataset.i);
+          selectOnly(area, btn); validate();
+        });
+      });
+    },
+    save(){}, valid: () => answers.empBand !== null
+  },
+  {
+    title: "業種を教えてください",
+    sub: "最も近いものをお選びください。",
+    render(area) {
+      area.innerHTML = `
+        <div class="field">
+          <select id="indSelect">
+            <option value="">選択してください</option>
+            ${INDUSTRIES.map(x => `<option value="${x}" ${answers.industry===x?"selected":""}>${x}</option>`).join("")}
+          </select>
+        </div>`;
+      $("indSelect").addEventListener("change", validate);
+    },
+    save() { answers.industry = $("indSelect").value; },
+    valid: () => $("indSelect").value !== ""
+  },
+  {
+    title: "AIについて、どんなことをお考えですか?",
+    sub: "目的に合わせて、探す制度の種類を切り替えます。",
+    render(area) {
+      renderOpts(area, [
+        "AIを活用して業務を効率化・DXしたい",
+        "AIサービス・AIツールを開発したい",
+        "社員のAIスキルを高めたい(研修・リスキリング)",
+        "まだ決まっていない・情報収集中"
+      ], "purpose");
+    },
+    save() {
+      if (answers.purpose === "社員のAIスキルを高めたい(研修・リスキリング)") answers.approach = "";
+    },
+    valid: () => answers.purpose !== ""
+  },
+  {
+    title: "どのように進めたいですか?",
+    sub: "内製化なら研修系の助成金、外注なら導入・開発系の補助金が候補になります。",
+    when: () => answers.purpose !== "" && answers.purpose !== "社員のAIスキルを高めたい(研修・リスキリング)",
+    render(area) {
+      renderOpts(area, [
+        "自社の社員ができるようになりたい(内製化)",
+        "外部の専門会社に任せたい(外注)",
+        "両方・まだ決めていない"
+      ], "approach");
+    },
+    save(){}, valid: () => answers.approach !== ""
+  },
+  {
+    title: "かけられる予算はどのくらいですか?",
+    sub: "補助金・助成金は「先に支払い、後から一部が戻る」形が基本です。先に支出できる額の目安をお選びください。",
+    render(area) {
+      renderOpts(area, ["50万円未満","50万〜200万円","200万〜1,000万円","1,000万円以上","まだ決めていない"], "budget");
+    },
+    save(){}, valid: () => answers.budget !== ""
+  },
+  {
+    title: "雇用保険に加入していますか?",
+    sub: "厚生労働省の研修系助成金は、雇用保険の適用事業所であることが条件です。",
+    when: () => trainingRelevant(),
+    render(area) {
+      renderOpts(area, ["はい","いいえ","わからない"], "insurance");
+    },
+    save(){}, valid: () => answers.insurance !== ""
+  },
+  {
+    title: "研修・スキルアップさせたい人数は?",
+    sub: "おおよその予定人数で構いません。",
+    when: () => trainingRelevant(),
+    render(area) {
+      renderOpts(area, ["1〜2人","3〜5人","6〜10人","11人以上","未定"], "trainCount");
+    },
+    save(){}, valid: () => answers.trainCount !== ""
+  }
+];
+
+// 表示対象の質問(回答内容によって増減する)
+function activeQs() {
+  return QUESTIONS.filter(q => !q.when || q.when());
+}
+
+function renderOpts(area, opts, key) {
+  area.innerHTML = `<div class="opt-list">${
+    opts.map(o => `<button type="button" class="opt-btn ${answers[key]===o?"selected":""}" data-v="${o}">${o}</button>`).join("")
+  }</div>`;
+  area.querySelectorAll(".opt-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      answers[key] = btn.dataset.v;
+      selectOnly(area, btn); validate();
+    });
+  });
+}
+function selectOnly(area, btn) {
+  area.querySelectorAll(".opt-btn").forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
+}
+
+// ---------- flow ----------
+function showStep() {
+  const qs = activeQs();
+  if (step >= qs.length) step = qs.length - 1;
+  const q = qs[step];
+  $("qNum").textContent = step + 1;
+  $("qTotal").textContent = qs.length;
+  $("progressFill").style.width = ((step) / qs.length * 100) + "%";
+  const area = $("qArea");
+  area.innerHTML = `<div class="q-title">${q.title}</div><div class="q-sub">${q.sub}</div>`;
+  const body = document.createElement("div");
+  area.appendChild(body);
+  q.render(body);
+  $("backBtn").style.visibility = step === 0 ? "hidden" : "visible";
+  $("nextBtn").textContent = step === qs.length - 1 ? "診断結果を見る" : "次へ";
+  validate();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+function validate() {
+  $("nextBtn").disabled = !activeQs()[step].valid();
+}
+
+$("startBtn").addEventListener("click", () => {
+  $("hero").style.display = "none";
+  $("survey").style.display = "block";
+  step = 0; showStep();
+});
+$("backBtn").addEventListener("click", () => { if (step > 0) { step--; showStep(); } });
+$("nextBtn").addEventListener("click", () => {
+  activeQs()[step].save();
+  if (step < activeQs().length - 1) { step++; showStep(); }
+  else { showResults(); }
+});
+$("retryBtn").addEventListener("click", () => {
+  $("results").style.display = "none";
+  $("survey").style.display = "block";
+  step = 0; showStep();
+});
+
+// ---------- matching ----------
+function matchSubsidies() {
+  const band = EMP_BANDS[answers.empBand];
+  const cats = desiredCategories();
+  const matched = [];
+  for (const s of subsidies) {
+    // 地域
+    if (s.target_area !== "全国" && s.target_area !== answers.pref) continue;
+    // 従業員数(制度の上限より、選択した規模の下限が大きければ対象外)
+    if (s.requirements.employee_count_max !== null && band.min > s.requirements.employee_count_max) continue;
+    // 雇用保険(質問がスキップされた場合は「わからない」扱い)
+    let insuranceCaution = false;
+    if (s.requirements.employment_insurance) {
+      if (answers.insurance === "いいえ") continue;
+      if (answers.insurance !== "はい") insuranceCaution = true;
+    }
+    // 目的との一致(cats が null なら全カテゴリ対象)
+    const categoryMatch = !cats || (s.use_case || []).some(c => cats.includes(c));
+    matched.push({ ...s, insuranceCaution, categoryMatch });
+  }
+  return matched;
+}
+
+// 回答に応じたおすすめコメント
+function buildRecoText() {
+  const parts = [];
+  if (answers.purpose === "社員のAIスキルを高めたい(研修・リスキリング)" ||
+      answers.approach === "自社の社員ができるようになりたい(内製化)") {
+    parts.push("社内でAIを使いこなせる人材を育てたい方には、研修費の最大75%が助成される国の研修系助成金が有力な候補です。");
+  } else if (answers.purpose === "AIサービス・AIツールを開発したい") {
+    parts.push("AIサービス・ツールの開発には、開発費・システム構築費に使える補助金が候補になります。");
+  } else if (answers.purpose === "AIを活用して業務を効率化・DXしたい") {
+    parts.push("AIツール・システムの導入には、導入費の一部を補助する制度が候補になります。");
+  } else {
+    parts.push("目的が固まっていない段階でも使える可能性のある制度を、幅広くまとめました。");
+  }
+  if (answers.approach === "両方・まだ決めていない") {
+    parts.push("「研修で内製化」と「外注」のどちらの道も残せるよう、両方の制度を表示しています。");
+  }
+  if (answers.budget === "50万円未満") {
+    parts.push("ご予算50万円未満の場合は、自己負担を抑えやすい助成率の高い制度(研修系など)から検討するのがおすすめです。");
+  } else if (answers.budget === "1,000万円以上") {
+    parts.push("大型の投資をお考えの場合は、上限額の大きい補助金(ものづくり補助金・省力化投資補助金など)も選択肢に入ります。");
+  }
+  return parts.join("");
+}
+
+function deadlineSoon(s) {
+  if (!s.deadline_date) return false;
+  const d = new Date(s.deadline_date + "T23:59:59");
+  const now = new Date();
+  const days = (d - now) / 86400000;
+  return days >= 0 && days <= 60;
+}
+
+// ---------- results ----------
+function cardHTML(s) {
+  const tags = [];
+  tags.push(`<span class="tag area">${s.target_area}</span>`);
+  if (s.ai_related) tags.push(`<span class="tag ai-tag">AI研修・DXに活用可能性</span>`);
+  if (deadlineSoon(s)) tags.push(`<span class="tag soon">締切間近</span>`);
+  if (s.insuranceCaution) tags.push(`<span class="tag caution">雇用保険の加入が要件です</span>`);
+  return `
+  <div class="card ${s.ai_related ? "ai" : ""}">
+    <div class="tags">${tags.join("")}</div>
+    <h3>${escapeHtml(s.name)}</h3>
+    <dl>
+      <div><dt>管轄</dt><dd>${escapeHtml(s.authority)}</dd></div>
+      <div><dt>助成額</dt><dd>${escapeHtml(s.subsidy)}</dd></div>
+      <div><dt>締切</dt><dd>${escapeHtml(s.deadline)}</dd></div>
+    </dl>
+    ${s.notes ? `<div class="notes">${escapeHtml(s.notes)}</div>` : ""}
+    <div class="foot">
+      <a class="official" href="${escapeHtml(s.official_url)}" target="_blank" rel="noopener">公式サイトで確認</a>
+      <span class="checked">最終確認日: ${escapeHtml(s.last_checked)}</span>
+    </div>
+  </div>`;
+}
+
+function showResults() {
+  const matched = matchSubsidies();
+  // 上部: 目的に合致するAI関連制度(締切が近いものを先頭に)
+  const aiList = matched.filter(s => s.ai_related && s.categoryMatch);
+  aiList.sort((a, b) => Number(deadlineSoon(b)) - Number(deadlineSoon(a)));
+  // 下部: それ以外(目的と異なる制度も情報として表示)
+  const otherList = matched.filter(s => !(s.ai_related && s.categoryMatch));
+
+  $("survey").style.display = "none";
+  $("results").style.display = "block";
+  $("progressFill").style.width = "100%";
+
+  $("resultCount").innerHTML =
+    `${escapeHtml(answers.pref)}${answers.city ? " " + escapeHtml(answers.city) : ""}の企業さまが対象になる可能性のある制度: <strong>${matched.length}</strong>件`;
+
+  const training = trainingRelevant();
+  const ctaTitle = training
+    ? "ホリエモンAI学校の講座が助成対象になる可能性があります"
+    : "補助金を活用したAI導入・開発の進め方を無料でご相談いただけます";
+  const ctaBody = training
+    ? "どの制度が自社に合うか、申請の進め方も含めて無料でご相談いただけます。"
+    : "自社に合う制度選びから申請の流れまで、AI活用の専門スタッフが無料でアドバイスします。";
+
+  let html = "";
+
+  // おすすめコメント
+  html += `
+    <div class="ai-banner" style="background:#f6f7fa; border-color:var(--border);">
+      <div class="t" style="font-size:14px;">診断結果のポイント</div>
+      <p style="margin-bottom:0;">${buildRecoText()}</p>
+    </div>`;
+
+  // 目的に合った制度
+  html += `
+    <div class="section-label"><span class="bar"></span>ご希望に合う可能性のある制度</div>
+    <div class="section-desc">ご回答いただいた目的・進め方に合わせて絞り込んだ制度です。</div>`;
+  if (aiList.length > 0) {
+    html += aiList.map(cardHTML).join("");
+  } else {
+    html += `<div class="empty-msg">ご入力の条件では、データベース内に該当する制度が見つかりませんでした。<br>下記のAI検索や無料相談をご利用ください。</div>`;
+  }
+
+  // 診断結果にかかわらず、次の行動として無料相談を案内する
+  html += `
+    <div class="ai-banner">
+      <div class="t">${ctaTitle}</div>
+      <p>${ctaBody}</p>
+      <a class="consult-btn" href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/UoYEIj2W1OpDabCSNIvku/confirm" target="_blank" rel="noopener" id="consultLink">無料相談してみる</a>
+    </div>`;
+
+  // 自治体AI検索
+  html += `
+    <div class="ai-search-box" id="aiSearchBox">
+      <div class="t">${escapeHtml(answers.pref)}${answers.city ? " " + escapeHtml(answers.city) : ""}の自治体独自の制度をAIが検索中<span class="dots"></span></div>
+      <div class="coming">最新の自治体情報をリアルタイムに調べています。30秒〜1分ほどかかる場合があります。<br>この間も上記の制度はご覧いただけます。</div>
+    </div>`;
+
+  // その他
+  html += `
+    <div class="section-label"><span class="bar"></span>その他の制度</div>
+    <div class="section-desc">今回のご希望とは異なりますが、貴社が対象になる可能性のある制度です。</div>`;
+  html += otherList.length > 0
+    ? otherList.map(cardHTML).join("")
+    : `<div class="empty-msg">ご入力の条件では該当する制度が見つかりませんでした。</div>`;
+
+  $("resultBody").innerHTML = html;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  runLocalSearch();
+}
+
+// ---------- 自治体AI検索 ----------
+const aiSearchCache = {};
+
+async function runLocalSearch() {
+  const box = document.getElementById("aiSearchBox");
+  if (!box) return;
+  const key = `${answers.pref}|${answers.city}|${answers.industry}|${answers.empBand}|${answers.purpose}|${answers.approach}|${answers.budget}`;
+  const areaLabel = `${answers.pref}${answers.city ? " " + answers.city : ""}`;
+
+  const payload = JSON.stringify({
+    pref: answers.pref,
+    city: answers.city,
+    industry: answers.industry,
+    employeeBand: answers.empBand !== null ? EMP_BANDS[answers.empBand].label : "",
+    purpose: answers.purpose,
+    approach: answers.approach,
+    budget: answers.budget
+  });
+  const post = (url) => fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: payload
+  });
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+  try {
+    let data = aiSearchCache[key];
+    if (!data) {
+      // 1. バックグラウンドで検索を開始(すぐに応答が返る)
+      const kick = await post("/api/search-local");
+      if (!kick.ok && kick.status !== 202) throw new Error("kickoff failed");
+      // 2. 結果ができるまで数秒おきに確認(最大3分)
+      for (let i = 0; i < 60; i++) {
+        await sleep(3000);
+        const res = await post("/api/search-result");
+        if (!res.ok) throw new Error("poll failed");
+        const r = await res.json();
+        if (r.status === "done") { data = r; break; }
+        if (r.status === "error") throw new Error("search errored");
+      }
+      if (!data) throw new Error("timeout");
+      aiSearchCache[key] = data;
+    }
+
+    const programs = (data.programs || []).filter(p => p.name);
+    if (programs.length === 0) {
+      box.innerHTML = `
+        <div class="t">${areaLabel}の自治体独自の制度</div>
+        <div class="coming">現在申請できる自治体独自の制度は見つかりませんでした。制度は随時更新されるため、時期を変えて再度お試しください。</div>`;
+      return;
+    }
+
+    box.innerHTML = `
+      <div class="t">${areaLabel}の自治体独自の制度(AI検索結果)</div>
+      ${programs.map(p => `
+        <div class="card ${p.ai_related ? "ai" : ""}" style="margin-top:10px;">
+          <div class="tags">
+            <span class="tag area">自治体</span>
+            ${p.ai_related ? `<span class="tag ai-tag">AI研修・DXに活用可能性</span>` : ""}
+          </div>
+          <h3>${escapeHtml(p.name)}</h3>
+          <dl>
+            <div><dt>実施主体</dt><dd>${escapeHtml(p.authority)}</dd></div>
+            <div><dt>概要</dt><dd>${escapeHtml(p.summary)}</dd></div>
+            <div><dt>助成額</dt><dd>${escapeHtml(p.subsidy)}</dd></div>
+            <div><dt>締切</dt><dd>${escapeHtml(p.deadline)}</dd></div>
+          </dl>
+          <div class="foot">
+            ${p.official_url ? `<a class="official" href="${escapeHtml(p.official_url)}" target="_blank" rel="noopener">公式サイトで確認</a>` : "<span></span>"}
+          </div>
+        </div>`).join("")}
+      <div class="coming" style="margin-top:10px;">※AIによる検索結果のため、内容が最新でない場合があります。必ず公式サイトでご確認ください。</div>`;
+  } catch (e) {
+    box.innerHTML = `
+      <div class="t">${areaLabel}の自治体独自の制度</div>
+      <div class="coming">自治体制度のAI検索は現在ご利用いただけません。上記の制度一覧をご参照いただくか、時間をおいて再度お試しください。</div>`;
+  }
+}
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+// ---------- 会社概要・規約モーダル ----------
+const LEGAL_CONTENT = {
+  company: {
+    title: "会社概要",
+    html: `
+      <table>
+        <tr><th>会社名</th><td>ホリエモンAI学校株式会社</td></tr>
+        <tr><th>設立</th><td>2024年3月6日</td></tr>
+        <tr><th>代表取締役</th><td>荒木賢二郎</td></tr>
+        <tr><th>共同創業/取締役</th><td>堀江貴文</td></tr>
+        <tr><th>資本金</th><td>1,000,000円</td></tr>
+        <tr><th>主要株主</th><td>荒木賢二郎、HIUインベストメント株式会社、株式会社ガイアックス</td></tr>
+        <tr><th>本社</th><td>〒160-0022<br>東京都新宿区新宿4-3-15 レイフラット新宿B棟3F</td></tr>
+        <tr><th>主な業務内容</th><td>オンライン研修の運営、オンラインスクール、セミナー・講演、などAI人材育成に関する事業全般</td></tr>
+      </table>`
+  },
+  privacy: {
+    title: "プライバシーポリシー",
+    html: `
+      <p>ホリエモンAI学校株式会社(以下、「当社」といいます)が提供するサービス「ホリエモンAI学校」(以下、「本サービス」といいます)は、利用者の個人情報を保護し、適切に取り扱うことを重要視しております。当サイトでは広告の効果測定のため第三者の運営するツールから当サイトに訪れる前にクリックされている広告の情報(クリック日や広告掲載サイトなど)を取得し、ご注文の情報と照合する場合がございます。プライバシーポリシーにおいて、個人情報の取り扱いについて説明いたします。</p>
+
+      <h3>1. 個人情報の収集</h3>
+      <p>本サービスは、サービスの提供に必要な範囲で、利用者から個人情報を収集いたします。個人情報の収集は、利用者の自発的な提供によるものです。以下の情報を収集することがあります。</p>
+      <p>a) 氏名<br>b) 住所<br>c) 電話番号<br>d) メールアドレス<br>e) 生年月日<br>f) その他、利用者が自ら提供する情報</p>
+
+      <h3>2. 個人情報の利用目的</h3>
+      <p>本サービスは、収集した個人情報を以下の目的で利用いたします。</p>
+      <p>a) サービスの提供及び運営<br>b) お問い合わせ対応<br>c) 請求書の発行<br>d) メールマガジン等の情報提供<br>e) サービス向上のためのアンケート調査や分析<br>f) 利用規約違反の対応<br>g) 広告の効果測定のため</p>
+
+      <h3>3. 個人情報の管理</h3>
+      <p>本サービスは、利用者の個人情報を厳重に管理し、適切な安全対策を講じております。また、個人情報の漏洩、滅失、毀損等を防止するために、定期的な点検や改善に努めております。</p>
+
+      <h3>4. 個人情報の第三者提供</h3>
+      <p>本サービスは、利用者の個人情報を、以下の場合を除き、第三者に提供・開示・譲渡いたしません。</p>
+      <p>a) 利用者が同意した場合<br>b) 法令に基づく場合<br>c) 人の生命、身体、財産等の保護のために必要な場合で、利用者本人の同意を得ることが困難である場合<br>d) 国の機関、地方公共団体またはその委託を受けた者が、法令に定める事務を遂行することに対して協力する必要がある場合で、利用者本人の同意を得ることにより、当該事務の遂行に支障を及ぼすおそれがある場合<br>e) 個人情報保護法その他の法令で許容される場合</p>
+
+      <h3>5. 個人情報の開示・訂正・削除</h3>
+      <p>利用者が自己の個人情報について、開示・訂正・削除を希望する場合は、本サービスが定める手続きに従ってご請求いただきます。本サービスは、利用者がご本人であることを確認した上で、合理的な範囲内で速やかに対応いたします。</p>
+
+      <h3>6. クッキー(Cookie)の利用</h3>
+      <p>本サービスのウェブサイトでは、利用者の利便性向上やサービス品質の向上を目的として、クッキーを利用する場合があります。利用者は、自己の判断でブラウザの設定を変更し、クッキーの受け取りを拒否することができますが、その場合、本サービスのウェブサイトの一部機能が制限されることがあります。</p>
+
+      <h3>7. アクセスログの記録</h3>
+      <p>本サービスのウェブサイトでは、利用者のアクセス情報を記録する場合があります。アクセスログには、利用者のドメイン名・IPアドレス、アクセス日時等が含まれますが、これらの情報は個人を特定するものではありません。アクセスログは、サービスの品質向上やサイトの利用状況の分析等の目的で利用されるもので、個人情報とは一切関連付けられません。</p>
+
+      <h3>8. プライバシーポリシーの変更</h3>
+      <p>本サービスは、必要に応じて本プライバシーポリシーを改定することがあります。改定後のプライバシーポリシーは、本サービスのウェブサイト上で公開された時点から効力を発揮します。利用者は定期的に本プライバシーポリシーを確認し、変更内容を把握する責任を負います。</p>
+
+      <h3>9. お問い合わせ</h3>
+      <p>本プライバシーポリシーに関するお問い合わせは、本サービスが指定するメールアドレスやお問い合わせフォームにてお願いいたします。</p>
+
+      <p>最終更新日:2025年4月9日</p>`
+  },
+  terms: {
+    title: "利用規約",
+    html: `
+      <p>本規約は、ホリエモンAI学校株式会社(以下、「当社」といいます)が提供するサービス「ホリエモンAI学校」「ホリエモンAIの名称を使用する全ての関連サービス」(以下、「本サービス」といいます。理由の如何を問わずサービスの名称又は内容が変更された場合は、当該変更後のサービスを含みます。)を利用するお客様(以下、「利用者」といいます)に適用されます。本サービスを利用するにあたっては、以下の利用規約に同意いただく必要があります。</p>
+
+      <h3>1. 会員資格</h3>
+      <p>(1) 本サービスへの登録は、本規約を遵守することに同意したうえで、当社の定める一定の情報(以下「会員情報」という。)を当社の定める方法で当社に提供し、かつ、当社所定の方法によりクレジットカードでの決済を行うことによって申請するものとします。登録を希望される方は、個人のお申し込み画面よりお手続きをお願いいたします。クレジットカード以外の支払い方法は、当社が許可した場合に限りご利用可能です。</p>
+      <p>(2) 登録の申請は必ず本サービスを利用する個人又は法人自身が行わなければならず、原則として代理人による登録申請は認められません。また、登録希望者は、登録の申請にあたり、真実、正確かつ最新の情報を当社に提供しなければなりません。</p>
+      <p>(3) 月額費用がかかるプランの場合の契約期間、支払方法については、別途当社が定めるところに従うものとし、利用者は当該定めに従い月額費用の支払義務を負うものとし、当該プランは毎月自動で会員資格が更新となります。退会を希望される場合には、第12条の定めに従い退会処理を行ってください。</p>
+      <p>(4) 当社は、第1項に基づき登録を申請した者が、以下の各号のいずれかの事由に該当する場合は、登録を拒否することがあります。<br>
+      ①本規約に違反するおそれがあると当社が合理的に判断した場合<br>
+      ②当社に提供された会員情報の全部又は一部につき虚偽、誤記又は記載漏れがあった場合<br>
+      ③過去に本サービスの利用の登録を取り消された者である場合<br>
+      ④未成年者、成年被後見人、被保佐人又は被補助人のいずれかであり、法定代理人、後見人､保佐人又は補助人の同意等を得ていなかった場合<br>
+      ⑤反社会的勢力等(暴力団、暴力団員、暴力団準構成員、暴力団員又は暴力団準構成員でなくなった日から5年を経過しない者、暴力団関係企業、総会屋、社会運動等標ぼうゴロ、特殊知能暴力集団その他暴力、威力又は詐欺的手法を使用して経済的利益を追求する集団又は個人を意味します。以下同じ。)である、又は資金提供その他を通じて反社会的勢力等の維持、運営若しくは経営に協力若しくは関与する等反社会的勢力等との何らかの交流若しくは関与を行っていると当社が合理的に判断した場合<br>
+      ⑥その他、当社が登録を適当でないと合理的に判断した場合</p>
+      <p>(5) 当社は、前項その他当社の基準に従って、登録希望者の登録の可否を判断し、当社が登録を認める場合にはその旨を登録希望者に通知します。かかる通知により登録希望者の本サービスの利用者としての登録は完了し、本規約の諸規定に従った本サービスの利用にかかる契約(以下「利用契約」といいます。)が利用者と当社の間に成立します。</p>
+
+      <h3>2. キャンセル及び返金について</h3>
+      <p>当社による故意又は重過失による場合を除き、いかなる理由であってもキャンセルや返金はできません。予めご了承ください。特に決済後のクーポン適用希望による差額返金にはお応えすることはできません。</p>
+      <p>重複決済が認められる場合には、重複した2回目の決済につきまして手数料実費を差し引いた上で返金を行います。</p>
+
+      <h3>3. 会員情報</h3>
+      <p>利用者は、本サービスの会員登録時に正確かつ最新の情報を提供するものとします。また、情報が変更された場合は速やかに更新する必要があります。</p>
+
+      <h3>4. プライバシーポリシー</h3>
+      <p>本サービスは、利用者の個人情報を適切に取り扱います。当サイトでは広告の効果測定のため第三者の運営するツールから当サイトに訪れる前にクリックされている広告の情報(クリック日や広告掲載サイトなど)を取得し、ご注文の情報と照合する場合があることについて、利用者は予め同意するものとします。詳細については、本サービスのプライバシーポリシーをご参照ください。</p>
+
+      <h3>5. 禁止事項</h3>
+      <p>(1) 本サービスが提供するコンテンツや教材の著作権は、当社又は第三者に帰属します。利用者は、著作権法によって認められる範囲を超えて、複製、転載、譲渡、販売、出版、翻訳、改変等を行ってはならないものとします。本サービス契約時アンケートの内容やサポート中の発言など、利用者の投稿内容につきましても当社は必要に応じて無償で宣伝等に使用できることとします。但し、個人情報に関する情報につきましては、プライバシーポリシーに従うものとします。</p>
+      <p>(2) 利用者は、本サービスの利用に関して、以下の行為を行わないものとします。<br>
+      ①虚偽、不完全、不正確な情報を掲載する行為<br>
+      ②本規約又は本サービスの利用目的に反する行為<br>
+      ③本サービスの運営を妨げる行為、犯罪行為に結びつく行為、公序良俗に反する行為<br>
+      ④当社又はその他の第三者を誹謗中傷する行為、又はその名誉若しくは信用を毀損する行為、又は毀損するおそれのある行為<br>
+      ⑤第三者への受講アカウント共有行為<br>
+      ⑥当社又は当社にライセンスを許諾している者の知的財産権を侵害するおそれのある行為(逆アセンブル、逆コンパイル、リバースエンジニアリングを含みますが、これに限定されません。)その他当社又は第三者の権利を侵害するおそれのある行為<br>
+      ⑦コンピューター・ウイルスその他の有害なコンピューター・プログラムを含む情報を送信する行為<br>
+      ⑧本サービスで知り得た情報を利用して本サービスと類似のサービスを営む行為<br>
+      ⑨その他当社において、利用者への本サービスの提供を継続することが不適切であると合理的に判断する行為</p>
+
+      <h3>6. アカウント情報の管理</h3>
+      <p>(1) 利用者は、自己の責任において、本サービスにかかるユーザーID及びパスワード(以下「アカウント情報」といいます。)を管理及び保管するものとし、これを第三者に利用させたり、貸与、譲渡、名義変更、売買等をしてはならないものとします。</p>
+      <p>(2) アカウント情報の管理不十分、使用上の過誤、第三者の使用等による損害の責任は利用者が負うものとします。</p>
+      <p>(3) 利用者は、アカウント情報が盗まれ、又は第三者に使用されていることが判明した場合には、直ちにその旨を当社に通知するとともに、当社からの指示に従うものとします。</p>
+
+      <h3>7. 免責事項</h3>
+      <p>(1)当社は、利用者が本サービスのコンテンツや教材を利用した結果について、内容の正確性、適法性、完全性について一切保証いたしません。</p>
+      <p>(2)当社は、以下のいずれかに該当する場合には、本サービスの利用の全部又は一部を停止又は中断することができるものとします。この場合において、当社は利用者に対して、できる限り事前に通知するよう努めるものとします。<br>
+      ①本サービスに係るコンピューター・システムの点検又は保守作業を定期的又は緊急に行う場合<br>
+      ②コンピューター、通信回線等が事故により停止した場合<br>
+      ③火災、停電、天災地変等の不可抗力により本サービスの運営ができなくなった場合<br>
+      ④その他、当社が本サービスの停止又は中断を必要と合理的に判断した場合</p>
+      <p>(3)当社は、本条により利用者に生じた不利益、損害について、当社の責めに帰すべき事由に起因する場合を除き、責任を負いません。</p>
+
+      <h3>8. 解除</h3>
+      <p>当社は、利用者に次の各号に掲げる事由の一が生じたときには、何らの催告なく、直ちに利用契約の全部又は一部を解除することができます。</p>
+      <p>①本規約に関し、利用者による違反又は背信行為があったとき<br>
+      ②支払停止若しくは支払不能となり、又は破産手続開始、民事再生手続開始、会社更生手続開始、特別清算手続開始若しくはこれらに類する手続の開始の申立てがあったとき<br>
+      ③差押、仮差押、仮処分、強制執行又は競売の申立てがあった場合又はその他公権力の処分を受けたとき<br>
+      ④租税公課の滞納処分を受けたとき<br>
+      ⑤金融機関から取引停止の処分を受けたとき<br>
+      ⑥財産状態が悪化し又は悪化するおそれがあると認められる相当の事由があるとき<br>
+      ⑦刑法上の犯罪行為、その他法令・公序良俗に反する行為が認められたとき<br>
+      ⑧死亡したとき<br>
+      ⑨相手からの信頼を著しく損なうような背信的行為があったとき<br>
+      ⑩その他、利用契約を継続し難い重大な事由が生じたとき</p>
+
+      <h3>9. 損害賠償</h3>
+      <p>(1)利用者に発生した損害に関する当社の賠償責任は、当社に故意又は重過失がある場合を除き、利用者が直接被った通常損害で、かつ、利用者が損害発生の直近1か月以内に支払った利用料金(但し、年間の利用料金のプランを利用している利用者については直近支払った1年間分の利用料金とする。)を上限とする金額に限定されるものとします。</p>
+      <p>(2)利用者は、本規約に違反することにより、又は本サービスの利用に関連して当社に損害を与えた場合、当社に対しその損害を賠償しなければなりません。</p>
+
+      <h3>10. 有効期間</h3>
+      <p>利用契約は、利用者について第1条に基づく登録が完了した日に効力を生じ、当該利用者の登録が取り消された日又は本サービスの提供が終了した日のいずれか早い日まで、当社と利用者との間で有効に存続するものとします。</p>
+
+      <h3>11. 地位の譲渡禁止</h3>
+      <p>(1) 利用者は、当社の書面による事前の承諾なく、本サービス利用契約上の地位及びそれに基づく権利若しくは義務の全部又は一部につき、第三者に対し、譲渡、移転、担保設定、その他の処分をすることはできません。</p>
+      <p>(2) 当社は本サービスにかかる事業を第三者に譲渡(事業譲渡、会社分割その他態様の如何を問わないものとします。)した場合には、当該譲渡に伴い利用契約上の地位、本規約に基づく権利及び義務並びに利用者の会員情報その他の顧客情報を当該譲渡の譲受人に譲渡することができるものとし、利用者は、かかる譲渡につき本項において予め同意したものとします。</p>
+
+      <h3>12. 退会</h3>
+      <p>利用者が本サービスから退会を希望する場合は、3営業日前までに本サービスの定める退会手続を行ってください。ただし、退会後も既にお支払いいただいた料金の返金はいたしませんので、ご注意ください。</p>
+      <p>(例)10/31(木)退会の場合、10/28(月)までにご連絡ください。</p>
+
+      <h3>13. 連絡方法</h3>
+      <p>本サービスへのお問い合わせやご連絡は、本サービスが指定するメールアドレスやお問い合わせフォームにて行ってください。</p>
+
+      <h3>14. 規約の変更</h3>
+      <p>(1)当社は、当社が必要と判断する場合、利用者の承諾を得て、本規約の内容を変更又は追加できるものとします。ただし、次の各号の一に該当する場合、利用者の承諾があったものとみなすことができるものとします。<br>
+      ①当該変更又は追加が、利用者の一般の利益に適合するとき。<br>
+      ②当該変更又は追加が、本規約を締結した目的に反せず、かつ、必要性、内容の相当性、その他の当該変更又は追加に係る事情に照らして合理的なものであるとき。</p>
+      <p>(2)当社は、前項の変更又は追加を行うときは、変更後の本規約の効力発生時期を定め、効力発生時期の2週間前までに、その旨及び当該変更又は追加の内容並びにその効力発生時期をインターネットその他の適切な方法により周知するものとします。</p>
+      <p>(3)前二項の規定にかかわらず、前項の本規約の変更の周知後に利用者が本サービスを利用した場合、当該利用者は本規約の変更に同意したものとします。</p>
+
+      <h3>15. 存続規定</h3>
+      <p>第2条、第5条、第6条、第7条第1項及び第3項、第9条、第10条、第12条但書、本条及び第16条の規定は利用契約の終了後も有効に存続するものとします。</p>
+
+      <h3>16. 適用法及び管轄裁判所</h3>
+      <p>(1)本規約の解釈にあたっては、日本の法令に準拠するものとします。また、本サービスに関して生じた紛争については、日本の東京地方裁判所を専属的管轄裁判所とします。</p>
+      <p>(2)本規約に定める内容の他、本サービスの内容は、当社のウェブサイトに記載された内容が適用されます。</p>
+
+      <h3>17. AI学校各種サービスに関する特約</h3>
+      <p>ホリエモンAI学校が提供する各種サービスについては、本規約に加え、当社が各サービスごとに別途定める利用規約が適用されます。</p>
+      <p>1日Camp利用規約:<a href="https://p.horiemon.ai/camp/terms.html" target="_blank" rel="noopener">https://p.horiemon.ai/camp/terms.html</a></p>
+
+      <p>最終更新日:2026年7月1日</p>`
+  }
+};
+
+function openLegalModal(key) {
+  const c = LEGAL_CONTENT[key];
+  if (!c) return;
+  $("modalTitle").textContent = c.title;
+  $("modalBody").innerHTML = c.html;
+  $("modalOverlay").classList.add("open");
+  $("modalBody").scrollTop = 0;
+}
+function closeLegalModal() {
+  $("modalOverlay").classList.remove("open");
+}
+document.querySelectorAll("[data-modal]").forEach(btn => {
+  btn.addEventListener("click", () => openLegalModal(btn.dataset.modal));
+});
+$("modalClose").addEventListener("click", closeLegalModal);
+$("modalOverlay").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) closeLegalModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeLegalModal();
+});
+
+// ---------- init ----------
+fetch("data/subsidies.json", { cache: "no-store" })
+  .then(r => r.json())
+  .then(data => { subsidies = data.subsidies; })
+  .catch(() => {
+    $("startBtn").addEventListener("click", () => {
+      alert("データの読み込みに失敗しました。時間をおいて再度お試しください。");
+    }, { once: true });
+  });
+</script>
+</body>
+</html>

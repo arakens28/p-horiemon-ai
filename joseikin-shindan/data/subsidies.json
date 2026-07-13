@@ -1,0 +1,450 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "last_updated": "2026-07-10",
+    "description": "助成金・補助金 自動診断ツール用データベース(初期版)。国の制度+東京都・主要道府県の制度。",
+    "regional_note": "道府県の制度は北海道・埼玉・神奈川・愛知・大阪・福岡を収録(2026-07-10時点)。その他の地域および市区町村の制度はAIリアルタイム検索でカバーする。大阪府中小企業従業員人材育成支援補助金(リスキリング支援補助金)は令和7年度で終了したため未収録。",
+    "disclaimer": "掲載情報は作成時点の公式サイト等の確認に基づく概要です。実際の受給可否は労働局・自治体等の審査によります。申請の際は必ず公式サイトの最新情報を確認し、社会保険労務士等の専門家にご相談ください。",
+    "excluded_note": "人材開発支援助成金の建設労働者認定訓練コース・建設労働者技能実習コース・障害者職業能力開発コースは業種・対象が特化しているため初期版では未収録。",
+    "use_case_note": "use_case: training=研修・人材育成 / tool_adoption=ツール・システム導入 / development=製品・サービス開発"
+  },
+  "subsidies": [
+    {
+      "id": "jinkai-reskilling",
+      "name": "人材開発支援助成金(事業展開等リスキリング支援コース)",
+      "authority": "厚生労働省",
+      "target_area": "全国",
+      "requirements": {
+        "employee_count": "制限なし(中小企業は助成率優遇。中小企業の定義は中小企業基本法に準拠)",
+        "employee_count_max": null,
+        "industries": "全業種",
+        "employment_insurance": true,
+        "target_workers": "雇用保険被保険者(正社員・非正規とも可。パート等も被保険者であれば対象)"
+      },
+      "subsidy": "経費助成: 中小企業75%・大企業60% / 賃金助成: 中小企業1,000円・大企業500円(1人1時間あたり) / 1事業所1年度あたり上限1億円",
+      "subsidy_max_hint": "研修費の最大75%",
+      "deadline": "通年(訓練開始日の1か月前までに訓練計画届を提出)。※令和8年度(2027年3月)末で終了予定の時限措置",
+      "deadline_date": "2027-03-31",
+      "official_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html",
+      "ai_related": true,
+      "notes": "企業内DX・GX化や新規事業進出に伴う訓練が対象で、AI研修・DX研修の代表的な活用先。令和8年4月8日改正で設備投資加算(導入費用の50%、1人15万円・10人以上150万円)が新設。eラーニング・通信制訓練の経費助成上限は一律15万円(中小企業)に見直し。賃金助成単価など細部は申請前に最新の支給要領で要確認。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "training"
+      ]
+    },
+    {
+      "id": "jinkai-hito-toushi",
+      "name": "人材開発支援助成金(人への投資促進コース)",
+      "authority": "厚生労働省",
+      "target_area": "全国",
+      "requirements": {
+        "employee_count": "制限なし(中小企業は助成率優遇)",
+        "employee_count_max": null,
+        "industries": "全業種",
+        "employment_insurance": true,
+        "target_workers": "雇用保険被保険者(訓練メニューにより正社員限定のものあり・要確認)"
+      },
+      "subsidy": "高度デジタル人材訓練: 経費助成 中小企業75%・大企業60%、賃金助成 中小企業960円/時 / 定額制訓練(サブスク型eラーニング): 経費助成 中小企業60%・大企業45% など訓練メニューにより異なる",
+      "subsidy_max_hint": "研修費の最大75%(高度デジタル人材訓練)",
+      "deadline": "通年(訓練開始日の1か月前までに訓練計画届を提出)。※令和8年度(2027年3月)末で終了予定の時限措置",
+      "deadline_date": "2027-03-31",
+      "official_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html",
+      "ai_related": true,
+      "notes": "ITSSレベル3〜4相当の高度IT・AI訓練やサブスク型eラーニングが対象。令和8年4月8日改正で新規採用助成・職務代行助成が追加。メニューごとの助成率・上限は公式パンフレットで要確認。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "training"
+      ]
+    },
+    {
+      "id": "jinkai-ikusei",
+      "name": "人材開発支援助成金(人材育成支援コース)",
+      "authority": "厚生労働省",
+      "target_area": "全国",
+      "requirements": {
+        "employee_count": "制限なし(中小企業は助成率優遇)",
+        "employee_count_max": null,
+        "industries": "全業種",
+        "employment_insurance": true,
+        "target_workers": "雇用保険被保険者(正社員向けの人材育成訓練のほか、非正規向けの認定実習併用職業訓練・有期実習型訓練あり)"
+      },
+      "subsidy": "人材育成訓練: 経費助成 中小企業45%・大企業30%(非正規対象は70%等の優遇あり)、賃金助成 中小企業800円/時・大企業400円/時",
+      "subsidy_max_hint": "研修費の45%〜70%",
+      "deadline": "通年(訓練開始日の1か月前までに訓練計画届を提出)",
+      "deadline_date": null,
+      "official_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html",
+      "ai_related": true,
+      "notes": "10時間以上の職務に関連した訓練が広く対象で、AI研修も職務関連性があれば活用可能。恒久コースのためリスキリング支援コース終了後の受け皿になり得る。令和8年4月8日改正で中高年齢者実習型訓練を新設。助成率の詳細区分は要確認。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "training"
+      ]
+    },
+    {
+      "id": "jinkai-kyouiku-kyuka",
+      "name": "人材開発支援助成金(教育訓練休暇等付与コース)",
+      "authority": "厚生労働省",
+      "target_area": "全国",
+      "requirements": {
+        "employee_count": "制限なし",
+        "employee_count_max": null,
+        "industries": "全業種",
+        "employment_insurance": true,
+        "target_workers": "雇用保険被保険者"
+      },
+      "subsidy": "有給の教育訓練休暇制度を導入・適用した場合に定額助成(制度導入・適用で30万円等)※金額は要確認",
+      "subsidy_max_hint": "定額30万円程度(要確認)",
+      "deadline": "通年(制度導入前に計画届の提出が必要)",
+      "deadline_date": null,
+      "official_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html",
+      "ai_related": false,
+      "notes": "従業員が自発的に学ぶための有給休暇制度の導入を支援。研修費用そのものではなく制度導入への助成。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "training"
+      ]
+    },
+    {
+      "id": "digital-ai-dounyuu-hojo",
+      "name": "デジタル化・AI導入補助金2026(旧IT導入補助金)",
+      "authority": "経済産業省(中小企業庁・中小企業基盤整備機構)",
+      "target_area": "全国",
+      "requirements": {
+        "employee_count": "中小企業・小規模事業者等(中小企業基本法の定義。例: 製造業は資本金3億円以下または従業員300人以下)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a(ツール導入への補助のため従業員要件なし)"
+      },
+      "subsidy": "通常枠: 補助率1/2以内・上限450万円 / インボイス枠・セキュリティ対策推進枠あり / 複数者連携枠は補助率最大4/5",
+      "subsidy_max_hint": "最大450万円(通常枠)",
+      "deadline": "通常枠・インボイス枠・セキュリティ対策推進枠 第1〜3次締切: 2026年7月21日17:00 / 複数者連携枠 第1〜2次締切: 2026年8月25日17:00(以降の締切は順次公表)",
+      "deadline_date": "2026-07-21",
+      "official_url": "https://it-shien.smrj.go.jp/",
+      "ai_related": true,
+      "notes": "2026年度からIT導入補助金が「デジタル化・AI導入補助金」に改称され、AI搭載ツールの導入支援が強化された。対象は事務局登録済みのITツールに限られる点に注意。枠ごとの補助率・上限は公式サイトで要確認。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption"
+      ]
+    },
+    {
+      "id": "monodukuri-hojo",
+      "name": "ものづくり・商業・サービス生産性向上促進補助金(ものづくり補助金)",
+      "authority": "経済産業省(中小企業庁)",
+      "target_area": "全国",
+      "requirements": {
+        "employee_count": "中小企業・小規模事業者等(中小企業基本法の定義)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a"
+      },
+      "subsidy": "通常類型: 上限750万円(従業員5人以下)〜2,500万円(51人以上)、補助率 中小企業1/2・小規模事業者2/3(賃上げ特例・成長分野進出類型で引上げあり)",
+      "subsidy_max_hint": "最大2,500万円(通常類型)",
+      "deadline": "第23次公募は2026年5月8日で締切済。次回(第24次)は「新事業進出・ものづくり補助金」への統合が予定されており、公募時期は要確認",
+      "deadline_date": null,
+      "official_url": "https://portal.monodukuri-hojo.jp/",
+      "ai_related": true,
+      "notes": "革新的な製品・サービス開発や生産プロセス改善のための設備投資・システム構築費が対象で、AIを活用したシステム開発にも活用例あり。制度統合の動きがあるため次回公募の条件は必ず公式サイトで要確認。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "development",
+        "tool_adoption"
+      ]
+    },
+    {
+      "id": "jizokuka-hojo",
+      "name": "小規模事業者持続化補助金(一般型)",
+      "authority": "経済産業省(中小企業庁・商工会議所/商工会)",
+      "target_area": "全国",
+      "requirements": {
+        "employee_count": "小規模事業者(商業・サービス業は常時使用する従業員5人以下、製造業その他は20人以下)",
+        "employee_count_max": 20,
+        "industries": "全業種(小規模事業者の定義に該当すること)",
+        "employment_insurance": false,
+        "target_workers": "n/a"
+      },
+      "subsidy": "上限50万円・補助率2/3(赤字事業者は3/4)。インボイス特例+50万円、賃金引上げ特例+150万円で最大250万円",
+      "subsidy_max_hint": "最大250万円(特例適用時)",
+      "deadline": "第20回公募: 申請受付 2026年11月5日〜12月15日17:00(様式4発行締切は12月4日)",
+      "deadline_date": "2026-12-15",
+      "official_url": "https://www.chusho.meti.go.jp/keiei/shokibo/jizoku/",
+      "ai_related": false,
+      "notes": "販路開拓・業務効率化の取組が対象。ウェブサイト関連費は補助対象経費の1/4が上限などの制約あり。商工会議所/商工会の支援(様式4)が必要。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption"
+      ]
+    },
+    {
+      "id": "shoryokuka-hojo",
+      "name": "中小企業省力化投資補助金",
+      "authority": "経済産業省(中小企業庁・中小企業基盤整備機構)",
+      "target_area": "全国",
+      "requirements": {
+        "employee_count": "中小企業・小規模事業者等(中小企業基本法の定義)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a"
+      },
+      "subsidy": "カタログ注文型: 上限最大1,500万円 / 一般型: 従業員規模別に750万〜8,000万円(大幅賃上げ特例で最大1億円)、補助率 中小企業1/2(賃上げで2/3)・小規模事業者2/3",
+      "subsidy_max_hint": "最大1,500万円(カタログ型)〜1億円(一般型特例)",
+      "deadline": "カタログ注文型: 随時受付(2027年3月末頃まで見込み) / 一般型: 第7回 2026年7月31日17:00締切",
+      "deadline_date": "2026-07-31",
+      "official_url": "https://shoryokuka.smrj.go.jp/",
+      "ai_related": true,
+      "notes": "人手不足解消のためのAI・ロボット等の省力化製品・システム導入が対象。カタログ注文型は事務局登録済み製品から選ぶ方式。一般型はオーダーメイドのシステム開発も対象になり得る。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption"
+      ]
+    },
+    {
+      "id": "tokyo-dx-reskilling",
+      "name": "DXリスキリング助成金(令和8年度)",
+      "authority": "東京都(公益財団法人東京しごと財団)",
+      "target_area": "東京都",
+      "requirements": {
+        "employee_count": "都内中小企業等(業種別定義: 小売業・飲食業は資本金5,000万円以下または従業員50人以下、その他は資本金3億円以下または従業員300人以下 等)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "申請企業の従業員(総研修時間の8割以上を受講した者)。雇用保険要件は募集要項で要確認"
+      },
+      "subsidy": "助成対象経費の3/4(上限75,000円/受講者1人1研修)、1社あたり年間上限100万円(上限まで複数回申請可)",
+      "subsidy_max_hint": "研修費の3/4・年間最大100万円",
+      "deadline": "受付期間: 2026年3月1日〜2027年2月28日(研修開始予定日の1か月前までに申請。予算上限あり)",
+      "deadline_date": "2027-02-28",
+      "official_url": "https://www.koyokankyo.shigotozaidan.or.jp/jigyo/skillup/skill-R8dx-risk.html",
+      "ai_related": true,
+      "notes": "自社のDX推進に必要な知識・技能の研修が対象で、AI研修は典型的な活用先。対象は3時間以上10時間未満の集合研修またはeラーニング(要件は募集要項で要確認)。都税未納・重大法令違反がないこと等の要件あり。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "training"
+      ]
+    },
+    {
+      "id": "tokyo-jigyogai-skillup",
+      "name": "事業外スキルアップ助成金(令和8年度)",
+      "authority": "東京都(公益財団法人東京しごと財団)",
+      "target_area": "東京都",
+      "requirements": {
+        "employee_count": "都内中小企業等(業種別定義)・小規模企業等(小売業・飲食業は従業員5人以下、その他は20人以下で助成率優遇)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "申請企業の従業員(短時間労働者の扱いは募集要項で要確認)"
+      },
+      "subsidy": "小規模企業者: 経費の2/3、中小企業等: 経費の1/2(いずれも上限25,000円/受講者1人1研修)、1社あたり上限150万円(複数回申請可)",
+      "subsidy_max_hint": "研修費の1/2〜2/3・年間最大150万円",
+      "deadline": "受付期間: 2026年3月1日〜2027年2月28日(研修開始予定日の1か月前までに申請。予算上限あり)",
+      "deadline_date": "2027-02-28",
+      "official_url": "https://www.koyokankyo.shigotozaidan.or.jp/jigyo/skillup/skill-R8jigyogai.html",
+      "ai_related": true,
+      "notes": "教育機関が実施する既存の「公開研修」の受講が対象(自社向けにカスタマイズされた研修は対象外)。外部スクールのAI公開講座の受講に活用できる可能性がある。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "training"
+      ]
+    },
+    {
+      "id": "tokyo-jigyonai-skillup",
+      "name": "事業内スキルアップ助成金(令和8年度)",
+      "authority": "東京都(公益財団法人東京しごと財団)",
+      "target_area": "東京都",
+      "requirements": {
+        "employee_count": "都内中小企業等(業種別定義)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "申請企業の従業員"
+      },
+      "subsidy": "自社で企画した研修(講師招へい等)の経費の一部を助成。助成率・上限額は募集要項で要確認(参考: 令和7年度は経費の1/2・上限100万円)",
+      "subsidy_max_hint": "要確認(前年度実績: 1/2・上限100万円)",
+      "deadline": "受付期間・締切は募集要項で要確認(例年、研修開始1か月前までの事前申請)",
+      "deadline_date": null,
+      "official_url": "https://www.koyokankyo.shigotozaidan.or.jp/jigyo/skillup/boshu/skill-R8jigyonai.html",
+      "ai_related": true,
+      "notes": "自社向けにカスタマイズした社内研修(講師を招いてのAI研修等)に活用できる可能性がある。令和8年度の助成率・上限は未確認のため申請前に必ず募集要項を確認。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "training"
+      ]
+    },
+    {
+      "id": "tokyo-dx-total-support",
+      "name": "DX推進トータルサポート事業(助成金)",
+      "authority": "東京都(東京都中小企業振興公社)",
+      "target_area": "東京都",
+      "requirements": {
+        "employee_count": "都内に主たる事業所をおく中小企業者等",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a(ツール・システム導入への助成)"
+      },
+      "subsidy": "DX推進コース: 上限5,000万円 / AI活用コース: 上限3,000万円 / 生産性向上コース: 上限2,000万円(いずれも助成率3/4以内、小規模企業4/5以内)",
+      "subsidy_max_hint": "最大3,000万円(AI活用コース)",
+      "deadline": "令和8年度第1回募集(2026年4月6日〜5月8日)は締切済。次回募集の有無・時期は要確認",
+      "deadline_date": null,
+      "official_url": "https://www.metro.tokyo.lg.jp/information/press/2026/03/2026033061",
+      "ai_related": true,
+      "notes": "令和8年度に新設された事業。アドバイザー派遣とAI・デジタル技術導入費の助成を一体で提供。募集は期間限定のため、公社サイトでの次回募集情報の確認が必須。official_urlは都のプレスリリース(公社の事業ページURLは要確認)。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption",
+        "development"
+      ]
+    },
+    {
+      "id": "hokkaido-digital-dounyuu",
+      "name": "中小・小規模企業デジタル技術導入等緊急支援事業費補助金",
+      "authority": "北海道(経済部地域経済局中小企業課)",
+      "target_area": "北海道",
+      "requirements": {
+        "employee_count": "道内の中小企業・小規模企業",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a(デジタル技術導入への補助)"
+      },
+      "subsidy": "補助率1/2以内または3/4以内、上限200万円または300万円(区分により異なる)",
+      "subsidy_max_hint": "最大300万円",
+      "deadline": "募集期間・現在の受付状況は公式ページで要確認",
+      "deadline_date": null,
+      "official_url": "https://www.pref.hokkaido.lg.jp/kz/csk/213220.html",
+      "ai_related": true,
+      "notes": "エネルギー価格高騰等の影響を受ける中小・小規模企業の生産性向上のためのデジタル技術導入を支援。補助率・上限の区分、今年度の募集状況は申請前に必ず公式で要確認。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption"
+      ]
+    },
+    {
+      "id": "saitama-shoryokuka",
+      "name": "埼玉県中小企業省力化支援事業補助金",
+      "authority": "埼玉県",
+      "target_area": "埼玉県",
+      "requirements": {
+        "employee_count": "県内中小企業等(人手不足の状態にあること、または賃上げを実施することが要件)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a(省力化設備導入への補助)"
+      },
+      "subsidy": "補助額15万〜1,000万円(賃上げ要件該当時は1,200万円)、補助率2/3以内(賃上げ要件該当時は4/5以内)",
+      "subsidy_max_hint": "最大1,200万円",
+      "deadline": "2026年5月25日受付開始(締切は公式ページで要確認。専門家派遣は受付終了)",
+      "deadline_date": null,
+      "official_url": "https://www.pref.saitama.lg.jp/a0805/shoryokuka/index.html",
+      "ai_related": false,
+      "notes": "省力化製品カテゴリリスト掲載機器の新規導入、または専門家カルテに基づく設備更新が対象。公式ページに「DXツールは補助対象外」と明記されているため、AIソフトウェア導入には国のデジタル化・AI導入補助金等を検討。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption"
+      ]
+    },
+    {
+      "id": "kanagawa-shokibo-digital",
+      "name": "神奈川県小規模事業者デジタル化支援推進事業費補助金(令和8年度)",
+      "authority": "神奈川県",
+      "target_area": "神奈川県",
+      "requirements": {
+        "employee_count": "県内に事業所を有する小規模事業者(商業・サービス業は従業員5人以下、製造業その他は20人以下)および要件を満たすNPO法人",
+        "employee_count_max": 20,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a(デジタルツール導入への補助)"
+      },
+      "subsidy": "補助率2/3以内、上限50万円(ホームページ作成・更新は上限10万円、PC・タブレット等は合計上限10万円)",
+      "subsidy_max_hint": "最大50万円",
+      "deadline": "受付期間: 2026年4月15日〜9月30日17:00(先着順・予算額に達し次第終了)",
+      "deadline_date": "2026-09-30",
+      "official_url": "https://www.pref.kanagawa.jp/docs/m2w/shokibo_digital/r8.html",
+      "ai_related": true,
+      "notes": "デジタル技術の活用による業務効率化が対象で、AIツール等のソフトウェア導入も活用できる可能性がある。先着順のため早めの申請が有利。令和7年度の採択率は高水準との情報あり。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption"
+      ]
+    },
+    {
+      "id": "aichi-digital-dx",
+      "name": "中小企業デジタル化・DX促進補助金(令和8年度)",
+      "authority": "愛知県(あいち産業振興機構)",
+      "target_area": "愛知県",
+      "requirements": {
+        "employee_count": "県内に事業所を有する中小企業・小規模企業者(あいち産業DX推進コンソーシアムへの加入が必須)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a(デジタルツール導入・システム構築への補助)"
+      },
+      "subsidy": "補助率: 中小企業1/2以内・小規模企業者2/3以内、上限200万円",
+      "subsidy_max_hint": "最大200万円",
+      "deadline": "令和8年度公募(2026年3月6日〜5月12日)は終了。次回募集は要確認",
+      "deadline_date": null,
+      "official_url": "https://dx-hojo.aibsc.jp/",
+      "ai_related": true,
+      "notes": "デジタルツール導入・既存システム改修・新規システム開発等が対象。従業員の研修費用は対象外のため、AI研修には国の人材開発支援助成金を検討。例年春に公募のため次年度募集に注目。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption",
+        "development"
+      ]
+    },
+    {
+      "id": "osaka-riekiritsu-chinage",
+      "name": "利益率向上・賃上げ支援事業(令和8年度)",
+      "authority": "大阪府",
+      "target_area": "大阪府",
+      "requirements": {
+        "employee_count": "府内で事業を行う中小企業・個人事業主(1年後に給与支給総額2.0%以上の引上げを宣言することが要件)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a"
+      },
+      "subsidy": "補助率2/3以内、上限500万円",
+      "subsidy_max_hint": "最大500万円",
+      "deadline": "令和8年度募集(2026年5月25日〜6月26日)は終了。追加募集の有無は要確認",
+      "deadline_date": null,
+      "official_url": "https://www.pref.osaka.lg.jp/o110050/keieishien/rieki/riekiritur8.html",
+      "ai_related": true,
+      "notes": "システム構築費・研修費・専門家経費等が補助対象に含まれており、AIシステム導入やAI研修にも活用できる可能性がある。賃上げ宣言が必須要件。※大阪府の中小企業従業員人材育成支援補助金(リスキリング支援補助金)は令和7年度で終了。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "training",
+        "tool_adoption",
+        "development"
+      ]
+    },
+    {
+      "id": "fukuoka-seisansei-chinage",
+      "name": "福岡県中小企業生産性向上・賃上げ緊急支援補助金",
+      "authority": "福岡県",
+      "target_area": "福岡県",
+      "requirements": {
+        "employee_count": "県内中小企業等(福岡県中小企業「稼ぐ力」応援センターの支援を受けていることが要件)",
+        "employee_count_max": 300,
+        "industries": "全業種",
+        "employment_insurance": false,
+        "target_workers": "n/a(省力化・生産性向上投資への補助)"
+      },
+      "subsidy": "補助率・上限額は募集回により異なるため公募要領で要確認(民間情報では最大2,250万円との記載あり・未検証)",
+      "subsidy_max_hint": "要確認",
+      "deadline": "第6次募集締切: 2026年8月17日正午必着(補助対象は2027年2月15日までに完了見込みの事業)",
+      "deadline_date": "2026-08-17",
+      "official_url": "https://www.pref.fukuoka.lg.jp/contents/productivity-improvement-subsidy-2025-26.html",
+      "ai_related": true,
+      "notes": "省力化等による生産性向上と賃上げを支援。申請には県の「稼ぐ力」応援センターの事前支援が必要なため、まずセンターへの相談から始める必要がある。補助率・上限は公募要領で要確認。",
+      "last_checked": "2026-07-10",
+      "use_case": [
+        "tool_adoption"
+      ]
+    }
+  ]
+}
