@@ -402,11 +402,26 @@
     .contact-section .section-label { display: inline-block; margin-bottom: 16px; color:#ff6b7a; background:rgba(232,0,28,.16); }
     .contact-section .section-title { color: #fff; margin-bottom: 16px; }
     .contact-section .cta-desc { font-size: 17px; color: #aaa; }
-    .contact-wrapper { position: relative; z-index: 1; max-width: 720px; margin: 44px auto 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 24px 64px rgba(0,0,0,.3); }
-    .contact-title { font-size: 18px; font-weight: 800; text-align: center; margin: 12px 0 4px; color: var(--black); }
-    .contact-sub { font-size: 13px; color: var(--gray-text); text-align: center; margin-bottom: 8px; }
-    .contact-frame { width: 100%; border: none; display: block; min-height: 1500px; border-radius: 10px; }
+    .contact-wrapper { position: relative; z-index: 1; max-width: 640px; margin: 44px auto 0; background: #fff; border-radius: 18px; padding: 36px 36px 32px; box-shadow: 0 24px 64px rgba(0,0,0,.3); }
+    .contact-title { font-size: 20px; font-weight: 800; text-align: center; margin: 0 0 4px; color: var(--black); }
+    .contact-sub { font-size: 13px; color: var(--gray-text); text-align: center; margin-bottom: 24px; }
     .contact-note { position: relative; z-index: 1; text-align: center; font-size: 13px; color: #777; margin-top: 24px; }
+    /* form */
+    .contact-form { text-align: left; }
+    .cf-row { margin-bottom: 18px; }
+    .cf-row.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cf-label { display: block; font-size: 13px; font-weight: 700; color: var(--black); margin-bottom: 7px; }
+    .cf-label .req { color: var(--red); font-size: 11px; margin-left: 6px; }
+    .cf-label .opt { color: #aaa; font-size: 11px; margin-left: 6px; font-weight: 500; }
+    .cf-input, .cf-select, .cf-textarea { width: 100%; font-family: inherit; font-size: 15px; color: var(--black); background: #fff; border: 1.5px solid var(--gray-mid); border-radius: 10px; padding: 13px 14px; transition: var(--transition); }
+    .cf-input:focus, .cf-select:focus, .cf-textarea:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(232,0,28,.12); }
+    .cf-textarea { min-height: 130px; resize: vertical; line-height: 1.7; }
+    .cf-honey { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .cf-submit { width: 100%; margin-top: 4px; }
+    .cf-privacy { font-size: 12px; color: var(--gray-text); text-align: center; margin-top: 14px; line-height: 1.7; }
+    .cf-status { display: none; border-radius: 10px; padding: 16px; font-size: 14px; font-weight: 700; text-align: center; margin-top: 16px; }
+    .cf-status.ok { display: block; background: #eafaf0; color: #06a548; border: 1px solid #b6ecc9; }
+    .cf-status.err { display: block; background: var(--red-bg); color: var(--red); border: 1px solid #ffd0d6; }
 
     /* ===== SCROLL ANIMATION ===== */
     .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
@@ -434,6 +449,8 @@
     @media (max-width: 600px) {
       .plan-lecture { grid-template-columns: 1fr; gap: 16px; text-align: center; }
       .plan-lecture .l-price { text-align: center; }
+      .cf-row.two { grid-template-columns: 1fr; gap: 18px; }
+      .contact-wrapper { padding: 28px 22px; }
     }
     @media (max-width: 560px) {
       .plans-grid, .plans-grid.cols3 { grid-template-columns: 1fr; max-width: 420px; }
@@ -1159,12 +1176,60 @@
     <div class="contact-wrapper">
       <h3 class="contact-title">無料相談・お問い合わせ</h3>
       <p class="contact-sub">内容を確認後、担当者より2営業日以内にご返信いたします。</p>
-      <iframe class="contact-frame"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdR7MWMfrlICJUJrG_REL2JlZBHBMvZo_hCWXUBNM2MWKNIQQ/viewform?embedded=true"
-        height="1500" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" title="出張AI研修 お問い合わせフォーム"
-      >読み込んでいます…</iframe>
+      <form id="inquiryForm" class="contact-form" action="https://formsubmit.co/ux@telewor.com" method="POST" novalidate>
+        <!-- FormSubmit 設定 -->
+        <input type="hidden" name="_subject" value="【出張AI研修】お問い合わせがありました">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://p.horiemon.ai/ken/?sent=1">
+        <!-- ボット対策（人には見えません） -->
+        <input type="text" name="_honey" class="cf-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="cf-row two">
+          <div>
+            <label class="cf-label" for="cf-company">会社・団体名<span class="req">必須</span></label>
+            <input class="cf-input" id="cf-company" name="会社・団体名" type="text" required placeholder="例）ホリエモンAI学校株式会社">
+          </div>
+          <div>
+            <label class="cf-label" for="cf-name">お名前<span class="req">必須</span></label>
+            <input class="cf-input" id="cf-name" name="お名前" type="text" required placeholder="例）荒木 賢二郎">
+          </div>
+        </div>
+
+        <div class="cf-row two">
+          <div>
+            <label class="cf-label" for="cf-email">メールアドレス<span class="req">必須</span></label>
+            <input class="cf-input" id="cf-email" name="email" type="email" required placeholder="例）info@example.com">
+          </div>
+          <div>
+            <label class="cf-label" for="cf-tel">電話番号<span class="opt">任意</span></label>
+            <input class="cf-input" id="cf-tel" name="電話番号" type="tel" placeholder="例）03-1234-5678">
+          </div>
+        </div>
+
+        <div class="cf-row">
+          <label class="cf-label" for="cf-plan">ご興味のあるメニュー<span class="opt">任意</span></label>
+          <select class="cf-select" id="cf-plan" name="ご興味のあるメニュー">
+            <option value="未定・相談したい">未定・まずは相談したい</option>
+            <option value="出張講演（90分）">出張講演（90分）</option>
+            <option value="集中研修（4時間）">集中研修（4時間）</option>
+            <option value="連続研修（90分×5回）">連続研修（90分×5回）</option>
+            <option value="1日Camp研修">1日Camp研修</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <div class="cf-row">
+          <label class="cf-label" for="cf-message">ご相談内容<span class="req">必須</span></label>
+          <textarea class="cf-textarea" id="cf-message" name="ご相談内容" required placeholder="対象者（例：管理職15名）／ご希望の時期／開催地／ご予算感など、わかる範囲でお書きください。"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg cf-submit">無料で相談する →</button>
+        <p class="cf-privacy">送信いただいた内容は、お問い合わせ対応の目的にのみ利用します。</p>
+      </form>
+      <div id="cfStatus" class="cf-status" role="status" aria-live="polite"></div>
     </div>
-    <p class="contact-note">※ フォームが表示されない場合は、時間をおいて再度お試しください。</p>
+    <p class="contact-note">※ フォームが使えない場合は、<a href="mailto:ux@telewor.com" style="color:#aaa;text-decoration:underline;">ux@telewor.com</a> まで直接ご連絡ください。</p>
   </div>
 </section>
 
@@ -1245,6 +1310,46 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // お問い合わせフォーム（AJAX送信・画面遷移なし）
+  const form = document.getElementById('inquiryForm');
+  const cfStatus = document.getElementById('cfStatus');
+  const showOk = () => {
+    cfStatus.className = 'cf-status ok';
+    cfStatus.textContent = '送信しました。担当者より2営業日以内にご連絡いたします。ありがとうございました。';
+  };
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (form.querySelector('[name="_honey"]').value) return; // ボット
+      const btn = form.querySelector('.cf-submit');
+      const label = btn.textContent;
+      btn.disabled = true; btn.textContent = '送信中…';
+      cfStatus.className = 'cf-status';
+      try {
+        const data = Object.fromEntries(new FormData(form).entries());
+        const res = await fetch('https://formsubmit.co/ajax/ux@telewor.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error('bad status');
+        form.reset();
+        showOk();
+      } catch (err) {
+        cfStatus.className = 'cf-status err';
+        cfStatus.innerHTML = '送信に失敗しました。お手数ですが <a href="mailto:ux@telewor.com" style="color:inherit;text-decoration:underline;">ux@telewor.com</a> まで直接ご連絡ください。';
+      } finally {
+        btn.disabled = false; btn.textContent = label;
+        cfStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+  // JSなしフォールバック（_next）で戻ってきた場合の完了表示
+  if (cfStatus && new URLSearchParams(location.search).get('sent') === '1') {
+    showOk();
+    document.getElementById('contact').scrollIntoView();
+  }
 </script>
 </body>
 </html>
