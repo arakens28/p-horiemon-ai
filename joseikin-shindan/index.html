@@ -757,7 +757,9 @@ async function runLocalSearch() {
     approach: answers.approach,
     budget: answers.budget
   });
-  const post = (url) => fetch(url, {
+  // AI検索用のバックエンドは別Cloudflare Worker(GitHub PagesはFunctionsを実行できないため)
+  const API_BASE = "https://joseikin-shindan-api.ryoseiworld.workers.dev";
+  const post = (path) => fetch(API_BASE + path, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: payload

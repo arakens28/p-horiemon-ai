@@ -1,0 +1,7 @@
+name = "joseikin-shindan-api"
+main = "src/index.mjs"
+compatibility_date = "2026-07-01"
+
+[[kv_namespaces]]
+binding = "SEARCH_RESULTS"
+id = "8510b5d99779438da9e0f0bf99da8723"
