@@ -1,9 +1,0 @@
-{
-  "name": "p-horiemon-ai",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.93.0",
-    "@netlify/blobs": "^10.7.9"
-  }
-}

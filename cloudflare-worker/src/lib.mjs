@@ -1,19 +1,9 @@
-import { createHash } from "node:crypto";
-
-// GitHub Pages側(p.horiemon.ai)からのクロスオリジン呼び出しを許可する。
-const ALLOWED_ORIGIN = "https://p.horiemon.ai";
-export function corsHeaders() {
-  return {
-    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-  };
-}
-
 // 検索条件からキャッシュ用のキーを作る(同じ条件なら同じキー)
-export function cacheKey(p) {
+export async function cacheKey(p) {
   const raw = [p.pref, p.city, p.industry, p.employeeBand, p.purpose, p.approach, p.budget].join("|");
-  return createHash("sha256").update(raw, "utf8").digest("hex").slice(0, 40);
+  const data = new TextEncoder().encode(raw);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 40);
 }
 
 export function normalizeParams(body) {
@@ -93,4 +83,20 @@ export function sanitize(programs) {
       official_url: /^https?:\/\//.test(p.official_url || "") ? p.official_url : null,
       ai_related: Boolean(p.ai_related),
     }));
+}
+
+const ALLOWED_ORIGIN = "https://p.horiemon.ai";
+export function corsHeaders() {
+  return {
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+export function json(data, init = {}) {
+  return new Response(JSON.stringify(data), {
+    ...init,
+    headers: { "Content-Type": "application/json", ...corsHeaders(), ...(init.headers || {}) },
+  });
 }
