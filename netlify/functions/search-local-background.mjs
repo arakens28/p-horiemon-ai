@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { getStore } from "@netlify/blobs";
-import { cacheKey, normalizeParams, buildPrompt, extractJson, sanitize } from "./lib/common.mjs";
+import { cacheKey, normalizeParams, buildPrompt, extractJson, sanitize, corsHeaders } from "./lib/common.mjs";
 
 // バックグラウンド関数(ファイル名が -background で終わると最大15分実行できる)。
 // 検索結果は Netlify Blobs に保存し、/api/search-result が取り出す。
@@ -12,6 +12,9 @@ const CACHE_DAYS = 7; // 同じ条件の検索結果を使い回す日数
 const client = new Anthropic();
 
 export default async (req) => {
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers: corsHeaders() });
+  }
   let body;
   try {
     body = await req.json();
@@ -88,7 +91,7 @@ export default async (req) => {
 // background を明示し、旧来のファイル名規則にも依存しない設定にする。
 export const config = {
   background: true,
-  method: "POST",
+  method: ["POST", "OPTIONS"],
   path: "/api/search-local",
   rateLimit: {
     windowLimit: 5,

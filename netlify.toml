@@ -8,3 +8,19 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+# 助成金診断ツール(p.horiemon.ai、別ホスティング)からのクロスオリジン呼び出し用。
+# search-local はバックグラウンド関数のためコード内ヘッダーが自動202応答に反映されず、CDNレベルで付与する。
+[[headers]]
+  for = "/api/search-local"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://p.horiemon.ai"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"
+
+[[headers]]
+  for = "/api/search-result"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://p.horiemon.ai"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"

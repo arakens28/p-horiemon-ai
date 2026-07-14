@@ -757,9 +757,19 @@ async function runLocalSearch() {
     approach: answers.approach,
     budget: answers.budget
   });
-  const post = (url) => fetch(url, {
+  // AI検索用のバックエンドは別Netlifyサイト(GitHub PagesはFunctionsを実行できないため)
+  const API_BASE = "https://joseikin-shindan-api.netlify.app";
+  const post = (path) => fetch(API_BASE + path, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    body: payload
+  });
+  // kickoffはバックグラウンド関数の性質上レスポンスにCORSヘッダーが付与できないため、
+  // プリフライト不要な形式(text/plainのsimple request)でno-cors送信する(結果はpollingで別途取得)。
+  const kickoff = (path) => fetch(API_BASE + path, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
     body: payload
   });
   const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -767,9 +777,8 @@ async function runLocalSearch() {
   try {
     let data = aiSearchCache[key];
     if (!data) {
-      // 1. バックグラウンドで検索を開始(すぐに応答が返る)
-      const kick = await post("/api/search-local");
-      if (!kick.ok && kick.status !== 202) throw new Error("kickoff failed");
+      // 1. バックグラウンドで検索を開始(すぐに応答が返る。no-corsのため成否はネットワークエラーのみで判定)
+      await kickoff("/api/search-local");
       // 2. 結果ができるまで数秒おきに確認(最大3分)
       for (let i = 0; i < 60; i++) {
         await sleep(3000);

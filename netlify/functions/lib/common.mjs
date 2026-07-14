@@ -1,5 +1,15 @@
 import { createHash } from "node:crypto";
 
+// GitHub Pages側(p.horiemon.ai)からのクロスオリジン呼び出しを許可する。
+const ALLOWED_ORIGIN = "https://p.horiemon.ai";
+export function corsHeaders() {
+  return {
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
 // 検索条件からキャッシュ用のキーを作る(同じ条件なら同じキー)
 export function cacheKey(p) {
   const raw = [p.pref, p.city, p.industry, p.employeeBand, p.purpose, p.approach, p.budget].join("|");
