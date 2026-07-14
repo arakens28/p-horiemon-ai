@@ -277,6 +277,15 @@
   .proof-shot-mock .q { color: #ffcb3d; font-weight: 700; margin-bottom: 8px; }
   @media (max-width: 768px) { .proof-grid { grid-template-columns: 1fr; } }
 
+  /* ===== MEDIA (YouTube) ===== */
+  .media-section { background: var(--gray-light); }
+  .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+  .media-card { background: #fff; border-radius: 16px; padding: 16px; box-shadow: var(--shadow); }
+  .media-embed { position: relative; width: 100%; padding-top: 56.25%; border-radius: 10px; overflow: hidden; background: #000; }
+  .media-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .media-caption { font-size: 13px; color: var(--gray-text); line-height: 1.8; margin-top: 14px; }
+  @media (max-width: 800px) { .media-grid { grid-template-columns: 1fr; } }
+
   /* ===== FOUNDER MESSAGE ===== */
   .founder-msg { background: var(--navy-dark); }
   .founder-msg .section-title { color: #fff; }
@@ -734,6 +743,31 @@
           <div class="q">Q. 「ホリエモンAI学校とは？」とGeminiに質問</div>
           <div>A. ホリエモンAI学校株式会社は、企業向けにAI教育・研修を提供する会社です……</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEDIA (AI版令和の虎) ===== -->
+<section class="section media-section" id="media">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">メディア掲載</span>
+      <h2 class="section-title">「AI版令和の虎」に出演しました</h2>
+      <p class="section-sub">AIO対策パートナーの岸本一翔が、全国のSEO会社をAIO会社へ進化させるプランをプレゼンしました。</p>
+    </div>
+    <div class="media-grid">
+      <div class="media-card fade-up">
+        <div class="media-embed">
+          <iframe src="https://www.youtube.com/embed/8dYtYgj3Fr8" title="【前編】全国のSEO会社をAIO会社へ進化させたい【岸本一翔】AI版令和の虎" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <p class="media-caption">【前編】「独自のノウハウがある」自信溢れるFラン大学生が頭脳派集団に挑む…全国のSEO会社をAIO会社へ進化させたい【岸本 一翔】AI版令和の虎</p>
+      </div>
+      <div class="media-card fade-up">
+        <div class="media-embed">
+          <iframe src="https://www.youtube.com/embed/pPv9YpTvW1o" title="【後編】全国のSEO会社をAIO会社へ進化させたい【岸本一翔】AI版令和の虎" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <p class="media-caption">【後編】Fラン大学生が堀江を批判…一体何が。全国のSEO会社をAIO会社へ進化させたい【岸本 一翔】AI版令和の虎</p>
       </div>
     </div>
   </div>
