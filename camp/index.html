@@ -797,6 +797,10 @@ footer{
   .hero h1{font-size:1.85rem;}
   .hero-stats-grid{grid-template-columns:1fr 1fr;}
 }
+@media(max-width:760px){
+  .support-grid{grid-template-columns:1fr!important;}
+  .support-grid img{max-width:360px;margin:0 auto;}
+}
 </style>
 </head>
 <body>
@@ -1414,13 +1418,15 @@ footer{
       Camp参加後、継続サポートに入ると学びが止まりません。<br/>
       動画・再受講・副業機会まで、まるごとサポートします。
     </p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;max-width:900px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;max-width:900px;margin:0 auto;" class="support-grid">
       <div>
-        <img src="/camp/support.png" alt="継続サポート" style="width:100%;border-radius:16px;">
+        <img src="/camp/support.png" alt="継続サポート" style="width:100%;border-radius:16px;display:block;">
       </div>
       <div style="background:#fff;border:2px solid var(--orange);border-radius:20px;padding:2rem;position:relative;">
         <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--orange),var(--orange-light));color:#fff;font-size:.72rem;font-weight:900;padding:.35rem 1rem;border-radius:14px;letter-spacing:.08em;white-space:nowrap;">MONTHLY SUPPORT</div>
         <div style="text-align:center;margin-bottom:1.5rem;">
+          <div style="background:#fff3e0;border:1.5px solid var(--orange);border-radius:8px;padding:.35rem .8rem;font-size:.75rem;font-weight:900;color:var(--orange-dark);margin-bottom:.6rem;display:inline-block;">⚠️ Camp参加者だけの特典です</div>
+          <div style="font-weight:900;font-size:1rem;margin-bottom:.15rem;color:var(--text-soft);">Camp後のアフターサポート</div>
           <div style="font-weight:900;font-size:1.1rem;margin-bottom:.3rem;">ホリエモンAI学校 個人プラン</div>
           <div style="color:var(--muted);font-size:.78rem;text-decoration:line-through;margin-bottom:.2rem;">入学金 ¥162,800 → Camp参加者は無料</div>
           <div style="font-family:'Inter',sans-serif;font-weight:900;font-size:2.8rem;color:var(--orange-dark);line-height:1;letter-spacing:-.02em;">¥14,800</div>
