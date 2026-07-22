@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTWDCX4J34"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VTWDCX4J34');
+  </script>
+
+  <title>決済システム切り替えのお知らせ｜ホリエモンAI学校</title>
+  <meta name="description" content="クレジットカード決済システム切り替えに伴う一時メンテナンスのご案内（2026年7月22日〜7月25日）。銀行振込でのお申込みは通常どおり受け付けています。">
+  <meta name="author" content="ホリエモンAI学校株式会社">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#1a56db">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://p.horiemon.ai/kessai/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/common.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body.kessai-page {
+      font-family: 'Noto Sans JP', sans-serif; color: #1a1a1a; background: #fff;
+      line-height: 1.75; font-size: 16px; font-feature-settings: "palt";
+      padding-top: 0; /* common.cssのグローバルpadding-topを上書き（ページ専用ヘッダーのため） */
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ::selection { background: var(--blue); color: #fff; }
+
+    :root {
+      --blue: #1a56db;
+      --blue-dark: #1544ad;
+      --blue-bg: #eaf1fe;
+      --green: #16a34a;
+      --green-bg: #eafaf0;
+      --black: #1a1a1a;
+      --gray-light: #f5f7fa;
+      --gray-mid: #e2e8f0;
+      --gray-text: #5b6472;
+      --radius: 12px;
+      --transition: .2s ease;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    .icon-wrap {
+      width: 40px; height: 40px; border-radius: 12px; background: var(--blue-bg);
+      display: flex; align-items: center; justify-content: center; color: var(--blue);
+      flex-shrink: 0;
+    }
+    .icon-wrap.green { background: var(--green-bg); color: var(--green); }
+    .icon-wrap svg { width: 20px; height: 20px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; font-family: inherit; font-weight: 700; font-size: 15.5px;
+      border: none; cursor: pointer; border-radius: 99px; padding: 15px 32px;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 6px 18px rgba(26,86,219,.28); }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); color:#fff; }
+    .btn-outline { background: #fff; color: var(--blue); border: 2px solid var(--blue); }
+    .btn-outline:hover { background: var(--blue-bg); }
+    .btn-block { width: 100%; }
+
+    /* ===== HEADER（ロゴのみ・ナビなし） ===== */
+    .kessai-header { background:#fff; border-bottom: 1px solid var(--gray-mid); }
+    .kessai-header-inner { max-width: 720px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; }
+    .kessai-logo { display: flex; align-items: center; gap: 8px; }
+    .kessai-logo-img { height: 26px; width: auto; display: block; }
+    .kessai-logo-text { font-size: 14px; font-weight: 900; color: var(--black); white-space: nowrap; }
+
+    /* ===== HERO ===== */
+    .hero { padding: 32px 0 8px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12.5px; font-weight: 700; color: var(--blue);
+      background: var(--blue-bg); border-radius: 99px; padding: 6px 16px; margin-bottom: 16px;
+    }
+    .hero-badge .dot { width: 7px; height: 7px; background: var(--blue); border-radius: 50%; }
+    .hero-title { font-size: clamp(22px, 5.6vw, 32px); font-weight: 900; line-height: 1.45; letter-spacing: -.01em; margin-bottom: 16px; }
+    .hero-desc { font-size: 14.5px; color: var(--gray-text); margin-bottom: 20px; line-height: 1.85; white-space: pre-line; }
+
+    /* 期間バッジ */
+    .period-box {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--gray-light); border: 1px solid var(--gray-mid);
+      border-radius: var(--radius); padding: 16px 20px; margin-bottom: 22px;
+    }
+    .period-box .label { font-size: 12px; font-weight: 700; color: var(--gray-text); margin-bottom: 2px; }
+    .period-box .value { font-size: 15.5px; font-weight: 700; color: var(--black); }
+
+    .hero-actions { display: flex; flex-direction: column; gap: 10px; }
+    .hero-note { font-size: 12.5px; color: #8992a0; margin-top: 14px; line-height: 1.7; }
+
+    /* ===== ポイント（3項目・コンパクト） ===== */
+    .points { padding: 28px 0; border-top: 1px solid var(--gray-mid); border-bottom: 1px solid var(--gray-mid); margin-top: 28px; }
+    .point-row { display: flex; align-items: flex-start; gap: 14px; }
+    .point-row + .point-row { margin-top: 18px; }
+    .point-row p { font-size: 14px; padding-top: 8px; }
+    .point-row strong { display: block; font-size: 14.5px; margin-bottom: 2px; }
+    .point-row span { color: var(--gray-text); font-size: 13.5px; }
+
+    /* ===== FAQ ===== */
+    .faq-section { padding: 32px 0 40px; }
+    .faq-title { font-size: 13px; font-weight: 700; color: var(--gray-text); letter-spacing: .06em; margin-bottom: 16px; }
+    .faq-item { border-bottom: 1px solid var(--gray-mid); }
+    .faq-question { padding: 16px 4px; font-size: 14.5px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+    .faq-question::after { content: '+'; font-size: 20px; color: var(--blue); flex-shrink: 0; font-weight: 300; }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer { display: none; padding: 0 4px 18px; font-size: 13.5px; color: var(--gray-text); line-height: 1.85; }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ===== FOOTER（会社名のみ・電話/メール非掲載） ===== */
+    .kessai-footer { background: var(--gray-light); border-top: 1px solid var(--gray-mid); }
+    .kessai-footer-inner { max-width: 720px; margin: 0 auto; padding: 28px 24px; text-align: center; }
+    .kessai-footer-copy { font-size: 12px; color: #9aa2ad; }
+  </style>
+</head>
+<body class="kessai-page">
+
+<!-- ===== HEADER ===== -->
+<header class="kessai-header">
+  <div class="kessai-header-inner">
+    <a href="#top" class="kessai-logo">
+      <img src="/assets/img/logo.png" alt="ホリエモンAI学校" class="kessai-logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span class="kessai-logo-text" style="display:none">ホリエモンAI学校</span>
+    </a>
+  </div>
+</header>
+
+<!-- ===== ファーストビュー ===== -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-badge"><span class="dot"></span>お知らせ</div>
+    <h1 class="hero-title">決済システム切り替えに伴う<br>一時メンテナンスのお知らせ</h1>
+    <p class="hero-desc">現在、より安全で快適な決済環境をご提供するため、
+クレジットカード決済システムの切り替え作業を行っております。
+そのため、一時的にオンラインでのクレジットカード決済をご利用いただけません。
+お申込みをご希望の方は、下記よりご連絡ください。
+担当者よりお支払い方法をご案内いたします。</p>
+
+    <div class="period-box">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <div>
+        <div class="label">メンテナンス期間</div>
+        <div class="value">2026年7月22日 〜 2026年7月25日</div>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="https://lin.ee/oMFnpv3n" target="_blank" rel="noopener" class="btn btn-primary btn-block">銀行振込で申し込む（LINEで受付）</a>
+      <a href="https://lin.ee/oMFnpv3n" target="_blank" rel="noopener" class="btn btn-outline btn-block">決済再開のお知らせを受け取る</a>
+    </div>
+    <p class="hero-note">※すでにお申込み・お支払い済みのお客様の受講には影響ございません。</p>
+
+    <div class="points">
+      <div class="point-row">
+        <div class="icon-wrap green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <p><strong>お申込み・受講開始は通常どおり</strong><span>クレジットカード決済のメンテナンス期間中も、お申込み・受講開始は通常どおり受け付けております。現在は銀行振込でご案内しております。</span></p>
+      </div>
+      <div class="point-row">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <p><strong>銀行振込でお申込み可能</strong><span>LINEよりお申込みいただいた後、担当者より振込先や受講開始までの流れをご連絡いたします。</span></p>
+      </div>
+      <div class="point-row">
+        <div class="icon-wrap green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        </div>
+        <p><strong>お支払い済みの方は影響なし</strong><span>すでにお申込み・お支払い済みのお客様の受講には影響ございません。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-title">よくある質問</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">いつクレジットカード決済が再開しますか？</div>
+        <div class="faq-answer">現在、決済システムの切り替え作業を進めております。再開時期が確定次第、本ページおよびLINEでお知らせします。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">銀行振込で申し込めますか？</div>
+        <div class="faq-answer">はい。銀行振込によるお申込みは通常どおり受け付けています。LINEよりお申込みいただいた後、担当者より振込先をご案内します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">すでに支払い済みですが、受講できますか？</div>
+        <div class="faq-answer">はい。すでにお支払い済みのお客様の受講やサービス利用には影響ございません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">請求書や領収書は発行できますか？</div>
+        <div class="faq-answer">はい。法人・個人を問わず、請求書および領収書の発行が可能です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">クレジットカード決済の再開連絡は受け取れますか？</div>
+        <div class="faq-answer">はい。LINE公式アカウントよりご登録いただいた方へ、決済再開後にご案内します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER（会社名のみ・電話/メールは非掲載） ===== -->
+<footer class="kessai-footer">
+  <div class="kessai-footer-inner">
+    <p class="kessai-footer-copy">© 2026 ホリエモンAI学校株式会社. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
