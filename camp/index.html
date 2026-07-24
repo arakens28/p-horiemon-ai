@@ -1658,12 +1658,11 @@ const SLOTS = {
       avail.innerHTML = '終了';
     } else {
       const slots = SLOTS[card.dataset.date];
-      card.onclick = ()=>window.open('https://lin.ee/YkSLDa4','_blank');
       if(slots === 0){
         avail.innerHTML = '<span style="color:#dc2626;font-weight:900;">満席</span>';
         card.style.opacity = '.6';
-        card.style.pointerEvents = 'none';
-        card.onclick = null;
+        const btn = card.querySelector('.peatix-btn');
+        if(btn) btn.style.pointerEvents = 'none';
       } else {
         const n = slots !== undefined ? slots : 10;
         const color = n <= 3 ? '#dc2626' : n <= 5 ? '#d97706' : 'var(--orange-dark)';
