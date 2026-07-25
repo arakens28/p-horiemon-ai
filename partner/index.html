@@ -87,7 +87,7 @@
           { "@type": "Question", "name": "どんな業界の企業が応募できますか？", "acceptedAnswer": { "@type": "Answer", "text": "建設、会計・税務、医療、不動産、製造、物流、士業など、業界を問わず募集しています。すでにパートナーが決定している業界は募集を終了している場合がありますので、まずはお気軽にご相談ください。" } },
           { "@type": "Question", "name": "「各業界1社限定」とはどういう意味ですか？", "acceptedAnswer": { "@type": "Answer", "text": "1つの業界につき、パートナーは1社のみです。同業界内での競合を避け、パートナー企業がその業界のAI活用推進を独占的なポジションで進められるようにするためです。" } },
           { "@type": "Question", "name": "AIの専門知識がなくても大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。AIの教育コンテンツ・コンサルティングノウハウ・AIエージェントの技術はホリエモンAI学校が提供します。パートナー企業に求めるのは、業界の知見と顧客基盤、そして業界課題を解決したいという意志です。" } },
-          { "@type": "Question", "name": "費用や契約条件はどうなっていますか？", "acceptedAnswer": { "@type": "Answer", "text": "業界特性や事業規模によって設計が異なるため、個別面談にてご案内しています。なお、業界パートナー加盟時には、社員全員のホリエモンAI学校受講契約を求めますので、あらかじめご承知ください。" } },
+          { "@type": "Question", "name": "費用や契約条件はどうなっていますか？", "acceptedAnswer": { "@type": "Answer", "text": "初期費用として合計1,400万円の資金が必要です。その代わり、加盟後のランニング費用は0円です。内訳・支払条件などの詳細は個別面談にてご案内しています。なお、業界パートナー加盟時には、社員全員のホリエモンAI学校受講契約を求めますので、あらかじめご承知ください。" } },
           { "@type": "Question", "name": "どうやって応募すればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "お問い合わせフォーム（https://horiemon.ai/contact）から、業界名と会社概要をお送りください。担当者よりメールでご連絡します。" } }
         ]
       },
@@ -210,6 +210,35 @@
     .scheme-card li:last-child { margin-bottom: 0; }
     .scheme-card li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--red); font-weight: 900; }
 
+    /* ===== CASE（加盟事例） ===== */
+    .case { background: var(--gray-light); }
+    .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; max-width: 960px; margin-left: auto; margin-right: auto; }
+    .case-card { background: #fff; border: 2px solid var(--gray-mid); border-radius: 20px; padding: 36px 32px; display: flex; flex-direction: column; transition: var(--transition); }
+    .case-card:hover { border-color: var(--red); box-shadow: 0 8px 32px rgba(232,0,28,.12); transform: translateY(-4px); }
+    .case-badge { align-self: flex-start; font-size: 12px; font-weight: 900; letter-spacing: .06em; color: #fff; background: var(--red); border-radius: 99px; padding: 5px 16px; margin-bottom: 18px; }
+    .case-stat { font-size: clamp(19px, 2.4vw, 24px); font-weight: 900; line-height: 1.5; margin-bottom: 10px; }
+    .case-stat .num { color: var(--red); }
+    .case-company { font-size: 13px; font-weight: 700; color: var(--gray-text); margin-bottom: 16px; }
+    .case-text { font-size: 14px; color: var(--gray-text); line-height: 1.8; flex: 1; }
+    .case-link { margin-top: 22px; font-size: 14px; font-weight: 700; color: var(--red); }
+    @media (max-width: 768px) { .case-grid { grid-template-columns: 1fr; } }
+
+    /* ===== COST（必要資金） ===== */
+    .cost { background: var(--black); color: #fff; }
+    .cost .section-title { color: #fff; }
+    .cost .section-sub { color: #aaa; }
+    .cost .section-label { color: #ff6b7a; background: rgba(232,0,28,.16); }
+    .cost-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 56px auto 0; }
+    .cost-card { background: #252525; border: 2px solid #333; border-radius: 20px; padding: 44px 32px; text-align: center; }
+    .cost-card.is-initial { border-color: var(--red); }
+    .cost-card .cost-label { font-size: 15px; font-weight: 700; color: #aaa; margin-bottom: 14px; }
+    .cost-card .cost-val { font-size: clamp(40px, 6vw, 64px); font-weight: 900; line-height: 1.1; color: #fff; }
+    .cost-card.is-initial .cost-val { color: var(--red); }
+    .cost-card .cost-val .unit { font-size: .45em; }
+    .cost-card .cost-note { font-size: 13px; color: #888; margin-top: 12px; line-height: 1.7; }
+    .cost-foot { text-align: center; font-size: 13px; color: #777; margin-top: 28px; line-height: 1.8; }
+    @media (max-width: 768px) { .cost-cards { grid-template-columns: 1fr; } }
+
     /* ===== FEATURES ===== */
     .features { background: var(--black); color: #fff; }
     .features .section-title { color: #fff; }
@@ -330,6 +359,7 @@
       <ul>
         <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
         <li><a href="#flow">加盟の流れ</a></li>
+        <li><a href="#case">加盟事例</a></li>
         <li><a href="#outline">募集要項</a></li>
         <li><a href="https://horiemon.ai/contact" class="ai-nav-contact">お問い合わせ</a></li>
       </ul>
@@ -634,6 +664,33 @@
   </div>
 </section>
 
+<!-- ===== CASE（加盟事例） ===== -->
+<section class="section case" id="case">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Case</span>
+      <h2 class="section-title">加盟事例</h2>
+      <p class="section-sub">実際にFC加盟いただいた2社の事例をご紹介します。</p>
+    </div>
+    <div class="case-grid">
+      <a href="https://horiemon.ai/case/lifefund" target="_blank" rel="noopener" class="case-card fade-up">
+        <span class="case-badge">建築校</span>
+        <div class="case-stat">初月で初期費用を回収、<br>半年で月次売上<span class="num">約1,000万円</span>へ</div>
+        <div class="case-company">株式会社LIFEFUND（静岡県浜松市／注文住宅・社員約70名）</div>
+        <p class="case-text">「日本で一番AIを活用する建築会社になる」を掲げ、まずは自社で受講して社内にAI活用事例を蓄積。受講から2ヶ月後に建築校としてFC運営をスタートしました。業界を熟知した企業ならではの実践的なサポートで、開校初期から集客も順調に立ち上がっています。</p>
+        <span class="case-link">事例インタビューを読む →</span>
+      </a>
+      <a href="https://horiemon.ai/case/manaviva" target="_blank" rel="noopener" class="case-card fade-up">
+        <span class="case-badge">福岡校</span>
+        <div class="case-stat">売上ゼロから1年で<span class="num">1,000万円超</span>、<br>現在<span class="num">2,000万円超</span>に急成長</div>
+        <div class="case-company">株式会社マナビバ（福岡県／未経験者向けオンライン教育）</div>
+        <p class="case-text">2024年4月にゼロ期生として加盟。最初の半年は法人売上ゼロと苦戦するも、福岡の企業限定の訪問サポートなど「地域校ならではの価値提供」と本部との密な連携でV字回復。研修にとどまらないDXコンサル型の提案で、いまや事業の主力に成長しています。</p>
+        <span class="case-link">事例インタビューを読む →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== FEATURES ===== -->
 <section class="section features" id="features">
   <div class="container">
@@ -671,6 +728,30 @@
   </div>
 </section>
 
+<!-- ===== COST（必要資金） ===== -->
+<section class="section cost" id="cost">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Investment</span>
+      <h2 class="section-title">必要な資金は、初期費用のみ。</h2>
+      <p class="section-sub">加盟には初期費用として合計1,400万円の資金が必要です。その代わり、加盟後のランニング費用は0円。売上を50%ずつシェアするシンプルな協業モデルです。</p>
+    </div>
+    <div class="cost-cards fade-up">
+      <div class="cost-card is-initial">
+        <div class="cost-label">初期費用</div>
+        <div class="cost-val">合計 1,400<span class="unit">万円</span></div>
+        <div class="cost-note">加盟にあたって必要な資金の総額です</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-label">ランニング費用</div>
+        <div class="cost-val">0<span class="unit">円</span></div>
+        <div class="cost-note">加盟後の月額固定費はかかりません</div>
+      </div>
+    </div>
+    <p class="cost-foot">※ 内訳・支払条件などの詳細は、個別面談にてご説明します。</p>
+  </div>
+</section>
+
 <!-- ===== OUTLINE ===== -->
 <section class="section" id="outline">
   <div class="container">
@@ -687,6 +768,7 @@
             <tr><th>募集枠</th><td>各業界1社限定（先着順ではなく、面談による相互確認のうえ決定します）</td></tr>
             <tr><th>想定業界</th><td>建設・建築、会計・税務、医療・介護、不動産、製造、物流、士業、小売・飲食 など業界は問いません（すでにパートナー決定済みの業界は募集終了の場合があります）</td></tr>
             <tr><th>提供内容</th><td>法人向けAI研修コンテンツ、AIコンサルティングの方法論、AIエージェント、ブランド・マーケティング支援</td></tr>
+            <tr><th>初期費用</th><td><strong style="color:var(--red);font-size:17px;">合計1,400万円</strong>（加盟後のランニング費用は0円）。内訳・支払条件は個別面談にてご説明します</td></tr>
             <tr><th>契約条件</th><td>業界特性・事業規模により設計が異なるため、個別面談にてご案内します<br><span style="display:inline-block;margin-top:8px;font-size:13px;color:var(--red);font-weight:700;">※ 業界パートナー加盟時に、社員全員のホリエモンAI学校受講契約を求めますので、あらかじめご承知ください。</span></td></tr>
             <tr><th>主催</th><td>ホリエモンAI学校株式会社</td></tr>
           </tbody>
@@ -719,7 +801,7 @@
       </div>
       <div class="faq-item fade-up">
         <div class="faq-question">費用や契約条件はどうなっていますか？</div>
-        <div class="faq-answer">業界特性や事業規模によって設計が異なるため、個別面談にてご案内しています。なお、業界パートナー加盟時には、社員全員のホリエモンAI学校受講契約を求めますので、あらかじめご承知ください。まずはお問い合わせフォームからご相談ください。</div>
+        <div class="faq-answer">初期費用として合計1,400万円の資金が必要です。その代わり、加盟後のランニング費用は0円です。内訳・支払条件などの詳細は個別面談にてご案内しています。なお、業界パートナー加盟時には、社員全員のホリエモンAI学校受講契約を求めますので、あらかじめご承知ください。</div>
       </div>
       <div class="faq-item fade-up">
         <div class="faq-question">どうやって応募すればいいですか？</div>
@@ -778,6 +860,7 @@
         <ul>
           <li><a href="https://horiemon.ai/service">サービス一覧</a></li>
           <li><a href="#flow">加盟の流れ</a></li>
+          <li><a href="#case">加盟事例</a></li>
           <li><a href="#outline">募集要項</a></li>
           <li><a href="https://horiemon.ai/contact">お問い合わせ</a></li>
           <li><a href="https://horiemon.ai/">運営会社サイト</a></li>
