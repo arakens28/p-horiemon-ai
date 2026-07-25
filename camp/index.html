@@ -802,6 +802,7 @@ footer{
 @media(max-width:760px){
   .support-grid{grid-template-columns:1fr!important;}
   .support-grid img{max-width:360px;margin:0 auto;}
+  .pricing-two-col{grid-template-columns:1fr!important;}
 }
 </style>
 </head>
@@ -1397,47 +1398,76 @@ footer{
   <div class="container">
     <span class="section-label">PRICING</span>
     <h2 class="section-title">参加費</h2>
-    <p class="section-sub">
-      シンプルに、一律料金。<br/>
-      法人向けには柔軟なカスタマイズプランをご用意しています。
-    </p>
-    <div class="pricing-main">
-      <div class="pricing-main-badge">スタンダード</div>
-      <div class="pricing-main-name">1日Camp 通常参加</div>
-      <div class="pricing-main-sub">朝9時〜夜18時 / 1日完結</div>
-      <div class="pricing-main-price">¥110,000</div>
-      <div class="pricing-main-tax">（税込・1人あたり）</div>
-      <ul class="pricing-main-features">
-        <li>1日フルプログラム参加（9:00〜18:00）</li>
-        <li>つきっきり講師サポート</li>
-        <li>Claude Code 実機ハンズオン</li>
-        <li>継続サポートで何度でも参加し放題</li>
-        <li>アシスタント・講師へのキャリアアップ制度</li>
-      </ul>
-      <div style="background:linear-gradient(135deg,var(--orange-soft),#fff3e0);border:2px solid var(--orange);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.5rem;text-align:center;">
-        <div style="font-size:.72rem;font-weight:900;letter-spacing:.12em;color:var(--orange);margin-bottom:.3rem;">🎁 Camp参加者特典</div>
-        <div style="font-size:.92rem;font-weight:700;color:var(--text);">通常<strong style="text-decoration:line-through;color:var(--muted);">¥162,800</strong>の入学金が<strong style="color:var(--orange-dark);font-size:1.05rem;">無料</strong></div>
-        <div style="font-size:.8rem;color:var(--text-soft);margin-top:.3rem;">継続学習を希望する方は、任意で月額¥16,280（税込）の個人プランに加入できます。</div>
-      </div>
-      <div class="pricing-main-cta">
-        <a href="https://lin.ee/YkSLDa4" target="_blank" rel="noopener" class="btn-line">💚 LINEで申込・相談する →</a>
-      </div>
-    </div>
-    <div class="pricing-secondary">
-      <div class="pricing-sec-card">
-        <span class="pricing-sec-card-tag">法人プラン</span>
-        <h4>🏢 法人貸切プラン</h4>
-        <div style="font-family:'Inter',sans-serif;font-weight:900;font-size:1.6rem;color:var(--orange-dark);line-height:1;margin:.5rem 0 .2rem;">¥1,000,000</div>
-        <div style="color:var(--muted);font-size:.78rem;margin-bottom:.8rem;">税別 / 1日（9:00〜18:00）</div>
-        <p style="margin-bottom:.5rem;">Claude Code / Cowork を1日で徹底習得。講師1名＋アシスタント1名の少人数サポート。</p>
-        <ul style="font-size:.85rem;color:var(--text-soft);padding-left:1.2rem;margin-bottom:.8rem;line-height:1.8;">
-          <li>推奨人数：10名まで（応相談）</li>
-          <li>開催形式：オンライン or 都内対面</li>
-          <li>対象：非エンジニア・完全未経験OK</li>
-          <li>社員以外（仲良し経営者同士など）でも貸切OK</li>
+    <p class="section-sub">個人・法人、2つのプランをご用意しています。</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:960px;margin:0 auto;" class="pricing-two-col">
+
+      <!-- 個人プラン -->
+      <div class="pricing-main" style="margin:0;">
+        <div class="pricing-main-badge">個人プラン</div>
+        <div class="pricing-main-name">1日Camp 個人参加</div>
+        <div class="pricing-main-sub">朝9時〜夜18時 / 1日完結</div>
+        <div class="pricing-main-price">¥100,000</div>
+        <div class="pricing-main-tax">（税込¥110,000・1人あたり）</div>
+        <ul class="pricing-main-features">
+          <li>1日フルプログラム参加（9:00〜18:00）</li>
+          <li>つきっきり講師サポート</li>
+          <li>Claude Code 実機ハンズオン</li>
+          <li>継続サポートで何度でも参加し放題</li>
+          <li>アシスタント・講師へのキャリアアップ制度</li>
         </ul>
-        <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/-6sUrtNhXNWeL_Ko-2LIh/confirm" target="_blank" rel="noopener">営業にお問い合わせ（Web面談予約）→</a>
+        <div style="background:linear-gradient(135deg,var(--orange-soft),#fff3e0);border:2px solid var(--orange);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.5rem;text-align:center;">
+          <div style="font-size:.72rem;font-weight:900;letter-spacing:.12em;color:var(--orange);margin-bottom:.3rem;">🎁 Camp参加者特典</div>
+          <div style="font-size:.92rem;font-weight:700;color:var(--text);">通常<strong style="text-decoration:line-through;color:var(--muted);">¥162,800</strong>の入学金が<strong style="color:var(--orange-dark);font-size:1.05rem;">無料</strong></div>
+          <div style="font-size:.8rem;color:var(--text-soft);margin-top:.3rem;">継続学習を希望する方は、任意で月額¥16,280（税込）の個人プランに加入できます。</div>
+        </div>
+        <div class="pricing-main-cta">
+          <a href="https://lin.ee/YkSLDa4" target="_blank" rel="noopener" class="btn-line">💚 LINEで申込・相談する →</a>
+        </div>
       </div>
+
+      <!-- 法人プラン -->
+      <div style="background:#fff;border:2.5px solid #1e40af;border-radius:24px;padding:2rem;display:flex;flex-direction:column;gap:0;position:relative;">
+        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff;font-size:.72rem;font-weight:900;padding:.35rem 1.2rem;border-radius:14px;letter-spacing:.1em;white-space:nowrap;">法人プラン</div>
+        <div style="text-align:center;margin-bottom:1.2rem;margin-top:.5rem;">
+          <div style="font-weight:900;font-size:1.1rem;color:#1e3a8a;margin-bottom:.3rem;">🏢 法人貸切プラン</div>
+          <div style="font-family:'Inter',sans-serif;font-weight:900;font-size:2.4rem;color:#1e40af;line-height:1;letter-spacing:-.02em;">¥1,000,000</div>
+          <div style="color:var(--muted);font-size:.78rem;margin-top:.3rem;">税込¥1,100,000 / 1社・1日（9:00〜18:00）</div>
+        </div>
+
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.2rem;font-size:.88rem;line-height:1.6;">
+          <li style="display:flex;gap:.6rem;"><span style="color:#1e40af;font-weight:900;flex-shrink:0;">✓</span>推奨人数：10名まで（応相談）</li>
+          <li style="display:flex;gap:.6rem;"><span style="color:#1e40af;font-weight:900;flex-shrink:0;">✓</span>開催形式：オンライン or 都内対面</li>
+          <li style="display:flex;gap:.6rem;"><span style="color:#1e40af;font-weight:900;flex-shrink:0;">✓</span>対象：非エンジニア・完全未経験OK</li>
+          <li style="display:flex;gap:.6rem;"><span style="color:#1e40af;font-weight:900;flex-shrink:0;">✓</span>講師1名＋アシスタント1名サポート</li>
+        </ul>
+
+        <!-- 助成金バナー -->
+        <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #93c5fd;border-radius:14px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
+          <div style="font-size:.72rem;font-weight:900;color:#1e40af;letter-spacing:.1em;margin-bottom:.4rem;">💰 人材開発支援助成金が使えます</div>
+          <div style="font-size:.92rem;font-weight:900;color:#1e3a8a;margin-bottom:.2rem;">税込¥1,100,000の<span style="font-size:1.1rem;color:#1e40af;">最大75%</span>が助成</div>
+          <div style="font-size:.82rem;color:#1e40af;font-weight:700;margin-bottom:.5rem;">＝ 最大<strong>¥825,000</strong> の助成金（中小企業の場合）</div>
+          <div style="font-size:.72rem;color:#3b82f6;">※大企業は税込金額の60%が助成対象</div>
+        </div>
+
+        <!-- セルフチェック -->
+        <div style="background:#f8fafc;border:1.5px solid #cbd5e1;border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.2rem;">
+          <div style="font-size:.75rem;font-weight:900;color:#1e3a8a;margin-bottom:.6rem;">📋 助成金申請セルフチェック</div>
+          <div style="font-size:.75rem;color:#374151;line-height:1.9;display:flex;flex-direction:column;gap:.1rem;">
+            <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="margin-top:.2rem;flex-shrink:0;accent-color:#1e40af;"><span>研修受講者は雇用保険に加入している</span></label>
+            <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="margin-top:.2rem;flex-shrink:0;accent-color:#1e40af;"><span>研修受講日を今から1ヶ月以上先に開始できる</span></label>
+            <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="margin-top:.2rem;flex-shrink:0;accent-color:#1e40af;"><span>研修を業務時間内に受講できる</span></label>
+            <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="margin-top:.2rem;flex-shrink:0;accent-color:#1e40af;"><span>社会保険料・残業代等、法令遵守できる</span></label>
+            <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="margin-top:.2rem;flex-shrink:0;accent-color:#1e40af;"><span>性風俗関連業・接待飲食業（キャバクラ等）ではない</span></label>
+            <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="margin-top:.2rem;flex-shrink:0;accent-color:#1e40af;"><span>上記営業の一部を受託する事業ではない</span></label>
+            <label style="display:flex;gap:.5rem;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="margin-top:.2rem;flex-shrink:0;accent-color:#1e40af;"><span>暴力団との関わりは一切ない</span></label>
+          </div>
+          <div style="font-size:.7rem;color:#dc2626;margin-top:.6rem;">※ 1項目でも当てはまらない場合、助成金の申請ができません</div>
+        </div>
+
+        <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/-6sUrtNhXNWeL_Ko-2LIh/confirm" target="_blank" rel="noopener" style="display:block;text-align:center;background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff;font-weight:900;font-size:.95rem;padding:.85rem 1.5rem;border-radius:12px;text-decoration:none;transition:opacity .15s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">営業にお問い合わせ（Web面談予約）→</a>
+      </div>
+
     </div>
   </div>
 </section>
