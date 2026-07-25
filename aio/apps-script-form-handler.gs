@@ -33,7 +33,7 @@ function doPost(e) {
     return handleExecAi(params);
   }
 
-  // パートナー募集LPの資料DL
+  // パートナー募集LPの資料DL・お問い合わせ（統合フォーム）
   if (params['form'] === 'partner-doc') {
     return handlePartnerDoc(params);
   }
@@ -42,30 +42,32 @@ function doPost(e) {
   return handleAioDocRequest(params);
 }
 
-// ===== パートナー募集LP 資料DL =====
+// ===== パートナー募集LP 資料DL・お問い合わせ（統合フォーム） =====
 function handlePartnerDoc(params) {
   const ss = SpreadsheetApp.openById(SHEET_ID);
   const sheetName = '資料請求_パートナー募集';
   const sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
 
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(['送信日時', '会社名', 'お名前', 'メールアドレス']);
+    sheet.appendRow(['送信日時', '会社名', 'お名前', 'メールアドレス', 'お問い合わせ内容']);
   }
 
   const company = params['company'] || '';
   const name = params['name'] || '';
   const email = params['email'] || '';
+  const message = params['message'] || '';
 
-  sheet.appendRow([new Date(), company, name, email]);
+  sheet.appendRow([new Date(), company, name, email, message]);
 
   // 社内通知メール
   MailApp.sendEmail({
     to: PARTNER_NOTIFY_EMAIL,
-    subject: '【パートナー募集LP】資料請求: ' + (company || '会社名未記入'),
+    subject: '【パートナー募集LP】資料請求・お問い合わせ: ' + (company || '会社名未記入'),
     body:
       '会社名: ' + company + '\n' +
       'お名前: ' + name + '\n' +
       'メールアドレス: ' + email + '\n\n' +
+      'お問い合わせ内容:\n' + (message || '(未入力・資料請求のみ)') + '\n\n' +
       '送信日時: ' + new Date()
   });
 

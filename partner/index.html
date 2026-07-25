@@ -91,7 +91,7 @@
           { "@type": "Question", "name": "助成金は本当に使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "人材開発支援助成金「事業展開等リスキリング支援事業」の対象となる研修プログラムです。中小企業で最大900万円、大企業で最大600万円が助成対象です。ただし受給には労働局の審査があり、当社が受給を保証するものではありません。申請サポートは提携社労士をご紹介します。" } },
           { "@type": "Question", "name": "なぜ「社員10名以上」が対象なのですか？", "acceptedAnswer": { "@type": "Answer", "text": "助成金の支給額は受講する社員数に応じて決まるため、社員10名以上の企業様が助成メリットを最大化できる設計だからです。また、加盟後に年間5,000万円規模の事業を担っていただくうえでも、組織的な営業体制がある企業様が適しています。" } },
           { "@type": "Question", "name": "研修だけ受けて、加盟しないこともできますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、可能です。まず1ヶ月受講いただき、そのうえで加盟するかどうかをお選びいただけます。加盟しない場合も、社員全員がAI活用DX人材になるという研修価値はそのまま御社に残ります。" } },
-          { "@type": "Question", "name": "どうやって応募すればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "お問い合わせフォーム（https://horiemon.ai/contact）から、業界名と会社概要をお送りください。担当者よりメールでご連絡します。" } }
+          { "@type": "Question", "name": "どうやって応募すればいいですか？", "acceptedAnswer": { "@type": "Answer", "text": "ページ内のお問い合わせフォームから、業界名と会社概要をお送りください。担当者よりメールでご連絡します。" } }
         ]
       },
       {
@@ -378,8 +378,11 @@
     .dl-field { margin-bottom: 18px; }
     .dl-field label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
     .dl-field .req { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; background: var(--red); border-radius: 4px; padding: 1px 8px; margin-left: 6px; vertical-align: 1px; }
+    .dl-field .opt { display: inline-block; font-size: 11px; font-weight: 700; color: var(--gray-text); background: var(--gray-mid); border-radius: 4px; padding: 1px 8px; margin-left: 6px; vertical-align: 1px; }
     .dl-field input { width: 100%; font-family: inherit; font-size: 16px; color: var(--black); border: 1.5px solid var(--gray-mid); border-radius: 10px; padding: 13px 16px; background: #fff; transition: border-color .2s, box-shadow .2s; }
     .dl-field input:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(232,0,28,.12); }
+    .dl-field textarea { width: 100%; font-family: inherit; font-size: 16px; color: var(--black); border: 1.5px solid var(--gray-mid); border-radius: 10px; padding: 13px 16px; background: #fff; resize: vertical; line-height: 1.7; transition: border-color .2s, box-shadow .2s; }
+    .dl-field textarea:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(232,0,28,.12); }
     .dl-submit-wrap { text-align: center; margin-top: 28px; }
     .dl-submit-wrap .btn { width: 100%; }
     .dl-status { margin-top: 16px; font-size: 14px; font-weight: 700; text-align: center; line-height: 1.7; }
@@ -440,7 +443,7 @@
         <li><a href="#flow">加盟の流れ</a></li>
         <li><a href="#case">加盟事例</a></li>
         <li><a href="#outline">募集要項</a></li>
-        <li><a href="https://horiemon.ai/contact" class="ai-nav-contact">お問い合わせ</a></li>
+        <li><a href="#download" class="ai-nav-contact">お問い合わせ</a></li>
       </ul>
     </nav>
     <button class="ai-menu-btn" id="aiMenuBtn" aria-label="メニュー">
@@ -659,9 +662,6 @@
       </div>
     </div>
     <p class="cost-foot">※ 助成金の受給を保証するものではありません。支給要件・支給額は労働局の審査によります。<br>※ 当社は助成金申請の代行を行いません。ご希望の場合は申請サポートを担当する社労士をご紹介します。</p>
-    <div class="cost-cta fade-up">
-      <a href="https://horiemon.ai/contact?utm_source=partner_lp&utm_content=availability" class="btn btn-outline-light">うちの業界・エリアは空いてる？ 空き状況を確認する →</a>
-    </div>
   </div>
 </section>
 
@@ -991,19 +991,32 @@
       </div>
       <div class="faq-item fade-up">
         <div class="faq-question">どうやって応募すればいいですか？</div>
-        <div class="faq-answer"><a href="https://horiemon.ai/contact" style="color:var(--red);font-weight:700;text-decoration:underline;">お問い合わせフォーム</a>から、業界名と会社概要をお送りください。担当者よりメールでご連絡します。</div>
+        <div class="faq-answer"><a href="#download" style="color:var(--red);font-weight:700;text-decoration:underline;">ページ内のお問い合わせフォーム</a>から、業界名と会社概要をお送りください。担当者よりメールでご連絡します。</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== DOWNLOAD FORM（資料DL） ===== -->
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="apply">
+  <div class="container">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">AI事業への新規参入は、<br>あなたの業界・エリアの「1社」に。</h2>
+    <p class="cta-desc">まずは「うちの業界・エリアは空いてる？」の確認だけでも歓迎です。<br>ページ下部のお問い合わせフォームからお気軽にどうぞ。</p>
+    <div class="cta-actions">
+      <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/gn6hwEwlXgPWc-8-pPJKu/confirm" target="_blank" rel="noopener" class="btn btn-primary btn-lg">30分オンライン面談を予約する →</a>
+      <a href="#download" class="btn btn-outline-light">資料をダウンロード</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM（お問い合わせ・資料ダウンロード） ===== -->
 <section class="section dl-section" id="download">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Document</span>
-      <h2 class="section-title">まずは資料をダウンロード</h2>
-      <p class="section-sub">パートナー制度の詳細資料をお送りします。3項目・30秒で完了します。</p>
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">お問い合わせ・資料ダウンロード</h2>
+      <p class="section-sub">資料のご請求、空き状況の確認、制度についてのご質問はこちらから。2営業日以内にメールでご連絡します。</p>
     </div>
     <form class="dl-card fade-up" id="dlForm" novalidate>
       <input type="hidden" name="form" value="partner-doc">
@@ -1019,26 +1032,16 @@
         <label for="dl-email">メールアドレス<span class="req">必須</span></label>
         <input type="email" id="dl-email" name="email" required autocomplete="email" placeholder="example@company.co.jp">
       </div>
+      <div class="dl-field">
+        <label for="dl-message">お問い合わせ内容<span class="opt">任意</span></label>
+        <textarea id="dl-message" name="message" rows="4" placeholder="例: ○○業界・△△エリアの空き状況を確認したい／制度について質問したい など（資料のご請求のみの場合は空欄でOKです）"></textarea>
+      </div>
       <div class="dl-submit-wrap">
-        <button type="submit" class="btn btn-primary btn-lg" id="dlSubmit">資料をダウンロードする</button>
+        <button type="submit" class="btn btn-primary btn-lg" id="dlSubmit">送信する</button>
         <p class="dl-status" id="dlStatus" role="status" aria-live="polite"></p>
       </div>
-      <p class="dl-consent">ご入力いただいた情報は、資料送付と本件のご案内にのみ使用します。</p>
+      <p class="dl-consent">ご入力いただいた情報は、資料送付と本件のお問い合わせ対応にのみ使用します。</p>
     </form>
-  </div>
-</section>
-
-<!-- ===== CTA ===== -->
-<section class="cta-section" id="apply">
-  <div class="container">
-    <span class="section-label">Contact</span>
-    <h2 class="section-title">AI事業への新規参入は、<br>あなたの業界・エリアの「1社」に。</h2>
-    <p class="cta-desc">まずは「うちの業界・エリアは空いてる？」の確認だけでも歓迎です。<br>資料請求、30分オンライン面談のご予約もこちらから。</p>
-    <div class="cta-actions">
-      <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/gn6hwEwlXgPWc-8-pPJKu/confirm" target="_blank" rel="noopener" class="btn btn-primary btn-lg">30分オンライン面談を予約する →</a>
-      <a href="#download" class="btn btn-outline-light">資料をダウンロード</a>
-      <a href="https://horiemon.ai/contact?utm_source=partner_lp&utm_content=availability" class="btn btn-outline-light">空き状況を確認する</a>
-    </div>
   </div>
 </section>
 
@@ -1081,7 +1084,7 @@
           <li><a href="#flow">加盟の流れ</a></li>
           <li><a href="#case">加盟事例</a></li>
           <li><a href="#outline">募集要項</a></li>
-          <li><a href="https://horiemon.ai/contact">お問い合わせ</a></li>
+          <li><a href="#download">お問い合わせ</a></li>
           <li><a href="https://horiemon.ai/">運営会社サイト</a></li>
         </ul>
       </nav>
@@ -1149,13 +1152,13 @@
         if (!res.ok) throw new Error('failed');
         form.reset();
         statusEl.className = 'dl-status ok';
-        statusEl.textContent = '送信が完了しました。ご入力のメールアドレス宛に資料をご案内します。';
+        statusEl.textContent = '送信が完了しました。資料のご案内とあわせて、担当者より2営業日以内にメールでご連絡します。';
         submitBtn.textContent = '送信完了';
       } catch (err) {
         statusEl.className = 'dl-status err';
         statusEl.textContent = '送信に失敗しました。お手数ですが再度お試しください。';
         submitBtn.disabled = false;
-        submitBtn.textContent = '資料をダウンロードする';
+        submitBtn.textContent = '送信する';
       }
     });
   })();
