@@ -234,6 +234,16 @@
     .layers-msg p { font-size: clamp(17px, 2.2vw, 22px); font-weight: 700; line-height: 1.8; }
     .layers-msg .hl { color: #ffd84d; }
 
+    /* ===== MARKET（市場の成長） ===== */
+    .market-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin: 56px auto 0; }
+    .market-stat { background: var(--gray-light); border: 2px solid var(--gray-mid); border-radius: 20px; padding: 36px 20px; text-align: center; }
+    .market-stat .m-label { font-size: 13px; font-weight: 700; color: var(--gray-text); margin-bottom: 12px; }
+    .market-stat .m-val { font-size: clamp(34px, 4.6vw, 54px); font-weight: 900; color: var(--red); line-height: 1; white-space: nowrap; }
+    .market-stat .m-val .unit { font-size: .5em; }
+    .market-stat .m-note { font-size: 13px; color: var(--gray-text); margin-top: 12px; }
+    .market-src { text-align: center; font-size: 12px; color: #aaa; margin-top: 24px; }
+    @media (max-width: 768px) { .market-stats { grid-template-columns: 1fr; } }
+
     /* ===== SCHEME：売上シェア円グラフ ===== */
     .share-box { max-width: 880px; margin: 56px auto 0; background: #fff; border: 2px solid var(--gray-mid); border-radius: 20px; padding: 44px 40px; }
     .share-title { text-align: center; font-size: clamp(20px, 2.8vw, 26px); font-weight: 900; margin-bottom: 8px; }
@@ -504,7 +514,7 @@
 <section class="section target" id="target" style="background:var(--gray-light)">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Target</span>
+      <span class="section-label">Customer｜誰向けの制度？</span>
       <h2 class="section-title">このパートナー制度が最も合う会社</h2>
       <p class="section-sub">本業を持つ法人企業の「AI事業への新規参入」を支援する制度です。</p>
     </div>
@@ -522,13 +532,13 @@
   </div>
 </section>
 
-<!-- ===== PROBLEMS（なぜ業界特化か） ===== -->
-<section class="section problems" id="problems" style="background:var(--gray-light)">
+<!-- ===== PROBLEMS（こんな悩み） ===== -->
+<section class="section problems" id="problems" style="background:#fff">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Why</span>
-      <h2 class="section-title">汎用AIでは、<br>業界の課題に届かない。</h2>
-      <p class="section-sub">AI活用が広がる一方で、業界固有の課題は置き去りになっています。だからこそ、業界を知る企業との協業が必要です。</p>
+      <span class="section-label">Problem｜こんな悩みありませんか？</span>
+      <h2 class="section-title">「業界や地域の課題を解決したい。<br>でも、AIはわからない」</h2>
+      <p class="section-sub">AI活用が広がる一方で、業界・地域固有の課題は置き去りになっています。多くの会社が、同じ壁にぶつかっています。</p>
     </div>
     <div class="problems-grid">
       <div class="problem-card fade-up">
@@ -547,6 +557,17 @@
         <p>業界全体の人手不足・生産性の課題は待ったなし。業界に信頼されるプレイヤーと組んで、面で広げる仕組みが必要です。</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== SCHEME（解決策：協業） ===== -->
+<section class="section" id="scheme" style="background:var(--gray-light)">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Solution｜どう解決する？</span>
+      <h2 class="section-title">その悩みは、ホリエモンAI学校との<br>「協業」で解決できます</h2>
+      <p class="section-sub">AIのことはホリエモンAI学校が、業界・地域のことはパートナー企業が。それぞれの強みを持ち寄る協業モデルです。</p>
+    </div>
 
     <!-- 参入チケット -->
     <div class="ticket fade-up">
@@ -557,6 +578,58 @@
         <p class="ticket-sub">しかも、参入の入り口となる社員研修は、国の助成金が後押ししてくれます。</p>
       </div>
     </div>
+
+    <!-- 売上シェア円グラフ -->
+    <div class="share-box fade-up">
+      <h3 class="share-title">売上を<span class="hl">50%ずつ</span>シェアします</h3>
+      <p class="share-sub">本部とFC協業社で、役割も売上も半分ずつ。それぞれ25%×2の役割を担います。</p>
+      <div class="share-wrap">
+        <svg class="share-pie" viewBox="0 0 200 200" role="img" aria-label="売上シェアの円グラフ：本部50%（AI技術・講師・講義動画・開発25%、本部運営25%）、FC協業社50%（新規獲得マーケティング25%、既存顧客カスタマーサクセス25%）">
+          <!-- 右半分＝本部（赤系）、左半分＝FC協業社（黒系） -->
+          <path d="M100,100 L100,10 A90,90 0 0 1 190,100 Z" fill="#e8001c"/>
+          <path d="M100,100 L190,100 A90,90 0 0 1 100,190 Z" fill="#ff5a6e"/>
+          <path d="M100,100 L100,190 A90,90 0 0 1 10,100 Z" fill="#1a1a1a"/>
+          <path d="M100,100 L10,100 A90,90 0 0 1 100,10 Z" fill="#5a5a5a"/>
+          <text x="142" y="62" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">25%</text>
+          <text x="142" y="146" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">25%</text>
+          <text x="58" y="146" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">25%</text>
+          <text x="58" y="62" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">25%</text>
+          <circle cx="100" cy="100" r="34" fill="#fff"/>
+          <text x="100" y="96" text-anchor="middle" fill="#1a1a1a" font-size="15" font-weight="900">50 : 50</text>
+          <text x="100" y="113" text-anchor="middle" fill="#888" font-size="9" font-weight="700">売上シェア</text>
+        </svg>
+        <ul class="share-legend">
+          <li><span class="share-chip" style="background:#e8001c"></span><div><strong>25% 本部</strong><span>AI技術／講師／講義動画／開発</span></div></li>
+          <li><span class="share-chip" style="background:#ff5a6e"></span><div><strong>25% 本部</strong><span>本部運営</span></div></li>
+          <li class="share-divider" aria-hidden="true"></li>
+          <li><span class="share-chip" style="background:#1a1a1a"></span><div><strong>25% FC協業社</strong><span>新規獲得マーケティング</span></div></li>
+          <li><span class="share-chip" style="background:#5a5a5a"></span><div><strong>25% FC協業社</strong><span>既存顧客カスタマーサクセス</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scheme-cards fade-up">
+      <div class="scheme-card">
+        <div class="who-label">AI・コンテンツ・仕組みを提供するのは</div>
+        <div class="who">ホリエモンAI学校</div>
+        <ul>
+          <li>法人向けAI研修コンテンツと講師ノウハウ</li>
+          <li>AIコンサルティングの方法論・実践知</li>
+          <li>AIエージェントの開発・提供</li>
+          <li>ブランド・マーケティングの支援</li>
+        </ul>
+      </div>
+      <div class="scheme-card is-partner">
+        <div class="who-label">業界の知見・信頼を持ち寄るのは</div>
+        <div class="who">パートナー企業</div>
+        <ul>
+          <li>業界固有の業務知識・現場の課題感</li>
+          <li>業界内の顧客基盤・ネットワーク</li>
+          <li>業界に対する信頼と実績</li>
+          <li>業界課題を解決したいという意志</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -564,7 +637,7 @@
 <section class="section" id="layers" style="background:#fff">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Model</span>
+      <span class="section-label">Product｜提供サービス</span>
       <h2 class="section-title">教育 × コンサル × AIエージェント<br>三層構造で業界課題を解決する</h2>
       <p class="section-sub">AI事業への新規参入といっても、単発の研修やツールの提供だけではありません。3つの層を組み合わせて、業界の法人に成果が出るまで伴走します。</p>
     </div>
@@ -599,31 +672,90 @@
   </div>
 </section>
 
-<!-- ===== NUMBERS（事業の数字） ===== -->
-<section class="section numbers" id="numbers" style="background:var(--gray-light)">
+<!-- ===== FEATURES ===== -->
+<section class="section features" id="features">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Business Plan</span>
-      <h2 class="section-title">新規参入・初年度の目標は売上5,000万円。<br>逆算はシンプルです。</h2>
+      <span class="section-label">Product｜3つの価値</span>
+      <h2 class="section-title">パートナーになる3つの価値</h2>
+      <p class="section-sub">「AI事業を始める」のではなく、「業界のAI活用推進役」という独自のポジションを手に入れる仕組みです。</p>
     </div>
-    <div class="funnel fade-up">
-      <div class="funnel-step">
-        <div class="f-num">月30件</div>
-        <div class="f-label">資料請求</div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">01</div>
+        <span class="tag">各業界1社限定</span>
+        <h3>業界内で独占的な<br>ポジションを確保</h3>
+        <p>1つの業界につきパートナーは1社のみ。同業界内での競合を避け、「業界のAI活用推進役」として独自の立ち位置を築けます。</p>
       </div>
-      <div class="funnel-arrow">→</div>
-      <div class="funnel-step">
-        <div class="f-num">月9件</div>
-        <div class="f-label">商談</div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">02</div>
+        <span class="tag">実績×ブランド</span>
+        <h3>400社の実績と<br>ブランドを最初から</h3>
+        <p>受講企業400社・受講者4,000人超で磨かれた研修・コンサルの方法論と、認知度のあるホリエモンAI学校ブランドを活用。ゼロからのAI事業立ち上げに比べ、信頼獲得までの距離を大きく短縮できます。</p>
       </div>
-      <div class="funnel-arrow">→</div>
-      <div class="funnel-step">
-        <div class="f-num">月3件</div>
-        <div class="f-label">成約<br>（AI研修は1契約 平均150万円）</div>
+      <div class="feature-card fade-up">
+        <div class="feature-card-num">03</div>
+        <span class="tag">三層構造</span>
+        <h3>教育で終わらない<br>提供モデル</h3>
+        <p>研修（教育）→ 伴走（コンサル）→ 実務代行（AIエージェント）と、顧客に深く長く価値を提供できるモデルを最初から持てます。</p>
       </div>
     </div>
-    <div class="funnel-result fade-up">初年度の目標：<span class="hl">年間売上5,000万円</span></div>
-    <p class="numbers-note fade-up">※ 目標はノルマではありません。未達による罰則・違約金はありません。<br>※ ただし加盟時に、年間5,000万円を狙える販路（業界ネットワーク・顧客基盤）があることを面談で確認させていただきます。</p>
+  </div>
+</section>
+
+<!-- ===== MARKET（市場の成長） ===== -->
+<section class="section market" id="market" style="background:#fff">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Market｜市場の伸び</span>
+      <h2 class="section-title">AI市場は、今後4年で約3倍に。</h2>
+      <p class="section-sub">国内AI市場は急成長の真っ只中。一方で、業界・地域の中小企業にAIを届けるプレイヤーは、まだ足りていません。</p>
+    </div>
+    <div class="market-stats fade-up">
+      <div class="market-stat">
+        <div class="m-label">国内AI市場の支出額（2029年予測）</div>
+        <div class="m-val">約6.9<span class="unit">兆円</span></div>
+        <div class="m-note">2025年から4年で約2.9倍に拡大</div>
+      </div>
+      <div class="market-stat">
+        <div class="m-label">年間平均成長率（2024〜2029年）</div>
+        <div class="m-val">36.0<span class="unit">%</span></div>
+        <div class="m-note">毎年3割超のペースで成長</div>
+      </div>
+      <div class="market-stat">
+        <div class="m-label">国内AIシステム市場（2029年予測）</div>
+        <div class="m-val">約4.2<span class="unit">兆円</span></div>
+        <div class="m-note">2024年の約1.3兆円から約3倍</div>
+      </div>
+    </div>
+    <p class="market-src fade-up">出典：IDC「国内AI市場予測」「国内AIシステム市場予測」（2025年発表）</p>
+  </div>
+</section>
+
+<!-- ===== CASE（加盟事例） ===== -->
+<section class="section case" id="case" style="background:var(--gray-light)">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Voice｜加盟企業の実績</span>
+      <h2 class="section-title">加盟事例：初月回収・<br>売上ゼロから2,000万円超</h2>
+      <p class="section-sub">実際にパートナー制度に加盟いただいた2社の事例をご紹介します。</p>
+    </div>
+    <div class="case-grid">
+      <a href="https://horiemon.ai/case/lifefund" target="_blank" rel="noopener" class="case-card fade-up">
+        <span class="case-badge">建築校</span>
+        <div class="case-stat">初月で初期費用を回収、<br>半年で月次売上<span class="num">約1,000万円</span>へ</div>
+        <div class="case-company">株式会社LIFEFUND（静岡県浜松市／注文住宅・社員約70名）</div>
+        <p class="case-text">「日本で一番AIを活用する建築会社になる」を掲げ、まずは自社で受講して社内にAI活用事例を蓄積。受講から2ヶ月後に建築校としてFC協業校の運営をスタートしました。業界を熟知した企業ならではの実践的なサポートで、開校初期から集客も順調に立ち上がっています。</p>
+        <span class="case-link">事例インタビューを読む →</span>
+      </a>
+      <a href="https://horiemon.ai/case/manaviva" target="_blank" rel="noopener" class="case-card fade-up">
+        <span class="case-badge">福岡校</span>
+        <div class="case-stat">売上ゼロから1年で<span class="num">1,000万円超</span>、<br>現在<span class="num">2,000万円超</span>に急成長</div>
+        <div class="case-company">株式会社マナビバ（福岡県／未経験者向けオンライン教育）</div>
+        <p class="case-text">2024年4月にゼロ期生として加盟。最初の半年は法人売上ゼロと苦戦するも、福岡の企業限定の訪問サポートなど「地域校ならではの価値提供」と本部との密な連携でV字回復。研修にとどまらないDXコンサル型の提案で、いまや事業の主力に成長しています。</p>
+        <span class="case-link">事例インタビューを読む →</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -631,8 +763,8 @@
 <section class="section cost" id="cost">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Investment</span>
-      <h2 class="section-title">AI事業への新規参入に必要な資金は2段階。<br>しかも国が応援してくれます。</h2>
+      <span class="section-label">Investment｜費用と助成金</span>
+      <h2 class="section-title">AI事業への新規参入に必要な資金は2段階。<br>しかも国が助成金で応援してくれます。</h2>
     </div>
     <div class="cost-steps fade-up">
       <div class="cost-step is-initial">
@@ -665,30 +797,31 @@
   </div>
 </section>
 
-<!-- ===== CASE（加盟事例） ===== -->
-<section class="section case" id="case" style="background:#fff">
+<!-- ===== NUMBERS（事業の数字） ===== -->
+<section class="section numbers" id="numbers" style="background:var(--gray-light)">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Case</span>
-      <h2 class="section-title">加盟事例：初月回収・<br>売上ゼロから2,000万円超</h2>
-      <p class="section-sub">実際にパートナー制度に加盟いただいた2社の事例をご紹介します。</p>
+      <span class="section-label">Business Plan｜事業の数字</span>
+      <h2 class="section-title">新規参入・初年度の目標は売上5,000万円。<br>逆算はシンプルです。</h2>
     </div>
-    <div class="case-grid">
-      <a href="https://horiemon.ai/case/lifefund" target="_blank" rel="noopener" class="case-card fade-up">
-        <span class="case-badge">建築校</span>
-        <div class="case-stat">初月で初期費用を回収、<br>半年で月次売上<span class="num">約1,000万円</span>へ</div>
-        <div class="case-company">株式会社LIFEFUND（静岡県浜松市／注文住宅・社員約70名）</div>
-        <p class="case-text">「日本で一番AIを活用する建築会社になる」を掲げ、まずは自社で受講して社内にAI活用事例を蓄積。受講から2ヶ月後に建築校としてFC協業校の運営をスタートしました。業界を熟知した企業ならではの実践的なサポートで、開校初期から集客も順調に立ち上がっています。</p>
-        <span class="case-link">事例インタビューを読む →</span>
-      </a>
-      <a href="https://horiemon.ai/case/manaviva" target="_blank" rel="noopener" class="case-card fade-up">
-        <span class="case-badge">福岡校</span>
-        <div class="case-stat">売上ゼロから1年で<span class="num">1,000万円超</span>、<br>現在<span class="num">2,000万円超</span>に急成長</div>
-        <div class="case-company">株式会社マナビバ（福岡県／未経験者向けオンライン教育）</div>
-        <p class="case-text">2024年4月にゼロ期生として加盟。最初の半年は法人売上ゼロと苦戦するも、福岡の企業限定の訪問サポートなど「地域校ならではの価値提供」と本部との密な連携でV字回復。研修にとどまらないDXコンサル型の提案で、いまや事業の主力に成長しています。</p>
-        <span class="case-link">事例インタビューを読む →</span>
-      </a>
+    <div class="funnel fade-up">
+      <div class="funnel-step">
+        <div class="f-num">月30件</div>
+        <div class="f-label">資料請求</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="f-num">月9件</div>
+        <div class="f-label">商談</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="f-num">月3件</div>
+        <div class="f-label">成約<br>（AI研修は1契約 平均150万円）</div>
+      </div>
     </div>
+    <div class="funnel-result fade-up">初年度の目標：<span class="hl">年間売上5,000万円</span></div>
+    <p class="numbers-note fade-up">※ 目標はノルマではありません。未達による罰則・違約金はありません。<br>※ ただし加盟時に、年間5,000万円を狙える販路（業界ネットワーク・顧客基盤）があることを面談で確認させていただきます。</p>
   </div>
 </section>
 
@@ -696,7 +829,7 @@
 <section class="section flow" id="flow">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Flow</span>
+      <span class="section-label">Flow｜加盟の流れ</span>
       <h2 class="section-title">加盟の流れ</h2>
       <p class="section-sub">仮に1月1日に検討を開始した場合の、2年間のモデルスケジュールです。いきなり契約ではなく、面談3回 → まず自社で受講 → それでも協業したい場合にFC契約、という順番で進みます。</p>
     </div>
@@ -832,105 +965,11 @@
   </div>
 </section>
 
-<!-- ===== SCHEME（役割分担） ===== -->
-<section class="section" id="scheme" style="background:var(--gray-light)">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">Scheme</span>
-      <h2 class="section-title">役割分担はシンプルです</h2>
-      <p class="section-sub">AIのことはホリエモンAI学校が、業界のことはパートナー企業が。それぞれの強みを持ち寄る協業モデルです。</p>
-    </div>
-
-    <!-- 売上シェア円グラフ -->
-    <div class="share-box fade-up">
-      <h3 class="share-title">売上を<span class="hl">50%ずつ</span>シェアします</h3>
-      <p class="share-sub">本部とFC協業社で、役割も売上も半分ずつ。それぞれ25%×2の役割を担います。</p>
-      <div class="share-wrap">
-        <svg class="share-pie" viewBox="0 0 200 200" role="img" aria-label="売上シェアの円グラフ：本部50%（AI技術・講師・講義動画・開発25%、本部運営25%）、FC協業社50%（新規獲得マーケティング25%、既存顧客カスタマーサクセス25%）">
-          <!-- 右半分＝本部（赤系）、左半分＝FC協業社（黒系） -->
-          <path d="M100,100 L100,10 A90,90 0 0 1 190,100 Z" fill="#e8001c"/>
-          <path d="M100,100 L190,100 A90,90 0 0 1 100,190 Z" fill="#ff5a6e"/>
-          <path d="M100,100 L100,190 A90,90 0 0 1 10,100 Z" fill="#1a1a1a"/>
-          <path d="M100,100 L10,100 A90,90 0 0 1 100,10 Z" fill="#5a5a5a"/>
-          <text x="142" y="62" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">25%</text>
-          <text x="142" y="146" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">25%</text>
-          <text x="58" y="146" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">25%</text>
-          <text x="58" y="62" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">25%</text>
-          <circle cx="100" cy="100" r="34" fill="#fff"/>
-          <text x="100" y="96" text-anchor="middle" fill="#1a1a1a" font-size="15" font-weight="900">50 : 50</text>
-          <text x="100" y="113" text-anchor="middle" fill="#888" font-size="9" font-weight="700">売上シェア</text>
-        </svg>
-        <ul class="share-legend">
-          <li><span class="share-chip" style="background:#e8001c"></span><div><strong>25% 本部</strong><span>AI技術／講師／講義動画／開発</span></div></li>
-          <li><span class="share-chip" style="background:#ff5a6e"></span><div><strong>25% 本部</strong><span>本部運営</span></div></li>
-          <li class="share-divider" aria-hidden="true"></li>
-          <li><span class="share-chip" style="background:#1a1a1a"></span><div><strong>25% FC協業社</strong><span>新規獲得マーケティング</span></div></li>
-          <li><span class="share-chip" style="background:#5a5a5a"></span><div><strong>25% FC協業社</strong><span>既存顧客カスタマーサクセス</span></div></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="scheme-cards fade-up">
-      <div class="scheme-card">
-        <div class="who-label">AI・コンテンツ・仕組みを提供するのは</div>
-        <div class="who">ホリエモンAI学校</div>
-        <ul>
-          <li>法人向けAI研修コンテンツと講師ノウハウ</li>
-          <li>AIコンサルティングの方法論・実践知</li>
-          <li>AIエージェントの開発・提供</li>
-          <li>ブランド・マーケティングの支援</li>
-        </ul>
-      </div>
-      <div class="scheme-card is-partner">
-        <div class="who-label">業界の知見・信頼を持ち寄るのは</div>
-        <div class="who">パートナー企業</div>
-        <ul>
-          <li>業界固有の業務知識・現場の課題感</li>
-          <li>業界内の顧客基盤・ネットワーク</li>
-          <li>業界に対する信頼と実績</li>
-          <li>業界課題を解決したいという意志</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FEATURES ===== -->
-<section class="section features" id="features">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">Features</span>
-      <h2 class="section-title">パートナーになる3つの価値</h2>
-      <p class="section-sub">「AI事業を始める」のではなく、「業界のAI活用推進役」という独自のポジションを手に入れる仕組みです。</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card fade-up">
-        <div class="feature-card-num">01</div>
-        <span class="tag">各業界1社限定</span>
-        <h3>業界内で独占的な<br>ポジションを確保</h3>
-        <p>1つの業界につきパートナーは1社のみ。同業界内での競合を避け、「業界のAI活用推進役」として独自の立ち位置を築けます。</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-card-num">02</div>
-        <span class="tag">実績×ブランド</span>
-        <h3>400社の実績と<br>ブランドを最初から</h3>
-        <p>受講企業400社・受講者4,000人超で磨かれた研修・コンサルの方法論と、認知度のあるホリエモンAI学校ブランドを活用。ゼロからのAI事業立ち上げに比べ、信頼獲得までの距離を大きく短縮できます。</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-card-num">03</div>
-        <span class="tag">三層構造</span>
-        <h3>教育で終わらない<br>提供モデル</h3>
-        <p>研修（教育）→ 伴走（コンサル）→ 実務代行（AIエージェント）と、顧客に深く長く価値を提供できるモデルを最初から持てます。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== OUTLINE ===== -->
 <section class="section" id="outline">
   <div class="container">
     <div class="text-center fade-up">
-      <span class="section-label">Outline</span>
+      <span class="section-label">Outline｜募集要項</span>
       <h2 class="section-title">募集要項</h2>
       <p class="section-sub">各業界1社限定のため、面談のうえ相互に確認しながら決定します。</p>
     </div>
