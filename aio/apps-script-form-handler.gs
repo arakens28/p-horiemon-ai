@@ -23,7 +23,7 @@ const SENDER_NAME = 'ホリエモンAI学校';
 // ===== パートナー募集LP用の設定 =====
 const PARTNER_NOTIFY_EMAIL = 'araki@telewor.com'; // パートナー募集LPの通知先
 const PARTNER_REPLY_TO = 'araki@telewor.com';
-const PARTNER_DOCUMENT_URL = ''; // ★パートナー募集資料のURLが決まったらここに貼って再デプロイ（空の間は「担当者よりお送りします」文面になる）
+const PARTNER_DOCUMENT_URL = 'https://docs.google.com/presentation/d/1XVgmBOi1Xl3SqFfUitJNMHI_YZVeU4TNIIysOzdk7cw/edit?usp=sharing'; // パートナー募集資料
 
 function doPost(e) {
   const params = e.parameter;
