@@ -170,6 +170,17 @@
     .problem-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
     .problem-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
 
+    /* ===== TICKET（参入チケット） ===== */
+    .ticket { max-width: 860px; margin: 56px auto 0; background: #fff; border: 2px dashed var(--red); border-radius: 20px; padding: 40px 44px; display: flex; gap: 28px; align-items: center; box-shadow: 0 8px 32px rgba(232,0,28,.08); }
+    .ticket-icon { font-size: 56px; flex-shrink: 0; }
+    .ticket-lead { font-size: 15px; color: var(--gray-text); line-height: 2; margin-bottom: 12px; }
+    .ticket-main { font-size: clamp(17px, 2.4vw, 22px); font-weight: 900; line-height: 1.9; }
+    .ticket-main .hl { color: var(--red); }
+    @media (max-width: 768px) {
+      .ticket { flex-direction: column; text-align: center; padding: 32px 24px; gap: 12px; }
+      .ticket-main br, .ticket-lead br { display: none; }
+    }
+
     /* ===== LAYERS（三層構造） ===== */
     .layer-stack { max-width: 780px; margin: 56px auto 0; }
     .layer { display: flex; align-items: center; gap: 24px; background: #fff; border: 2px solid var(--gray-mid); border-radius: 18px; padding: 32px 36px; transition: var(--transition); }
@@ -232,9 +243,10 @@
     .cost-card { background: #252525; border: 2px solid #333; border-radius: 20px; padding: 44px 32px; text-align: center; }
     .cost-card.is-initial { border-color: var(--red); }
     .cost-card .cost-label { font-size: 15px; font-weight: 700; color: #aaa; margin-bottom: 14px; }
-    .cost-card .cost-val { font-size: clamp(40px, 6vw, 64px); font-weight: 900; line-height: 1.1; color: #fff; }
+    .cost-card .cost-val { font-size: clamp(32px, 4.2vw, 52px); font-weight: 900; line-height: 1.1; color: #fff; white-space: nowrap; }
     .cost-card.is-initial .cost-val { color: var(--red); }
-    .cost-card .cost-val .unit { font-size: .45em; }
+    .cost-card .cost-val .prefix { font-size: .5em; margin-right: .2em; }
+    .cost-card .cost-val .unit { font-size: .5em; }
     .cost-card .cost-note { font-size: 13px; color: #888; margin-top: 12px; line-height: 1.7; }
     .cost-foot { text-align: center; font-size: 13px; color: #777; margin-top: 28px; line-height: 1.8; }
     @media (max-width: 768px) { .cost-cards { grid-template-columns: 1fr; } }
@@ -418,6 +430,15 @@
         <div class="problem-icon">⏳</div>
         <h3>1社ずつの導入では間に合わない</h3>
         <p>業界全体の人手不足・生産性の課題は待ったなし。業界に信頼されるプレイヤーと組んで、面で広げる仕組みが必要です。</p>
+      </div>
+    </div>
+
+    <!-- 参入チケット -->
+    <div class="ticket fade-up">
+      <div class="ticket-icon">🎫</div>
+      <div class="ticket-body">
+        <p class="ticket-lead">業界の課題を解決したい。地域の課題を解決したい。<br>でも、AIのことはわからない——。</p>
+        <p class="ticket-main">このパートナー制度は、そんな会社が<br><span class="hl">AI研修事業・AIコンサル事業・AIエージェント提供事業</span>に<br>参入するための「チケット」です。</p>
       </div>
     </div>
   </div>
@@ -696,7 +717,7 @@
   <div class="container">
     <div class="text-center fade-up">
       <span class="section-label">Features</span>
-      <h2 class="section-title">パートナーになる4つの価値</h2>
+      <h2 class="section-title">パートナーになる3つの価値</h2>
       <p class="section-sub">「AI事業を始める」のではなく、「業界のAI活用推進役」という独自のポジションを手に入れる仕組みです。</p>
     </div>
     <div class="features-grid">
@@ -708,21 +729,15 @@
       </div>
       <div class="feature-card fade-up">
         <div class="feature-card-num">02</div>
-        <span class="tag">400社の実績</span>
-        <h3>実証済みの研修・<br>コンサルノウハウ</h3>
-        <p>受講企業400社・受講者4,000人超で磨かれた法人向けAI研修とコンサルティングの方法論を、業界向けにカスタマイズして提供します。</p>
+        <span class="tag">実績×ブランド</span>
+        <h3>400社の実績と<br>ブランドを最初から</h3>
+        <p>受講企業400社・受講者4,000人超で磨かれた研修・コンサルの方法論と、認知度のあるホリエモンAI学校ブランドを活用。ゼロからのAI事業立ち上げに比べ、信頼獲得までの距離を大きく短縮できます。</p>
       </div>
       <div class="feature-card fade-up">
         <div class="feature-card-num">03</div>
         <span class="tag">三層構造</span>
         <h3>教育で終わらない<br>提供モデル</h3>
         <p>研修（教育）→ 伴走（コンサル）→ 実務代行（AIエージェント）と、顧客に深く長く価値を提供できるモデルを最初から持てます。</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-card-num">04</div>
-        <span class="tag">ブランド</span>
-        <h3>ホリエモンAI学校<br>ブランドの活用</h3>
-        <p>認知度のあるブランドと共同で業界に展開。ゼロからのAI事業立ち上げに比べ、信頼獲得までの距離を大きく短縮できます。</p>
       </div>
     </div>
   </div>
@@ -739,7 +754,7 @@
     <div class="cost-cards fade-up">
       <div class="cost-card is-initial">
         <div class="cost-label">初期費用</div>
-        <div class="cost-val">合計 1,400<span class="unit">万円</span></div>
+        <div class="cost-val"><span class="prefix">合計</span>1,400<span class="unit">万円</span></div>
         <div class="cost-note">加盟にあたって必要な資金の総額です</div>
       </div>
       <div class="cost-card">
