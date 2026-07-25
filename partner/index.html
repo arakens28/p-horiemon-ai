@@ -366,6 +366,22 @@
     .cta-actions { position: relative; z-index: 1; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .cta-note { position: relative; z-index: 1; margin-top: 24px; font-size: 13px; color: #777; }
 
+    /* ===== DOWNLOAD FORM（資料DL） ===== */
+    .dl-section { background: var(--gray-light); }
+    .dl-card { max-width: 560px; margin: 48px auto 0; background: #fff; border: 2px solid var(--gray-mid); border-radius: 20px; padding: 40px 36px; box-shadow: var(--shadow); }
+    .dl-field { margin-bottom: 18px; }
+    .dl-field label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .dl-field .req { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; background: var(--red); border-radius: 4px; padding: 1px 8px; margin-left: 6px; vertical-align: 1px; }
+    .dl-field input { width: 100%; font-family: inherit; font-size: 16px; color: var(--black); border: 1.5px solid var(--gray-mid); border-radius: 10px; padding: 13px 16px; background: #fff; transition: border-color .2s, box-shadow .2s; }
+    .dl-field input:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(232,0,28,.12); }
+    .dl-submit-wrap { text-align: center; margin-top: 28px; }
+    .dl-submit-wrap .btn { width: 100%; }
+    .dl-status { margin-top: 16px; font-size: 14px; font-weight: 700; text-align: center; line-height: 1.7; }
+    .dl-status.ok { color: #0a8a3a; }
+    .dl-status.err { color: var(--red); }
+    .dl-consent { font-size: 12px; color: var(--gray-text); text-align: center; margin-top: 20px; line-height: 1.7; }
+    @media (max-width: 600px) { .dl-card { padding: 30px 22px; } }
+
     /* ===== COMPANY ===== */
     .company { background: #fff; }
     .company-table-wrap { max-width: 760px; margin: 56px auto 0; border: 1px solid var(--gray-mid); border-radius: var(--radius); overflow: hidden; }
@@ -453,8 +469,8 @@
       <span>福岡校：売上ゼロ→年商2,000万円超</span>
     </div>
     <div class="hero-actions fade-up">
-      <a href="https://horiemon.ai/contact?utm_source=partner_lp&utm_content=meeting" class="btn btn-primary btn-lg">30分オンライン面談を予約する →</a>
-      <a href="https://horiemon.ai/contact?utm_source=partner_lp&utm_content=document" class="btn btn-outline">まずは資料をダウンロード</a>
+      <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/gn6hwEwlXgPWc-8-pPJKu/confirm" target="_blank" rel="noopener" class="btn btn-primary btn-lg">30分オンライン面談を予約する →</a>
+      <a href="#download" class="btn btn-outline">まずは資料をダウンロード</a>
     </div>
     <p class="hero-note">※ 助成金の受給を保証するものではありません。申請要件・支給額は企業規模等により異なります（大企業は最大792万円）。申請サポートは提携社労士をご紹介します。<br>※ すでにパートナーが決定した業界・エリアは、募集を終了する場合があります。</p>
   </div>
@@ -959,6 +975,37 @@
   </div>
 </section>
 
+<!-- ===== DOWNLOAD FORM（資料DL） ===== -->
+<section class="section dl-section" id="download">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Document</span>
+      <h2 class="section-title">まずは資料をダウンロード</h2>
+      <p class="section-sub">パートナー制度の詳細資料をお送りします。3項目・30秒で完了します。</p>
+    </div>
+    <form class="dl-card fade-up" id="dlForm" novalidate>
+      <input type="hidden" name="form" value="partner-doc">
+      <div class="dl-field">
+        <label for="dl-company">会社名<span class="req">必須</span></label>
+        <input type="text" id="dl-company" name="company" required autocomplete="organization" placeholder="例: 株式会社○○">
+      </div>
+      <div class="dl-field">
+        <label for="dl-name">お名前<span class="req">必須</span></label>
+        <input type="text" id="dl-name" name="name" required autocomplete="name" placeholder="例: 山田 太郎">
+      </div>
+      <div class="dl-field">
+        <label for="dl-email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="dl-email" name="email" required autocomplete="email" placeholder="example@company.co.jp">
+      </div>
+      <div class="dl-submit-wrap">
+        <button type="submit" class="btn btn-primary btn-lg" id="dlSubmit">資料をダウンロードする</button>
+        <p class="dl-status" id="dlStatus" role="status" aria-live="polite"></p>
+      </div>
+      <p class="dl-consent">ご入力いただいた情報は、資料送付と本件のご案内にのみ使用します。</p>
+    </form>
+  </div>
+</section>
+
 <!-- ===== CTA ===== -->
 <section class="cta-section" id="apply">
   <div class="container">
@@ -966,8 +1013,8 @@
     <h2 class="section-title">あなたの業界・エリアの「1社」に。</h2>
     <p class="cta-desc">まずは「うちの業界・エリアは空いてる？」の確認だけでも歓迎です。<br>資料請求、30分オンライン面談のご予約もこちらから。</p>
     <div class="cta-actions">
-      <a href="https://horiemon.ai/contact?utm_source=partner_lp&utm_content=meeting" class="btn btn-primary btn-lg">30分オンライン面談を予約する →</a>
-      <a href="https://horiemon.ai/contact?utm_source=partner_lp&utm_content=document" class="btn btn-outline-light">資料をダウンロード</a>
+      <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/gn6hwEwlXgPWc-8-pPJKu/confirm" target="_blank" rel="noopener" class="btn btn-primary btn-lg">30分オンライン面談を予約する →</a>
+      <a href="#download" class="btn btn-outline-light">資料をダウンロード</a>
       <a href="https://horiemon.ai/contact?utm_source=partner_lp&utm_content=availability" class="btn btn-outline-light">空き状況を確認する</a>
     </div>
   </div>
@@ -1025,7 +1072,7 @@
 
 <!-- ===== SP STICKY ===== -->
 <div class="sp-sticky-footer">
-  <a href="https://horiemon.ai/contact?utm_source=partner_lp&utm_content=meeting">30分オンライン面談を予約する →</a>
+  <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/gn6hwEwlXgPWc-8-pPJKu/confirm" target="_blank" rel="noopener">30分オンライン面談を予約する →</a>
 </div>
 
 <script>
@@ -1052,6 +1099,44 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // ===== 資料DLフォーム（GAS統合エンドポイントへ送信、form=partner-doc で振り分け） =====
+  const DL_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbx4a1nNgF8P6zkjPZTJoceKFjS-ITTinpE7oApcj-RFKkIVVciACthwpubDSx1sq6D5uA/exec";
+
+  (function () {
+    const form = document.getElementById('dlForm');
+    if (!form) return;
+    const submitBtn = document.getElementById('dlSubmit');
+    const statusEl  = document.getElementById('dlStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中…';
+      statusEl.className = 'dl-status';
+      statusEl.textContent = '';
+
+      try {
+        const res = await fetch(DL_FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (!res.ok) throw new Error('failed');
+        form.reset();
+        statusEl.className = 'dl-status ok';
+        statusEl.textContent = '送信が完了しました。ご入力のメールアドレス宛に資料をご案内します。';
+        submitBtn.textContent = '送信完了';
+      } catch (err) {
+        statusEl.className = 'dl-status err';
+        statusEl.textContent = '送信に失敗しました。お手数ですが再度お試しください。';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '資料をダウンロードする';
+      }
+    });
+  })();
 
 </script>
 </body>

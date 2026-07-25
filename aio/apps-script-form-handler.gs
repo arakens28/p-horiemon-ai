@@ -1,27 +1,135 @@
 /**
- * AIO参入支援LP(p.horiemon.ai/aio/)の資料請求フォーム受信用スクリプト
+ * フォーム受信用スクリプト（統合版）
+ * - AIO参入支援LP(p.horiemon.ai/aio/)の資料請求フォーム
+ * - エグゼクティブAI研修LP(exec-ai-lp-b316cd9b.vercel.app)の問い合わせフォーム
+ * - パートナー募集LP(p.horiemon.ai/partner/)の資料DLフォーム
+ * を1つの doPost で受信する。hidden項目 form=exec-ai / form=partner-doc の有無で振り分け。
  *
- * 使い方:
- * 1. sheets.new で新しいスプレッドシートを作成し、URLの /d/ と /edit の間の文字列(シートID)をコピー
- * 2. スプレッドシートの「拡張機能」→「Apps Script」を開く
- * 3. このファイルの中身を貼り付け、SHEET_ID と NOTIFY_EMAIL を書き換える
- *    （NOTIFY_EMAILは複数登録する場合、カンマ区切りで並べる）
- * 4. 「デプロイ」→「新しいデプロイ」→ 種類:ウェブアプリ
- *    - 実行ユーザー: 自分
- *    - アクセスできるユーザー: 全員
- * 5. 発行された https://script.google.com/.../exec のURLを、
- *    aio/index.html の DOC_FORM_ENDPOINT に設定する
+ * 反映方法（コードを書き換えたとき）:
+ * 「デプロイ」→「デプロイを管理」→ 鉛筆マーク → バージョン「新しいバージョン」→ デプロイ
+ * （URLは変わらない。「新しいデプロイ」を選ぶと別URLになるので注意）
  *
- * コードを書き換えた後は、既存デプロイの場合「デプロイ」→「デプロイを管理」→
- * 鉛筆マーク→バージョン「新しいバージョン」→デプロイ、で反映する（URLは変わらない）
+ * ※ SHEET_ID と NOTIFY_EMAIL はGoogle側エディタの実物の値を残すこと
  */
 
-const SHEET_ID = 'ここにスプレッドシートIDを入力';
-const NOTIFY_EMAIL = 'ここに通知先メールアドレスを入力（複数の場合はカンマ区切り）';
+const SHEET_ID = '1p3oLfvJclqAoq3S20RM_4i2BsyYtIpGGXIwhhRsh6lg';
+const EXEC_SHEET_ID = '1NvpFa-9yaMaoVxQB_OHHNmhSjoePDRi9QhXAr_5tCu0'; // エグゼクティブAI研修LP用スプシ
+const NOTIFY_EMAIL = 'araki+aio@telewor.com,kazuma@kingprotea.jp,arakens28@gmail.com';
+const EXEC_NOTIFY_EMAIL = 'araki@telewor.com'; // 研修LPの通知先（AIOとは別）
 const DOCUMENT_URL = 'https://drive.google.com/file/d/1wJJZIXXco_4A7wskW-Cm776lh1KDCQA9/view?usp=sharing';
+const REPLY_TO_EMAIL = 'kazuma@kingprotea.jp';
+const SENDER_NAME = 'ホリエモンAI学校';
+
+// ===== パートナー募集LP用の設定 =====
+const PARTNER_NOTIFY_EMAIL = 'araki@telewor.com'; // パートナー募集LPの通知先
+const PARTNER_REPLY_TO = 'araki@telewor.com';
+const PARTNER_DOCUMENT_URL = ''; // ★パートナー募集資料のURLが決まったらここに貼って再デプロイ（空の間は「担当者よりお送りします」文面になる）
 
 function doPost(e) {
   const params = e.parameter;
+
+  // エグゼクティブAI研修LPからの問い合わせ
+  if (params['form'] === 'exec-ai') {
+    return handleExecAi(params);
+  }
+
+  // パートナー募集LPの資料DL
+  if (params['form'] === 'partner-doc') {
+    return handlePartnerDoc(params);
+  }
+
+  // ここから下は従来どおりAIOの資料請求
+  return handleAioDocRequest(params);
+}
+
+// ===== パートナー募集LP 資料DL =====
+function handlePartnerDoc(params) {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const sheetName = '資料請求_パートナー募集';
+  const sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
+
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['送信日時', '会社名', 'お名前', 'メールアドレス']);
+  }
+
+  const company = params['company'] || '';
+  const name = params['name'] || '';
+  const email = params['email'] || '';
+
+  sheet.appendRow([new Date(), company, name, email]);
+
+  // 社内通知メール
+  MailApp.sendEmail({
+    to: PARTNER_NOTIFY_EMAIL,
+    subject: '【パートナー募集LP】資料請求: ' + (company || '会社名未記入'),
+    body:
+      '会社名: ' + company + '\n' +
+      'お名前: ' + name + '\n' +
+      'メールアドレス: ' + email + '\n\n' +
+      '送信日時: ' + new Date()
+  });
+
+  // 申込者への自動返信メール
+  if (email) {
+    MailApp.sendEmail({
+      to: email,
+      replyTo: PARTNER_REPLY_TO,
+      name: SENDER_NAME,
+      subject: '【ホリエモンAI学校】業界特化AIパートナー資料のご請求ありがとうございます',
+      body:
+        (company ? company + '\n' : '') +
+        name + ' 様\n\n' +
+        'この度は「業界特化AI 活用推進パートナー」の資料をご請求いただき、誠にありがとうございます。\n\n' +
+        (PARTNER_DOCUMENT_URL
+          ? '下記URLより資料をご覧いただけます。\n\n' + PARTNER_DOCUMENT_URL + '\n\n'
+          : '担当者より2営業日以内に、資料をメールでお送りいたします。\n\n') +
+        'お急ぎの場合や、30分オンライン面談をご希望の場合は、下記よりご予約いただけます。\n' +
+        'https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/gn6hwEwlXgPWc-8-pPJKu/confirm\n\n' +
+        'ご不明点がございましたら、お気軽にご返信ください。\n\n' +
+        '--------------------\n' +
+        'ホリエモンAI学校株式会社\n'
+    });
+  }
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ result: 'success' }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ===== エグゼクティブAI研修LP =====
+function handleExecAi(params) {
+  const ss = SpreadsheetApp.openById(EXEC_SHEET_ID);
+  const sheet = ss.getSheets()[0];
+
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['送信日時', '会社名', 'お名前', 'メールアドレス', 'ご相談内容']);
+  }
+
+  const company = params['company'] || '';
+  const name = params['name'] || '';
+  const email = params['email'] || '';
+  const message = params['message'] || '';
+
+  sheet.appendRow([new Date(), company, name, email, message]);
+
+  MailApp.sendEmail({
+    to: EXEC_NOTIFY_EMAIL,
+    subject: '【エグゼクティブAI研修LP】お問い合わせ: ' + (company || '会社名未記入'),
+    body:
+      '会社名: ' + company + '\n' +
+      'お名前: ' + name + '\n' +
+      'メールアドレス: ' + email + '\n\n' +
+      'ご相談内容:\n' + (message || '(未入力)') + '\n\n' +
+      '送信日時: ' + new Date()
+  });
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ result: 'success' }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ===== AIO資料請求（従来どおり） =====
+function handleAioDocRequest(params) {
   const ss = SpreadsheetApp.openById(SHEET_ID);
   const sheetName = '資料請求_AIO';
   const sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
@@ -53,6 +161,8 @@ function doPost(e) {
   if (email) {
     MailApp.sendEmail({
       to: email,
+      replyTo: REPLY_TO_EMAIL,
+      name: SENDER_NAME,
       subject: '【ホリエモンAI AIO】資料請求ありがとうございます',
       body:
         (company ? company + '\n' : '') +
