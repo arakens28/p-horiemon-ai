@@ -413,6 +413,13 @@
     .company-table th { width: 200px; padding: 20px 24px; font-size: 14px; font-weight: 700; text-align: left; background: var(--gray-light); vertical-align: top; white-space: nowrap; }
     .company-table td { padding: 20px 24px; font-size: 14px; color: var(--gray-text); line-height: 1.8; }
 
+    /* ===== SALES DATA / SUMMARY 画像 ===== */
+    .sales-fig { max-width: 980px; margin: 32px auto 0; border: 1px solid var(--gray-mid); border-radius: 12px; background: #fff; overflow-x: auto; box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+    .sales-fig img { display: block; min-width: 900px; width: 100%; height: auto; }
+    .sales-cap { text-align: center; font-size: 12px; color: #aaa; margin-top: 12px; }
+    .summary-fig { max-width: 900px; margin: 40px auto 44px; border-radius: 16px; overflow: hidden; border: 1px solid var(--gray-mid); box-shadow: 0 12px 48px rgba(0,0,0,.1); }
+    .summary-fig img { width: 100%; height: auto; display: block; }
+
     /* ===== SCHOOLS（FC協業校一覧） ===== */
     .schools-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 900px; margin: 40px auto 0; }
     .school-chip { background: #fff; border: 1px solid var(--gray-mid); border-radius: 99px; padding: 8px 18px; font-size: 13px; font-weight: 700; color: var(--black); transition: var(--transition); }
@@ -801,6 +808,16 @@
     </div>
     <div class="funnel-result fade-up">初年度の目標：<span class="hl">年間売上5,000万円</span></div>
     <p class="numbers-note fade-up">※ 目標はノルマではありません。未達による罰則・違約金はありません。<br>※ ただし加盟時に、年間5,000万円を狙える販路（業界ネットワーク・顧客基盤）があることを面談で確認させていただきます。</p>
+
+    <div class="text-center fade-up" style="margin-top:64px;">
+      <h3 style="font-size:clamp(19px,2.6vw,24px); font-weight:900; margin-bottom:8px;">実際のFC協業校の売上データ</h3>
+      <p style="font-size:14px; color:var(--gray-text);">順調に伸びた校もあれば、停止した校・営業していない校もあります。ありのままのデータです。</p>
+    </div>
+    <figure class="sales-fig fade-up">
+      <img src="/partner/sales.jpg" width="2232" height="676" loading="lazy" decoding="async"
+        alt="FC協業校の月次売上データ（1〜10ヶ月目・単位：円）。10ヶ月目に6,489万円まで伸びた校や4,533万円・3,119万円の校がある一方、売上ゼロのままの校（営業せず・停止）もある実データ">
+    </figure>
+    <p class="sales-cap fade-up">FC協業校の月次売上（1〜10ヶ月目・単位：円）※スマホの方は横にスクロールできます</p>
   </div>
 </section>
 
@@ -1036,6 +1053,10 @@
       <h2 class="section-title">お問い合わせ・資料ダウンロード</h2>
       <p class="section-sub">資料のご請求、空き状況の確認、制度についてのご質問はこちらから。2営業日以内にメールでご連絡します。</p>
     </div>
+    <figure class="summary-fig fade-up">
+      <img src="/partner/footer.jpg" width="1408" height="768" loading="lazy" decoding="async"
+        alt="本日のまとめ：投資は資金1,400万円と一人月担当者1名。リターンは助成金900万円、非エンジニア社員がAI人材に、会社がAI事業に参入、新規AI事業売上の50%、社員がAI人材として活躍、毎月10時間のAI支援、ホリエモンブランドが使えて本業でも存在感アップ">
+    </figure>
     <form class="dl-card fade-up" id="dlForm" novalidate>
       <input type="hidden" name="form" value="partner-doc">
       <div class="dl-field">
