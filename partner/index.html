@@ -13,6 +13,24 @@
     gtag('config', 'G-VTWDCX4J34');
   </script>
 
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1624179252687479');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1624179252687479&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <title>業界特化AI 活用推進パートナー募集 | 各業界1社限定 | ホリエモンAI学校</title>
   <meta name="description" content="社員10名以上の企業様へ。助成金を活用してAI事業に新規参入しませんか？研修1,200万円のうち最大900万円が国の助成金対象（中小企業）。まず自社で受講し、納得してから加盟金200万円でパートナー契約。各業界・各エリア1社限定です。">
   <meta name="keywords" content="業界特化AI,パートナー募集,AI研修,AIコンサル,AIエージェント,ホリエモンAI学校,法人向けAI,DX,生成AI">
@@ -1186,6 +1204,13 @@
     }, 5000);
   })();
 
+  // Metaピクセル：Spir（面談予約）クリックをScheduleイベントとして計測
+  document.querySelectorAll('a[href*="spirinc.com"]').forEach(a => {
+    a.addEventListener('click', () => {
+      if (typeof fbq === 'function') fbq('track', 'Schedule');
+    });
+  });
+
   // ハンバーガーメニュー
   const menuBtn = document.getElementById('aiMenuBtn');
   const nav = document.getElementById('aiNav');
@@ -1239,6 +1264,7 @@
         statusEl.className = 'dl-status ok';
         statusEl.textContent = '送信が完了しました。資料のご案内とあわせて、担当者より2営業日以内にメールでご連絡します。';
         submitBtn.textContent = '送信完了';
+        if (typeof fbq === 'function') fbq('track', 'Lead');
       } catch (err) {
         statusEl.className = 'dl-status err';
         statusEl.textContent = '送信に失敗しました。お手数ですが再度お試しください。';
