@@ -31,6 +31,15 @@
   /></noscript>
   <!-- End Meta Pixel Code -->
 
+  <!-- X Pixel Code -->
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    twq('config','o07f8');
+  </script>
+  <!-- End X Pixel Code -->
+
   <title>業界特化AI 活用推進パートナー募集 | 各業界1社限定 | ホリエモンAI学校</title>
   <meta name="description" content="社員10名以上の企業様へ。助成金を活用してAI事業に新規参入しませんか？研修1,200万円のうち最大900万円が国の助成金対象（中小企業）。まず自社で受講し、納得してから加盟金200万円でパートナー契約。各業界・各エリア1社限定です。">
   <meta name="keywords" content="業界特化AI,パートナー募集,AI研修,AIコンサル,AIエージェント,ホリエモンAI学校,法人向けAI,DX,生成AI">
@@ -1204,10 +1213,12 @@
     }, 5000);
   })();
 
-  // Metaピクセル：Spir（面談予約）クリックをScheduleイベントとして計測
+  // Meta/Xピクセル：Spir（面談予約）クリックをコンバージョンとして計測
+  const X_SCHEDULE_EVENT = 'tw-o07f8-re3bp'; // X側の「面談予約」イベント
   document.querySelectorAll('a[href*="spirinc.com"]').forEach(a => {
     a.addEventListener('click', () => {
       if (typeof fbq === 'function') fbq('track', 'Schedule');
+      if (X_SCHEDULE_EVENT && typeof twq === 'function') twq('event', X_SCHEDULE_EVENT, {});
     });
   });
 
@@ -1265,6 +1276,7 @@
         statusEl.textContent = '送信が完了しました。資料のご案内とあわせて、担当者より2営業日以内にメールでご連絡します。';
         submitBtn.textContent = '送信完了';
         if (typeof fbq === 'function') fbq('track', 'Lead');
+        if (typeof twq === 'function') twq('event', 'tw-o07f8-re3bo', {});
       } catch (err) {
         statusEl.className = 'dl-status err';
         statusEl.textContent = '送信に失敗しました。お手数ですが再度お試しください。';
