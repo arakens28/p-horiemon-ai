@@ -167,8 +167,9 @@
     .hero-copy { font-size: clamp(25px, 4.2vw, 44px); font-weight: 900; line-height: 1.4; letter-spacing: -.02em; margin-bottom: 24px; }
     .hero-desc { font-size: 16px; color: var(--gray-text); margin-bottom: 28px; line-height: 2; }
     .hero-desc strong { color: var(--red); }
-    .hero-camp { display: inline-block; font-size: 14px; color: var(--black); background: var(--red-bg); border-radius: 12px; padding: 12px 22px; margin-bottom: 28px; line-height: 1.9; }
-    .hero-camp strong { color: var(--red); }
+    .hero-steps { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+    .hero-step { background: var(--gray-light); border: 1.5px solid var(--gray-mid); border-radius: 99px; padding: 8px 20px; font-size: 14px; font-weight: 700; }
+    .hero-step-arrow { color: var(--red); font-weight: 900; font-size: 18px; }
     .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
     .hero-badges span { font-size: 13px; font-weight: 700; color: var(--red); background: var(--red-bg); border-radius: 99px; padding: 8px 18px; }
     .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: center; }
@@ -482,14 +483,18 @@
 <section class="hero-lead">
   <div class="container">
     <p class="hero-target fade-up">社員10名以上の企業様へ</p>
-    <h2 class="hero-copy fade-up">助成金を活用して、<br><span style="color:var(--red);">AI事業に新規参入</span>しませんか？</h2>
+    <h2 class="hero-copy fade-up">ホリエモンAI学校と協業で<br><span style="color:var(--red);">AI事業に新規参入</span>しませんか？</h2>
+    <div class="hero-steps fade-up">
+      <span class="hero-step">社員全員をAI人材に</span>
+      <span class="hero-step-arrow">→</span>
+      <span class="hero-step">AI研修事業を始める</span>
+      <span class="hero-step-arrow">→</span>
+      <span class="hero-step">コンサル・AIエージェント事業に拡大</span>
+    </div>
     <p class="hero-desc fade-up">
-      AI事業参入を目的とした社員研修1,200万円のうち、<br>
-      <strong>最大900万円が国の助成金対象</strong>（人材開発支援助成金 事業展開等リスキリング支援事業）。<br>
-      まず1ヶ月自社で受講し、納得してから加盟金200万円でパートナー契約。<br>
-      各業界・各エリア1社限定で、あなたの会社が「教える側」に回ります。
+      助成金を活用して、初期費用をお得にできる可能性があります。<br>
+      売上を<strong>50%ずつ</strong>分ける協業です。
     </p>
-    <p class="hero-camp fade-up">録画された講義を見るだけで、社員がAI人材になるのは大変。<br>だから研修は<strong>Camp形式——Zoomなどで2日間の短期集中</strong>。実力が身につきます。</p>
     <div class="hero-badges fade-up">
       <span>受講企業400社・受講者4,000人超</span>
       <span>建築校：初月で初期費用を回収</span>
