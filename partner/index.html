@@ -340,6 +340,16 @@
     .btn-outline-light:hover { background: #fff; color: var(--black); }
     @media (max-width: 768px) { .cost-steps { grid-template-columns: 1fr; } }
 
+    /* ===== WHY US（なぜ募集するのか） ===== */
+    .reason-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; max-width: 960px; margin-left: auto; margin-right: auto; }
+    .reason-card { background: #fff; border: 2px solid var(--gray-mid); border-radius: 20px; padding: 40px 36px; transition: var(--transition); }
+    .reason-card:hover { border-color: var(--red); box-shadow: 0 8px 32px rgba(232,0,28,.1); }
+    .reason-num { display: inline-block; font-size: 12px; font-weight: 900; letter-spacing: .06em; color: #fff; background: var(--red); border-radius: 99px; padding: 4px 14px; margin-bottom: 16px; }
+    .reason-card h3 { font-size: clamp(18px, 2.4vw, 22px); font-weight: 900; line-height: 1.5; margin-bottom: 14px; }
+    .reason-card p { font-size: 14px; color: var(--gray-text); line-height: 1.9; }
+    .reason-card p strong { color: var(--black); }
+    @media (max-width: 768px) { .reason-cards { grid-template-columns: 1fr; } }
+
     /* ===== FEATURES ===== */
     .features { background: var(--black); color: #fff; }
     .features .section-title { color: #fff; }
@@ -682,6 +692,31 @@
           <li>業界課題を解決したいという意志</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US（なぜ募集するのか） ===== -->
+<section class="section whyus" id="whyus" style="background:#fff">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Why us｜なぜ募集するのか</span>
+      <h2 class="section-title">なぜ、ホリエモンAI学校が<br>パートナーの立ち上げを支援するのか</h2>
+    </div>
+    <div class="reason-cards fade-up">
+      <div class="reason-card">
+        <span class="reason-num">理由 1</span>
+        <h3>業界に特化した支援は、<br>業界を知る会社としかできないから</h3>
+        <p>ホリエモンAI学校は、AI研修・AIコンサル・AIエージェント提供の三層構造で、企業の生成AI活用DXを支援してきました。次に目指すのは<strong>「業界特化」の支援</strong>です。業界の業務課題は、その業界に精通した人にしか見えません。だからこそ、各業界に精通した協業パートナーと組んで、業務課題×生成AIの事業を一緒にやりたいのです。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">理由 2</span>
+        <h3>AIの東京一極集中を、<br>地元企業との協業で変えたいから</h3>
+        <p>AI活用は東京に一極集中し、<strong>地方企業のAI活用は遅れています</strong>。しかし、私たちが全国に支店を置くのはコストも手間もかかり、継続できません。そこで、地元を知り尽くした地元企業とパートナーを組み、「ホリエモンAI学校◯◯校」を全国に広げていきたいのです。</p>
+      </div>
+    </div>
+    <div class="layers-msg fade-up" style="margin-top:40px;">
+      <p>この構想を実現するために、<span class="hl">全くのAI未経験から、社員をAIコンサルタントにする養成講座</span>を始めました。<br>パートナー企業の社員が「教える側」に立てるまで、本部が育てます。</p>
     </div>
   </div>
 </section>
