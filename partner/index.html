@@ -184,6 +184,14 @@
     .course-plate .ctag { font-size: 13.5px; color: var(--muted); margin-top: 4px; line-height: 1.9; }
     .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 0; }
     .chip { font-size: 13px; font-weight: 700; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    .hero-visual { position: relative; width: 100%; padding-top: 48.9%; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(16,28,61,.18); background: #fff; }
+    .hv-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease; }
+    .hv-slide.show { opacity: 1; }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-visual { padding-top: 48.9%; }
+    }
 
     /* ============ logos ============ */
     .logos { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 64px 0; }
@@ -356,23 +364,32 @@
 
 <!-- ===== S2: ファーストビュー ===== -->
 <section class="hero">
-  <div class="container">
-    <p class="hero-kicker rv">年商3億円以上の企業経営者・経営幹部・事業責任者の方へ</p>
-    <h1 class="hero-title rv">自社のAI事業を、<br><span class="grad">外注任せにしない。</span></h1>
-    <p class="hero-sub rv">非エンジニア社員を、顧客や自社の課題を発見し、<br>AIによる解決策を実装できる人材へ。</p>
-    <div class="course-plate rv">
-      <div class="cname">AIコンサルタント・FDE養成講座</div>
-      <div class="ctag">提案だけで終わらない。顧客の隣で、AIによる解決策を実装できる人材へ。</div>
+  <div class="container hero-grid">
+    <div>
+      <p class="hero-kicker rv">年商3億円以上の企業経営者・経営幹部・事業責任者の方へ</p>
+      <h1 class="hero-title rv">自社のAI事業を、<br><span class="grad">外注任せにしない。</span></h1>
+      <p class="hero-sub rv">非エンジニア社員を、顧客や自社の課題を発見し、<br>AIによる解決策を実装できる人材へ。</p>
+      <div class="course-plate rv">
+        <div class="cname">AIコンサルタント・FDE養成講座</div>
+        <div class="ctag">提案だけで終わらない。顧客の隣で、AIによる解決策を実装できる人材へ。</div>
+      </div>
+      <div class="rv">
+        <div><a href="#" class="btn-cta lg" data-cta="web-meeting" data-cta-position="hero" aria-label="30分のWeb面談を予約する">30分のWeb面談を予約する</a></div>
+        <p class="cta-note">予約後、講座の詳しい資料もお送りします。<br>まずは自社で何ができそうか、情報収集だけでも構いません。</p>
+      </div>
+      <div class="hero-chips rv">
+        <span class="chip">非エンジニア社員が対象</span>
+        <span class="chip">課題発見から実装まで</span>
+        <span class="chip">Claude Code・Zapierを活用</span>
+        <span class="chip">自社のAI事業立ち上げを支援</span>
+      </div>
     </div>
-    <div class="rv">
-      <div><a href="#" class="btn-cta lg" data-cta="web-meeting" data-cta-position="hero" aria-label="30分のWeb面談を予約する">30分のWeb面談を予約する</a></div>
-      <p class="cta-note">予約後、講座の詳しい資料もお送りします。<br>まずは自社で何ができそうか、情報収集だけでも構いません。</p>
-    </div>
-    <div class="hero-chips rv">
-      <span class="chip">非エンジニア社員が対象</span>
-      <span class="chip">課題発見から実装まで</span>
-      <span class="chip">Claude Code・Zapierを活用</span>
-      <span class="chip">自社のAI事業立ち上げを支援</span>
+    <div class="hero-visual rv" id="heroVisual">
+      <img src="/partner/c1.jpg" width="1793" height="877" fetchpriority="high" decoding="async" class="hv-slide"
+        alt="AIコンサルタント・FDE養成講座｜提案だけで終わらない。顧客の隣で、AIによる解決策を実装できる人材へ（ホリエモンAI学校提供）">
+      <img src="/partner/c2.jpg" width="1793" height="877" decoding="async" class="hv-slide" alt="" aria-hidden="true">
+      <img src="/partner/c3.jpg" width="1793" height="877" decoding="async" class="hv-slide" alt="" aria-hidden="true">
+      <img src="/partner/c4.jpg" width="1793" height="877" decoding="async" class="hv-slide" alt="" aria-hidden="true">
     </div>
   </div>
 </section>
@@ -852,6 +869,27 @@
       if (typeof twq === 'function') twq('event', 'tw-o07f8-re3bp', {});
     });
   });
+
+  // ヒーロービジュアル（4枚をランダム順で5秒ごとにフェード切替）
+  (function () {
+    const slides = [...document.querySelectorAll('.hv-slide')];
+    if (!slides.length) return;
+    for (let i = slides.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [slides[i], slides[j]] = [slides[j], slides[i]];
+    }
+    let idx = 0;
+    slides[idx].style.transition = 'none';
+    slides[idx].classList.add('show');
+    requestAnimationFrame(() => { slides[idx].style.transition = ''; });
+    if (slides.length > 1) {
+      setInterval(() => {
+        slides[idx].classList.remove('show');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('show');
+      }, 5000);
+    }
+  })();
 
   // スクロールアニメーション
   const io = new IntersectionObserver((es) => {
