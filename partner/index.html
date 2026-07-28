@@ -179,9 +179,9 @@
     .hero-title { font-size: clamp(30px, 5.4vw, 56px); font-weight: 900; line-height: 1.35; letter-spacing: .01em; margin-bottom: 22px; }
     .hero-title .grad { background: linear-gradient(120deg, var(--blue), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero-sub { font-size: clamp(15px, 2vw, 18px); font-weight: 500; color: #33405c; line-height: 2.1; margin-bottom: 30px; }
-    .course-plate { display: inline-block; background: var(--navy); color: #fff; border-radius: var(--radius); padding: 22px 30px; margin-bottom: 30px; box-shadow: 0 16px 40px rgba(16,28,61,.22); }
-    .course-plate .cname { font-size: clamp(18px, 2.6vw, 24px); font-weight: 900; }
-    .course-plate .ctag { font-size: 13px; color: #aeb9d6; margin-top: 6px; line-height: 1.9; }
+    .course-plate { display: block; border-left: 4px solid; border-image: linear-gradient(180deg, var(--blue), var(--violet)) 1; padding: 4px 0 4px 22px; margin-bottom: 30px; }
+    .course-plate .cname { font-size: clamp(18px, 2.6vw, 24px); font-weight: 900; color: var(--navy); }
+    .course-plate .ctag { font-size: 13.5px; color: var(--muted); margin-top: 4px; line-height: 1.9; }
     .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 0; }
     .chip { font-size: 13px; font-weight: 700; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px; }
 
