@@ -182,21 +182,18 @@
       mask-image: linear-gradient(180deg, transparent, #000 30%, transparent 95%);
     }
     .hero .container { position: relative; z-index: 1; }
-    .hero-kicker { display: inline-block; font-size: 13px; font-weight: 700; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 7px 18px; margin-bottom: 26px; }
-    .hero-lead { font-size: clamp(17px, 2.2vw, 21px); font-weight: 700; color: var(--blue); margin-bottom: 10px; }
     .hero-title { font-size: clamp(30px, 4.6vw, 52px); font-weight: 900; line-height: 1.35; letter-spacing: .01em; margin-bottom: 22px; }
     .hero-title .nowrap { white-space: nowrap; }
     .hero-title .grad { background: linear-gradient(120deg, var(--blue), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero-sub { font-size: clamp(15px, 2vw, 18px); font-weight: 500; color: #33405c; line-height: 2.1; margin-bottom: 30px; }
     .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 0; }
     .chip { font-size: 13px; font-weight: 700; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px; }
-    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
-    .hero-visual { position: relative; width: 100%; max-width: 440px; margin: 0 0 0 auto; aspect-ratio: 1122 / 1402; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(16,28,61,.18); background: #fff; }
-    .hv-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease; }
-    .hv-slide.show { opacity: 1; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .hero-visual { position: relative; width: 100%; max-width: 500px; margin: 0 0 0 auto; aspect-ratio: 1122 / 1402; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(16,28,61,.18); background: #fff; }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; }
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-      .hero-visual { max-width: 360px; margin: 0 auto; }
+      .hero-visual { max-width: 400px; margin: 0 auto; }
     }
 
     /* ============ logos ============ */
@@ -258,7 +255,6 @@
     @media (max-width: 720px) { .fde-grid { grid-template-columns: 1fr; } }
 
     /* ============ カード群 ============ */
-    .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 44px; }
     .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
     .cards-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
     .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; }
@@ -266,30 +262,18 @@
     .card p { font-size: 13.5px; color: var(--muted); line-height: 1.9; }
     .card .num { font-size: 13px; font-weight: 900; color: var(--blue); letter-spacing: .1em; display: block; margin-bottom: 10px; }
     @media (max-width: 900px) { .cards-3, .cards-4 { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .cards-2, .cards-3, .cards-4 { grid-template-columns: 1fr; } }
-
-    /* ============ カリキュラム ============ */
-    .step-list { max-width: 760px; margin: 44px auto 0; }
-    .step-item { display: flex; gap: 20px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; margin-bottom: 10px; }
-    .step-item .no { flex-shrink: 0; width: 64px; font-size: 12px; font-weight: 900; color: var(--blue); letter-spacing: .06em; padding-top: 4px; }
-    .step-item .tx { font-size: 15.5px; font-weight: 700; line-height: 1.8; }
-    .info-table-wrap { max-width: 760px; margin: 28px auto 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
-    .info-table { width: 100%; border-collapse: collapse; }
-    .info-table tr { border-bottom: 1px solid var(--line); }
-    .info-table tr:last-child { border-bottom: none; }
-    .info-table th { width: 160px; padding: 16px 20px; font-size: 13.5px; font-weight: 700; text-align: left; background: var(--bg); white-space: nowrap; vertical-align: top; }
-    .info-table td { padding: 16px 20px; font-size: 14px; color: #33405c; line-height: 1.8; }
-    @media (max-width: 560px) { .info-table th { width: 108px; padding: 13px 14px; } .info-table td { padding: 13px 14px; } }
+    @media (max-width: 560px) { .cards-3, .cards-4 { grid-template-columns: 1fr; } }
 
     /* ============ 事例 ============ */
-    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
-    .case-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; display: flex; flex-direction: column; }
+    .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 44px; }
+    .case-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 30px; display: flex; flex-direction: column; }
     .case-card .badge { align-self: flex-start; font-size: 11px; font-weight: 700; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px; margin-bottom: 14px; }
-    .case-card h3 { font-size: 16px; font-weight: 900; margin-bottom: 12px; line-height: 1.6; }
+    .case-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 6px; line-height: 1.6; }
+    .case-card .company { font-size: 13.5px; font-weight: 700; color: var(--muted); margin-bottom: 18px; }
     .case-card ul { list-style: none; flex: 1; }
-    .case-card li { font-size: 13px; color: var(--muted); padding-left: 16px; position: relative; margin-bottom: 8px; line-height: 1.8; }
+    .case-card li { font-size: 13.5px; color: var(--muted); padding-left: 16px; position: relative; margin-bottom: 10px; line-height: 1.85; }
     .case-card li::before { content: '・'; position: absolute; left: 0; }
-    .case-card .soon { margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--blue); }
+    .case-card .case-link { margin-top: 18px; font-size: 13.5px; font-weight: 700; color: var(--blue); }
     @media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
 
     /* ============ 適/不適 ============ */
@@ -376,8 +360,6 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <p class="hero-kicker rv">年商3億円以上の企業経営者・経営幹部・事業責任者の方へ</p>
-      <p class="hero-lead rv">自社のAI事業を、外注任せにしない。</p>
       <h1 class="hero-title rv"><span class="nowrap">AIコンサルタント・</span><br><span class="grad">FDE養成講座</span></h1>
       <p class="hero-sub rv">提案だけで終わらない。顧客の隣で、AIによる解決策を実装できる人材へ。<br>非エンジニア社員を、課題発見から実装まで担える人材に育成します。</p>
       <div class="rv">
@@ -391,12 +373,9 @@
         <span class="chip">自社のAI事業立ち上げを支援</span>
       </div>
     </div>
-    <div class="hero-visual rv" id="heroVisual">
-      <img src="/partner/c1.jpg" width="1122" height="1402" fetchpriority="high" decoding="async" class="hv-slide"
+    <div class="hero-visual rv">
+      <img src="/partner/c1.jpg" width="1122" height="1402" fetchpriority="high" decoding="async"
         alt="AIコンサルタント・FDE養成講座｜提案だけで終わらない。顧客の隣で、AIによる解決策を実装できる人材へ（ホリエモンAI学校提供）">
-      <img src="/partner/c2.jpg" width="1122" height="1402" decoding="async" class="hv-slide" alt="" aria-hidden="true">
-      <img src="/partner/c3.jpg" width="1122" height="1402" decoding="async" class="hv-slide" alt="" aria-hidden="true">
-      <img src="/partner/c4.jpg" width="1122" height="1402" decoding="async" class="hv-slide" alt="" aria-hidden="true">
     </div>
   </div>
 </section>
@@ -513,126 +492,40 @@
   </div>
 </section>
 
-<!-- ===== S10: カリキュラム
-     ▼詳細確定後、STEPのテキストと下の概要テーブルを書き換える（構造は維持） ===== -->
-<section class="section">
-  <div class="container">
-    <div class="tc rv">
-      <span class="sec-label">Curriculum</span>
-      <h2 class="sec-title">課題発見から事業化まで、8つのステップ</h2>
-      <p class="sec-lead">※カリキュラムの詳細は現在調整中です。最新の内容はWeb面談でご案内します。</p>
-    </div>
-    <div class="step-list rv">
-      <div class="step-item"><span class="no">STEP 1</span><span class="tx">生成AIとAI事業の基礎理解</span></div>
-      <div class="step-item"><span class="no">STEP 2</span><span class="tx">顧客・自社の課題発見</span></div>
-      <div class="step-item"><span class="no">STEP 3</span><span class="tx">AIによる解決策の企画</span></div>
-      <div class="step-item"><span class="no">STEP 4</span><span class="tx">Claude Codeを使った実装</span></div>
-      <div class="step-item"><span class="no">STEP 5</span><span class="tx">Zapierなどを使った業務自動化</span></div>
-      <div class="step-item"><span class="no">STEP 6</span><span class="tx">プロトタイプの開発</span></div>
-      <div class="step-item"><span class="no">STEP 7</span><span class="tx">顧客または社内への導入</span></div>
-      <div class="step-item"><span class="no">STEP 8</span><span class="tx">改善と事業化</span></div>
-    </div>
-    <div class="info-table-wrap rv">
-      <table class="info-table">
-        <tbody>
-          <tr><th>受講期間</th><td>調整中（Web面談でご案内します）</td></tr>
-          <tr><th>開催形式</th><td>調整中（Web面談でご案内します）</td></tr>
-          <tr><th>受講人数</th><td>調整中（Web面談でご案内します）</td></tr>
-          <tr><th>講義回数</th><td>調整中（Web面談でご案内します）</td></tr>
-          <tr><th>サポート内容</th><td>調整中（Web面談でご案内します）</td></tr>
-          <tr><th>課題・成果発表</th><td>調整中（Web面談でご案内します）</td></tr>
-          <tr><th>料金</th><td>Web面談でご案内します</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ===== S11: 導入事例（プレースホルダー3件）
-     ▼インタビューURL確定後に差し替え:
-     [導入事例インタビューURL 1] / [導入事例インタビューURL 2] / [導入事例インタビューURL 3]
-     各事例の構成: 受講前の状況→経営者の危機感→受講の決め手→受講した社員→つくったもの→
-     導入方法→変化（売上〇％増加・月間〇時間の業務削減・新規AI事業で〇件受注 等は実数で）→今後の展望 ===== -->
+<!-- ===== S11: 導入事例（2件・実事例） ===== -->
 <section class="section" style="background:var(--bg);">
   <div class="container">
     <div class="tc rv">
       <span class="sec-label">Case Study</span>
       <h2 class="sec-title">受講企業のビフォーアフター</h2>
-      <p class="sec-lead">導入事例のインタビュー記事を現在制作中です。各事例では、以下の内容をありのままにお伝えする予定です。</p>
     </div>
     <div class="case-grid rv">
       <div class="case-card">
-        <span class="badge">事例 1｜近日公開</span>
-        <h3>既存事業の伸び悩みから、AI事業の立ち上げへ</h3>
+        <span class="badge">事例 1</span>
+        <h3>売上ゼロから、地域No.1の事業基盤へ</h3>
+        <p class="company">株式会社マナビバ（前田祐樹男 代表取締役）</p>
         <ul>
-          <li>受講前の会社の状況と、経営者が感じていた危機感</li>
-          <li>受講を決めた理由と、受講した社員</li>
-          <li>受講中に実際につくったもの</li>
-          <li>売上・生産性・新規事業に起きた変化（実数を掲載予定）</li>
-          <li>経営者の今後の展望</li>
+          <li>導入前の課題：東京から福岡へ移転したものの地縁が薄く、ブランディングや人脈づくりに苦戦</li>
+          <li>導入の決め手：未経験者向け教育事業との親和性の高さと、ブランド力への期待</li>
+          <li>導入後の成果：加盟から約1年半で売上約1,000万円を達成、2026年度は加盟初年度の約3倍を見込む。営業利益率は約50%（諸経費控除後も約20%）</li>
         </ul>
-        <span class="soon">インタビュー記事を準備中です</span>
+        <a href="https://horiemon.ai/case/manaviva" target="_blank" rel="noopener" class="case-link">事例を詳しく見る →</a>
       </div>
       <div class="case-card">
-        <span class="badge">事例 2｜近日公開</span>
-        <h3>人手不足の現場を、業務自動化で立て直す</h3>
+        <span class="badge">事例 2</span>
+        <h3>初月で初期投資を回収、半年で月商1,000万円へ</h3>
+        <p class="company">株式会社LIFEFUND（白都卓磨 代表取締役）</p>
         <ul>
-          <li>受講前の会社の状況と、経営者が感じていた危機感</li>
-          <li>受講を決めた理由と、受講した社員</li>
-          <li>受講中に実際につくったもの</li>
-          <li>売上・生産性・新規事業に起きた変化（実数を掲載予定）</li>
-          <li>経営者の今後の展望</li>
+          <li>導入前の課題：労働集約型で人手不足が深刻な建築業界の構造を変えたかった</li>
+          <li>導入の決め手：業界特化の仕組み。受講するだけでなく教える側に回ることで、より高みを目指せると判断</li>
+          <li>導入後の成果：導入後半年で月次売上約1,000万円を達成。初期費用はほぼ初月で回収、共同セミナーには約150社が参加</li>
         </ul>
-        <span class="soon">インタビュー記事を準備中です</span>
-      </div>
-      <div class="case-card">
-        <span class="badge">事例 3｜近日公開</span>
-        <h3>既存顧客へのAI提案で、新しい収益源をつくる</h3>
-        <ul>
-          <li>受講前の会社の状況と、経営者が感じていた危機感</li>
-          <li>受講を決めた理由と、受講した社員</li>
-          <li>受講中に実際につくったもの</li>
-          <li>売上・生産性・新規事業に起きた変化（実数を掲載予定）</li>
-          <li>経営者の今後の展望</li>
-        </ul>
-        <span class="soon">インタビュー記事を準備中です</span>
+        <a href="https://horiemon.ai/case/lifefund" target="_blank" rel="noopener" class="case-link">事例を詳しく見る →</a>
       </div>
     </div>
     <div class="cta-band rv">
       <a href="#" class="btn-cta" data-cta="web-meeting" data-cta-position="case-study" aria-label="30分のWeb面談を予約する">30分のWeb面談を予約する</a>
       <p class="cta-note">予約後、講座の詳しい資料もお送りします</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== S12: 選ばれる理由 ===== -->
-<section class="section">
-  <div class="container">
-    <div class="tc rv">
-      <span class="sec-label">Why FDE</span>
-      <h2 class="sec-title">なぜ、一般的なAI研修ではなく、<br>FDE養成なのか</h2>
-    </div>
-    <div class="cards-2 rv">
-      <div class="card">
-        <span class="num">理由 1</span>
-        <h3>非エンジニア社員を対象にしている</h3>
-        <p>エンジニア採用に頼らず、事業と現場を知る既存社員をAI人材に育てます。だからこそ、学んだことがそのまま事業の改善につながります。</p>
-      </div>
-      <div class="card">
-        <span class="num">理由 2</span>
-        <h3>知識習得ではなく、課題発見から実装まで行う</h3>
-        <p>「知っている」で終わらせず、自社や顧客の実課題をテーマに、動く成果物をつくるところまで到達します。</p>
-      </div>
-      <div class="card">
-        <span class="num">理由 3</span>
-        <h3>Claude Code・Zapierなど、実務で使えるツールを扱う</h3>
-        <p>デモ用ではなく、実務・事業の現場でそのまま使われている開発・自動化ツールを習得します。</p>
-      </div>
-      <div class="card">
-        <span class="num">理由 4</span>
-        <h3>業務改善だけでなく、AI事業化まで視野に入れている</h3>
-        <p>社内の生産性向上にとどまらず、AIコンサルティングやAI導入支援を新規事業として提供できる状態を目指します。</p>
-      </div>
     </div>
   </div>
 </section>
@@ -786,27 +679,6 @@
       if (typeof twq === 'function') twq('event', 'tw-o07f8-re3bp', {});
     });
   });
-
-  // ヒーロービジュアル（4枚をランダム順で5秒ごとにフェード切替）
-  (function () {
-    const slides = [...document.querySelectorAll('.hv-slide')];
-    if (!slides.length) return;
-    for (let i = slides.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [slides[i], slides[j]] = [slides[j], slides[i]];
-    }
-    let idx = 0;
-    slides[idx].style.transition = 'none';
-    slides[idx].classList.add('show');
-    requestAnimationFrame(() => { slides[idx].style.transition = ''; });
-    if (slides.length > 1) {
-      setInterval(() => {
-        slides[idx].classList.remove('show');
-        idx = (idx + 1) % slides.length;
-        slides[idx].classList.add('show');
-      }, 5000);
-    }
-  })();
 
   // スクロールアニメーション
   const io = new IntersectionObserver((es) => {
