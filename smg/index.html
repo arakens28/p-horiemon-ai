@@ -211,6 +211,16 @@ img{max-width:100%;display:block}
 .concept-result .hl{color:var(--gold)}
 @media (max-width:760px){.concept-wrap{grid-template-columns:1fr}.concept-x{transform:rotate(90deg);margin:0 auto}}
 
+/* ===== USE CASES ===== */
+.usecase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+.usecase-card{background:#fff;border:1px solid var(--line-strong);border-radius:var(--radius);padding:32px;box-shadow:0 2px 14px rgba(23,17,10,.03);display:flex;flex-direction:column}
+.usecase-num{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--gold);background:var(--gold-soft);border-radius:99px;padding:4px 14px;display:inline-block;margin-bottom:18px;align-self:flex-start}
+.usecase-card h3{font-size:18px;font-weight:800;line-height:1.5;margin-bottom:12px;color:var(--text)}
+.usecase-card p{font-size:13.5px;color:var(--text-dim);line-height:1.85}
+.usecase-note{max-width:760px;margin:32px auto 0;text-align:center;font-size:15px;font-weight:700;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 24px;line-height:1.8}
+.usecase-note .hl{color:var(--red-deep)}
+@media (max-width:900px){.usecase-grid{grid-template-columns:1fr}}
+
 /* ===== BENTO FEATURES ===== */
 .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:8px}
 .bento-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden;transition:.3s ease;box-shadow:0 2px 14px rgba(23,17,10,.03)}
@@ -345,6 +355,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
     </a>
     <nav class="hdr-nav">
       <a href="#concept">コンセプト</a>
+      <a href="#usecases">活用事例</a>
       <a href="#features">特徴</a>
       <a href="#pricing">料金</a>
       <a href="#provider">提供元</a>
@@ -367,7 +378,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
         <span class="grad-text">現場で使えるレベル</span>まで。
       </h1>
       <p class="hero-desc">
-        スガワラくんAI学校 SMG校は、SMG経営塾に加盟する企業の社員の皆様向けに、ホリエモンAI学校が提供する特別なオンラインスクールです。ChatGPTをはじめとしたAIツールの基本操作から、日々の業務で使える実践的な活用法まで学べます。
+        スガワラくんAI学校 SMG校は、SMG経営塾に加盟する企業の社員の皆様向けに、ホリエモンAI学校が提供する特別なオンラインスクールです。単純な業務効率化だけでなく、AIを活用して<strong>財務や決算などの数値分析</strong>まで、自社でできるようになることを目指します。
       </p>
       <div class="hero-exclusive">🔒 <span>本スクールは、<strong>SMG経営塾に加盟する企業の社員の方だけ</strong>が入れる特別なオンラインスクールです。SMG経営塾のメンバーでない方は、まずSMG経営塾のご相談からお願いします。</span></div>
       <div class="hero-actions">
@@ -413,8 +424,8 @@ footer{border-top:1px solid var(--line);padding:48px 0}
 <!-- ===== MARQUEE ===== -->
 <div class="marquee-wrap">
   <div class="marquee">
-    <span><b>ChatGPT</b><em>×</em><b>業務効率化</b><em>×</em><b>資料作成</b><em>×</em><b>AI</b><em>×</em><b>議事録自動化</b><em>×</em><b>AI</b><em>×</em><b>メール作成</b><em>×</em><b>AI</b></span>
-    <span><b>ChatGPT</b><em>×</em><b>業務効率化</b><em>×</em><b>資料作成</b><em>×</em><b>AI</b><em>×</em><b>議事録自動化</b><em>×</em><b>AI</b><em>×</em><b>メール作成</b><em>×</em><b>AI</b></span>
+    <span><b>ClaudeCode</b><em>×</em><b>財務分析</b><em>×</em><b>freee</b><em>×</em><b>AI</b><em>×</em><b>経営ダッシュボード</b><em>×</em><b>MoneyForward</b><em>×</em><b>AI</b><em>×</em><b>事業計画書</b><em>×</em><b>AI</b></span>
+    <span><b>ClaudeCode</b><em>×</em><b>財務分析</b><em>×</em><b>freee</b><em>×</em><b>AI</b><em>×</em><b>経営ダッシュボード</b><em>×</em><b>MoneyForward</b><em>×</em><b>AI</b><em>×</em><b>事業計画書</b><em>×</em><b>AI</b></span>
   </div>
 </div>
 
@@ -449,7 +460,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
     <div class="section-head center reveal">
       <span class="section-tag">Concept</span>
       <h2 class="section-title">SMG経営塾だから実現できる、特別な学び</h2>
-      <p class="section-sub" style="margin:0 auto">SMG経営塾のネットワークと、ホリエモンAI学校のAI教育ノウハウを掛け合わせ、SMG経営塾メンバー企業の社員が「現場で使えるAIツールの使い方」を学べる場を用意しました。</p>
+      <p class="section-sub" style="margin:0 auto">SMG経営塾のネットワークと、ホリエモンAI学校のAI教育ノウハウを掛け合わせ、SMG経営塾メンバー企業の社員が「現場で使えるAIツールの使い方」を学べる場を用意しました。単純な業務効率化だけでなく、AIを活用して財務や決算などの数値分析ができるようになることも目指します。</p>
     </div>
     <div class="concept-wrap reveal">
       <div class="concept-box red">
@@ -467,6 +478,35 @@ footer{border-top:1px solid var(--line);padding:48px 0}
     <div class="concept-result reveal">
       <p>知識で終わらせず、<br><span class="hl">明日の業務で使える</span>ところまで、社員みんなで学ぶ。</p>
     </div>
+  </div>
+</section>
+
+<!-- ===== USE CASES ===== -->
+<section class="section" id="usecases">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Use Cases</span>
+      <h2 class="section-title">AIで、会社の「お金」がここまで分かる。</h2>
+      <p class="section-sub" style="margin:0 auto">単純な業務効率化だけでなく、ClaudeCodeを使えば財務・決算などの数値分析までできるようになります。実際にできることの一部をご紹介します。</p>
+    </div>
+    <div class="usecase-grid reveal">
+      <div class="usecase-card">
+        <span class="usecase-num">Case 01・freee連携</span>
+        <h3>ClaudeCode × 会計freeeをMCP接続し、経理の異常値を自動検知</h3>
+        <p>ClaudeCodeと会計freeeをMCPで接続。月次の仕訳データを自動取得し、「外注費が前月比40%増えている」「現金残高の減少ペースが早い」といった気づきを、ClaudeCodeが日本語のレポートとして自動で教えてくれます。</p>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-num">Case 02・MoneyForward連携</span>
+        <h3>ClaudeCode × MoneyForwordで、経営ダッシュボードを毎週自動生成</h3>
+        <p>ClaudeCodeとMoneyForwordを接続し、毎週決まったタイミングで売上・キャッシュフロー・利益率などをまとめた経営ダッシュボードを自動作成。先週との差分やコメント付きで届くので、数字を見るだけで経営判断ができる状態になります。</p>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-num">Case 03・ローカルLLM活用</span>
+        <h3>顧客情報をローカルLLMに入れて、銀行向け事業計画書を作成</h3>
+        <p>顧客企業の決算書や事業データを、外部に情報が出ないローカル環境のLLMに読み込ませ、銀行融資申請用の事業計画書のドラフトを自動生成。情報漏洩リスクを抑えながら、資料作成の工数を大幅に削減できます。</p>
+      </div>
+    </div>
+    <div class="usecase-note reveal">会社経営に欠かせない<span class="hl">「お金」にまわる数字</span>が、ClaudeCodeでスムーズに扱えるようになる。それがこのスクールで目指す状態です。</div>
   </div>
 </section>
 
