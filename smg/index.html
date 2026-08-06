@@ -152,9 +152,14 @@ img{max-width:100%;display:block}
 @media (max-width:860px){ .hdr-nav a:not(.hdr-cta){display:none} .hdr-logo-text{display:none} }
 
 /* ===== HERO ===== */
-.hero{background:linear-gradient(160deg,var(--navy),#141235);position:relative;padding:170px 0 96px;overflow:hidden}
+.hero{background:linear-gradient(160deg,var(--navy),#141235);position:relative;padding:80px 0 96px;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-10%;right:-10%;width:60%;height:80%;background:radial-gradient(circle,rgba(179,147,79,.14),transparent 70%)}
+.hero-banner{position:relative;z-index:1}
+.hero-banner img{width:100%;height:auto;display:block}
 .hero-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative;z-index:1}
+.hero-inner-center{display:block;padding-top:52px}
+.hero-content-center{max-width:680px;margin:0 auto;text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .hero-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--latin);font-size:12px;font-weight:500;letter-spacing:.22em;color:#e3c98c;text-transform:uppercase;margin-bottom:28px}
 .hero-tag::before{content:'';width:26px;height:1px;background:#e3c98c}
 .hero-title{font-family:var(--serif);color:#fff;font-size:clamp(32px,4.4vw,54px);font-weight:700;line-height:1.6;letter-spacing:.02em;margin-bottom:32px}
@@ -341,28 +346,18 @@ footer{background:var(--navy2);padding:68px 0 34px;text-align:center;position:re
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
-  <div class="hero-inner">
-    <div class="reveal">
-      <div class="hero-tag">SMG経営塾 × ホリエモンAI学校</div>
-      <h1 class="hero-title">AIツールの使い方が、<br><span class="u">会社の数字を読む力</span>に変わる。</h1>
-      <p class="hero-desc">スガワラくんAI学校 SMG校は、SMG経営塾に加盟する企業の社員の皆様向けに、ホリエモンAI学校が提供する特別なオンラインプログラムです。単純な業務効率化だけでなく、AIを活用して財務や決算などの数値分析まで、自社でできるようになることを目指します。</p>
-      <div class="hero-lock">🔒 本プログラムは、SMG経営塾に加盟する企業の社員の方だけが入れる特別な内容です。SMG経営塾のメンバーでない方は、まずSMG経営塾のご相談からお願いします。</div>
-      <div class="hero-actions">
+  <h1 class="sr-only">AIツールの使い方が、会社の数字を読む力に変わる。スガワラくんAI学校 SMG経営塾校</h1>
+  <div class="hero-banner reveal">
+    <img src="/smg/head.jpg" alt="スガワラくんAI学校 SMG経営塾校 ─ 経営者のための実践AIプログラム" width="1916" height="821">
+  </div>
+  <div class="hero-inner hero-inner-center">
+    <div class="reveal hero-content-center">
+      <div class="hero-tag" style="justify-content:center">SMG経営塾 × ホリエモンAI学校</div>
+      <p class="hero-desc" style="margin-left:auto;margin-right:auto">スガワラくんAI学校 SMG校は、SMG経営塾に加盟する企業の社員の皆様向けに、ホリエモンAI学校が提供する特別なオンラインプログラムです。単純な業務効率化だけでなく、AIを活用して財務や決算などの数値分析まで、自社でできるようになることを目指します。</p>
+      <div class="hero-lock" style="margin-left:auto;margin-right:auto">🔒 本プログラムは、SMG経営塾に加盟する企業の社員の方だけが入れる特別な内容です。SMG経営塾のメンバーでない方は、まずSMG経営塾のご相談からお願いします。</div>
+      <div class="hero-actions" style="justify-content:center">
         <a href="#pricing" class="btn btn-maroon btn-lg">お申し込み・詳細はこちら →</a>
-        <a href="#pricing" class="btn btn-outline btn-lg">料金プランを見る</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="hero-photo-wrap">
-        <img src="/smg/speaker-photo.jpg" alt="SMG経営塾 提携プログラム 講演の様子" width="1400" height="933">
-        <div class="hero-photo-badge"><span>SMG経営塾</span>提携プログラム</div>
-      </div>
-      <div class="hero-panel hero-panel-compact">
-        <div class="hero-panel-label">CLAUDECODE ─ 活用イメージ</div>
-        <div class="term-line"><span class="p">$</span><span>会計freeeの月次データを分析して</span></div>
-        <div class="term-line"><span class="c">▸</span><span>外注費が前月比+40%です。要因は…</span></div>
-        <div class="term-line"><span class="p">$</span><span>MoneyForwordと接続してダッシュボード作成</span></div>
-        <div class="term-line"><span class="c">▸</span><span>週次の経営ダッシュボードを生成しました</span></div>
+        <a href="#pricing" class="btn btn-outline-navy btn-lg">料金プランを見る</a>
       </div>
     </div>
   </div>
