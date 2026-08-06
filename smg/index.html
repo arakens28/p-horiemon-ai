@@ -251,6 +251,7 @@ img{max-width:100%;display:block}
 .plan-line .v .per{font-family:var(--sans);font-size:12.5px;color:var(--text-dim);font-weight:400}
 .plan-tax{font-family:var(--sans);font-size:11px;color:#9a9488;text-align:right;margin-top:-9px;margin-bottom:6px}
 .plan-note{margin-top:20px;font-family:var(--sans);font-size:14.5px;color:var(--maroon);background:rgba(153,0,0,.06);border:1px solid rgba(153,0,0,.2);border-radius:10px;padding:14px 18px;line-height:1.9;font-weight:400}
+.plan-note-sim{display:inline-block;margin:8px 0;font-weight:700;font-size:15px;color:var(--navy)}
 .plan-btn{margin-top:28px}
 @media (max-width:760px){.plans{grid-template-columns:1fr}}
 
@@ -303,7 +304,7 @@ footer{background:var(--navy2);padding:68px 0 34px;text-align:center;position:re
 @media (max-width:768px){
   .sp-sticky{display:flex;gap:10px;position:fixed;bottom:0;left:0;right:0;z-index:500;padding:12px 16px;background:rgba(23,20,56,.96);backdrop-filter:blur(12px);border-top:1px solid var(--navy-line)}
   .sp-sticky a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;text-align:center;padding:10px 6px;border-radius:12px;font-family:var(--sans);font-size:13px;font-weight:700;line-height:1.3}
-  .sp-sticky a small{font-weight:400;font-size:10px;opacity:.85}
+  .sp-sticky a small{font-weight:400;font-size:9.5px;opacity:.85;line-height:1.3}
   .sp-sticky a.sp-personal{background:var(--maroon);color:#fff}
   .sp-sticky a.sp-corporate{background:rgba(255,255,255,.06);color:#fff;border:1px solid var(--navy-line)}
   body{padding-bottom:74px}
@@ -536,7 +537,7 @@ footer{background:var(--navy2);padding:68px 0 34px;text-align:center;position:re
         <div class="plan-name">法人プラン</div>
         <div class="plan-line"><span class="l">年間利用料／人</span><span class="v"><span class="yen">¥</span>310,000</span></div>
         <div class="plan-tax">税抜</div>
-        <div class="plan-note">1人あたり年間最大24万円の人材開発支援助成金あり（要件を満たす場合）。役員は助成金の対象外です。</div>
+        <div class="plan-note">1人あたり年間最大24万円の人材開発支援助成金あり（要件を満たす場合）。役員は助成金の対象外です。<br><span class="plan-note-sim">(社員4名受講時のシミュレーション)<br>31万円/年×4人＝受講124万円（助成金96万円）</span><br>※助成金には要件がありますのでお問合せください</div>
         <div class="plan-btn"><a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/YPvrY50o_fKgN5ujlqyCm/confirm" class="btn btn-outline-navy btn-block" target="_blank" rel="noopener">法人プランの面談を予約する →</a></div>
       </div>
     </div>
@@ -633,8 +634,8 @@ footer{background:var(--navy2);padding:68px 0 34px;text-align:center;position:re
 </footer>
 
 <div class="sp-sticky">
-  <a href="https://lin.ee/7bDp9wZ" class="sp-personal" target="_blank" rel="noopener"><small>個人の方</small>LINE相談</a>
-  <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/YPvrY50o_fKgN5ujlqyCm/confirm" class="sp-corporate" target="_blank" rel="noopener"><small>法人の方</small>面談予約</a>
+  <a href="https://lin.ee/7bDp9wZ" class="sp-personal" target="_blank" rel="noopener"><small>１名受講(個人)の方</small>LINE相談</a>
+  <a href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/YPvrY50o_fKgN5ujlqyCm/confirm" class="sp-corporate" target="_blank" rel="noopener"><small>２名以上受講(法人)の方</small>面談予約</a>
 </div>
 
 <script>
