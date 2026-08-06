@@ -163,6 +163,13 @@ img{max-width:100%;display:block}
 .hero-lock{display:flex;gap:10px;align-items:flex-start;background:rgba(179,147,79,.1);border:1px solid rgba(179,147,79,.35);border-radius:8px;padding:18px 20px;margin-bottom:36px;max-width:480px;font-family:var(--sans);font-size:13.5px;color:#ecdfc0;line-height:1.95;font-weight:400}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
+.hero-photo-wrap{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(227,201,140,.4);box-shadow:0 26px 60px rgba(0,0,0,.4);aspect-ratio:4/5;margin-bottom:18px}
+.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(23,19,56,.55) 100%)}
+.hero-photo-badge{position:absolute;left:16px;bottom:16px;z-index:1;background:rgba(23,19,56,.82);border:1px solid rgba(227,201,140,.5);border-radius:99px;padding:8px 16px;font-family:var(--sans);font-size:11.5px;font-weight:500;color:#fff;backdrop-filter:blur(4px)}
+.hero-photo-badge span{display:block;font-family:var(--serif);font-size:13px;font-weight:700;color:#e3c98c}
+.hero-panel-compact{padding:22px 24px}
+.hero-panel-compact .term-line{font-size:12px}
 .hero-panel{background:rgba(255,255,255,.04);border:1px solid var(--navy-line);border-radius:16px;padding:34px 28px;position:relative}
 .hero-panel-label{font-family:var(--latin);font-size:11px;color:#b3aed0;letter-spacing:.1em;margin-bottom:18px}
 .term-line{display:flex;gap:10px;font-size:12.5px;font-family:'Public Sans',monospace;color:#d7d2e8;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07)}
@@ -348,14 +355,16 @@ footer{background:var(--navy2);padding:68px 0 34px;text-align:center;position:re
       </div>
     </div>
     <div class="reveal">
-      <div class="hero-panel">
+      <div class="hero-photo-wrap">
+        <img src="/smg/speaker-photo.jpg" alt="SMG経営塾 提携プログラム 講演の様子" width="1400" height="933">
+        <div class="hero-photo-badge"><span>SMG経営塾</span>提携プログラム</div>
+      </div>
+      <div class="hero-panel hero-panel-compact">
         <div class="hero-panel-label">CLAUDECODE ─ 活用イメージ</div>
         <div class="term-line"><span class="p">$</span><span>会計freeeの月次データを分析して</span></div>
         <div class="term-line"><span class="c">▸</span><span>外注費が前月比+40%です。要因は…</span></div>
         <div class="term-line"><span class="p">$</span><span>MoneyForwordと接続してダッシュボード作成</span></div>
         <div class="term-line"><span class="c">▸</span><span>週次の経営ダッシュボードを生成しました</span></div>
-        <div class="term-line"><span class="p">$</span><span>銀行向けの事業計画書ドラフトを作成</span></div>
-        <div class="term-line"><span class="c">▸</span><span>ローカルLLMで安全にドラフトを生成中…</span></div>
       </div>
     </div>
   </div>
