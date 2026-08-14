@@ -409,9 +409,127 @@
     font-size:12px;
     color:#8896a4;
   }
+
+  /* ===== トップスライダー（メインビジュアル） ===== */
+  .mv{
+    background:var(--navy);
+    position:relative;
+  }
+  .mv-inner{
+    max-width:1280px;
+    margin:0 auto;
+    position:relative;
+  }
+  /* scroll-snap + overflow ではなく transform で送る。
+     scroll-snap は JS からの移動が snap に戻されることがあり、
+     送りが効かなくなるため使わない。 */
+  .mv-viewport{
+    overflow:hidden;
+    touch-action:pan-y;
+  }
+  .mv-track{
+    display:flex;
+    transition:transform .5s cubic-bezier(.22,.61,.36,1);
+    will-change:transform;
+  }
+  .mv-track.no-anim{ transition:none; }
+  .mv-slide{
+    flex:0 0 100%;
+    display:block;
+    line-height:0;
+    -webkit-user-select:none;
+    user-select:none;
+  }
+  .mv-slide img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  /* 矢印 */
+  .mv-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px;
+    height:44px;
+    border:none;
+    border-radius:50%;
+    background:rgba(8,24,44,.72);
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .mv-nav:hover{ background:rgba(15,44,77,.85); }
+  .mv-nav.prev{ left:10px; }
+  .mv-nav.next{ right:10px; }
+  /* ドットは画像に重ねず、すぐ下（紺地）に並べる */
+  .mv-dots{
+    display:flex;
+    justify-content:center;
+    gap:9px;
+    padding:13px 0 3px;
+  }
+  .mv-dots button{
+    width:10px;
+    height:10px;
+    padding:0;
+    border:1px solid rgba(255,255,255,.85);
+    border-radius:50%;
+    background:transparent;
+    cursor:pointer;
+  }
+  .mv-dots button[aria-current="true"]{ background:#fff; }
+  @media (max-width:680px){
+    .mv-nav{ width:34px; height:34px; font-size:16px; }
+    .mv-nav.prev{ left:6px; }
+    .mv-nav.next{ right:6px; }
+    .mv-dots{ padding:10px 0 2px; }
+    .mv-dots button{ width:8px; height:8px; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .mv-track{ transition:none; }
+  }
 </style>
 </head>
 <body>
+
+<!-- ================= トップスライダー =================
+     スライドを減らすときは <a class="mv-slide"> … </a> のブロックを
+     まるごと1つ削除するだけでOK（ドットと矢印は自動で追従します）。
+====================================================== -->
+<section class="mv" aria-label="メインビジュアル" aria-roledescription="カルーセル">
+  <div class="mv-inner">
+    <div class="mv-viewport" id="mvViewport" tabindex="0">
+     <div class="mv-track" id="mvTrack">
+
+      <a class="mv-slide js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+        <img src="m1.jpg" width="1672" height="941" fetchpriority="high" decoding="async"
+             alt="AI事業へ新規参入。社内にAI人材がいなくても大丈夫。社員研修・助成金活用・事業立ち上げ支援。">
+      </a>
+
+      <a class="mv-slide js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+        <img src="m2.jpg" width="1672" height="941" decoding="async"
+             alt="AI事業で売上アップ。AIで本業も効率アップ。新規事業×人材育成×本業強化。">
+      </a>
+
+      <a class="mv-slide js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+        <img src="m3.jpg" width="1672" height="941" decoding="async"
+             alt="AIのことが社内で誰もわからない。その悩みをまとめて解決。AI事業参入・社員研修・運用までフルサポート。">
+      </a>
+
+     </div>
+    </div>
+    <button class="mv-nav prev" type="button" aria-label="前のスライド">‹</button>
+    <button class="mv-nav next" type="button" aria-label="次のスライド">›</button>
+    <div class="mv-dots" id="mvDots" role="tablist" aria-label="スライドの選択"></div>
+  </div>
+</section>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
@@ -854,6 +972,132 @@
         el.setAttribute('rel', 'noopener');
       });
     }
+  })();
+</script>
+
+<!-- ===== トップスライダーの動作 ===== -->
+<script>
+  (function(){
+    var vp    = document.getElementById('mvViewport');
+    var track = document.getElementById('mvTrack');
+    if (!vp || !track) return;
+
+    var slides   = Array.prototype.slice.call(track.querySelectorAll('.mv-slide'));
+    var dotsWrap = document.getElementById('mvDots');
+    var prev     = document.querySelector('.mv-nav.prev');
+    var next     = document.querySelector('.mv-nav.next');
+
+    // スライドが1枚だけなら矢印もドットも不要
+    if (slides.length < 2) {
+      [prev, next, dotsWrap].forEach(function(el){ if (el) el.style.display = 'none'; });
+      return;
+    }
+
+    var index = 0;
+    var AUTOPLAY_MS = 5000;
+    var timer  = null;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ドットを枚数ぶん生成
+    var dots = slides.map(function(_, i){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', (i + 1) + '枚目のスライド');
+      b.addEventListener('click', function(){ go(i, true); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    function paint(){
+      dots.forEach(function(d, i){
+        d.setAttribute('aria-current', i === index ? 'true' : 'false');
+      });
+      slides.forEach(function(s, i){
+        // 表示外のスライドはキーボードのタブ移動から外す
+        s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+        if (i === index) { s.removeAttribute('tabindex'); } else { s.setAttribute('tabindex', '-1'); }
+      });
+    }
+
+    function place(px, animate){
+      track.classList.toggle('no-anim', !animate);
+      track.style.transform = 'translate3d(' + px + 'px,0,0)';
+    }
+
+    function go(i, userAction){
+      index = (i + slides.length) % slides.length;
+      place(-vp.clientWidth * index, !reduce);
+      paint();
+      if (userAction) restart();
+    }
+
+    function start(){
+      if (reduce || timer) return;
+      timer = setInterval(function(){ go(index + 1); }, AUTOPLAY_MS);
+    }
+    function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+    function restart(){ stop(); start(); }
+
+    prev.addEventListener('click', function(){ go(index - 1, true); });
+    next.addEventListener('click', function(){ go(index + 1, true); });
+
+    // ホバー・フォーカス中は自動送りを止める
+    ['mouseenter','focusin'].forEach(function(ev){ vp.addEventListener(ev, stop); });
+    ['mouseleave','focusout'].forEach(function(ev){ vp.addEventListener(ev, start); });
+
+    // 矢印キーで操作
+    vp.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1, true); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); go(index - 1, true); }
+    });
+
+    // ---- スワイプ／ドラッグ ----
+    var dragging = false, startX = 0, dx = 0;
+    var THRESHOLD = 45; // これ以上動かしたらページ送り
+
+    vp.addEventListener('pointerdown', function(e){
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true; startX = e.clientX; dx = 0;
+      stop();
+    });
+
+    vp.addEventListener('pointermove', function(e){
+      if (!dragging) return;
+      dx = e.clientX - startX;
+      place(-vp.clientWidth * index + dx, false);
+    });
+
+    function endDrag(){
+      if (!dragging) return;
+      dragging = false;
+      if (Math.abs(dx) > THRESHOLD) {
+        go(index + (dx < 0 ? 1 : -1), true);
+      } else {
+        place(-vp.clientWidth * index, !reduce);
+        start();
+      }
+    }
+    vp.addEventListener('pointerup', endDrag);
+    vp.addEventListener('pointercancel', endDrag);
+    vp.addEventListener('pointerleave', endDrag);
+
+    // ドラッグした指を離したときにリンクが開いてしまうのを防ぐ
+    vp.addEventListener('click', function(e){
+      if (Math.abs(dx) > 10) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+
+    // 画面幅が変わったら現在位置を計算し直す
+    window.addEventListener('resize', function(){ place(-vp.clientWidth * index, false); });
+
+    // タブが裏に回っているあいだは止める
+    document.addEventListener('visibilitychange', function(){
+      document.hidden ? stop() : start();
+    });
+
+    place(0, false);
+    paint();
+    start();
   })();
 </script>
 
