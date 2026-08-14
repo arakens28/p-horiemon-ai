@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI新規事業立ち上げ研修｜3つのAI事業を立ち上げる法人向け人材育成プログラム</title>
+<meta name="description" content="従業員10〜50名の法人向け。AI研修事業・AIコンサル事業・AI開発（FDE）事業の3事業を新規事業として立ち上げるための人材育成研修。人材開発支援助成金の活用に対応。">
+<link rel="canonical" href="https://p.horiemon.ai/reskilling/">
+
+<meta property="og:title" content="AI新規事業立ち上げ研修｜3つのAI事業を立ち上げる法人向け人材育成プログラム">
+<meta property="og:description" content="従業員10〜50名の法人向け。AI研修事業・AIコンサル事業・AI開発（FDE）事業の3事業を新規事業として立ち上げるための人材育成研修。人材開発支援助成金の活用に対応。">
+<meta property="og:url" content="https://p.horiemon.ai/reskilling/">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VTWDCX4J34"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VTWDCX4J34');
+</script>
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-alt:#f5f7fa;
+    --navy:#0f2c4d;
+    --accent:#1a6dbd;
+    --text:#1c2733;
+    --sub:#5a6b7c;
+    --line:#d8e0e8;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:'Noto Sans JP', sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; }
+  a{ color:var(--accent); }
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+  section{
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section.alt{ background:var(--bg-alt); }
+  h1,h2,h3,h4{
+    font-weight:900;
+    color:var(--navy);
+    margin:0 0 16px;
+  }
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .sec-no{
+    font-size:14px;
+    font-weight:700;
+    color:#ffffff;
+    background:var(--navy);
+    padding:4px 10px;
+    border-radius:4px;
+    letter-spacing:0.05em;
+    flex-shrink:0;
+  }
+  .sec-head h2{
+    font-size:22px;
+    margin:0;
+  }
+  p{ margin:0 0 16px; }
+  .lead{ color:var(--sub); }
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    background:var(--navy);
+    color:#fff;
+    padding:14px 0;
+  }
+  header.site-header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  header.site-header .brand{
+    font-weight:700;
+    font-size:15px;
+    color:#fff;
+    letter-spacing:0.02em;
+  }
+  header.site-header .brand small{
+    display:block;
+    font-weight:400;
+    font-size:11px;
+    color:#c9d6e4;
+    margin-top:2px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--navy);
+    color:#fff;
+    padding:64px 0 56px;
+    border-bottom:none;
+  }
+  .hero .badge{
+    display:inline-block;
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:4px;
+    padding:8px 14px;
+    font-size:13px;
+    font-weight:700;
+    line-height:1.6;
+    margin-bottom:24px;
+    color:#e8eef5;
+  }
+  .hero h1{
+    color:#fff;
+    font-size:clamp(26px, 4.2vw, 40px);
+    margin-bottom:20px;
+  }
+  .hero .sub{
+    color:#dbe4ee;
+    font-size:16px;
+    max-width:720px;
+    margin-bottom:32px;
+  }
+  .hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:6px;
+    overflow:hidden;
+    margin-bottom:32px;
+  }
+  .hero-stats div{
+    background:#123a63;
+    padding:18px 14px;
+    text-align:center;
+  }
+  .hero-stats .num{
+    display:block;
+    font-size:22px;
+    font-weight:900;
+    color:#fff;
+    margin-bottom:4px;
+  }
+  .hero-stats .label{
+    font-size:12px;
+    color:#c9d6e4;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+    padding:14px 28px;
+    border-radius:4px;
+    text-decoration:none;
+    border:1px solid var(--accent);
+  }
+  .btn:hover{ background:#155a9c; }
+  .btn-block{
+    display:block;
+    width:100%;
+    text-align:center;
+  }
+  .cta-wrap{ text-align:center; }
+  .cta-note{
+    margin-top:12px;
+    font-size:12px;
+    color:var(--sub);
+  }
+  .hero .cta-note{ color:#b9c8d8; }
+
+  /* ---------- Tables ---------- */
+  .table-scroll{
+    overflow-x:auto;
+    border:1px solid var(--line);
+    border-radius:6px;
+    -webkit-overflow-scrolling:touch;
+  }
+  table{
+    width:100%;
+    min-width:560px;
+    border-collapse:collapse;
+    font-size:14.5px;
+    background:#fff;
+  }
+  table.narrow{ min-width:420px; }
+  th, td{
+    border-bottom:1px solid var(--line);
+    padding:12px 14px;
+    text-align:left;
+    vertical-align:top;
+  }
+  thead th{
+    background:var(--navy);
+    color:#fff;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody tr:nth-child(even){ background:#fafbfc; }
+  td.num, th.num{ text-align:right; white-space:nowrap; }
+
+  /* ---------- Lists ---------- */
+  ul.plain{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  ul.plain li{
+    padding:10px 0 10px 26px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  ul.plain li:last-child{ border-bottom:none; }
+  ul.plain li::before{
+    content:"・";
+    position:absolute;
+    left:2px;
+    color:var(--accent);
+    font-weight:700;
+  }
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media (max-width:680px){
+    .two-col{ grid-template-columns:1fr; }
+    .hero-stats{ grid-template-columns:1fr; }
+  }
+  .col-box{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:20px;
+    background:#fff;
+  }
+  .col-box h3{
+    font-size:16px;
+    margin-bottom:12px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--navy);
+  }
+
+  /* ---------- Cards / skill defs ---------- */
+  .def-card{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:18px 20px;
+    background:#fff;
+    margin-bottom:14px;
+  }
+  .def-card:last-child{ margin-bottom:0; }
+  .def-card .term{
+    font-weight:700;
+    color:var(--navy);
+    display:block;
+    margin-bottom:6px;
+  }
+
+  /* ---------- Emphasis box ---------- */
+  .box-emph{
+    background:#eef4fa;
+    border:1px solid #c3d9ec;
+    border-left:4px solid var(--accent);
+    border-radius:4px;
+    padding:18px 20px;
+    font-weight:700;
+    color:var(--navy);
+    margin:24px 0 0;
+  }
+  .calc-box{
+    background:var(--bg-alt);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:18px 20px;
+    font-size:15px;
+    margin:20px 0;
+    font-weight:700;
+    color:var(--navy);
+    text-align:center;
+  }
+
+  /* ---------- Steps ---------- */
+  .steps{
+    counter-reset:step;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .steps li{
+    counter-increment:step;
+    display:flex;
+    gap:18px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .steps li:last-child{ border-bottom:none; }
+  .steps li::before{
+    content:counter(step);
+    flex-shrink:0;
+    width:36px;
+    height:36px;
+    border-radius:6px;
+    background:var(--navy);
+    color:#fff;
+    font-weight:900;
+    font-size:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .step-body strong{
+    display:block;
+    color:var(--navy);
+    font-size:16px;
+    margin-bottom:4px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{
+    border:1px solid var(--line);
+    border-radius:6px;
+    margin-bottom:12px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .faq-item:last-child{ margin-bottom:0; }
+  .faq-q{
+    display:flex;
+    gap:12px;
+    padding:16px 18px;
+    font-weight:700;
+    color:var(--navy);
+    background:#f5f7fa;
+    border-bottom:1px solid var(--line);
+  }
+  .faq-a{
+    display:flex;
+    gap:12px;
+    padding:16px 18px;
+    color:var(--text);
+  }
+  .faq-q .mark, .faq-a .mark{
+    flex-shrink:0;
+    font-weight:900;
+    color:var(--accent);
+  }
+
+  /* ---------- Mid CTA ---------- */
+  .mid-cta{
+    background:var(--navy);
+    color:#fff;
+    text-align:center;
+    padding:48px 0;
+  }
+  .mid-cta h2{
+    color:#fff;
+    font-size:22px;
+  }
+  .mid-cta p{ color:#dbe4ee; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--bg-alt);
+    padding:40px 0 32px;
+    font-size:13px;
+    color:var(--sub);
+  }
+  footer .f-links a{
+    color:var(--accent);
+    text-decoration:none;
+    margin-right:18px;
+  }
+  footer .f-links{ margin-bottom:18px; }
+  footer .disclaimer{
+    border-top:1px solid var(--line);
+    padding-top:18px;
+    margin-top:18px;
+    font-size:12px;
+    line-height:1.9;
+    color:var(--sub);
+  }
+  footer .copyright{
+    margin-top:18px;
+    font-size:12px;
+    color:#8896a4;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      AI新規事業立ち上げ研修
+      <small>ホリエモンAI学校株式会社</small>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">人材開発支援助成金 ― 事業展開等リスキリング支援コース ― 事業展開 ― 同時双方向性型の通信訓練</span>
+    <h1>AI事業を、立ち上げませんか。</h1>
+    <p class="sub">単なるAI学習ではありません。「AI研修・スクール事業」「AIコンサル事業」「AI開発・FDE事業」——3つの新規事業を実際に立ち上げるための、法人向け人材育成プログラムです。</p>
+
+    <div class="hero-stats">
+      <div>
+        <span class="num">3コース</span>
+        <span class="label">研修コース数</span>
+      </div>
+      <div>
+        <span class="num">48時間</span>
+        <span class="label">総研修時間（3コース合計）</span>
+      </div>
+      <div>
+        <span class="num">1,200万円</span>
+        <span class="label">3コース合計受講料（税別）</span>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a class="btn js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">研修内容の資料を請求する</a>
+      <p class="cta-note">資料請求・お問い合わせは無料です</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 01 この研修の目的 ================= -->
+<section id="sec01">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">01</span>
+      <h2>この研修の目的</h2>
+    </div>
+    <p>AI分野へ新規参入したい法人に対し、必要な人材育成研修を提供し、研修受講後に実際のAI事業を立ち上げられる状態をつくることを目的としています。</p>
+    <p>最終成果として、以下3事業を新規事業として立ち上げることを目指します。</p>
+    <ul class="plain">
+      <li>AI研修・スクール事業</li>
+      <li>AIコンサル事業</li>
+      <li>AI開発・FDE事業</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 02 3つのスキル・事業・研修コースの対応関係 ================= -->
+<section class="alt" id="sec02">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">02</span>
+      <h2>3つのスキル・事業・研修コースの対応関係</h2>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>必要なスキル</th>
+            <th>立ち上げる事業</th>
+            <th>研修コース名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AIを理解し、他者に教えられるスキル</td>
+            <td>AI研修・AIスクール事業</td>
+            <td>AI研修事業立ち上げコース</td>
+          </tr>
+          <tr>
+            <td>企業の課題を発見し、AIによる解決策を提案するスキル</td>
+            <td>AIコンサル事業</td>
+            <td>AIコンサル事業立ち上げコース</td>
+          </tr>
+          <tr>
+            <td>提案書・仕様書に基づき、AIシステムを実装・構築するスキル</td>
+            <td>AI開発・FDE事業</td>
+            <td>AI開発（FDE）事業立ち上げコース</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="def-card">
+      <span class="term">AI研修講師スキル</span>
+      AIについて体系的に理解し、企業研修やスクールで受講者に教えられる能力。
+    </div>
+    <div class="def-card">
+      <span class="term">AIコンサルスキル</span>
+      企業の業務課題を発見し、生成AIやClaude Code等を活用した解決策を、提案書として提示できる能力。
+    </div>
+    <div class="def-card">
+      <span class="term">FDEスキル</span>
+      コンサルが作成した提案書や仕様書に沿って、自ら手を動かし、AIシステムを構築・導入できる能力。
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 受講後にできるようになること ================= -->
+<section id="sec03">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">03</span>
+      <h2>受講後にできるようになること</h2>
+    </div>
+    <div class="two-col">
+      <div class="col-box">
+        <h3>課題発見・コンサルティング</h3>
+        <ul class="plain">
+          <li>顧客の業務課題をヒアリングできる</li>
+          <li>AI導入の企画と提案ができる</li>
+          <li>AIコンサルティングを事業として提供できる</li>
+          <li>AI事業の立ち上げを社内で推進できる</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h3>AI・自動化の実装</h3>
+        <ul class="plain">
+          <li>自社業務をAIで自動化できる</li>
+          <li>社内向けAIツールをつくれる</li>
+          <li>Claude Codeでプロトタイプを開発できる</li>
+          <li>Zapierで複数のサービスを連携できる</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:24px;"><strong>3コースの内訳：</strong>生成AIマスターコース／Zapier業務自動化コース／Claude Code AIエージェントコース</p>
+  </div>
+</section>
+
+<!-- ================= 04 研修の基本設計 ================= -->
+<section class="alt" id="sec04">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">04</span>
+      <h2>研修の基本設計</h2>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th style="width:28%;">項目</th><th>設計内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>コース構成</td><td>3コースをそれぞれ独立して実施</td></tr>
+          <tr><td>受講料</td><td>各コース 税別400万円 ／ 3コース合計 税別1,200万円</td></tr>
+          <tr><td>研修時間</td><td>1コース2日間、1日8時間（昼休憩1時間を除く）、1コース合計16時間</td></tr>
+          <tr><td>総研修時間</td><td>3コース合計48時間</td></tr>
+          <tr><td>実施形式</td><td>ZoomまたはGoogle Meet等を用いた、リアルタイムの同時双方向型オンライン研修</td></tr>
+          <tr><td>実施時間帯</td><td>会社の業務命令に基づき、就業時間・勤務時間内に実施</td></tr>
+          <tr><td>料金体系</td><td>受講人数が5名、10名、20名、30名であっても、企業が支払う受講料は原則固定</td></tr>
+          <tr><td>研修成果</td><td>受講企業が研修後に対象となるAI新規事業を開始すること</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 助成金の活用 ================= -->
+<section id="sec05">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">05</span>
+      <h2>助成金の活用</h2>
+    </div>
+    <p><strong>制度区分：</strong>人材開発支援助成金 ― 事業展開等リスキリング支援コース ― 事業展開 ― 同時双方向性型の通信訓練</p>
+
+    <h3 style="font-size:16px; margin-top:28px;">助成率</h3>
+    <div class="table-scroll">
+      <table class="narrow">
+        <tbody>
+          <tr><td>中小企業</td><td class="num">税込受講料の75％</td></tr>
+          <tr><td>大企業</td><td class="num">税込受講料の60％</td></tr>
+          <tr><td>1人当たり上限</td><td class="num">1コース最大30万円</td></tr>
+          <tr><td>申請可能回数</td><td class="num">受講者1人につき年間3回まで</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="calc-box">
+      中小企業・1コース400万円の場合：<br>
+      税別400万円 → 税込440万円。440万円 × 75％ ＝ 330万円
+    </div>
+
+    <h3 style="font-size:16px; margin-top:28px;">受講者数別の1コース助成上限</h3>
+    <div class="table-scroll">
+      <table class="narrow">
+        <thead>
+          <tr><th>受講者数</th><th class="num">1コースあたりの助成上限</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1名</td><td class="num">30万円</td></tr>
+          <tr><td>2名</td><td class="num">60万円</td></tr>
+          <tr><td>5名</td><td class="num">150万円</td></tr>
+          <tr><td>10名</td><td class="num">300万円</td></tr>
+          <tr><td>11名以上</td><td class="num">330万円</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="calc-box">
+      最大助成額：11名以上で1コース330万円の助成上限に到達。3コースすべての場合、330万円 × 3コース ＝ 990万円
+    </div>
+
+    <div class="box-emph">
+      企業が支払う研修料金は受講人数にかかわらず固定でも、企業が受け取れる助成額は受講者数によって変動します。
+    </div>
+  </div>
+</section>
+
+<!-- ================= 中間CTA ================= -->
+<section class="mid-cta">
+  <div class="wrap">
+    <h2>まずは研修内容の資料をご確認ください</h2>
+    <p>制度の詳細、対象要件、研修カリキュラムをまとめた資料をお送りします。</p>
+    <a class="btn js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">研修内容の資料を請求する</a>
+  </div>
+</section>
+
+<!-- ================= 06 対象となる企業 ================= -->
+<section id="sec06">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">06</span>
+      <h2>対象となる企業</h2>
+    </div>
+    <ul class="plain">
+      <li>従業員10〜50名程度の法人</li>
+      <li>AI事業に未参入で、新たに事業化を検討している企業</li>
+      <li>研修後に受講者を新規事業へ配置できる企業</li>
+      <li>特に11名以上の受講者を出せる企業は、1人当たり助成上限との相性がよい</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 07 受講者の要件 ================= -->
+<section class="alt" id="sec07">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">07</span>
+      <h2>受講者の要件</h2>
+    </div>
+
+    <h3 style="font-size:16px;">A. 雇用保険の被保険者であること</h3>
+    <p>雇用保険被保険者番号を持っている社員が対象です。役職名ではなく、実際に雇用保険へ加入しているかで判断します。</p>
+    <div class="table-scroll">
+      <table class="narrow">
+        <thead>
+          <tr><th>受講者区分</th><th>取扱い</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>一般社員・管理職</td><td>対象</td></tr>
+          <tr><td>雇用保険に加入している執行役員</td><td>対象</td></tr>
+          <tr><td>雇用保険に加入していない代表取締役・取締役</td><td>原則対象外</td></tr>
+          <tr><td>業務委託者</td><td>原則対象外</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:16px; margin-top:28px;">B. 研修後に新規事業へ直接従事すること</h3>
+    <p>研修終了後、その受講者が新しく立ち上げるAI事業に直接配属・従事する予定であることが必要です。単にAIを勉強したい社員は対象外です。</p>
+    <p><strong>必要書類例：</strong>配属予定表・人事異動予定／新規事業の担当者名簿／研修後の組織図・職務分掌表</p>
+  </div>
+</section>
+
+<!-- ================= 08 受講にあたって準備が必要なこと ================= -->
+<section id="sec08">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">08</span>
+      <h2>受講にあたって準備が必要なこと</h2>
+    </div>
+
+    <h3 style="font-size:16px;">事業展開の時期</h3>
+    <p>研修開始日の半年前までに、対象となるAI事業をすでに立ち上げておらず、対象事業の売上がゼロであることが必要です。すでに対象AI事業を実施し売上が発生している企業は、新規事業立ち上げとして扱われない可能性があります。研修後おおむね3年間で、事業内容・開始時期・売上目標を記載した事業展開計画が必要です（申請書には約300文字で事業内容や売上計画を記載する想定です）。</p>
+
+    <h3 style="font-size:16px; margin-top:28px;">新規事業立ち上げのエビデンス</h3>
+    <p>「新規事業を始める予定」という申告だけでなく、第三者が見ても会社として事業参入を決定していると分かる証拠資料が必要です。</p>
+    <div class="table-scroll">
+      <table class="narrow">
+        <thead>
+          <tr><th>区分</th><th>想定資料</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>意思決定資料</td><td>取締役会議事録、経営会議議事録、新規事業開始の決議書、社内稟議書</td></tr>
+          <tr><td>計画資料</td><td>事業計画書、10ページ程度のPowerPoint形式の新規事業計画資料</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box-emph">議事録・決議書・事業計画書のテンプレートを標準提供します。</div>
+
+    <h3 style="font-size:16px; margin-top:28px;">受講時間・出席管理</h3>
+    <p>申請対象として登録した受講者は、全員がカリキュラムを受講することが前提です。10名で申請した場合、10名全員が受講対象となります。</p>
+    <div class="table-scroll">
+      <table class="narrow">
+        <thead>
+          <tr><th>確認項目</th><th>基準</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>各受講者の総研修時間</td><td>16時間</td></tr>
+          <tr><td>許容される不参加時間</td><td>20％未満＝3.2時間未満</td></tr>
+          <tr><td>原則必要な受講時間</td><td>13時間を超える受講</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:16px; color:var(--sub); font-size:14px;">注記：「受講者数の80％が参加すればよい」ではなく、「申請した受講者全員が対象であり、各受講者の不参加時間が20％未満」という整理です。</p>
+    <p>出席記録、接続ログ、受講時間、休憩時間等を証拠として保存します。</p>
+
+    <h3 style="font-size:16px; margin-top:28px;">支給申請期限</h3>
+    <p>研修終了日の翌日から2か月以内に支給申請書を提出します。研修実施前から準備するものは以下のとおりです。</p>
+    <ul class="plain">
+      <li>出席記録・受講者名簿・雇用保険情報</li>
+      <li>請求書・支払い証憑</li>
+      <li>カリキュラム・実施記録</li>
+      <li>研修画面・接続ログ等の証拠</li>
+      <li>新規事業への配属資料</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 09 受講までの流れ ================= -->
+<section class="alt" id="sec09">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">09</span>
+      <h2>受講までの流れ</h2>
+    </div>
+    <ol class="steps">
+      <li>
+        <div class="step-body">
+          <strong>資料請求・お問い合わせ</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>個別説明</strong>
+          研修内容と要件の確認、対象事業の整理
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>社内決議・事業計画の作成</strong>
+          テンプレートを提供します
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>申請手続き・研修日程の確定</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>研修実施（3コース／各2日間）→ 新規事業の立ち上げ</strong>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= 10 よくある質問 ================= -->
+<section id="sec10">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">10</span>
+      <h2>よくある質問</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>3コースすべてを受講する必要がありますか？</div>
+      <div class="faq-a"><span class="mark">A</span>3コースはそれぞれ独立して実施します。立ち上げる事業に応じて選択いただけます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>受講人数によって料金は変わりますか？</div>
+      <div class="faq-a"><span class="mark">A</span>企業が支払う受講料は原則固定です。ただし受け取れる助成額は受講者数によって変動します。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>代表取締役は受講できますか？</div>
+      <div class="faq-a"><span class="mark">A</span>雇用保険に加入していない代表取締役・取締役は原則対象外です。雇用保険の加入状況で判断されます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>すでにAIサービスを提供している場合は？</div>
+      <div class="faq-a"><span class="mark">A</span>研修開始日の半年前までに対象事業を立ち上げておらず、売上がゼロであることが必要です。個別にご相談ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>オンラインでも助成対象になりますか？</div>
+      <div class="faq-a"><span class="mark">A</span>ZoomやGoogle Meet等を用いたリアルタイムの同時双方向型オンライン研修として実施します。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>助成金は必ず受給できますか？</div>
+      <div class="faq-a"><span class="mark">A</span>支給を保証するものではありません。支給の可否は管轄労働局の審査により決まります。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 末尾CTA ================= -->
+<section class="mid-cta">
+  <div class="wrap">
+    <h2>AI新規事業の立ち上げを検討されている方へ</h2>
+    <p>制度の詳細、対象要件、研修カリキュラムをまとめた資料をお送りします。</p>
+    <a class="btn js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">研修内容の資料を請求する</a>
+    <p class="cta-note">資料請求・お問い合わせは無料です</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="f-links">
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/terms.html">利用規約</a>
+      <a href="https://horiemon.ai/">ホリエモンAI学校 公式サイト</a>
+    </div>
+    <p>運営会社：ホリエモンAI学校株式会社</p>
+    <p>所在地：〒160-0022 東京都新宿区新宿4-3-15 レイフラット新宿B棟3F</p>
+    <p>お問い合わせ：<a href="mailto:ux@telewor.com">ux@telewor.com</a>（平日10:00-18:00）</p>
+
+    <div class="disclaimer">
+      本ページは研修プログラムの概要をご案内するものです。助成金の適用条件、助成率、上限額、申請期限、対象者要件等は改定される場合があり、また支給の可否は管轄労働局の審査により決まります。助成金の支給を保証するものではありません。実際のお申し込み・契約・申請の前に、最新の支給要領および管轄労働局へのご確認をお願いいたします。記載の金額はすべて税別表記です（助成額の計算のみ税込を明記しています）。
+    </div>
+    <div class="copyright">© ホリエモンAI学校株式会社</div>
+  </div>
+</footer>
+
+<!-- ▼申込先：Googleフォームのurlが決まったら FORM_URL に入れる。空のままならメールにフォールバック -->
+<script>const FORM_URL = "";</script>
+<script>
+  (function(){
+    if (FORM_URL) {
+      document.querySelectorAll('.js-cta').forEach(function(el){
+        el.setAttribute('href', FORM_URL);
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'noopener');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
