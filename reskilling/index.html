@@ -1445,6 +1445,7 @@
       <h2>お申し込み</h2>
     </div>
     <form class="form-card apply" id="applyForm" novalidate>
+      <input type="hidden" name="種別" value="お申し込み">
       <h3>AI新規事業立ち上げ研修 お申し込み</h3>
       <p class="form-lead">ご送信後、担当者より2営業日以内にご連絡し、要件の確認と日程の調整を行います。この時点で契約は発生しません。</p>
       <div class="form-pending" id="applyPending">現在フォームの受付準備中です。お急ぎの場合は ux@telewor.com までご連絡ください。</div>
@@ -1505,6 +1506,7 @@
       <h2>資料請求</h2>
     </div>
     <form class="form-card doc" id="docForm" novalidate>
+      <input type="hidden" name="種別" value="資料請求">
       <h3>研修内容・助成金の資料をお送りします</h3>
       <p class="form-lead">3コースのカリキュラム、料金、助成金の要件と申請の流れ、必要書類のテンプレート一覧をまとめた資料をお送りします。</p>
       <div class="form-pending" id="docPending">現在フォームの受付準備中です。お急ぎの場合は ux@telewor.com までご連絡ください。</div>
@@ -1768,8 +1770,8 @@
        空のあいだは「受付準備中」と表示し、送信ボタンを無効にします。
        申し込みと資料請求で別のスプレッドシートに記録したい場合は、別々のURLを入れてください。 -->
 <script>
-  const APPLY_FORM_ENDPOINT = "";
-  const DOC_FORM_ENDPOINT   = "";
+  const APPLY_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbw5Mdk8NaGWAsmuCNmpmMsC8PH4KtaY0B4O2XO2IV6wwISNJ3ZzBP_8wIzFfQL81yI/exec";
+  const DOC_FORM_ENDPOINT   = "https://script.google.com/macros/s/AKfycbw5Mdk8NaGWAsmuCNmpmMsC8PH4KtaY0B4O2XO2IV6wwISNJ3ZzBP_8wIzFfQL81yI/exec";
 </script>
 <script>
   (function(){
