@@ -235,6 +235,53 @@
   }
   .hero .cta-note{ color:#b9c8d8; }
 
+  /* ---------- 漫画セクション ----------
+     縦長（941×1672）なのでスマホでは左右いっぱいに広げ、
+     PCでは読みやすい幅に収める。 */
+  .manga-sec{
+    padding:44px 0 48px;
+    background:var(--bg-alt);
+  }
+  .manga-sec.plain-bg{ background:var(--bg); }
+  .manga-lead{
+    text-align:center;
+    margin-bottom:24px;
+  }
+  .manga-lead .tag{
+    display:inline-block;
+    background:var(--navy);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.08em;
+    padding:4px 12px;
+    border-radius:4px;
+    margin-bottom:12px;
+  }
+  .manga-lead h2{
+    font-size:clamp(19px, 3.4vw, 25px);
+    margin:0;
+  }
+  /* figure は .wrap の外に置くので、スマホでは自然に全幅になる */
+  .manga{
+    margin:0;
+    padding:0;
+  }
+  .manga img{
+    display:block;
+    width:100%;
+    max-width:720px;
+    height:auto;
+    margin:0 auto;
+  }
+  @media (min-width:721px){
+    /* PCでは枠を付けて紙面らしく見せる */
+    .manga img{
+      border:1px solid var(--line);
+      border-radius:6px;
+    }
+  }
+
   /* ---------- Tables ---------- */
   .table-scroll{
     overflow-x:auto;
@@ -615,6 +662,18 @@
   </div>
 </section>
 
+<!-- ================= 漫画① なぜこの研修か ================= -->
+<section class="manga-sec">
+  <div class="wrap manga-lead">
+    <span class="tag">漫画でわかる</span>
+    <h2>経営者が抱える、次の一手の悩み</h2>
+  </div>
+  <figure class="manga">
+    <img src="g1.jpg" width="941" height="1672" loading="lazy" decoding="async"
+         alt="本業は安定してきたが次の成長の柱がほしい経営者が、AIを次の一手として検討するも「AI研修・AIコンサル・開発支援、何から始めればいいのか」と迷う。そんなときはホリエモンAI学校の新規事業立ち上げ研修。AIを学ぶだけでなく、AIを事業にするところまで。">
+  </figure>
+</section>
+
 <!-- ================= 01 この研修の目的 ================= -->
 <section id="sec01">
   <div class="wrap">
@@ -630,6 +689,18 @@
       <li>AI開発・FDE事業</li>
     </ul>
   </div>
+</section>
+
+<!-- ================= 漫画② 3つのコース ================= -->
+<section class="manga-sec plain-bg">
+  <div class="wrap manga-lead">
+    <span class="tag">漫画でわかる</span>
+    <h2>選べる、3つの立ち上げコース</h2>
+  </div>
+  <figure class="manga">
+    <img src="g2.jpg" width="941" height="1672" loading="lazy" decoding="async"
+         alt="選べるのは3コース。AI研修立ち上げコースは企業向けAI研修を自社の新サービスに。AIコンサル立ち上げコースは企業のAI導入を支援するコンサル事業を。AI開発FDE立ち上げコースは顧客企業に入り込みAI開発・業務実装を支援。本業の強みを活かして次の成長の柱をつくる。">
+  </figure>
 </section>
 
 <!-- ================= 02 3つのスキル・事業・研修コースの対応関係 ================= -->
