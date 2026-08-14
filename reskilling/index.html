@@ -265,6 +265,193 @@
   }
   .hero .cta-note{ color:#b9c8d8; }
 
+  /* ---------- 入力フォーム ---------- */
+  .form-sec{ scroll-margin-top:14px; }
+  .form-card{
+    border:1px solid var(--line);
+    border-top:4px solid var(--accent);
+    border-radius:8px;
+    background:#fff;
+    padding:26px 24px 28px;
+    max-width:640px;
+    margin:0 auto;
+    box-shadow:0 1px 3px rgba(15,44,77,.06);
+  }
+  .form-card.apply{ border-top-color:var(--accent); }
+  .form-card.doc{ border-top-color:#c0562e; }
+  .form-card h3{
+    font-size:18px;
+    margin:0 0 6px;
+  }
+  .form-card .form-lead{
+    font-size:13.5px;
+    color:var(--sub);
+    margin-bottom:20px;
+  }
+  .fld{ margin-bottom:16px; }
+  .fld label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:6px;
+  }
+  .fld .req,
+  .fld .opt{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 7px;
+    border-radius:3px;
+    margin-left:7px;
+    vertical-align:1px;
+  }
+  .fld .req{ background:#c0562e; color:#fff; }
+  .fld .opt{ background:#e8edf2; color:var(--sub); }
+  .fld input[type=text],
+  .fld input[type=email],
+  .fld input[type=tel],
+  .fld input[type=number],
+  .fld select,
+  .fld textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:15px;
+    color:var(--text);
+    background:#fff;
+    border:1px solid #c3ced9;
+    border-radius:5px;
+    padding:11px 12px;
+    line-height:1.6;
+  }
+  .fld textarea{ min-height:96px; resize:vertical; }
+  .fld input:focus,
+  .fld select:focus,
+  .fld textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(26,109,189,.15);
+  }
+  .fld input::placeholder,
+  .fld textarea::placeholder{ color:#a3b0bd; }
+  .checks{
+    display:grid;
+    gap:8px;
+  }
+  .checks label{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    font-weight:500;
+    font-size:14px;
+    color:var(--text);
+    margin:0;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:5px;
+    cursor:pointer;
+  }
+  .checks input{
+    width:17px;
+    height:17px;
+    margin:2px 0 0;
+    flex-shrink:0;
+    accent-color:var(--accent);
+  }
+  .form-submit{
+    display:block;
+    width:100%;
+    font-family:inherit;
+    font-size:16px;
+    font-weight:700;
+    color:#fff;
+    background:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:6px;
+    padding:15px;
+    margin-top:22px;
+    cursor:pointer;
+  }
+  .form-submit:hover{ background:#155a9c; }
+  .form-card.doc .form-submit{ background:#c0562e; border-color:#c0562e; }
+  .form-card.doc .form-submit:hover{ background:#a4461f; }
+  .form-submit:disabled{
+    background:#9aa8b6;
+    border-color:#9aa8b6;
+    cursor:not-allowed;
+  }
+  .form-status{
+    margin-top:14px;
+    font-size:13.5px;
+    line-height:1.7;
+    display:none;
+  }
+  .form-status.ok,
+  .form-status.err{ display:block; }
+  .form-status.ok{
+    color:#14532d;
+    background:#e7f6ec;
+    border:1px solid #a8dcb8;
+    border-radius:5px;
+    padding:12px 14px;
+  }
+  .form-status.err{
+    color:#7f1d1d;
+    background:#fdecec;
+    border:1px solid #f0b4b4;
+    border-radius:5px;
+    padding:12px 14px;
+  }
+  .form-privacy{
+    margin-top:16px;
+    font-size:11.5px;
+    line-height:1.75;
+    color:var(--sub);
+  }
+  .form-pending{
+    margin-bottom:18px;
+    font-size:12.5px;
+    line-height:1.7;
+    color:#7f1d1d;
+    background:#fdecec;
+    border:1px solid #f0b4b4;
+    border-radius:5px;
+    padding:11px 13px;
+  }
+
+  /* ---------- ヘッダー右のボタン（PCのみ） ---------- */
+  .head-cta{ display:none; }
+  @media (min-width:821px){
+    .head-cta{
+      display:flex;
+      gap:10px;
+      flex-shrink:0;
+    }
+    .head-cta a{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:13.5px;
+      font-weight:700;
+      text-decoration:none;
+      padding:10px 18px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .head-cta .hc-doc{
+      color:var(--accent);
+      border:1.5px solid var(--accent);
+      background:#fff;
+    }
+    .head-cta .hc-doc:hover{ background:#eef4fa; }
+    .head-cta .hc-spir{
+      color:#fff;
+      background:var(--accent);
+      border:1.5px solid var(--accent);
+    }
+    .head-cta .hc-spir:hover{ background:#155a9c; }
+  }
+
   /* ---------- 追従CTA ----------
      スマホ＝画面下部のバー、PC＝右端の縦タブ。
      スクロールで現れ、フッターが見えたら引っ込む。 */
@@ -759,6 +946,11 @@
       AI新規事業立ち上げ研修
       <small>ホリエモンAI学校株式会社</small>
     </div>
+    <!-- PCのみ表示。スマホは画面下部の追従バーが担う -->
+    <div class="head-cta">
+      <a class="hc-doc js-cta-doc" href="#form-doc">資料請求</a>
+      <a class="hc-spir js-cta-contact" href="https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/fy2wZiU-XiqX4506HDkte/confirm" target="_blank" rel="noopener">30分無料相談 →</a>
+    </div>
   </div>
 </header>
 
@@ -1245,6 +1437,112 @@
   </div>
 </section>
 
+<!-- ================= 申し込みフォーム ================= -->
+<section class="form-sec alt" id="form-apply">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">申込</span>
+      <h2>お申し込み</h2>
+    </div>
+    <form class="form-card apply" id="applyForm" novalidate>
+      <h3>AI新規事業立ち上げ研修 お申し込み</h3>
+      <p class="form-lead">ご送信後、担当者より2営業日以内にご連絡し、要件の確認と日程の調整を行います。この時点で契約は発生しません。</p>
+      <div class="form-pending" id="applyPending">現在フォームの受付準備中です。お急ぎの場合は ux@telewor.com までご連絡ください。</div>
+
+      <div class="fld">
+        <label for="ap-company">会社名<span class="req">必須</span></label>
+        <input type="text" id="ap-company" name="会社名" required placeholder="例：株式会社〇〇" autocomplete="organization">
+      </div>
+      <div class="fld">
+        <label for="ap-name">ご担当者名<span class="req">必須</span></label>
+        <input type="text" id="ap-name" name="ご担当者名" required placeholder="例：山田 太郎" autocomplete="name">
+      </div>
+      <div class="fld">
+        <label for="ap-email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="ap-email" name="メールアドレス" required placeholder="example@email.com" autocomplete="email">
+      </div>
+      <div class="fld">
+        <label for="ap-tel">電話番号<span class="req">必須</span></label>
+        <input type="tel" id="ap-tel" name="電話番号" required placeholder="例：09012345678" autocomplete="tel">
+      </div>
+      <div class="fld">
+        <label>受講を希望するコース<span class="req">必須</span></label>
+        <div class="checks">
+          <label><input type="checkbox" name="希望コース" value="AI研修事業立ち上げコース">AI研修事業立ち上げコース</label>
+          <label><input type="checkbox" name="希望コース" value="AIコンサル事業立ち上げコース">AIコンサル事業立ち上げコース</label>
+          <label><input type="checkbox" name="希望コース" value="AI開発（FDE）事業立ち上げコース">AI開発（FDE）事業立ち上げコース</label>
+          <label><input type="checkbox" name="希望コース" value="3コースすべて">3コースすべて</label>
+          <label><input type="checkbox" name="希望コース" value="相談して決めたい">まだ決まっていない（相談して決めたい）</label>
+        </div>
+      </div>
+      <div class="fld">
+        <label for="ap-headcount">受講予定人数<span class="opt">任意</span></label>
+        <select id="ap-headcount" name="受講予定人数">
+          <option value="">選択してください</option>
+          <option value="1〜4名">1〜4名</option>
+          <option value="5〜10名">5〜10名</option>
+          <option value="11名以上">11名以上</option>
+          <option value="未定">未定</option>
+        </select>
+      </div>
+      <div class="fld">
+        <label for="ap-note">ご質問・ご要望<span class="opt">任意</span></label>
+        <textarea id="ap-note" name="ご質問・ご要望" placeholder="立ち上げを検討している事業の内容、助成金の利用予定など"></textarea>
+      </div>
+
+      <button type="submit" class="form-submit" id="applySubmit">申し込む</button>
+      <div class="form-status" id="applyStatus" role="status" aria-live="polite"></div>
+      <p class="form-privacy">ご入力いただいた個人情報は、本研修に関するご連絡およびご案内のみに利用します。詳細は<a href="/privacy.html">プライバシーポリシー</a>をご確認ください。</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= 資料請求フォーム ================= -->
+<section class="form-sec" id="form-doc">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">資料</span>
+      <h2>資料請求</h2>
+    </div>
+    <form class="form-card doc" id="docForm" novalidate>
+      <h3>研修内容・助成金の資料をお送りします</h3>
+      <p class="form-lead">3コースのカリキュラム、料金、助成金の要件と申請の流れ、必要書類のテンプレート一覧をまとめた資料をお送りします。</p>
+      <div class="form-pending" id="docPending">現在フォームの受付準備中です。お急ぎの場合は ux@telewor.com までご連絡ください。</div>
+
+      <div class="fld">
+        <label for="dc-company">会社名<span class="req">必須</span></label>
+        <input type="text" id="dc-company" name="会社名" required placeholder="例：株式会社〇〇" autocomplete="organization">
+      </div>
+      <div class="fld">
+        <label for="dc-name">ご担当者名<span class="req">必須</span></label>
+        <input type="text" id="dc-name" name="ご担当者名" required placeholder="例：山田 太郎" autocomplete="name">
+      </div>
+      <div class="fld">
+        <label for="dc-email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="dc-email" name="メールアドレス" required placeholder="example@email.com" autocomplete="email">
+      </div>
+      <div class="fld">
+        <label for="dc-tel">電話番号<span class="opt">任意</span></label>
+        <input type="tel" id="dc-tel" name="電話番号" placeholder="例：09012345678" autocomplete="tel">
+      </div>
+      <div class="fld">
+        <label for="dc-employees">従業員数<span class="opt">任意</span></label>
+        <select id="dc-employees" name="従業員数">
+          <option value="">選択してください</option>
+          <option value="10名未満">10名未満</option>
+          <option value="10〜50名">10〜50名</option>
+          <option value="51〜100名">51〜100名</option>
+          <option value="101名以上">101名以上</option>
+        </select>
+      </div>
+
+      <button type="submit" class="form-submit" id="docSubmit">資料請求する</button>
+      <div class="form-status" id="docStatus" role="status" aria-live="polite"></div>
+      <p class="form-privacy">ご入力いただいた個人情報は、資料の送付および本研修に関するご案内のみに利用します。詳細は<a href="/privacy.html">プライバシーポリシー</a>をご確認ください。</p>
+    </form>
+  </div>
+</section>
+
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="wrap">
@@ -1280,9 +1578,9 @@
        DOC_URL   … 資料請求フォーム（Googleフォーム／申し込みとは別フォーム）
        SPIR_URL  … 営業へのお問い合わせ（Spirの日程予約URL） -->
 <script>
-  const APPLY_URL = "";
-  const DOC_URL   = "";
-  const SPIR_URL  = "";
+  const APPLY_URL = "#form-apply";  // ページ内の申し込みフォームへ
+  const DOC_URL   = "#form-doc";    // ページ内の資料請求フォームへ
+  const SPIR_URL  = "https://app.spirinc.com/t/IytyMZnmYA7-kjfN9wcz9/as/fy2wZiU-XiqX4506HDkte/confirm";
 </script>
 <script>
   (function(){
@@ -1291,10 +1589,17 @@
      ['.js-cta-contact', SPIR_URL]].forEach(function(pair){
       var sel = pair[0], url = pair[1];
       if (!url) return;
+      var external = /^https?:/i.test(url);
       document.querySelectorAll(sel).forEach(function(el){
         el.setAttribute('href', url);
-        el.setAttribute('target', '_blank');
-        el.setAttribute('rel', 'noopener');
+        // ページ内リンク（#form-…）は同じタブで開く
+        if (external) {
+          el.setAttribute('target', '_blank');
+          el.setAttribute('rel', 'noopener');
+        } else {
+          el.removeAttribute('target');
+          el.removeAttribute('rel');
+        }
       });
     });
   })();
@@ -1454,6 +1759,84 @@
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
     update();
+  })();
+</script>
+
+
+<!-- ===== フォームの送信処理 =====
+     ▼Google Apps ScriptのウェブアプリURLを下の2つに入れると送信が有効になります。
+       空のあいだは「受付準備中」と表示し、送信ボタンを無効にします。
+       申し込みと資料請求で別のスプレッドシートに記録したい場合は、別々のURLを入れてください。 -->
+<script>
+  const APPLY_FORM_ENDPOINT = "";
+  const DOC_FORM_ENDPOINT   = "";
+</script>
+<script>
+  (function(){
+    function setup(opt){
+      var form = document.getElementById(opt.form);
+      if (!form) return;
+      var btn     = document.getElementById(opt.btn);
+      var status  = document.getElementById(opt.status);
+      var pending = document.getElementById(opt.pending);
+      var label   = btn.textContent;
+
+      if (!opt.endpoint) {
+        btn.disabled = true;
+        btn.textContent = '受付準備中';
+        return;
+      }
+      if (pending) pending.style.display = 'none';
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+
+        // チェックボックスが必須の場合は1つ以上の選択を確認する
+        if (opt.requireCheck) {
+          var checked = form.querySelectorAll('input[name="' + opt.requireCheck + '"]:checked');
+          if (checked.length === 0) {
+            status.className = 'form-status err';
+            status.textContent = '受講を希望するコースを1つ以上お選びください。';
+            return;
+          }
+        }
+
+        btn.disabled = true;
+        btn.textContent = '送信中…';
+        status.className = 'form-status';
+        status.textContent = '';
+
+        try {
+          var res = await fetch(opt.endpoint, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          });
+          if (!res.ok) throw new Error('failed');
+          form.reset();
+          status.className = 'form-status ok';
+          status.textContent = opt.done;
+          btn.textContent = '送信完了';
+        } catch (err) {
+          status.className = 'form-status err';
+          status.textContent = '送信に失敗しました。お手数ですが再度お試しいただくか、ux@telewor.com までご連絡ください。';
+          btn.disabled = false;
+          btn.textContent = label;
+        }
+      });
+    }
+
+    setup({
+      form:'applyForm', btn:'applySubmit', status:'applyStatus', pending:'applyPending',
+      endpoint: APPLY_FORM_ENDPOINT, requireCheck:'希望コース',
+      done:'お申し込みを受け付けました。担当者より2営業日以内にご連絡いたします。'
+    });
+    setup({
+      form:'docForm', btn:'docSubmit', status:'docStatus', pending:'docPending',
+      endpoint: DOC_FORM_ENDPOINT,
+      done:'資料請求を受け付けました。ご入力のメールアドレスへ資料をお送りします。'
+    });
   })();
 </script>
 
