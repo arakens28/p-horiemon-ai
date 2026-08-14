@@ -185,6 +185,48 @@
     width:100%;
     text-align:center;
   }
+  /* 2つ並べるCTA（資料請求／営業にお問い合わせ）。紺地の上での配色 */
+  .cta-pair{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .cta-wrap .cta-pair,
+  .mid-cta .cta-pair{ justify-content:center; }
+  .cta-pair .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-width:260px;
+    padding:15px 26px;
+  }
+  .cta-pair .btn .arw{
+    font-size:1.1em;
+    line-height:1;
+    opacity:.85;
+  }
+  /* 主CTA＝資料請求：塗り */
+  .btn-solid{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#fff;
+  }
+  .btn-solid:hover{ background:#155a9c; border-color:#155a9c; }
+  /* 副CTA＝営業にお問い合わせ：白フチ */
+  .btn-ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.6);
+    color:#fff;
+  }
+  .btn-ghost:hover{
+    background:rgba(255,255,255,.12);
+    border-color:#fff;
+  }
+  @media (max-width:560px){
+    .cta-pair{ flex-direction:column; }
+    .cta-pair .btn{ min-width:0; width:100%; }
+  }
   .cta-wrap{ text-align:center; }
   .cta-note{
     margin-top:12px;
@@ -508,17 +550,17 @@
     <div class="mv-viewport" id="mvViewport" tabindex="0">
      <div class="mv-track" id="mvTrack">
 
-      <a class="mv-slide js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+      <a class="mv-slide js-cta-contact" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E5%96%B6%E6%A5%AD%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
         <img src="m1.jpg" width="1672" height="941" fetchpriority="high" decoding="async"
              alt="AI事業へ新規参入。社内にAI人材がいなくても大丈夫。社員研修・助成金活用・事業立ち上げ支援。">
       </a>
 
-      <a class="mv-slide js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+      <a class="mv-slide js-cta-contact" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E5%96%B6%E6%A5%AD%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
         <img src="m2.jpg" width="1672" height="941" decoding="async"
              alt="AI事業で売上アップ。AIで本業も効率アップ。新規事業×人材育成×本業強化。">
       </a>
 
-      <a class="mv-slide js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+      <a class="mv-slide js-cta-contact" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E5%96%B6%E6%A5%AD%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
         <img src="m3.jpg" width="1672" height="941" decoding="async"
              alt="AIのことが社内で誰もわからない。その悩みをまとめて解決。AI事業参入・社員研修・運用までフルサポート。">
       </a>
@@ -564,8 +606,11 @@
     </div>
 
     <div class="cta-wrap">
-      <a class="btn js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">研修内容の資料を請求する</a>
-      <p class="cta-note">資料請求・お問い合わせは無料です</p>
+      <div class="cta-pair">
+        <a class="btn btn-solid js-cta-doc" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82">資料請求 <span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="btn btn-ghost js-cta-contact" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E5%96%B6%E6%A5%AD%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">営業にお問い合わせ <span class="arw" aria-hidden="true">&rsaquo;</span></a>
+      </div>
+      <p class="cta-note">資料請求・お問い合わせはいずれも無料です</p>
     </div>
   </div>
 </section>
@@ -753,7 +798,10 @@
   <div class="wrap">
     <h2>まずは研修内容の資料をご確認ください</h2>
     <p>制度の詳細、対象要件、研修カリキュラムをまとめた資料をお送りします。</p>
-    <a class="btn js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">研修内容の資料を請求する</a>
+    <div class="cta-pair">
+      <a class="btn btn-solid js-cta-doc" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82">資料請求 <span class="arw" aria-hidden="true">&rsaquo;</span></a>
+      <a class="btn btn-ghost js-cta-contact" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E5%96%B6%E6%A5%AD%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">営業にお問い合わせ <span class="arw" aria-hidden="true">&rsaquo;</span></a>
+    </div>
   </div>
 </section>
 
@@ -937,8 +985,11 @@
   <div class="wrap">
     <h2>AI新規事業の立ち上げを検討されている方へ</h2>
     <p>制度の詳細、対象要件、研修カリキュラムをまとめた資料をお送りします。</p>
-    <a class="btn js-cta" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">研修内容の資料を請求する</a>
-    <p class="cta-note">資料請求・お問い合わせは無料です</p>
+    <div class="cta-pair">
+      <a class="btn btn-solid js-cta-doc" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82">資料請求 <span class="arw" aria-hidden="true">&rsaquo;</span></a>
+      <a class="btn btn-ghost js-cta-contact" href="mailto:ux@telewor.com?subject=%E3%80%90AI%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E7%A0%94%E4%BF%AE%E3%80%91%E5%96%B6%E6%A5%AD%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">営業にお問い合わせ <span class="arw" aria-hidden="true">&rsaquo;</span></a>
+    </div>
+    <p class="cta-note">資料請求・お問い合わせはいずれも無料です</p>
   </div>
 </section>
 
@@ -961,17 +1012,23 @@
   </div>
 </footer>
 
-<!-- ▼申込先：Googleフォームのurlが決まったら FORM_URL に入れる。空のままならメールにフォールバック -->
-<script>const FORM_URL = "";</script>
+<!-- ▼申込先：GoogleフォームのURLが決まったら下の2つに入れる。
+     空のままなら mailto（件名で振り分け）にフォールバックする。 -->
+<script>
+  const FORM_URL    = "";  // 資料請求フォーム
+  const CONTACT_URL = "";  // 営業へのお問い合わせフォーム
+</script>
 <script>
   (function(){
-    if (FORM_URL) {
-      document.querySelectorAll('.js-cta').forEach(function(el){
-        el.setAttribute('href', FORM_URL);
+    [['.js-cta-doc', FORM_URL], ['.js-cta-contact', CONTACT_URL]].forEach(function(pair){
+      var sel = pair[0], url = pair[1];
+      if (!url) return;
+      document.querySelectorAll(sel).forEach(function(el){
+        el.setAttribute('href', url);
         el.setAttribute('target', '_blank');
         el.setAttribute('rel', 'noopener');
       });
-    }
+    });
   })();
 </script>
 
