@@ -554,6 +554,131 @@
     margin-bottom:6px;
   }
 
+
+  /* ===== Hero（インパクト重視・濃紺） ===== */
+  .hero{
+    background:
+      radial-gradient(circle at 18% 22%, rgba(255,255,255,.06) 0 2px, transparent 2px),
+      linear-gradient(160deg,#12336b 0%,#0d2350 55%,#0a1b3d 100%);
+    background-size:34px 34px, 100% 100%;
+    color:#fff;
+    padding:44px 0 0;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{ display:none; }
+  .hero-inner{ display:block; text-align:center; position:relative; z-index:1; }
+  .hero-catch{
+    display:inline-block;
+    font-size:clamp(.95rem,2.6vw,1.35rem);
+    font-weight:900;
+    color:#ffd45e;
+    letter-spacing:.02em;
+    margin-bottom:6px;
+  }
+  .hero-catch::before,.hero-catch::after{ content:"◆"; margin:0 .5em; font-size:.8em; }
+  /* 巨大数字 */
+  .hero-big{
+    line-height:1.02;
+    margin:4px 0 6px;
+    font-weight:900;
+    letter-spacing:-.03em;
+  }
+  .hero-big .pre{ font-size:clamp(1.1rem,4vw,2rem); color:#fff; margin-right:.1em; }
+  .hero-big .num{
+    font-size:clamp(3.6rem,17vw,9rem);
+    background:linear-gradient(180deg,#fff3c4 0%,#ffd45e 45%,#e8a516 100%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 3px 0 rgba(0,0,0,.35));
+  }
+  .hero-big .unit{ font-size:clamp(1.1rem,4vw,2rem); color:#fff; margin-left:.08em; }
+  .hero-sub2{
+    font-size:clamp(1rem,3.4vw,1.9rem);
+    font-weight:900;
+    margin:0 0 18px;
+  }
+  .hero-sub2 em{ font-style:normal; color:#5ee8a6; }
+  /* 実績の白箱 */
+  .hero-proof{
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+    gap:8px; margin-bottom:14px; font-weight:900;
+    font-size:clamp(.82rem,2.4vw,1.05rem);
+  }
+  .hero-proof b{
+    background:#fff; color:#0d2350;
+    padding:5px 13px; border-radius:5px;
+  }
+  /* バッジ */
+  .hero-badges{
+    display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;
+  }
+  .hero-badge{
+    width:132px; padding:12px 8px; border-radius:12px;
+    background:linear-gradient(160deg,#f6e0a0,#d9ae4a);
+    color:#3a2a05; font-weight:900; line-height:1.3;
+    box-shadow:0 6px 18px rgba(0,0,0,.28);
+  }
+  .hero-badge .t{ display:block; font-size:.66rem; letter-spacing:.04em; }
+  .hero-badge .v{ display:block; font-size:1.5rem; margin:2px 0; }
+  .hero-badge .s{ display:block; font-size:.62rem; }
+  /* 黄色ハイライト */
+  .hero-hl{
+    display:inline-block;
+    background:linear-gradient(180deg,#ffe486,#ffc93c);
+    color:#3a2a05; font-weight:900;
+    font-size:clamp(1rem,3.4vw,1.5rem);
+    padding:9px 22px; border-radius:8px; margin-bottom:14px;
+    box-shadow:0 5px 0 rgba(0,0,0,.22);
+  }
+  .hero-note{
+    font-size:.7rem; color:#b9c8de; line-height:1.7;
+    max-width:760px; margin:0 auto; padding-bottom:30px;
+  }
+  /* ハッシュタグ帯 */
+  .tagbar{
+    background:#0a1b3d;
+    border-top:1px solid rgba(255,255,255,.12);
+    border-bottom:1px solid rgba(255,255,255,.12);
+    overflow:hidden; padding:11px 0;
+  }
+  .tagbar ul{
+    display:flex; gap:26px; list-style:none; margin:0; padding:0;
+    white-space:nowrap; width:max-content;
+    animation:tagflow 32s linear infinite;
+  }
+  .tagbar li{ color:#cfe0f5; font-weight:700; font-size:clamp(.8rem,2.2vw,1rem); }
+  @keyframes tagflow{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  @media (prefers-reduced-motion:reduce){ .tagbar ul{ animation:none; } }
+  /* 4つの数値ボックス */
+  .kpi-band{ background:#eaf0f8; padding:26px 0; }
+  .kpi-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+  }
+  @media (max-width:760px){ .kpi-grid{ grid-template-columns:repeat(2,1fr); } }
+  .kpi-box{
+    background:#fff; border:1px solid #cfdcec; border-radius:10px;
+    padding:16px 10px; text-align:center;
+  }
+  .kpi-box .k{ display:block; font-size:.82rem; font-weight:900; color:#0d2350; margin-bottom:4px; }
+  .kpi-box .v{ display:block; font-weight:900; color:var(--gold); line-height:1.15; font-size:clamp(1.5rem,5vw,2.1rem); }
+  .kpi-box .v small{ font-size:.5em; color:#0d2350; margin-left:2px; }
+  /* オレンジCTA帯 */
+  .cta-band{ background:#fff6e6; padding:22px 0; border-bottom:1px solid #f0dcb8; }
+  .cta-band-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:16px; text-align:center; }
+  .cta-band .lead-t{ font-weight:900; line-height:1.4; color:#3a2a05; }
+  .cta-band .lead-t small{ display:block; font-size:.78rem; font-weight:700; color:#7a6535; }
+  .cta-band .lead-t b{ font-size:clamp(1.1rem,3.6vw,1.6rem); }
+  .btn-orange{
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg,#f59324,#e8791a);
+    color:#fff; font-weight:900; font-size:1rem;
+    padding:16px 30px; border-radius:999px; text-decoration:none;
+    box-shadow:0 8px 20px rgba(232,121,26,.35);
+  }
+  .btn-orange:hover{ filter:brightness(1.05); }
+
   .note-sm{
     font-size:.8rem;
     color:#7c8899;
@@ -1274,44 +1399,63 @@
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap hero-inner">
-    <span class="eyebrow">FCパートナー募集</span>
-    <h1>AI活用の推進役を、<br>あなたの会社の事業にする。</h1>
-    <p class="lead">地域・業界・全方位の3区分で、AI活用を推進するパートナーを募集しています。ホリエモンAI学校のブランドとノウハウを活用し、法人向けAI導入支援を新規事業として立ち上げます。</p>
+    <span class="hero-catch">ブランドと本部サポートで</span>
 
-    <!-- 募集状況（進捗バー） -->
-    <div class="recruit-box">
-      <div class="recruit-chips">
-        <span class="recruit-chip"><strong>200社</strong>募集</span>
-        <span class="recruit-chip"><strong>16</strong>パートナー稼働中</span>
-        <span class="recruit-chip"><strong>1業界・1地域</strong>につき1社限定</span>
-      </div>
-      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="200" aria-valuenow="16">
-        <div class="progress-fill"></div>
-      </div>
-      <div class="progress-labels">
-        <span class="now">16 / 200 社</span>
-        <span class="rest">残り184枠</span>
-      </div>
+    <div class="hero-big">
+      <span class="pre">月商</span><span class="num">1,000</span><span class="unit">万円</span>
+    </div>
+    <p class="hero-sub2">を達成した加盟校も。<em>未経験の業界からでも</em></p>
+
+    <div class="hero-badges">
+      <div class="hero-badge"><span class="t">1業界・1地域</span><span class="v">1社</span><span class="s">限定の先着制</span></div>
+      <div class="hero-badge"><span class="t">現在の加盟</span><span class="v">16社</span><span class="s">200社まで募集中</span></div>
     </div>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="num">400社</div>
-        <div class="label">受講企業</div>
-      </div>
-      <div class="stat">
-        <div class="num">4,000人</div>
-        <div class="label">受講者数</div>
-      </div>
-      <div class="stat">
-        <div class="num">16</div>
-        <div class="label">パートナー稼働中</div>
-      </div>
+    <div class="hero-hl">残り184枠</div>
+
+    <div class="hero-proof">
+      <b>受講企業 400社</b><b>受講者数 4,000人</b><span>の実績を惜しみなく提供</span>
     </div>
 
-    <p class="note-sm">※受講企業数・受講者数は2026年8月時点。パートナー数は同時点で稼働中の加盟企業数です。</p>
+    <p class="hero-note">
+      ※「月商1,000万円」は業界校として加盟した株式会社LIFEFUND様の、加盟から半年時点の実績です。成果を保証するものではなく、売上は加盟時期・体制・営業活動によって大きく異なります。加盟から半年間、売上が発生しなかった例もあります。<br>
+      ※受講企業数・受講者数は2026年8月時点。加盟数は同時点で稼働中の加盟企業数です。
+    </p>
   </div>
 </section>
+
+<!-- ハッシュタグ帯 -->
+<div class="tagbar" aria-hidden="true">
+  <ul>
+    <li>#堀江貴文の肖像を2年間利用</li><li>#1業界1地域1社限定</li><li>#商材は本部が提供</li><li>#AI未経験でも可</li><li>#ストック型の収益</li><li>#自社のDXも進む</li><li>#最短3ヶ月で開始</li>
+    <li>#堀江貴文の肖像を2年間利用</li><li>#1業界1地域1社限定</li><li>#商材は本部が提供</li><li>#AI未経験でも可</li><li>#ストック型の収益</li><li>#自社のDXも進む</li><li>#最短3ヶ月で開始</li>
+  </ul>
+</div>
+
+<!-- 4つの数値 -->
+<div class="kpi-band">
+  <div class="wrap">
+    <div class="kpi-grid">
+      <div class="kpi-box"><span class="k">加盟校の年商実例</span><span class="v">5,454<small>万円</small></span></div>
+      <div class="kpi-box"><span class="k">初年度の差引</span><span class="v">2,119<small>万円</small></span></div>
+      <div class="kpi-box"><span class="k">事業開始まで</span><span class="v">最短3<small>ヶ月</small></span></div>
+      <div class="kpi-box"><span class="k">収益の取り分</span><span class="v">約50<small>%</small></span></div>
+    </div>
+    <p class="note-sm">※年商・初年度差引は、昨年加盟したパートナーの1年間・21社への提供実績の一例です。成果を保証するものではありません。</p>
+  </div>
+</div>
+
+<!-- オレンジCTA帯 -->
+<div class="cta-band">
+  <div class="wrap cta-band-inner">
+    <div class="lead-t">
+      <small>サイトだけでは伝えられない情報満載</small>
+      <b>まずは無料で資料請求</b>
+    </div>
+    <a class="btn-orange js-cta-doc" href="#form1">資料請求フォームへ <span aria-hidden="true">&rsaquo;</span></a>
+  </div>
+</div>
+
 
 <section id="form1">
   <div class="wrap">
