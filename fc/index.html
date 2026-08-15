@@ -498,6 +498,62 @@
   .type-mode{color:var(--sub); font-size:.85rem; margin:0;}
 
   /* ===== 汎用の小さい注記 ===== */
+  /* ===== 加盟校一覧 ===== */
+  .school-group{ margin-bottom:34px; }
+  .school-group h3{
+    font-size:1rem;
+    margin:0 0 14px;
+    padding-left:12px;
+    border-left:4px solid var(--gold);
+  }
+  .school-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:10px;
+  }
+  .school-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:13px 15px;
+    text-decoration:none;
+    color:var(--text);
+    font-weight:700;
+    font-size:.92rem;
+    transition:border-color .2s, transform .2s;
+  }
+  a.school-item:hover{
+    border-color:var(--gold);
+    transform:translateY(-2px);
+  }
+  .school-item .arw{
+    color:var(--gold);
+    font-size:1.05rem;
+    flex-shrink:0;
+  }
+  .school-item.no-link{
+    color:var(--sub);
+    font-weight:500;
+  }
+  .school-open{
+    background:var(--gold-soft);
+    border:1px solid rgba(31,95,208,.25);
+    border-radius:14px;
+    padding:22px 24px;
+    text-align:center;
+    margin-top:30px;
+  }
+  .school-open strong{
+    display:block;
+    font-size:1.3rem;
+    color:var(--gold);
+    margin-bottom:6px;
+  }
+
   .note-sm{
     font-size:.8rem;
     color:#7c8899;
@@ -1257,7 +1313,7 @@
   </div>
 </section>
 
-<section class="alt" id="form1">
+<section id="form1">
   <div class="wrap">
     <div class="hero-form-card form-section-card">
       <h3>FCパートナー 資料請求</h3>
@@ -1356,7 +1412,7 @@
   </div>
 </section>
 
-<section id="sec-strengths">
+<section class="alt" id="sec-strengths">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">STRENGTHS</span>
@@ -1383,7 +1439,7 @@
   </div>
 </section>
 
-<section class="alt" id="form2">
+<section id="form2">
   <div class="wrap">
     <div class="hero-form-card form-section-card">
       <h3>FCパートナー 資料請求</h3>
@@ -1483,7 +1539,7 @@
 </section>
 
 <!-- ================= 04 MODEL ================= -->
-<section id="sec04">
+<section class="alt" id="sec04">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">MODEL</span>
@@ -1526,7 +1582,7 @@
   </div>
 </section>
 
-<section class="alt" id="sec-trust">
+<section id="sec-trust">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">TRUST</span>
@@ -1552,7 +1608,7 @@
   </div>
 </section>
 
-<section id="sec-media">
+<section class="alt" id="sec-media">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">MEDIA</span>
@@ -1576,7 +1632,7 @@
   </div>
 </section>
 
-<section class="alt" id="sec-reasons">
+<section id="sec-reasons">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">4 REASONS</span>
@@ -1607,7 +1663,7 @@
   </div>
 </section>
 
-<section id="form3">
+<section class="alt" id="form3">
   <div class="wrap">
     <div class="hero-form-card form-section-card">
       <h3>FCパートナー 資料請求</h3>
@@ -1707,7 +1763,7 @@
 </section>
 
 <!-- ================= 加盟事例 ================= -->
-<section class="alt" id="sec-case">
+<section id="sec-case">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">CASE</span>
@@ -1775,7 +1831,7 @@
   </div>
 </section>
 
-<section id="form4">
+<section class="alt" id="form4">
   <div class="wrap">
     <div class="hero-form-card form-section-card">
       <h3>FCパートナー 資料請求</h3>
@@ -1875,7 +1931,7 @@
 </section>
 
 <!-- ================= 05 PROFIT／収益例 ================= -->
-<section class="alt" id="sec05">
+<section id="sec05">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">PROFIT</span>
@@ -1910,7 +1966,7 @@
 </section>
 
 <!-- ================= 02 MARKET ================= -->
-<section id="sec02">
+<section class="alt" id="sec02">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">MARKET</span>
@@ -1936,7 +1992,7 @@
   </div>
 </section>
 
-<section class="alt" id="sec-compare">
+<section id="sec-compare">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">BEFORE / AFTER</span>
@@ -1965,6 +2021,63 @@
     </div>
     <div class="cta-block" style="margin-top:40px;">
       <a class="js-cta-doc btn" href="#form1">加盟資料を請求する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 加盟校一覧 ================= -->
+<section class="alt" id="sec-schools">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">SCHOOLS</span>
+      <h2>現在稼働している加盟校</h2>
+      <p>16のパートナーが、それぞれの地域・業界で活動しています。1業界・1地域につき1社限定のため、下記の枠はすでに募集を終了しています。</p>
+    </div>
+
+    <div class="school-group">
+      <h3>地域パートナー</h3>
+      <div class="school-grid">
+        <a class="school-item" href="https://fc.horiemon.ai/fukuoka/" target="_blank" rel="noopener">福岡校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://ai-gakkou.com/" target="_blank" rel="noopener">新宿校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/niigata/" target="_blank" rel="noopener">新潟校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://www.rannys.com/" target="_blank" rel="noopener">金沢校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <span class="school-item no-link">神奈川校</span>
+      </div>
+    </div>
+
+    <div class="school-group">
+      <h3>業界パートナー</h3>
+      <div class="school-grid">
+        <a class="school-item" href="https://kenchiku-ai.com/" target="_blank" rel="noopener">建築校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/classlab/" target="_blank" rel="noopener">不動産校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://medical-ai.site/lp/" target="_blank" rel="noopener">病院クリニック校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/kaigo/" target="_blank" rel="noopener">介護校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/zeirishi/" target="_blank" rel="noopener">税理士校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/sales" target="_blank" rel="noopener">セールス校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+      </div>
+    </div>
+
+    <div class="school-group">
+      <h3>全方位パートナー（会社名校）</h3>
+      <p style="font-size:.86rem;color:var(--sub);margin:-6px 0 14px;">地域や業界を限定せず、本部と同じく全方位でAI活用・DX支援を行う加盟校です。</p>
+      <div class="school-grid">
+        <a class="school-item" href="https://fc.horiemon.ai/creators/" target="_blank" rel="noopener">クリエイターズアカデミー校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/fellows/" target="_blank" rel="noopener">フェローズ校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/app/" target="_blank" rel="noopener">APパートナーズ校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/ipt/" target="_blank" rel="noopener">IPT校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://p.horiemon.ai/smg/" target="_blank" rel="noopener">SMG経営塾校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+      </div>
+    </div>
+
+    <div class="school-open">
+      <strong>残り184枠</strong>
+      上記以外の地域・業界は募集中です。ご希望の地域・業界が空いているかは、資料請求後の個別説明でお伝えします。
+    </div>
+
+    <p class="note-sm">※各校のサイトは加盟パートナーが運営しています。掲載内容についてのお問い合わせは各校へお願いいたします。神奈川校はサイトを公開していません。</p>
+
+    <div class="cta-block" style="margin-top:36px;">
+      <a class="js-cta-doc btn" href="#form1">空き状況を確認する（資料請求）</a>
     </div>
   </div>
 </section>
@@ -2048,22 +2161,17 @@
     </div>
 
     <div class="table-scroll">
-      <table class="cost-table">
-        <thead>
-          <tr><th>項目</th><th>金額（税抜）</th><th>助成金の対象</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>加盟金</td><td>200万円〜</td><td class="no">対象外</td></tr>
-          <tr><td>受講料</td><td>1,200万円〜</td><td class="yes">対象（従業員への訓練経費）</td></tr>
-          <tr class="total"><td>初期費用 合計</td><td>1,400万円〜</td><td>－</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note-sm" style="margin-top:10px;">※人数に応じてお見積り</p>
+        <table class="req-table">
+          <tr><th>初期費用</th><td><strong style="font-size:1.15rem;">1,200万円 〜 1,400万円</strong>（税抜）<br><span style="font-size:.85rem;color:var(--sub);">加盟金と、社員研修にかかる費用の合計です。体制・受講人数に応じてお見積りします。</span></td></tr>
+          <tr><th>助成金の対象</th><td>初期費用のうち、<strong>社員研修にあたる部分</strong>が助成の対象となる場合があります。加盟金は対象外です。</td></tr>
+          <tr><th>助成金を活用した場合<br>の実質負担</th><td><strong style="font-size:1.15rem;">210万円 〜 410万円</strong><br><span style="font-size:.85rem;color:var(--sub);">最大990万円の助成を受けられた場合の目安です。</span></td></tr>
+        </table>
+      </div>
+      <p class="note-sm" style="margin-top:10px;">※人数に応じてお見積り</p>
 
     <div class="revenue-box" style="margin-top:32px;">
       <span class="eyebrow">実質負担</span>
-      <p style="color:var(--text); margin:0;">受講料1,200万円のうち最大990万円が助成された場合、初期費用の実質負担は<strong style="color:var(--gold);">410万円</strong>となります（加盟金200万円＋受講料の自己負担分210万円）</p>
+      <p style="color:var(--text); margin:0;">助成金を活用できた場合、初期費用の実質負担は<strong style="color:var(--gold);">210万円〜410万円</strong>となります。</p>
     </div>
 
     <p class="note-sm">※最大990万円となるのは、雇用保険の被保険者11名以上が3コースすべてを受講し、要件を満たした場合です。受講者数が11名に満たない場合、助成額はその分少なくなります。助成金の支給可否は管轄労働局の審査により決まり、支給を保証するものではありません。別途、社会保険労務士への手数料が発生します。</p>
@@ -2079,7 +2187,7 @@
     </div>
     <div class="subsidy-box">
       <p>FC加盟費用そのもの（加盟金）に助成金を活用することはできません。</p>
-      <p>一方で、新規事業の立ち上げなどの事業展開に伴い、事業主が雇用する労働者に対して新たな分野で必要となる知識及び技能を習得させるための訓練を、計画に沿って実施した場合等に、訓練経費や訓練期間中の賃金の一部が助成される制度があります。加盟にあたって自社の社員に受講いただく研修は、この訓練にあたるため、受講料が助成の対象となる場合があります。</p>
+      <p>一方で、新規事業の立ち上げなどの事業展開に伴い、事業主が雇用する労働者に対して新たな分野で必要となる知識及び技能を習得させるための訓練を、計画に沿って実施した場合等に、訓練経費や訓練期間中の賃金の一部が助成される制度があります。加盟にあたって自社の社員に受講いただく研修は、この訓練にあたるため、その費用が助成の対象となる場合があります。</p>
       <p>申請にあたっては、提携する社会保険労務士が助成金の診断から申請までをサポートします。</p>
       <p>※助成の対象範囲・上限額は受講者数および要件により変動します。支給の可否は管轄労働局の審査により決まり、支給を保証するものではありません。社会保険労務士への手数料が別途発生します。</p>
     </div>
@@ -2121,8 +2229,8 @@
           <td>AI分野の経験は不問（本部のサポート体制あり）。法人営業の体制があること</td>
         </tr>
         <tr>
-          <th>加盟金</th>
-          <td>200万円〜（税抜）※人数に応じてお見積り</td>
+          <th>初期費用</th>
+          <td>1,200万円〜1,400万円（税抜）※体制・受講人数に応じてお見積り</td>
         </tr>
         <tr>
           <th>収益の取り分</th>
@@ -2267,7 +2375,7 @@
         <span class="faq-toggle" aria-hidden="true"></span>
       </button>
       <div class="faq-a-wrap">
-        <p class="a"><span class="faq-mark">A.</span><span>加盟金200万円〜（助成金の対象外）と受講料1,200万円〜（従業員への訓練経費として助成金の対象になる場合があります）で、初期費用の目安は1,400万円〜（税抜・人数に応じてお見積り）です。受講料のうち最大990万円が助成された場合、実質負担は410万円（加盟金200万円＋受講料の自己負担分210万円）となります。助成額は受講者数や要件により変動し、支給を保証するものではありません。</span></p>
+        <p class="a"><span class="faq-mark">A.</span><span>初期費用は1,200万円〜1,400万円（税抜）です。加盟金と、社員研修にかかる費用の合計で、体制・受講人数に応じてお見積りします。このうち社員研修にあたる部分は助成金の対象となる場合があり、最大990万円の助成を受けられた場合、実質負担は210万円〜410万円が目安です。助成額は受講者数や要件により変動し、支給を保証するものではありません。</span></p>
       </div>
     </div>
     <div class="faq-item">
@@ -2285,7 +2393,7 @@
         <span class="faq-toggle" aria-hidden="true"></span>
       </button>
       <div class="faq-a-wrap">
-        <p class="a"><span class="faq-mark">A.</span><span>FC加盟費用そのもの（加盟金）への助成金活用はできません。一方で、加盟にあたって社員に受講いただく研修は従業員への訓練にあたるため、受講料部分が助成金の対象となる場合があります。提携する社会保険労務士が診断から申請までをサポートします。助成の可否・上限額は受講者数や要件、管轄労働局の審査により変動し、支給を保証するものではありません。</span></p>
+        <p class="a"><span class="faq-mark">A.</span><span>FC加盟費用そのもの（加盟金）への助成金活用はできません。一方で、加盟にあたって社員に受講いただく研修は従業員への訓練にあたるため、社員研修にあたる部分が助成金の対象となる場合があります。提携する社会保険労務士が診断から申請までをサポートします。助成の可否・上限額は受講者数や要件、管轄労働局の審査により変動し、支給を保証するものではありません。</span></p>
       </div>
     </div>
   </div>
@@ -2528,7 +2636,7 @@
        空のあいだは「受付準備中」と表示し、送信ボタンを無効にします。
      5つのフォーム（fcForm1〜5）すべてに同じ処理をループで登録します。 -->
 <script>
-  const DOC_FORM_ENDPOINT = "";
+  const DOC_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbyHMt8ymG6xoA03W-3IATiXQRxeSxkQ3FpwG_LmrZzUCcytC2oHC2GThkhgO3G6Er0Y/exec";
 </script>
 <script>
   (function(){
