@@ -506,6 +506,110 @@
     text-align:center;
   }
 
+  /* ===== 加盟事例 ===== */
+  .case-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media (max-width:900px){
+    .case-grid{ grid-template-columns:1fr; }
+  }
+  .case-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:30px 28px;
+    display:flex;
+    flex-direction:column;
+  }
+  .case-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    align-self:flex-start;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    color:#0b0d10;
+    background:var(--gold);
+    border-radius:999px;
+    padding:5px 13px;
+    margin-bottom:16px;
+  }
+  .case-company{
+    font-size:1.18rem;
+    font-weight:900;
+    letter-spacing:-.02em;
+    margin:0 0 6px;
+  }
+  .case-meta{
+    font-size:.82rem;
+    color:var(--sub);
+    line-height:1.8;
+    margin:0 0 20px;
+  }
+  .case-nums{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    margin-bottom:20px;
+  }
+  .case-nums div{
+    background:#12161c;
+    padding:14px 12px;
+    text-align:center;
+  }
+  .case-nums .n{
+    display:block;
+    font-size:1.06rem;
+    font-weight:900;
+    color:var(--gold);
+    line-height:1.35;
+    margin-bottom:3px;
+  }
+  .case-nums .l{
+    font-size:.71rem;
+    color:var(--sub);
+    line-height:1.5;
+  }
+  .case-body{
+    font-size:.88rem;
+    line-height:1.9;
+    color:var(--sub);
+    margin:0 0 18px;
+  }
+  .case-quote{
+    border-left:3px solid var(--gold);
+    padding:2px 0 2px 15px;
+    margin:0 0 20px;
+    font-size:.88rem;
+    line-height:1.9;
+    color:var(--text);
+  }
+  .case-quote cite{
+    display:block;
+    margin-top:9px;
+    font-style:normal;
+    font-size:.78rem;
+    color:var(--sub);
+  }
+  .case-link{
+    margin-top:auto;
+    align-self:flex-start;
+    font-size:.84rem;
+    font-weight:700;
+    color:var(--gold);
+    text-decoration:none;
+    border-bottom:1px solid rgba(232,182,76,.45);
+    padding-bottom:2px;
+  }
+  .case-link:hover{ border-bottom-color:var(--gold); }
+
   /* ===== 数字の内訳テーブル（収益例・初期費用） ===== */
   .figure-table{
     width:100%;
@@ -1186,7 +1290,7 @@
 </section>
 
 <!-- ================= 03 TYPES／3つのパートナー区分 ================= -->
-<section id="sec03">
+<section class="alt" id="sec03">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">TYPES</span>
@@ -1224,7 +1328,7 @@
 </section>
 
 <!-- ================= 04 MODEL ================= -->
-<section class="alt" id="sec04">
+<section id="sec04">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">MODEL</span>
@@ -1267,7 +1371,7 @@
 </section>
 
 <!-- ================= 05 PROFIT／収益例 ================= -->
-<section id="sec05">
+<section class="alt" id="sec05">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">PROFIT</span>
@@ -1294,6 +1398,75 @@
     <p style="text-align:center; max-width:680px; margin:0 auto 24px; color:var(--sub);">AI研修は1社あたり平均150万円。月3社の契約獲得を目標とした場合、初年度5,000万円規模が視野に入ります。</p>
 
     <p class="note-sm">※上記は実際に加盟したパートナーの一例であり、成果を保証するものではありません。助成金の額は受講者数および要件により変動します。</p>
+
+    <div class="cta-block" style="margin-top:40px;">
+      <a class="js-cta-doc btn" href="#form-hero">加盟資料を請求する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 加盟事例 ================= -->
+<section id="sec-case">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">CASE</span>
+      <h2>加盟パートナーの事例</h2>
+      <p>業界校と地域校、それぞれで事業を立ち上げた2社の実例です。</p>
+    </div>
+
+    <div class="case-grid">
+
+      <!-- 業界パートナー：LIFEFUND（建築校） -->
+      <div class="case-card">
+        <span class="case-tag">業界パートナー ／ 建築校</span>
+        <p class="case-company">株式会社LIFEFUND</p>
+        <p class="case-meta">
+          静岡県浜松市／注文住宅・不動産・リフォーム・相続コンサル／社員約70名<br>
+          代表取締役 白都 卓磨 様
+        </p>
+        <div class="case-nums">
+          <div><span class="n">月次 約1,000万円</span><span class="l">加盟から半年時点の売上</span></div>
+          <div><span class="n">ほぼ初月</span><span class="l">初期費用の回収</span></div>
+          <div><span class="n">毎回100社以上</span><span class="l">月1回のセミナー参加</span></div>
+          <div><span class="n">受講の2か月後</span><span class="l">FC運営のスタート</span></div>
+        </div>
+        <p class="case-body">
+          「日本で一番AIを活用する建築会社になる」という目標を掲げ、まず自社でAI導入を開始。受講するだけでなく教える側に回れる業界校の仕組みを知り、建築校として加盟しました。運営はフィールドセールス・インサイドセールス・カスタマーサクセスの体制を新設し、兼務社員3名と専任の業務委託7名で推進しています。
+        </p>
+        <blockquote class="case-quote">
+          ネットワークの有無よりも大切なのは、しっかりと運営に人材を配置し、マーケティングとセールスをやり切ること、そして業界に対する理解を生かしてしっかりと伴走することです。
+          <cite>代表取締役 白都 卓磨 様</cite>
+        </blockquote>
+        <a class="case-link" href="https://horiemon.ai/case/lifefund" target="_blank" rel="noopener">事例の全文を読む →</a>
+      </div>
+
+      <!-- 地域パートナー：マナビバ（福岡校） -->
+      <div class="case-card">
+        <span class="case-tag">地域パートナー ／ 福岡校</span>
+        <p class="case-company">株式会社マナビバ</p>
+        <p class="case-meta">
+          福岡県／未経験者向けのプログラミング・SNS運用などのオンライン教育事業<br>
+          代表取締役 前田 祐樹男 様／2024年4月加盟
+        </p>
+        <div class="case-nums">
+          <div><span class="n">最初の半年は0円</span><span class="l">法人受講の売上</span></div>
+          <div><span class="n">2,000万円超</span><span class="l">現在までの売上（前年比約2倍）</span></div>
+          <div><span class="n">約50%</span><span class="l">営業利益率（外注費等控除後 約20%）</span></div>
+          <div><span class="n">3,000万円</span><span class="l">2026年7月期の売上見込み</span></div>
+        </div>
+        <p class="case-body">
+          東京から福岡へ移転する中で地域とのつながりに苦労し、「ホリエモンAI学校 福岡校」として認知を得ることを狙って加盟。当初は半年間まったく売れませんでしたが、本部との対話を通じて提案を「研修を売る」から「AIで業務改善と売上向上を実現する」へ切り替え、V字回復しました。堀江貴文のYouTube出演を機に、地元ラジオ局のレギュラー出演にもつながっています。
+        </p>
+        <blockquote class="case-quote">
+          質の高いオンラインコンテンツは本部が提供してくれる。加盟店である我々は、お客様に寄り添い、しっかりと支援し関係構築をしていく。この役割分担が成功の秘訣ではないでしょうか。
+          <cite>代表取締役 前田 祐樹男 様</cite>
+        </blockquote>
+        <a class="case-link" href="https://horiemon.ai/case/manaviva" target="_blank" rel="noopener">事例の全文を読む →</a>
+      </div>
+
+    </div>
+
+    <p class="note-sm">※掲載している数値は各社の実績であり、成果を保証するものではありません。売上は加盟時期・体制・営業活動によって大きく異なります。マナビバ様のように、立ち上げから半年間売上が発生しなかった例もあります。</p>
 
     <div class="cta-block" style="margin-top:40px;">
       <a class="js-cta-doc btn" href="#form-hero">加盟資料を請求する</a>
