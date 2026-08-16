@@ -750,6 +750,31 @@
     .card-icon{ width:64px; height:64px; }
   }
 
+
+  /* 不安の吹き出し */
+  .worry-list{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:14px;
+    max-width:820px; margin:0 auto;
+  }
+  .worry{
+    position:relative;
+    background:#fff; border:2px solid var(--border); border-radius:14px;
+    padding:16px 26px; font-weight:900; font-size:.98rem; color:#5c6b7d;
+    box-shadow:0 4px 14px rgba(18,35,63,.06);
+  }
+  .worry::after{
+    content:""; position:absolute; left:50%; bottom:-11px; transform:translateX(-50%);
+    border:10px solid transparent; border-top-color:#fff;
+  }
+  .worry::before{
+    content:""; position:absolute; left:50%; bottom:-14px; transform:translateX(-50%);
+    border:10px solid transparent; border-top-color:var(--border);
+  }
+  @media (max-width:640px){
+    .worry-list{ flex-direction:column; align-items:center; gap:18px; }
+    .worry{ width:100%; text-align:center; font-size:.92rem; }
+  }
+
   .note-sm{
     font-size:.8rem;
     color:#7c8899;
@@ -1618,10 +1643,21 @@
 
 <section class="alt" id="sec-strengths">
   <div class="wrap">
-    <div class="section-head" data-en="STRENGTHS">
+    <div class="section-head" data-en="WORRIES">
+      <span class="eyebrow">WORRIES</span>
+      <h2>AI事業の立ち上げに、不安はありませんか</h2>
+      <p>商材がない。ノウハウがない。営業できるか分からない。<br>そのすべてを、本部が解決いたします。</p>
+    </div>
+
+    <div class="worry-list">
+      <div class="worry">売るものがない…</div>
+      <div class="worry">AIの知識がない…</div>
+      <div class="worry">本当に売れるのか…</div>
+    </div>
+
+    <div class="section-head" data-en="STRENGTHS" style="margin-top:64px;">
       <span class="eyebrow">STRENGTHS</span>
-      <h2>その不安、本部がすべて解決いたします</h2>
-      <p>3つの強み</p>
+      <h2>ホリエモンAI学校FC 3つの強み</h2>
     </div>
     <div class="grid grid-3">
       <div class="card">
@@ -1795,7 +1831,64 @@
   </div>
 </section>
 
-<section class="alt" id="sec-media">
+<!-- ================= 加盟校一覧 ================= -->
+<section class="alt" id="sec-schools">
+  <div class="wrap">
+    <div class="section-head" data-en="SCHOOLS">
+      <span class="eyebrow">SCHOOLS</span>
+      <h2>現在稼働している加盟校</h2>
+      <p>16のパートナーが、それぞれの地域・業界で活動しています。1業界・1地域につき1社限定のため、下記の枠はすでに募集を終了しています。</p>
+    </div>
+
+    <div class="school-group">
+      <h3>地域パートナー</h3>
+      <div class="school-grid">
+        <a class="school-item" href="https://fc.horiemon.ai/fukuoka/" target="_blank" rel="noopener">福岡校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://ai-gakkou.com/" target="_blank" rel="noopener">新宿校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/niigata/" target="_blank" rel="noopener">新潟校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://www.rannys.com/" target="_blank" rel="noopener">金沢校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <span class="school-item no-link">神奈川校</span>
+      </div>
+    </div>
+
+    <div class="school-group">
+      <h3>業界パートナー</h3>
+      <div class="school-grid">
+        <a class="school-item" href="https://kenchiku-ai.com/" target="_blank" rel="noopener">建築校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/classlab/" target="_blank" rel="noopener">不動産校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://medical-ai.site/lp/" target="_blank" rel="noopener">病院クリニック校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/kaigo/" target="_blank" rel="noopener">介護校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/zeirishi/" target="_blank" rel="noopener">税理士校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/sales" target="_blank" rel="noopener">セールス校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+      </div>
+    </div>
+
+    <div class="school-group">
+      <h3>全方位パートナー（会社名校）</h3>
+      <p style="font-size:.86rem;color:var(--sub);margin:-6px 0 14px;">地域や業界を限定せず、本部と同じく全方位でAI活用・DX支援を行う加盟校です。</p>
+      <div class="school-grid">
+        <a class="school-item" href="https://fc.horiemon.ai/creators/" target="_blank" rel="noopener">クリエイターズアカデミー校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/fellows/" target="_blank" rel="noopener">フェローズ校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/app/" target="_blank" rel="noopener">APパートナーズ校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://fc.horiemon.ai/ipt/" target="_blank" rel="noopener">IPT校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+        <a class="school-item" href="https://p.horiemon.ai/smg/" target="_blank" rel="noopener">SMG経営塾校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
+      </div>
+    </div>
+
+    <div class="school-open">
+      <strong>残り184枠</strong>
+      上記以外の地域・業界は募集中です。ご希望の地域・業界が空いているかは、資料請求後の個別説明でお伝えします。
+    </div>
+
+    <p class="note-sm">※各校のサイトは加盟パートナーが運営しています。掲載内容についてのお問い合わせは各校へお願いいたします。神奈川校はサイトを公開していません。</p>
+
+    <div class="cta-block" style="margin-top:36px;">
+      <a class="js-cta-doc btn" href="#form1">空き状況を確認する（資料請求）</a>
+    </div>
+  </div>
+</section>
+
+<section id="sec-media">
   <div class="wrap">
     <div class="section-head" data-en="MEDIA">
       <span class="eyebrow">MEDIA</span>
@@ -1819,7 +1912,7 @@
   </div>
 </section>
 
-<section id="sec-reasons">
+<section class="alt" id="sec-reasons">
   <div class="wrap">
     <div class="section-head" data-en="4 REASONS">
       <span class="eyebrow">4 REASONS</span>
@@ -1862,7 +1955,7 @@
   </div>
 </section>
 
-<section class="alt" id="form3">
+<section id="form3">
   <div class="wrap">
     <div class="hero-form-card form-section-card">
       <h3>FCパートナー 資料請求</h3>
@@ -1962,7 +2055,7 @@
 </section>
 
 <!-- ================= 加盟事例 ================= -->
-<section id="sec-case">
+<section class="alt" id="sec-case">
   <div class="wrap">
     <div class="section-head" data-en="CASE">
       <span class="eyebrow">CASE</span>
@@ -2034,7 +2127,7 @@
   </div>
 </section>
 
-<section class="alt" id="form4">
+<section id="form4">
   <div class="wrap">
     <div class="hero-form-card form-section-card">
       <h3>FCパートナー 資料請求</h3>
@@ -2134,7 +2227,7 @@
 </section>
 
 <!-- ================= 05 PROFIT／収益例 ================= -->
-<section id="sec05">
+<section class="alt" id="sec05">
   <div class="wrap">
     <div class="section-head" data-en="PROFIT">
       <span class="eyebrow">PROFIT</span>
@@ -2156,7 +2249,7 @@
 </section>
 
 <!-- ================= 02 MARKET ================= -->
-<section class="alt" id="sec02">
+<section id="sec02">
   <div class="wrap">
     <div class="section-head" data-en="MARKET">
       <span class="eyebrow">MARKET</span>
@@ -2182,7 +2275,7 @@
   </div>
 </section>
 
-<section id="sec-compare">
+<section class="alt" id="sec-compare">
   <div class="wrap">
     <div class="section-head" data-en="BEFORE / AFTER">
       <span class="eyebrow">BEFORE / AFTER</span>
@@ -2211,63 +2304,6 @@
     </div>
     <div class="cta-block" style="margin-top:40px;">
       <a class="js-cta-doc btn" href="#form1">加盟資料を請求する</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 加盟校一覧 ================= -->
-<section class="alt" id="sec-schools">
-  <div class="wrap">
-    <div class="section-head" data-en="SCHOOLS">
-      <span class="eyebrow">SCHOOLS</span>
-      <h2>現在稼働している加盟校</h2>
-      <p>16のパートナーが、それぞれの地域・業界で活動しています。1業界・1地域につき1社限定のため、下記の枠はすでに募集を終了しています。</p>
-    </div>
-
-    <div class="school-group">
-      <h3>地域パートナー</h3>
-      <div class="school-grid">
-        <a class="school-item" href="https://fc.horiemon.ai/fukuoka/" target="_blank" rel="noopener">福岡校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://ai-gakkou.com/" target="_blank" rel="noopener">新宿校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://fc.horiemon.ai/niigata/" target="_blank" rel="noopener">新潟校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://www.rannys.com/" target="_blank" rel="noopener">金沢校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <span class="school-item no-link">神奈川校</span>
-      </div>
-    </div>
-
-    <div class="school-group">
-      <h3>業界パートナー</h3>
-      <div class="school-grid">
-        <a class="school-item" href="https://kenchiku-ai.com/" target="_blank" rel="noopener">建築校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://fc.horiemon.ai/classlab/" target="_blank" rel="noopener">不動産校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://medical-ai.site/lp/" target="_blank" rel="noopener">病院クリニック校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://fc.horiemon.ai/kaigo/" target="_blank" rel="noopener">介護校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://fc.horiemon.ai/zeirishi/" target="_blank" rel="noopener">税理士校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://fc.horiemon.ai/sales" target="_blank" rel="noopener">セールス校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-      </div>
-    </div>
-
-    <div class="school-group">
-      <h3>全方位パートナー（会社名校）</h3>
-      <p style="font-size:.86rem;color:var(--sub);margin:-6px 0 14px;">地域や業界を限定せず、本部と同じく全方位でAI活用・DX支援を行う加盟校です。</p>
-      <div class="school-grid">
-        <a class="school-item" href="https://fc.horiemon.ai/creators/" target="_blank" rel="noopener">クリエイターズアカデミー校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://fc.horiemon.ai/fellows/" target="_blank" rel="noopener">フェローズ校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://fc.horiemon.ai/app/" target="_blank" rel="noopener">APパートナーズ校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://fc.horiemon.ai/ipt/" target="_blank" rel="noopener">IPT校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-        <a class="school-item" href="https://p.horiemon.ai/smg/" target="_blank" rel="noopener">SMG経営塾校<span class="arw" aria-hidden="true">&rsaquo;</span></a>
-      </div>
-    </div>
-
-    <div class="school-open">
-      <strong>残り184枠</strong>
-      上記以外の地域・業界は募集中です。ご希望の地域・業界が空いているかは、資料請求後の個別説明でお伝えします。
-    </div>
-
-    <p class="note-sm">※各校のサイトは加盟パートナーが運営しています。掲載内容についてのお問い合わせは各校へお願いいたします。神奈川校はサイトを公開していません。</p>
-
-    <div class="cta-block" style="margin-top:36px;">
-      <a class="js-cta-doc btn" href="#form1">空き状況を確認する（資料請求）</a>
     </div>
   </div>
 </section>
