@@ -591,6 +591,25 @@
   .tagbar li{ color:#cfe0f5; font-weight:700; font-size:clamp(.8rem,2.2vw,1rem); }
   @keyframes tagflow{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
   @media (prefers-reduced-motion:reduce){ .tagbar ul{ animation:none; } }
+  /* 実績バッジ帯 */
+  .proof-band{ background:linear-gradient(135deg,var(--gold-dark),var(--gold)); padding:48px 0; }
+  .proof-band-inner{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+    gap:40px;
+  }
+  .proof-badge{ display:flex; flex-direction:column; align-items:center; text-align:center; color:#fff; }
+  .proof-badge .icon-circle{
+    width:112px; height:112px; border-radius:50%; background:#fff;
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+    box-shadow:0 10px 24px rgba(10,30,70,.28);
+  }
+  .proof-badge .icon-circle img{ width:70px; height:70px; }
+  .proof-label{ font-weight:900; font-size:1.05rem; letter-spacing:.03em; margin-bottom:4px; }
+  .proof-num{ font-size:clamp(3rem,9vw,5rem); font-weight:900; line-height:1; }
+  .proof-num small{ font-size:.36em; margin-left:4px; font-weight:700; }
+  .proof-sub{ margin-top:10px; font-size:1.15rem; font-weight:700; }
+  .proof-note{ color:#eaf1fd; font-size:.8rem; line-height:1.9; max-width:440px; text-align:left; }
+  @media (max-width:600px){ .proof-note{ text-align:center; } }
   /* 4つの数値ボックス */
   .kpi-band{ background:#eaf0f8; padding:26px 0; }
   .kpi-grid{
@@ -1506,6 +1525,22 @@
     </p>
   </div>
 </section>
+
+<!-- 実績バッジ帯 -->
+<div class="proof-band">
+  <div class="wrap proof-band-inner">
+    <div class="proof-badge">
+      <span class="icon-circle"><img src="icon-brand.png" width="140" height="140" loading="lazy" decoding="async" alt=""></span>
+      <span class="proof-label">AI人材育成 受講実績</span>
+      <span class="proof-num">400<small>社</small></span>
+      <span class="proof-sub">受講者数 4,000人</span>
+    </div>
+    <p class="proof-note">
+      ※受講企業数・受講者数は2026年8月時点の実績です。<br>
+      ※法人向けAI研修（ホリエモンAI学校）における受講実績で、FCパートナー数（現在16社）とは異なります。
+    </p>
+  </div>
+</div>
 
 <!-- ハッシュタグ帯 -->
 <div class="tagbar" aria-hidden="true">
