@@ -711,12 +711,7 @@
   }
   /* 番号つきカードの装飾 */
   .card{ position:relative; overflow:hidden; }
-  .card::after{
-    content:""; position:absolute; right:-40px; top:-40px;
-    width:110px; height:110px; border-radius:50%;
-    background:radial-gradient(circle, rgba(31,95,208,.07), transparent 70%);
-    pointer-events:none;
-  }
+
   /* 表の見出し行を強調 */
   .req-table th{
     background:linear-gradient(135deg,#eef4fd,#e3edfb);
@@ -734,6 +729,25 @@
     margin:-31px -29px 20px;
     height:auto;
     border-radius:17px 17px 0 0;
+  }
+
+
+  /* カードのアイコン */
+  .card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:18px;
+  }
+  /* 番号は左、アイコンは右。並びを入れ替えて重なりを防ぐ */
+  .card-head .num-badge{ margin:0; flex:0 0 auto; order:1; }
+  .card-icon{
+    width:76px; height:76px;
+    flex:0 0 auto; order:2;
+  }
+  @media (max-width:640px){
+    .card-icon{ width:64px; height:64px; }
   }
 
   .note-sm{
@@ -1611,17 +1625,26 @@
     </div>
     <div class="grid grid-3">
       <div class="card">
-        <div class="num-badge">01</div>
+        <div class="card-head">
+          <img class="card-icon" src="icon-brand.png" width="320" height="320" loading="lazy" decoding="async" alt="ブランドの信頼を表す王冠つきの盾のアイコン">
+          <div class="num-badge">01</div>
+        </div>
         <h3>ホリエモンブランドが使える</h3>
         <p>契約期間の2年間、堀江貴文の肖像を自社サイトやバナー等の販促物に利用できます。「ホリエモンAI学校 ◯◯校」として活動でき、AIに詳しい会社という認知が先行します。（※利用範囲は契約に基づきます）</p>
       </div>
       <div class="card">
-        <div class="num-badge">02</div>
+        <div class="card-head">
+          <img class="card-icon" src="icon-product.png" width="320" height="320" loading="lazy" decoding="async" alt="箱から商材が出ている、商材提供を表すアイコン">
+          <div class="num-badge">02</div>
+        </div>
         <h3>売るものを、作らなくていい</h3>
         <p>商材・カリキュラム・提案資料は本部が用意します。加盟店は法人営業と顧客支援に集中できます。</p>
       </div>
       <div class="card">
-        <div class="num-badge">03</div>
+        <div class="card-head">
+          <img class="card-icon" src="icon-stock.png" width="320" height="320" loading="lazy" decoding="async" alt="右肩上がりの棒グラフと積み重なるコインの、ストック収益を表すアイコン">
+          <div class="num-badge">03</div>
+        </div>
         <h3>売上の約50%が入るストック型</h3>
         <p>本部と共同で販売した売上から実費を差し引いた額を、本部と加盟店で50%ずつ分けます。単発の受託ではなく、月額での継続支援が収益の軸です。</p>
       </div>
@@ -1804,22 +1827,34 @@
     </div>
     <div class="grid grid-4">
       <div class="card">
-        <div class="num-badge">01</div>
+        <div class="card-head">
+          <img class="card-icon" src="icon-exclusive.png" width="320" height="320" loading="lazy" decoding="async" alt="地図上のピンを円が囲む、1業界1地域1社限定を表すアイコン">
+          <div class="num-badge">01</div>
+        </div>
         <h3>1業界・1地域につき1社限定</h3>
         <p>同じブランドの加盟店同士で顧客を奪い合いません。先に加盟した企業がその領域の窓口になります。</p>
       </div>
       <div class="card">
-        <div class="num-badge">02</div>
+        <div class="card-head">
+          <img class="card-icon" src="icon-support.png" width="320" height="320" loading="lazy" decoding="async" alt="両手が下から支える、開業前後のサポートを表すアイコン">
+          <div class="num-badge">02</div>
+        </div>
         <h3>開業前も開業後も本部が支援</h3>
         <p>開業前は受講とカリキュラム提供、開業後は技術バックアップ・営業相談・オンライン教材（動画約300本）の継続提供があります。</p>
       </div>
       <div class="card">
-        <div class="num-badge">03</div>
+        <div class="card-head">
+          <img class="card-icon" src="icon-dx.png" width="320" height="320" loading="lazy" decoding="async" alt="歯車と人のシルエットの、自社のDX推進を表すアイコン">
+          <div class="num-badge">03</div>
+        </div>
         <h3>自社のDXも同時に進む</h3>
         <p>受講するのは自社の社員です。社員がAI人材になることで、本業の生産性向上にも直結します。</p>
       </div>
       <div class="card">
-        <div class="num-badge">04</div>
+        <div class="card-head">
+          <img class="card-icon" src="icon-speed.png" width="320" height="320" loading="lazy" decoding="async" alt="ロケットの、最短3ヶ月での事業開始を表すアイコン">
+          <div class="num-badge">04</div>
+        </div>
         <h3>最短3ヶ月で事業開始</h3>
         <p>受講開始から最短3ヶ月で、各業界・各地域のAI活用支援を開始できます。</p>
       </div>
