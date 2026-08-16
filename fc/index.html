@@ -555,86 +555,26 @@
   }
 
 
-  /* ===== Hero（インパクト重視・濃紺） ===== */
+  /* ===== Hero（画像） ===== */
   .hero{
-    background:
-      radial-gradient(circle at 18% 22%, rgba(255,255,255,.06) 0 2px, transparent 2px),
-      linear-gradient(160deg,#12336b 0%,#0d2350 55%,#0a1b3d 100%);
-    background-size:34px 34px, 100% 100%;
-    color:#fff;
-    padding:44px 0 0;
+    background:#0e2857;
+    padding:0;
     text-align:center;
     position:relative;
     overflow:hidden;
+    border-bottom:none;
   }
   .hero::before{ display:none; }
-  .hero-inner{ display:block; text-align:center; position:relative; z-index:1; }
-  .hero-catch{
-    display:inline-block;
-    font-size:clamp(.95rem,2.6vw,1.35rem);
-    font-weight:900;
-    color:#ffd45e;
-    letter-spacing:.02em;
-    margin-bottom:6px;
+  .hero picture,
+  .hero img{
+    display:block;
+    width:100%;
+    height:auto;
   }
-  .hero-catch::before,.hero-catch::after{ content:"◆"; margin:0 .5em; font-size:.8em; }
-  /* 巨大数字 */
-  .hero-big{
-    line-height:1.02;
-    margin:4px 0 6px;
-    font-weight:900;
-    letter-spacing:-.03em;
-  }
-  .hero-big .pre{ font-size:clamp(1.1rem,4vw,2rem); color:#fff; margin-right:.1em; }
-  .hero-big .num{
-    font-size:clamp(3.6rem,17vw,9rem);
-    background:linear-gradient(180deg,#fff3c4 0%,#ffd45e 45%,#e8a516 100%);
-    -webkit-background-clip:text; background-clip:text;
-    -webkit-text-fill-color:transparent;
-    filter:drop-shadow(0 3px 0 rgba(0,0,0,.35));
-  }
-  .hero-big .unit{ font-size:clamp(1.1rem,4vw,2rem); color:#fff; margin-left:.08em; }
-  .hero-sub2{
-    font-size:clamp(1rem,3.4vw,1.9rem);
-    font-weight:900;
-    margin:0 0 18px;
-  }
-  .hero-sub2 em{ font-style:normal; color:#5ee8a6; }
-  /* 実績の白箱 */
-  .hero-proof{
-    display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
-    gap:8px; margin-bottom:14px; font-weight:900;
-    font-size:clamp(.82rem,2.4vw,1.05rem);
-  }
-  .hero-proof b{
-    background:#fff; color:#0d2350;
-    padding:5px 13px; border-radius:5px;
-  }
-  /* バッジ */
-  .hero-badges{
-    display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;
-  }
-  .hero-badge{
-    width:132px; padding:12px 8px; border-radius:12px;
-    background:linear-gradient(160deg,#f6e0a0,#d9ae4a);
-    color:#3a2a05; font-weight:900; line-height:1.3;
-    box-shadow:0 6px 18px rgba(0,0,0,.28);
-  }
-  .hero-badge .t{ display:block; font-size:.66rem; letter-spacing:.04em; }
-  .hero-badge .v{ display:block; font-size:1.5rem; margin:2px 0; }
-  .hero-badge .s{ display:block; font-size:.62rem; }
-  /* 黄色ハイライト */
-  .hero-hl{
-    display:inline-block;
-    background:linear-gradient(180deg,#ffe486,#ffc93c);
-    color:#3a2a05; font-weight:900;
-    font-size:clamp(1rem,3.4vw,1.5rem);
-    padding:9px 22px; border-radius:8px; margin-bottom:14px;
-    box-shadow:0 5px 0 rgba(0,0,0,.22);
-  }
+  .hero .wrap{ padding-top:16px; padding-bottom:22px; }
   .hero-note{
-    font-size:.7rem; color:#b9c8de; line-height:1.7;
-    max-width:760px; margin:0 auto; padding-bottom:30px;
+    font-size:.7rem; color:#b9c8de; line-height:1.75;
+    max-width:900px; margin:0 auto; text-align:left;
   }
   /* ハッシュタグ帯 */
   .tagbar{
@@ -1398,25 +1338,12 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="wrap hero-inner">
-    <span class="hero-catch">ブランドと本部サポートで</span>
-
-    <div class="hero-big">
-      <span class="pre">月商</span><span class="num">1,000</span><span class="unit">万円</span>
-    </div>
-    <p class="hero-sub2">を達成した加盟校も。<em>未経験の業界からでも</em></p>
-
-    <div class="hero-badges">
-      <div class="hero-badge"><span class="t">1業界・1地域</span><span class="v">1社</span><span class="s">限定の先着制</span></div>
-      <div class="hero-badge"><span class="t">現在の加盟</span><span class="v">16社</span><span class="s">200社まで募集中</span></div>
-    </div>
-
-    <div class="hero-hl">残り184枠</div>
-
-    <div class="hero-proof">
-      <b>受講企業 400社</b><b>受講者数 4,000人</b><span>の実績を惜しみなく提供</span>
-    </div>
-
+  <picture>
+    <source media="(max-width:760px)" srcset="fc-hero-sp.jpg" width="1080" height="1440">
+    <img src="fc-hero-pc.jpg" width="2000" height="1100" fetchpriority="high" decoding="async"
+         alt="ブランドと本部サポートで月商1,000万円を達成した加盟校も。未経験の業界からでも。1業界・1地域につき1社限定の先着制、現在の加盟16社、200社まで募集中で残り184枠。受講企業400社・受講者数4,000人の実績を惜しみなく提供します。">
+  </picture>
+  <div class="wrap">
     <p class="hero-note">
       ※「月商1,000万円」は業界校として加盟した株式会社LIFEFUND様の、加盟から半年時点の実績です。成果を保証するものではなく、売上は加盟時期・体制・営業活動によって大きく異なります。加盟から半年間、売上が発生しなかった例もあります。<br>
       ※受講企業数・受講者数は2026年8月時点。加盟数は同時点で稼働中の加盟企業数です。
