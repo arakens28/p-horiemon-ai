@@ -598,17 +598,13 @@
     gap:40px;
   }
   .proof-badge{ display:flex; flex-direction:column; align-items:center; text-align:center; color:#fff; }
-  .proof-badge .icon-circle{
-    width:112px; height:112px; border-radius:50%; background:#fff;
-    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
-    box-shadow:0 10px 24px rgba(10,30,70,.28);
+  .proof-badge-img{
+    width:168px; height:auto; margin-bottom:14px;
+    filter:drop-shadow(0 10px 20px rgba(10,30,70,.28));
   }
-  .proof-badge .icon-circle img{ width:70px; height:70px; }
-  .proof-label{ font-weight:900; font-size:1.05rem; letter-spacing:.03em; margin-bottom:4px; }
-  .proof-num{ font-size:clamp(3rem,9vw,5rem); font-weight:900; line-height:1; }
-  .proof-num small{ font-size:.36em; margin-left:4px; font-weight:700; }
-  .proof-sub{ margin-top:10px; font-size:1.15rem; font-weight:700; }
-  .proof-note{ color:#eaf1fd; font-size:.8rem; line-height:1.9; max-width:440px; text-align:left; }
+  .proof-num{ font-size:clamp(2.2rem,6vw,3.2rem); font-weight:900; line-height:1; }
+  .proof-num sup{ font-size:.5em; margin-left:2px; }
+  .proof-note{ color:#eaf1fd; font-size:.78rem; line-height:1.9; max-width:460px; text-align:left; }
   @media (max-width:600px){ .proof-note{ text-align:center; } }
   /* 4つの数値ボックス */
   .kpi-band{ background:#eaf0f8; padding:26px 0; }
@@ -1530,14 +1526,12 @@
 <div class="proof-band">
   <div class="wrap proof-band-inner">
     <div class="proof-badge">
-      <span class="icon-circle"><img src="icon-brand.png" width="140" height="140" loading="lazy" decoding="async" alt=""></span>
-      <span class="proof-label">AI人材育成 受講実績</span>
-      <span class="proof-num">400<small>社</small></span>
-      <span class="proof-sub">受講者数 4,000人</span>
+      <img class="proof-badge-img" src="fc-no1-badge.jpg" width="583" height="623" loading="lazy" decoding="async" alt="RANKING 法人向け生成AI研修サービス No.1">
+      <span class="proof-num">満足度No.1<sup>※</sup></span>
     </div>
     <p class="proof-note">
-      ※受講企業数・受講者数は2026年8月時点の実績です。<br>
-      ※法人向けAI研修（ホリエモンAI学校）における受講実績で、FCパートナー数（現在16社）とは異なります。
+      ※「法人向け生成AI研修サービス」に関する市場調査〈No.1検証調査〉（株式会社未来トレンド研究機構調べ）<br>
+      ※2025年11月10日時点
     </p>
   </div>
 </div>
