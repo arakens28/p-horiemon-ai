@@ -619,6 +619,59 @@
   }
   .btn-orange:hover{ filter:brightness(1.05); }
 
+
+  /* ===== 図解画像 ===== */
+  .diagram{ margin:0; }
+  .diagram img{
+    display:block; width:100%; height:auto;
+    border:1px solid var(--border); border-radius:16px;
+    box-shadow:0 10px 30px rgba(18,35,63,.09);
+  }
+  /* CTA帯の資料書影 */
+  .cta-doc{
+    width:250px; height:auto; flex-shrink:0;
+    filter:drop-shadow(0 10px 22px rgba(90,60,10,.22));
+  }
+  @media (max-width:760px){
+    .cta-doc{ width:210px; }
+  }
+
+  /* ===== セクション見出しをリッチに ===== */
+  .section-head{ position:relative; }
+  .section-head .eyebrow{
+    display:inline-block; position:relative; padding:0 0 0 30px;
+  }
+  .section-head .eyebrow::before{
+    content:""; position:absolute; left:0; top:50%; width:22px; height:2px;
+    background:var(--gold); transform:translateY(-50%);
+  }
+  .section-head h2{ position:relative; }
+
+  /* ===== カードに奥行きを ===== */
+  .card{
+    box-shadow:0 6px 20px rgba(18,35,63,.07);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 14px 32px rgba(18,35,63,.13); }
+  .num-badge{
+    box-shadow:0 4px 12px rgba(31,95,208,.25);
+  }
+  /* 番号つきカードの装飾 */
+  .card{ position:relative; overflow:hidden; }
+  .card::after{
+    content:""; position:absolute; right:-40px; top:-40px;
+    width:110px; height:110px; border-radius:50%;
+    background:radial-gradient(circle, rgba(31,95,208,.07), transparent 70%);
+    pointer-events:none;
+  }
+  /* 表の見出し行を強調 */
+  .req-table th{
+    background:linear-gradient(135deg,#eef4fd,#e3edfb);
+    color:var(--gold);
+  }
+  /* ステップに縦線 */
+  .steps{ position:relative; }
+
   .note-sm{
     font-size:.8rem;
     color:#7c8899;
@@ -1375,6 +1428,8 @@
 <!-- オレンジCTA帯 -->
 <div class="cta-band">
   <div class="wrap cta-band-inner">
+    <img class="cta-doc" src="fc-doc.jpg" width="900" height="620" loading="lazy" decoding="async"
+         alt="FCパートナー募集の資料3点。加盟金と収益モデル、FCパートナー募集の概要、開業までの流れ。">
     <div class="lead-t">
       <small>サイトだけでは伝えられない情報満載</small>
       <b>まずは無料で資料請求</b>
@@ -1618,38 +1673,12 @@
       <p>法人向けAI研修・AI導入支援を、地域や業界に特化して提供する事業です。</p>
     </div>
 
-    <div class="model-diagram">
-      <div class="model-box">
-        <span class="tag">CLIENT</span>
-        <h4>地域・業界の事業者</h4>
-        <p>AIを導入したいが何から始めるか分からない</p>
-      </div>
-      <div class="model-arrow">→</div>
-      <div class="model-box highlight">
-        <span class="tag">YOU</span>
-        <h4>あなた（加盟店）</h4>
-        <p>課題をヒアリングし、AI導入を支援する</p>
-      </div>
-      <div class="model-arrow">→</div>
-      <div class="model-box">
-        <span class="tag">HQ</span>
-        <h4>本部</h4>
-        <p>ノウハウ・技術・ブランドで後方支援する</p>
-      </div>
-    </div>
-
-    <ul class="service-list">
-      <li>AI顧問（月額）</li>
-      <li>AIエージェント構築</li>
-      <li>AI人材育成の支援</li>
-      <li>業務自動化の導入支援</li>
-    </ul>
-
-    <div class="revenue-box">
-      <span class="eyebrow">REVENUE MODEL</span>
-      <h3>月額顧問を中心としたストック型モデル</h3>
-      <p>単発の受託ではなく、月額での継続支援を軸にした収益構造です。</p>
-    </div>
+    <figure class="diagram"><picture>
+      <source media="(max-width:760px)" srcset="fc-model-sp.jpg" width="1080" height="1560">
+      <img src="fc-model.jpg" width="1400" height="620" loading="lazy" decoding="async"
+           alt="地域・業界の事業者から、あなた（加盟店）が課題をヒアリングしAI導入を支援し、本部がノウハウ・技術・ブランドで後方支援する三者の関係図。提供サービスはAI顧問、AIエージェント構築、AI人材育成の支援、業務自動化の導入支援。売上の約50%を加盟店が受け取るストック型の収益モデル。">
+    </picture>
+    </figure>
   </div>
 </section>
 
@@ -2010,26 +2039,13 @@
       <p>昨年加盟したパートナーの、1年間・21社への提供実績です。</p>
     </div>
 
-    <table class="figure-table">
-      <tr><th>年間売上</th><td>54,549,000円</td></tr>
-      <tr><th>受け取り収益</th><td>2,727万円（売上の約50%）</td></tr>
-      <tr><th>助成金</th><td>792万円</td></tr>
-      <tr class="neg"><th>初期費用支出</th><td>△1,400万円</td></tr>
-      <tr class="total"><th>初年度の差引</th><td>2,119万円</td></tr>
-    </table>
-
-    <p style="text-align:center; font-weight:700; margin:36px 0 16px;">参考：提供単価</p>
-    <div class="table-scroll">
-      <table class="req-table" style="max-width:640px; margin:0 auto 24px;">
-        <tr><th>5名研修</th><td>年間155万円／社</td></tr>
-        <tr><th>100名研修</th><td>年間1,200万円／社</td></tr>
-        <tr><th>コンサルティング</th><td>年間600万円〜／社</td></tr>
-      </table>
-    </div>
-    <p style="text-align:center; max-width:680px; margin:0 auto 24px; color:var(--sub);">AI研修は1社あたり平均150万円。月3社の契約獲得を目標とした場合、初年度5,000万円規模が視野に入ります。</p>
-
+    <figure class="diagram"><picture>
+      <source media="(max-width:760px)" srcset="fc-profit-sp.jpg" width="1080" height="1620">
+      <img src="fc-profit.jpg" width="1400" height="640" loading="lazy" decoding="async"
+           alt="加盟パートナーの収益例。受け取り収益2,727万円に助成金792万円を加え、初期費用の支出1,400万円を差し引くと、初年度の差引は2,119万円。年間売上54,549,000円。提供単価は5名研修が年間155万円、100名研修が年間1,200万円、コンサルティングが年間600万円から。">
+    </picture>
+    </figure>
     <p class="note-sm">※上記は実際に加盟したパートナーの一例であり、成果を保証するものではありません。助成金の額は受講者数および要件により変動します。</p>
-
     <div class="cta-block" style="margin-top:40px;">
       <a class="js-cta-doc btn" href="#form1">加盟資料を請求する</a>
     </div>
