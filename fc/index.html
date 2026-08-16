@@ -592,19 +592,16 @@
   @keyframes tagflow{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
   @media (prefers-reduced-motion:reduce){ .tagbar ul{ animation:none; } }
   /* 実績バッジ帯 */
-  .proof-band{ background:linear-gradient(135deg,var(--gold-dark),var(--gold)); padding:48px 0; }
+  .proof-band{ background:#ffffff; padding:48px 0; border-bottom:1px solid var(--border); }
   .proof-band-inner{
     display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
     gap:40px;
   }
-  .proof-badge{ display:flex; flex-direction:column; align-items:center; text-align:center; color:#fff; }
-  .proof-badge-img{
-    width:168px; height:auto; margin-bottom:14px;
-    filter:drop-shadow(0 10px 20px rgba(10,30,70,.28));
-  }
-  .proof-num{ font-size:clamp(2.2rem,6vw,3.2rem); font-weight:900; line-height:1; }
-  .proof-num sup{ font-size:.5em; margin-left:2px; }
-  .proof-note{ color:#eaf1fd; font-size:.78rem; line-height:1.9; max-width:460px; text-align:left; }
+  .proof-badge{ display:flex; flex-direction:column; align-items:center; text-align:center; color:var(--text); }
+  .proof-badge-img{ width:168px; height:auto; margin-bottom:14px; }
+  .proof-num{ font-size:clamp(2.2rem,6vw,3.2rem); font-weight:900; line-height:1; color:var(--text); }
+  .proof-num sup{ font-size:.5em; margin-left:2px; color:var(--gold); }
+  .proof-note{ color:var(--sub); font-size:.78rem; line-height:1.9; max-width:460px; text-align:left; }
   @media (max-width:600px){ .proof-note{ text-align:center; } }
   /* 4つの数値ボックス */
   .kpi-band{ background:#eaf0f8; padding:26px 0; }
@@ -1526,7 +1523,7 @@
 <div class="proof-band">
   <div class="wrap proof-band-inner">
     <div class="proof-badge">
-      <img class="proof-badge-img" src="fc-no1-badge.jpg" width="583" height="623" loading="lazy" decoding="async" alt="RANKING 法人向け生成AI研修サービス No.1">
+      <img class="proof-badge-img" src="no1.png" width="1073" height="960" loading="lazy" decoding="async" alt="RANKING 法人向け生成AI研修サービス No.1">
       <span class="proof-num">満足度No.1<sup>※</sup></span>
     </div>
     <p class="proof-note">
