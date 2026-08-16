@@ -637,15 +637,68 @@
   }
 
   /* ===== セクション見出しをリッチに ===== */
-  .section-head{ position:relative; }
+  /* ===== セクション見出し（作り込み） ===== */
+  .section-head{
+    position:relative;
+    padding-top:34px;
+    max-width:860px;
+  }
+  /* 背景に薄い英字を敷く */
+  .section-head::before{
+    content:attr(data-en);
+    position:absolute; left:50%; top:-6px; transform:translateX(-50%);
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:clamp(3.4rem,9vw,6rem); font-weight:900; letter-spacing:.02em;
+    color:rgba(31,95,208,.07); white-space:nowrap; pointer-events:none; line-height:1;
+    z-index:0;
+  }
+  .section-head > *{ position:relative; z-index:1; }
+  /* 小見出し：左右に線を伸ばしたバッジ */
   .section-head .eyebrow{
-    display:inline-block; position:relative; padding:0 0 0 30px;
+    display:inline-flex; align-items:center; gap:12px;
+    padding:0; background:none; border:none;
+    font-size:.8rem; font-weight:900; letter-spacing:.2em; color:var(--gold);
+    margin-bottom:14px;
   }
-  .section-head .eyebrow::before{
-    content:""; position:absolute; left:0; top:50%; width:22px; height:2px;
-    background:var(--gold); transform:translateY(-50%);
+  .section-head .eyebrow::before,
+  .section-head .eyebrow::after{
+    content:""; width:30px; height:2px; border-radius:2px;
+    background:linear-gradient(90deg,transparent,var(--gold));
+    position:static; transform:none;
   }
-  .section-head h2{ position:relative; }
+  .section-head .eyebrow::after{ background:linear-gradient(90deg,var(--gold),transparent); }
+  /* 見出し本体 */
+  .section-head h2{
+    font-size:clamp(1.35rem,5.2vw,2.6rem);
+    line-height:1.4;
+    letter-spacing:-.02em;
+    margin-bottom:18px;
+    position:relative;
+    padding-bottom:20px;
+  }
+  /* 下線をグラデーションの短い帯に */
+  .section-head h2::after{
+    content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%);
+    width:64px; height:5px; border-radius:3px;
+    background:linear-gradient(90deg,var(--gold),#5b9bf5);
+  }
+  .section-head p{
+    font-size:.98rem; color:var(--sub); line-height:1.85;
+  }
+  /* 濃色セクションの見出しは反転 */
+  .sec-dark .section-head::before{ color:rgba(255,255,255,.07); }
+  .sec-dark .section-head h2{ color:#fff; }
+  .sec-dark .section-head p{ color:#c6d5ea; }
+  @media (max-width:640px){
+    .section-head{ padding-top:26px; margin-bottom:38px; }
+    .section-head::before{ font-size:2.6rem; top:-2px; }
+    .section-head .eyebrow{ font-size:.72rem; margin-bottom:10px; }
+    .section-head .eyebrow::before,
+    .section-head .eyebrow::after{ width:20px; }
+    .section-head h2{ padding-bottom:16px; margin-bottom:14px; }
+    .section-head h2::after{ width:48px; height:4px; }
+    .section-head p{ font-size:.9rem; }
+  }
 
   /* ===== カードに奥行きを ===== */
   .card{
@@ -1540,9 +1593,9 @@
 
 <section class="alt" id="sec-strengths">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="STRENGTHS">
       <span class="eyebrow">STRENGTHS</span>
-      <h2>AI事業への参入、その不安を本部が解決します</h2>
+      <h2>その不安、本部が引き受ける</h2>
       <p>FCの3つの強み</p>
     </div>
     <div class="grid grid-3">
@@ -1553,12 +1606,12 @@
       </div>
       <div class="card">
         <div class="num-badge">02</div>
-        <h3>本部と共同で販売するから、売るものを作らなくていい</h3>
+        <h3>売るものを、作らなくていい</h3>
         <p>商材・カリキュラム・提案資料は本部が用意します。加盟店は法人営業と顧客支援に集中できます。</p>
       </div>
       <div class="card">
         <div class="num-badge">03</div>
-        <h3>売上の約50%を受け取るストック型</h3>
+        <h3>売上の約50%が入るストック型</h3>
         <p>本部と共同で販売した売上から実費を差し引いた額を、本部と加盟店で50%ずつ分けます。単発の受託ではなく、月額での継続支援が収益の軸です。</p>
       </div>
     </div>
@@ -1667,7 +1720,7 @@
 <!-- ================= 04 MODEL ================= -->
 <section class="alt" id="sec04">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="MODEL">
       <span class="eyebrow">MODEL</span>
       <h2>どんな事業をするのか</h2>
       <p>法人向けAI研修・AI導入支援を、地域や業界に特化して提供する事業です。</p>
@@ -1684,14 +1737,14 @@
 
 <section id="sec-trust">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="TRUST">
       <span class="eyebrow">TRUST</span>
       <h2>選ばれている理由</h2>
     </div>
     <div class="grid grid-3">
       <div class="card">
         <div class="num-badge">01</div>
-        <h3>受講企業400社・受講者4,000人の実績</h3>
+        <h3>受講企業400社・4,000人</h3>
         <p>法人向けAI研修として、すでに400社・4,000人の受講実績があります。</p>
       </div>
       <div class="card">
@@ -1710,7 +1763,7 @@
 
 <section class="alt" id="sec-media">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="MEDIA">
       <span class="eyebrow">MEDIA</span>
       <h2>メディア・露出の実績</h2>
     </div>
@@ -1734,7 +1787,7 @@
 
 <section id="sec-reasons">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="4 REASONS">
       <span class="eyebrow">4 REASONS</span>
       <h2>FCが選ばれる4つの理由</h2>
     </div>
@@ -1865,7 +1918,7 @@
 <!-- ================= 加盟事例 ================= -->
 <section id="sec-case">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="CASE">
       <span class="eyebrow">CASE</span>
       <h2>加盟パートナーの事例</h2>
       <p>業界校と地域校、それぞれで事業を立ち上げた2社の実例です。</p>
@@ -2033,7 +2086,7 @@
 <!-- ================= 05 PROFIT／収益例 ================= -->
 <section id="sec05">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="PROFIT">
       <span class="eyebrow">PROFIT</span>
       <h2>収益例</h2>
       <p>昨年加盟したパートナーの、1年間・21社への提供実績です。</p>
@@ -2055,7 +2108,7 @@
 <!-- ================= 02 MARKET ================= -->
 <section class="alt" id="sec02">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="MARKET">
       <span class="eyebrow">MARKET</span>
       <h2>なぜいま、AI事業なのか</h2>
     </div>
@@ -2072,7 +2125,7 @@
       </div>
       <div class="card">
         <div class="num-badge">03</div>
-        <h3>先に旗を立てた事業者が窓口になる</h3>
+        <h3>先に旗を立てた者が窓口になる</h3>
         <p>AI導入支援を看板に掲げる事業者は地方にほとんど存在しない。1業界・1地域につき1社限定のため、先に加盟した事業者がその領域の窓口になる。</p>
       </div>
     </div>
@@ -2081,9 +2134,9 @@
 
 <section id="sec-compare">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="BEFORE / AFTER">
       <span class="eyebrow">BEFORE / AFTER</span>
-      <h2>全体像を知ってから、加盟を検討しませんか？</h2>
+      <h2>全体像を知ってから検討する</h2>
       <p>加盟には、知っている情報だけでは判断しにくい場合もあります。全体像を把握すると、開業後のイメージが持ちやすく、迷いを減らして検討に集中できます。</p>
     </div>
     <div class="compare-grid">
@@ -2115,7 +2168,7 @@
 <!-- ================= 加盟校一覧 ================= -->
 <section class="alt" id="sec-schools">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="SCHOOLS">
       <span class="eyebrow">SCHOOLS</span>
       <h2>現在稼働している加盟校</h2>
       <p>16のパートナーが、それぞれの地域・業界で活動しています。1業界・1地域につき1社限定のため、下記の枠はすでに募集を終了しています。</p>
@@ -2171,15 +2224,15 @@
 
 <section id="sec-points">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="RECOMMEND">
       <span class="eyebrow">RECOMMEND</span>
-      <h2>ホリエモンAI学校FCのおすすめポイント</h2>
+      <h2>おすすめする理由</h2>
     </div>
     <div class="type-cards">
       <div class="type-card">
         <span class="type-tag">TYPE 01<br>地域</span>
         <div class="type-body">
-          <h3>地域のAI活用を推進するパートナー</h3>
+          <h3>地域のAI活用を推進する</h3>
           <p>特定の都道府県・エリアを担当し、その地域の中小企業のAI導入を支援する。地元の商工会・金融機関・既存の取引先を起点に広げやすい。</p>
           <p class="type-examples">（例）新宿校・神奈川校・福岡校・新潟校・金沢校</p>
           <p class="type-mode">対面での活動が可能です</p>
@@ -2188,7 +2241,7 @@
       <div class="type-card">
         <span class="type-tag">TYPE 02<br>業界</span>
         <div class="type-body">
-          <h3>業界のAI活用を推進するパートナー</h3>
+          <h3>業界のAI活用を推進する</h3>
           <p>特定の業界（建設、医療、士業、製造など）を担当し、その業界特有の業務にAIを実装する。業界知識を持つ会社ほど有利。</p>
           <p class="type-examples">（例）建築校・不動産校・人材業界校・採用校・病院クリニック校・介護校・税理士校・エンジニア校・クリエイター校・セールス校</p>
           <p class="type-mode">オンライン中心。学部のように、業界ごとに教える内容が変わります</p>
@@ -2197,7 +2250,7 @@
       <div class="type-card">
         <span class="type-tag">TYPE 03<br>全方位</span>
         <div class="type-body">
-          <h3>全方位でAI活用を推進するパートナー</h3>
+          <h3>全方位でAI活用を推進する</h3>
           <p>地域・業界を限定せず、全国・全業種を対象に展開する。営業体制と実行体制を持つ会社向け。</p>
         </div>
       </div>
@@ -2242,7 +2295,7 @@
 <!-- ================= COST／開始するための初期費用 ================= -->
 <section class="alt" id="sec-cost">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="COST">
       <span class="eyebrow">COST</span>
       <h2>開始するための初期費用</h2>
     </div>
@@ -2268,7 +2321,7 @@
 <!-- ================= 09 SUBSIDY／助成金について ================= -->
 <section id="sec09">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="SUBSIDY">
       <span class="eyebrow">SUBSIDY</span>
       <h2>助成金について</h2>
     </div>
@@ -2284,7 +2337,7 @@
 <!-- ================= 08 REQUIREMENTS／募集要項 ================= -->
 <section class="alt" id="sec08">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="REQUIREMENTS">
       <span class="eyebrow">REQUIREMENTS</span>
       <h2>募集要項</h2>
     </div>
@@ -2363,7 +2416,7 @@
 <!-- ================= 10 FLOW／加盟までの流れ ================= -->
 <section id="sec10">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="FLOW">
       <span class="eyebrow">FLOW</span>
       <h2>加盟までの流れ</h2>
     </div>
@@ -2406,7 +2459,7 @@
 
 <section class="alt" id="sec11">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="FAQ">
       <span class="eyebrow">FAQ</span>
       <h2>よくあるご質問</h2>
     </div>
@@ -2587,7 +2640,7 @@
 
 <section class="alt" id="sec12">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-en="COMPANY">
       <span class="eyebrow">COMPANY</span>
       <h2>会社概要</h2>
     </div>
