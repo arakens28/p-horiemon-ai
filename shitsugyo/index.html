@@ -142,7 +142,7 @@
     font-family:var(--mincho);
     color:var(--ink);margin-right:7px;font-size:13px;
   }
-  select,input[type=number],input[type=date]{
+  select,input[type=number],input[type=text],input[type=date]{
     width:100%;
     font-family:inherit;font-size:15px;color:var(--ink);
     background:transparent;
@@ -304,21 +304,21 @@
 
         <div class="field">
           <span class="lbl"><span class="no">二</span>辞めた日の年齢</span>
-          <div class="row2"><div><input type="number" id="age" value="35" min="15" max="74" step="1"><span class="unit">歳</span></div></div>
+          <div class="row2"><div><input type="text" inputmode="numeric" pattern="[0-9]*" id="age" value="35" min="15" max="74" step="1"><span class="unit">歳</span></div></div>
         </div>
 
         <div class="field">
           <span class="lbl"><span class="no">三</span>雇用保険に入っていた期間（過去の会社も合算）</span>
           <div class="row2">
-            <div><input type="number" id="yrs" value="8" min="0" max="55" step="1"><span class="unit">年</span></div>
-            <div><input type="number" id="mos" value="0" min="0" max="11" step="1"><span class="unit">ヶ月</span></div>
+            <div><input type="text" inputmode="numeric" pattern="[0-9]*" id="yrs" value="8" min="0" max="55" step="1"><span class="unit">年</span></div>
+            <div><input type="text" inputmode="numeric" pattern="[0-9]*" id="mos" value="0" min="0" max="11" step="1"><span class="unit">ヶ月</span></div>
           </div>
           <div class="hint">転職の間があいても、1年以内の再就職なら通算できます。</div>
         </div>
 
         <div class="field">
           <span class="lbl"><span class="no">四</span>辞める前6ヶ月の平均月給</span>
-          <div class="row2"><div><input type="number" id="pay" value="350000" min="0" step="10000"><span class="unit">円</span></div></div>
+          <div class="row2"><div><input type="text" inputmode="numeric" pattern="[0-9]*" id="pay" value="350000" min="0" step="10000"><span class="unit">円</span></div></div>
           <div class="hint">税金・社会保険料を引く前の総支給額。残業手当・通勤手当は含み、賞与は含みません。</div>
         </div>
 
@@ -351,6 +351,14 @@
 (function(){
   var $ = function(id){ return document.getElementById(id); };
   var yen = function(n){ return Math.round(n).toLocaleString('ja-JP'); };
+
+  /* 全角数字（３００ など）を半角に自動変換し、数字以外の文字を除去 */
+  function sanitizeDigits(el){
+    var half = el.value.replace(/[０-９]/g, function(ch){
+      return String.fromCharCode(ch.charCodeAt(0) - 0xFEE0);
+    }).replace(/[^0-9]/g, '');
+    if(half !== el.value) el.value = half;
+  }
 
   /* 賃金日額の上下限（令和8年8月1日〜） */
   var W_MIN = 3203;
@@ -538,7 +546,12 @@
     return '<div class="r"><span class="n">' + name + '</span><span class="dots"></span><span class="v">' + val + '</span></div>';
   }
 
-  ['reason','age','yrs','mos','pay','qdate','repeat','train'].forEach(function(id){
+  var numericIds = ['age','yrs','mos','pay'];
+  numericIds.forEach(function(id){
+    $(id).addEventListener('input', function(){ sanitizeDigits($(id)); calc(); });
+    $(id).addEventListener('change', function(){ sanitizeDigits($(id)); calc(); });
+  });
+  ['reason','qdate','repeat','train'].forEach(function(id){
     $(id).addEventListener('input', calc);
     $(id).addEventListener('change', calc);
   });
