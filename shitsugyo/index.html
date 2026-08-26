@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K27M7VKP');</script>
+  <!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>失業給付 かんたん概算票 | ホリエモンAI学校</title>
+<meta name="description" content="離職理由・年齢・加入期間・平均月給の4つを入れるだけで、もらえる金額と時期がわかります。令和8年8月1日改定額に対応。">
+<link rel="canonical" href="https://p.horiemon.ai/shitsugyo/">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="失業給付 かんたん概算票 | ホリエモンAI学校">
+<meta property="og:description" content="離職理由・年齢・加入期間・平均月給の4つを入れるだけで、もらえる金額と時期がわかります。令和8年8月1日改定額に対応。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://p.horiemon.ai/assets/img/logo.png">
+<meta property="og:url" content="https://p.horiemon.ai/shitsugyo/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="失業給付 かんたん概算票 | ホリエモンAI学校">
+<meta name="twitter:description" content="離職理由・年齢・加入期間・平均月給の4つを入れるだけで、もらえる金額と時期がわかります。令和8年8月1日改定額に対応。">
+<meta name="twitter:image" content="https://p.horiemon.ai/assets/img/logo.png">
+<link rel="icon" href="/assets/img/logo.png" type="image/png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "失業給付 かんたん概算票",
+  "url": "https://p.horiemon.ai/shitsugyo/",
+  "description": "離職理由・年齢・加入期間・平均月給の4つを入れるだけで、もらえる金額と時期がわかります。令和8年8月1日改定額に対応。",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "provider": {
+    "@type": "Organization",
+    "name": "ホリエモンAI学校"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  }
+}
+</script>
+<style>
+  :root{
+    --paper:#E3EAE1;
+    --sheet:#FBFCF9;
+    --ink:#16201B;
+    --sub:#5E6D63;
+    --rule:#C3CFC5;
+    --rule-soft:#DDE5DD;
+    --band:#2E5A4B;
+    --band-soft:#7FA294;
+    --stamp:#B0382C;
+    --mincho:"Hiragino Mincho ProN","Yu Mincho",YuMincho,"Noto Serif JP","MS Mincho",serif;
+    --gothic:"Hiragino Sans","Yu Gothic",YuGothic,"Noto Sans JP",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg,rgba(255,255,255,.35) 0 1px,transparent 1px 26px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 1px,transparent 1px 26px);
+    color:var(--ink);
+    font-family:var(--gothic);
+    font-size:15px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    padding:24px 16px 64px;
+  }
+  .wrap{max-width:960px;margin:0 auto}
+
+  /* ── 見出し ─────────────────────── */
+  .masthead{
+    border-bottom:2px solid var(--ink);
+    padding-bottom:12px;
+    margin-bottom:0;
+  }
+  .eyebrow{
+    font-size:11px;letter-spacing:.24em;color:var(--sub);
+    margin:0 0 6px;text-transform:none;
+  }
+  .masthead h1{
+    font-family:var(--mincho);
+    font-size:clamp(26px,5.2vw,40px);
+    font-weight:600;
+    letter-spacing:.06em;
+    margin:0;
+    line-height:1.25;
+  }
+  .masthead .lede{
+    font-size:13px;color:var(--sub);margin:8px 0 0;max-width:52ch;
+  }
+  .stamp-date{
+    display:inline-block;
+    margin-top:10px;
+    border:1.5px solid var(--stamp);
+    color:var(--stamp);
+    font-size:11px;
+    letter-spacing:.1em;
+    padding:3px 9px;
+    border-radius:2px;
+    transform:rotate(-1.2deg);
+  }
+
+  /* ── シート ─────────────────────── */
+  .sheet{
+    background:var(--sheet);
+    border:1px solid var(--rule);
+    border-top:none;
+    padding:22px 20px 24px;
+  }
+  .grid{display:grid;gap:30px}
+  @media(min-width:820px){
+    .grid{grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:0}
+    .col-in{padding-right:28px;border-right:1px dashed var(--rule)}
+    .col-out{padding-left:28px}
+  }
+
+  .legend{
+    font-family:var(--mincho);
+    font-size:13px;letter-spacing:.18em;color:var(--sub);
+    border-bottom:1px solid var(--rule);
+    padding-bottom:6px;margin:0 0 18px;
+  }
+
+  /* ── 記入欄 ─────────────────────── */
+  .field{margin-bottom:20px}
+  .field > label,.field .lbl{
+    display:block;
+    font-size:12px;letter-spacing:.08em;color:var(--sub);
+    margin-bottom:7px;
+  }
+  .field .lbl .no{
+    font-family:var(--mincho);
+    color:var(--ink);margin-right:7px;font-size:13px;
+  }
+  select,input[type=number],input[type=date]{
+    width:100%;
+    font-family:inherit;font-size:15px;color:var(--ink);
+    background:transparent;
+    border:none;border-bottom:1.5px solid var(--ink);
+    border-radius:0;
+    padding:5px 2px;
+    appearance:none;-webkit-appearance:none;
+  }
+  select{
+    background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
+    background-position:calc(100% - 11px) calc(50% + 1px),calc(100% - 6px) calc(50% + 1px);
+    background-size:5px 5px,5px 5px;
+    background-repeat:no-repeat;
+    padding-right:24px;
+  }
+  input:focus,select:focus{outline:2px solid var(--band);outline-offset:3px}
+  .row2{display:flex;gap:14px;align-items:flex-end}
+  .row2 > div{flex:1;display:flex;align-items:baseline;gap:6px}
+  .unit{font-size:12px;color:var(--sub);white-space:nowrap}
+  .hint{font-size:11px;color:var(--sub);margin-top:6px;line-height:1.6}
+
+  .check{
+    display:flex;gap:9px;align-items:flex-start;
+    font-size:12.5px;color:var(--sub);margin-top:11px;cursor:pointer;
+  }
+  .check input{margin:4px 0 0;accent-color:var(--band);flex:none}
+
+  /* ── 結果 ───────────────────────── */
+  .total{
+    border:1.5px solid var(--ink);
+    padding:16px 18px 14px;
+    position:relative;
+    background:#fff;
+  }
+  .total .cap{font-size:11px;letter-spacing:.2em;color:var(--sub)}
+  .total .amt{
+    font-family:var(--mincho);
+    font-size:clamp(34px,8vw,54px);
+    font-weight:600;
+    letter-spacing:.01em;
+    line-height:1.1;
+    margin:4px 0 0;
+    font-variant-numeric:tabular-nums;
+  }
+  .total .amt .yen{font-size:.44em;margin-left:.18em;letter-spacing:.05em}
+  .total .sub{font-size:12px;color:var(--sub);margin-top:6px}
+
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:none}
+  .kpi{background:#fff;padding:11px 12px}
+  .kpi .k{font-size:10.5px;letter-spacing:.1em;color:var(--sub)}
+  .kpi .v{font-family:var(--mincho);font-size:19px;font-variant-numeric:tabular-nums;margin-top:2px;letter-spacing:.02em}
+  .kpi .v small{font-size:11px;font-family:var(--gothic);color:var(--sub);margin-left:2px;letter-spacing:0}
+
+  /* ── タイムライン（署名要素）──────── */
+  .tl-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin:30px 0 10px;
+  }
+  .tl-head h3{font-family:var(--mincho);font-size:14px;letter-spacing:.14em;margin:0;font-weight:600}
+  .tl-head span{font-size:11px;color:var(--sub)}
+  .band{display:flex;height:44px;border:1px solid var(--ink);background:#fff}
+  .seg{position:relative;min-width:5px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .seg + .seg{border-left:1px solid var(--ink)}
+  .seg .tag{
+    font-size:10px;letter-spacing:.06em;white-space:nowrap;
+    padding:0 4px;
+  }
+  .seg-wait{background:repeating-linear-gradient(45deg,var(--rule-soft) 0 4px,#fff 4px 8px)}
+  .seg-wait .tag{color:var(--sub)}
+  .seg-limit{background:repeating-linear-gradient(45deg,rgba(176,56,44,.22) 0 5px,transparent 5px 10px)}
+  .seg-limit .tag{color:var(--stamp)}
+  .seg-pay{background:var(--band)}
+  .seg-pay .tag{color:#fff}
+  .scale{display:flex;margin-top:5px;font-size:10px;color:var(--sub);font-variant-numeric:tabular-nums}
+  .tick{border-left:1px solid var(--rule);padding-left:3px;flex:none}
+  .tick:first-child{border-left:none;padding-left:0}
+
+  .tl-notes{margin-top:12px;display:grid;gap:5px}
+  .tl-notes div{font-size:12px;color:var(--sub);display:flex;gap:9px}
+  .tl-notes b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;flex:none;min-width:8.5em;font-family:var(--mincho)}
+
+  /* ── 明細 ───────────────────────── */
+  .detail{margin-top:30px;border-top:1px solid var(--rule);padding-top:14px}
+  .detail h3{font-family:var(--mincho);font-size:14px;letter-spacing:.14em;margin:0 0 10px;font-weight:600}
+  .dl{display:grid;gap:0}
+  .dl .r{display:flex;align-items:baseline;gap:8px;padding:7px 0;border-bottom:1px dotted var(--rule)}
+  .dl .r .n{font-size:12.5px;color:var(--sub);flex:none}
+  .dl .r .dots{flex:1;border-bottom:1px dotted var(--rule-soft);transform:translateY(-3px)}
+  .dl .r .v{font-variant-numeric:tabular-nums;font-size:14px;flex:none}
+  .dl .r .v em{font-style:normal;font-size:11px;color:var(--sub);margin-left:3px}
+
+  /* ── 警告 ───────────────────────── */
+  .alert{
+    border-left:3px solid var(--stamp);
+    background:rgba(176,56,44,.05);
+    padding:12px 14px;font-size:13px;line-height:1.7;
+  }
+  .alert b{color:var(--stamp)}
+
+  .foot{
+    margin-top:18px;font-size:11.5px;color:var(--sub);line-height:1.8;
+    border-top:1px solid var(--rule);padding-top:14px;
+  }
+  .foot ul{margin:6px 0 0;padding-left:1.1em}
+  .foot li{margin-bottom:3px}
+
+  /* ── 免責帯 ─────────────────────── */
+  .disclaimer-banner{
+    margin-top:18px;
+    border:2px solid var(--stamp);
+    background:#fff;
+    color:var(--stamp);
+    font-weight:700;
+    font-size:13.5px;
+    letter-spacing:.03em;
+    line-height:1.7;
+    text-align:center;
+    padding:14px 16px;
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .seg-pay{animation:grow .5s cubic-bezier(.2,.8,.3,1)}
+    @keyframes grow{from{flex-grow:.001}}
+  }
+</style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K27M7VKP"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">雇用保険 ／ 基本手当</p>
+    <h1>失業給付 かんたん概算票</h1>
+    <p class="lede">4つ埋めるだけ。もらえる日数・1日あたりの金額・受け取り開始の時期がその場でわかります。</p>
+    <span class="stamp-date">令和8年8月1日改定額 対応</span>
+  </header>
+
+  <div class="sheet">
+    <div class="grid">
+      <!-- 入力 -->
+      <div class="col-in">
+        <p class="legend">記入欄</p>
+
+        <div class="field">
+          <span class="lbl"><span class="no">一</span>会社を辞めた理由</span>
+          <select id="reason">
+            <option value="self">自己都合（転職・独立など）</option>
+            <option value="company">会社都合（倒産・解雇・退職勧奨）</option>
+            <option value="contract">契約期間の満了（更新を希望したが不更新）</option>
+            <option value="unavoidable">やむを得ない事情（病気・介護・配偶者の転勤など）</option>
+          </select>
+          <div class="hint">離職票の「離職理由」欄の記載が正式な判定です。</div>
+          <label class="check" id="repeatWrap"><input type="checkbox" id="repeat"><span>過去5年間に、自己都合で2回以上この給付を受けた</span></label>
+          <label class="check" id="trainWrap"><input type="checkbox" id="train"><span>離職前1年以内、または離職後に、対象の教育訓練を受けた（受ける予定）</span></label>
+        </div>
+
+        <div class="field">
+          <span class="lbl"><span class="no">二</span>辞めた日の年齢</span>
+          <div class="row2"><div><input type="number" id="age" value="35" min="15" max="74" step="1"><span class="unit">歳</span></div></div>
+        </div>
+
+        <div class="field">
+          <span class="lbl"><span class="no">三</span>雇用保険に入っていた期間（過去の会社も合算）</span>
+          <div class="row2">
+            <div><input type="number" id="yrs" value="8" min="0" max="55" step="1"><span class="unit">年</span></div>
+            <div><input type="number" id="mos" value="0" min="0" max="11" step="1"><span class="unit">ヶ月</span></div>
+          </div>
+          <div class="hint">転職の間があいても、1年以内の再就職なら通算できます。</div>
+        </div>
+
+        <div class="field">
+          <span class="lbl"><span class="no">四</span>辞める前6ヶ月の平均月給</span>
+          <div class="row2"><div><input type="number" id="pay" value="350000" min="0" step="10000"><span class="unit">円</span></div></div>
+          <div class="hint">税金・社会保険料を引く前の総支給額。残業手当・通勤手当は含み、賞与は含みません。</div>
+        </div>
+
+        <div class="field">
+          <span class="lbl">（任意）辞めた日</span>
+          <div class="row2"><div><input type="date" id="qdate"></div></div>
+          <div class="hint">入れると、実際の日付でスケジュールを表示します。</div>
+        </div>
+      </div>
+
+      <!-- 結果 -->
+      <div class="col-out" id="out"></div>
+    </div>
+
+    <div class="foot">
+      <b>この試算の前提</b>
+      <ul>
+        <li>令和8年8月1日からの賃金日額・基本手当日額（厚生労働省告示）にもとづく概算です。実際の金額はハローワークが離職票をもとに決定します。</li>
+        <li>所定給付日数を最後まで受け取った場合の総額です。途中で就職すれば残りは支給されず、代わりに再就職手当の対象になります。</li>
+        <li>認定日（原則4週間に1回）に求職活動の実績を申告することが受給の条件です。</li>
+        <li>60歳以上65歳未満の方は、給付率の上限が他の年代と異なります。65歳以上は基本手当ではなく「高年齢求職者給付金」（一時金）です。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="disclaimer-banner">本ページは概算です。正式な支給額・日数はハローワークが決定します。</div>
+</div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var yen = function(n){ return Math.round(n).toLocaleString('ja-JP'); };
+
+  /* 賃金日額の上下限（令和8年8月1日〜） */
+  var W_MIN = 3203;
+  function wCap(age){
+    if(age < 30) return 14900;
+    if(age < 45) return 16540;
+    if(age < 60) return 18220;
+    if(age < 65) return 17400;
+    return 14900; // 高年齢受給資格者は30歳未満の区分を適用
+  }
+
+  /* 基本手当日額の計算式（令和8年8月1日〜） */
+  function dailyBenefit(w, age){
+    var y;
+    if(age >= 60 && age < 65){
+      if(w < 5480)       y = 0.8 * w;
+      else if(w <= 12120) y = Math.min(0.8*w - 0.35*((w-5480)/(12120-5480))*w, 0.05*w + 12120*0.4);
+      else if(w <= 17400) y = 0.45 * w;
+      else                y = 7830;
+    } else {
+      var cap = (age < 30) ? 14900 : (age < 45) ? 16540 : (age < 65) ? 18220 : 14900;
+      var max = (age < 30) ? 7450  : (age < 45) ? 8270  : (age < 65) ? 9110  : 7450;
+      if(w < 5480)        y = 0.8 * w;
+      else if(w <= 13490) y = 0.8*w - 0.3*((w-5480)/(13490-5480))*w;
+      else if(w <= cap)   y = 0.5 * w;
+      else                y = max;
+    }
+    return Math.floor(y);
+  }
+
+  /* 所定給付日数 */
+  function daysGeneral(m){          // 自己都合・やむを得ない事情など
+    if(m < 12)  return 0;
+    if(m < 120) return 90;
+    if(m < 240) return 120;
+    return 150;
+  }
+  function daysSpecial(m, age){     // 会社都合・契約満了（更新希望）
+    var i = (m < 12) ? 0 : (m < 60) ? 1 : (m < 120) ? 2 : (m < 240) ? 3 : 4;
+    var t;
+    if(age < 30)      t = [90, 90,120,180,180];
+    else if(age < 35) t = [90,120,180,210,240];
+    else if(age < 45) t = [90,150,180,240,270];
+    else if(age < 60) t = [90,180,240,270,330];
+    else              t = [90,150,180,210,240];
+    return t[i];
+  }
+
+  function addDays(d, n){ var x = new Date(d.getTime()); x.setDate(x.getDate()+n); return x; }
+  function addMonths(d, n){ var x = new Date(d.getTime()); x.setMonth(x.getMonth()+n); return x; }
+  function fmt(d){ return d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日'; }
+
+  function calc(){
+    var reason = $('reason').value;
+    var age    = Math.max(15, Math.min(74, parseInt($('age').value, 10) || 0));
+    var months = (parseInt($('yrs').value,10)||0)*12 + (parseInt($('mos').value,10)||0);
+    var pay    = Math.max(0, parseInt($('pay').value,10) || 0);
+    var isSelf = (reason === 'self');
+    var special = (reason === 'company' || reason === 'contract');
+
+    $('repeatWrap').style.display = isSelf ? 'flex' : 'none';
+    $('trainWrap').style.display  = isSelf ? 'flex' : 'none';
+
+    var out = $('out');
+
+    /* 受給資格のチェック */
+    var need = special ? 6 : 12;
+    if(months < need){
+      out.innerHTML = '<p class="legend">判定</p><div class="alert"><b>このままでは対象外の可能性があります。</b><br>' +
+        (special ? '会社都合・契約満了の場合は、辞める前の1年間に雇用保険の加入が通算6ヶ月以上必要です。'
+                 : '自己都合の場合は、辞める前の2年間に雇用保険の加入が通算12ヶ月以上必要です。') +
+        '<br>入力は' + months + 'ヶ月でした。過去の会社の加入期間も合算できることがあるので、ハローワークで確認してください。</div>';
+      return;
+    }
+
+    /* 65歳以上は高年齢求職者給付金 */
+    var w = Math.min(Math.max(pay / 30, W_MIN), wCap(age));
+    var y = dailyBenefit(w, age);
+
+    if(age >= 65){
+      var d65 = (months >= 12) ? 50 : 30;
+      out.innerHTML =
+        '<p class="legend">判定</p>' +
+        '<div class="total"><div class="cap">高年齢求職者給付金（一時金）</div>' +
+        '<p class="amt">' + yen(y*d65) + '<span class="yen">円</span></p>' +
+        '<div class="sub">65歳以上の方は、分割ではなく一時金でまとめて受け取ります</div></div>' +
+        '<div class="kpis"><div class="kpi"><div class="k">1日あたり</div><div class="v">' + yen(y) + '<small>円</small></div></div>' +
+        '<div class="kpi"><div class="k">支給日数</div><div class="v">' + d65 + '<small>日分</small></div></div>' +
+        '<div class="kpi"><div class="k">賃金日額</div><div class="v">' + yen(w) + '<small>円</small></div></div></div>' +
+        '<div class="detail"><div class="alert">65歳以上の計算は制度が別枠のため、参考値としてご覧ください。正確な額はハローワークにご確認をお願いします。</div></div>';
+      return;
+    }
+
+    var days = special ? daysSpecial(months, age) : daysGeneral(months);
+    var total = y * days;
+
+    /* 給付制限 */
+    var limitMonths = 0, limitLabel = 'なし';
+    if(isSelf){
+      if($('train').checked){ limitMonths = 0; limitLabel = 'なし（教育訓練の受講で解除）'; }
+      else if($('repeat').checked){ limitMonths = 3; limitLabel = '3ヶ月'; }
+      else { limitMonths = 1; limitLabel = '1ヶ月'; }
+    }
+
+    var waitDays  = 7;
+    var limitDays = limitMonths * 30;
+    var span      = waitDays + limitDays + days;
+    var rate      = (y / w * 100);
+
+    /* 日付 */
+    var dateStr = $('qdate').value, dates = null;
+    if(dateStr){
+      var q = new Date(dateStr + 'T00:00:00');
+      if(!isNaN(q)){
+        var waitEnd = addDays(q, 7);
+        var payStart = limitMonths ? addMonths(waitEnd, limitMonths) : waitEnd;
+        dates = { q:q, waitEnd:waitEnd, payStart:payStart,
+                  first:addDays(payStart, 28), payEnd:addDays(payStart, days),
+                  deadline:addDays(addDays(q,1), 365) };
+      }
+    }
+
+    /* 帯グラフ */
+    var seg = '';
+    seg += '<div class="seg seg-wait" style="flex-grow:' + (waitDays/span) + '"><span class="tag">待期7日</span></div>';
+    if(limitDays) seg += '<div class="seg seg-limit" style="flex-grow:' + (limitDays/span) + '"><span class="tag">給付制限 ' + limitMonths + 'ヶ月</span></div>';
+    seg += '<div class="seg seg-pay" style="flex-grow:' + (days/span) + '"><span class="tag">支給期間 ' + days + '日分</span></div>';
+
+    var totalMonths = Math.ceil(span/30);
+    var scale = '';
+    for(var i=0; i<=totalMonths; i++){
+      scale += '<div class="tick" style="flex:' + (i===totalMonths?0:1) + ' 0 auto">' + i + 'ヶ月</div>';
+    }
+
+    var notes = '';
+    if(dates){
+      notes += '<div><b>' + fmt(dates.waitEnd) + '</b><span>待期の7日間が終わります（ハローワークでの手続き日により前後します）</span></div>';
+      if(limitMonths) notes += '<div><b>' + fmt(dates.payStart) + '</b><span>給付制限が明けて、ここから支給の対象になります</span></div>';
+      notes += '<div><b>' + fmt(dates.first) + 'ごろ</b><span>最初の振込の目安（28日分 = 約' + yen(y*28) + '円）</span></div>';
+      notes += '<div><b>' + fmt(dates.payEnd) + 'ごろ</b><span>' + days + '日分を受け取り終わります</span></div>';
+      notes += '<div><b>' + fmt(dates.deadline) + '</b><span>受給期限。この日を過ぎた分は受け取れません</span></div>';
+    } else {
+      notes += '<div><b>0日目</b><span>ハローワークで求職の申込み。ここから7日間は誰でも待期</span></div>';
+      if(limitMonths) notes += '<div><b>7日目〜</b><span>給付制限' + limitMonths + 'ヶ月。この間は支給されません</span></div>';
+      notes += '<div><b>約' + Math.round((waitDays+limitDays)/30*10)/10 + 'ヶ月後</b><span>支給開始。以後4週間ごとに28日分（約' + yen(y*28) + '円）が振り込まれます</span></div>';
+      notes += '<div><b>約' + Math.round(span/30*10)/10 + 'ヶ月後</b><span>' + days + '日分を受け取り終わります</span></div>';
+    }
+
+    /* 上下限の注記 */
+    var capNote = '';
+    if(pay/30 > wCap(age)) capNote = '平均月給が高いため、賃金日額の上限（' + yen(wCap(age)) + '円）が適用されています。';
+    else if(pay/30 < W_MIN) capNote = '賃金日額の下限（' + yen(W_MIN) + '円）が適用されています。';
+
+    out.innerHTML =
+      '<p class="legend">判定</p>' +
+      '<div class="total">' +
+        '<div class="cap">受け取れる総額（最後まで受給した場合）</div>' +
+        '<p class="amt">' + yen(total) + '<span class="yen">円</span></p>' +
+        '<div class="sub">' + yen(y) + '円 × ' + days + '日分</div>' +
+      '</div>' +
+      '<div class="kpis">' +
+        '<div class="kpi"><div class="k">1日あたり</div><div class="v">' + yen(y) + '<small>円</small></div></div>' +
+        '<div class="kpi"><div class="k">1ヶ月あたり</div><div class="v">' + yen(y*28) + '<small>円</small></div></div>' +
+        '<div class="kpi"><div class="k">給付率</div><div class="v">' + rate.toFixed(0) + '<small>%</small></div></div>' +
+      '</div>' +
+
+      '<div class="tl-head"><h3>受け取りまでの流れ</h3><span>全体で約' + Math.round(span/30*10)/10 + 'ヶ月</span></div>' +
+      '<div class="band">' + seg + '</div>' +
+      '<div class="scale">' + scale + '</div>' +
+      '<div class="tl-notes">' + notes + '</div>' +
+
+      '<div class="detail"><h3>計算の内訳</h3><div class="dl">' +
+        row('賃金日額（月給 ÷ 30）', yen(w) + '<em>円</em>') +
+        row('基本手当日額', yen(y) + '<em>円</em>') +
+        row('所定給付日数', days + '<em>日</em>') +
+        row('給付制限', limitLabel) +
+        row('待期期間', '7<em>日</em>') +
+        row('受給期限', '離職日の翌日から1年' + (days>=330?'＋30日':days>=360?'＋60日':'')) +
+      '</div>' +
+      (capNote ? '<p class="hint" style="margin-top:10px">' + capNote + '</p>' : '') +
+      '</div>';
+  }
+
+  function row(name, val){
+    return '<div class="r"><span class="n">' + name + '</span><span class="dots"></span><span class="v">' + val + '</span></div>';
+  }
+
+  ['reason','age','yrs','mos','pay','qdate','repeat','train'].forEach(function(id){
+    $(id).addEventListener('input', calc);
+    $(id).addEventListener('change', calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>
