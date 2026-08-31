@@ -1258,23 +1258,6 @@ footer{
       <button class="schedule-tab" onclick="filterSchedule('offline',this)">🏢 対面</button>
     </div>
     <div class="dates-grid" id="dates-grid">
-      <!-- 8月 -->
-      <div class="date-card" data-type="online" data-date="2026-08-25">
-        <span class="date-card-type online">💻 オンライン</span>
-        <div class="date-card-date">8/25(火)</div>
-        <div class="date-card-place">全国から参加可能</div>
-        <div style="font-size:.72rem;color:var(--text-soft);margin-top:.2rem;">主催：AI学校本部</div>
-        <div class="date-card-availability"></div>
-        <a href="https://peatix.com/sales/event/5108629/tickets" target="_blank" rel="noopener" class="peatix-btn">Peatixで申込む →</a>
-      </div>
-      <div class="date-card" data-type="online" data-date="2026-08-30">
-        <span class="date-card-type online">💻 オンライン</span>
-        <div class="date-card-date">8/30(日)</div>
-        <div class="date-card-place">全国から参加可能</div>
-        <div style="font-size:.72rem;color:var(--text-soft);margin-top:.2rem;">主催：介護校</div>
-        <div class="date-card-availability"></div>
-        <a href="https://peatix.com/sales/event/5105559/tickets" target="_blank" rel="noopener" class="peatix-btn">Peatixで申込む →</a>
-      </div>
       <!-- 9月 -->
       <div class="date-card" data-type="online" data-date="2026-09-02">
         <span class="date-card-type online">💻 オンライン</span>
@@ -1292,6 +1275,14 @@ footer{
         <div class="date-card-availability"></div>
         <a href="https://peatix.com/sales/event/5148716/tickets" target="_blank" rel="noopener" class="peatix-btn">Peatixで申込む →</a>
       </div>
+      <div class="date-card" data-type="online" data-date="2026-09-14">
+        <span class="date-card-type online">💻 オンライン</span>
+        <div class="date-card-date">9/14(日)</div>
+        <div class="date-card-place">全国から参加可能</div>
+        <div style="font-size:.72rem;color:var(--text-soft);margin-top:.2rem;">主催：介護校</div>
+        <div class="date-card-availability"></div>
+        <a href="https://peatix.com/sales/event/5162726/tickets" target="_blank" rel="noopener" class="peatix-btn">Peatixで申込む →</a>
+      </div>
       <div class="date-card" data-type="online" data-date="2026-09-26">
         <span class="date-card-type online">💻 オンライン</span>
         <div class="date-card-date">9/26(土)</div>
@@ -1299,6 +1290,14 @@ footer{
         <div style="font-size:.72rem;color:var(--text-soft);margin-top:.2rem;">主催：AI学校本部</div>
         <div class="date-card-availability"></div>
         <a href="https://peatix.com/sales/event/5148718/tickets" target="_blank" rel="noopener" class="peatix-btn">Peatixで申込む →</a>
+      </div>
+      <div class="date-card" data-type="online" data-date="2026-09-27">
+        <span class="date-card-type online">💻 オンライン</span>
+        <div class="date-card-date">9/27(日)</div>
+        <div class="date-card-place">全国から参加可能</div>
+        <div style="font-size:.72rem;color:var(--text-soft);margin-top:.2rem;">主催：介護校</div>
+        <div class="date-card-availability"></div>
+        <a href="https://peatix.com/sales/event/5162727/tickets" target="_blank" rel="noopener" class="peatix-btn">Peatixで申込む →</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2rem;">
@@ -1810,11 +1809,11 @@ footer{
 // キー = data-date の値、値 = 残席数（0で満席表示）
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const SLOTS = {
-  '2026-08-25': 10,
-  '2026-08-30': 10,
   '2026-09-02': 10,
   '2026-09-09': 10,
+  '2026-09-14': 10,
   '2026-09-26': 10,
+  '2026-09-27': 10,
 };
 
 // 日程カードの自動制御
