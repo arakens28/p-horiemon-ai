@@ -277,7 +277,7 @@ footer{padding:28px 0;text-align:center;font-size:12px;color:var(--muted)}
 
 <footer><a href="https://horiemon.ai/">ホリエモンAI学校</a> ／ <a href="/camp/">1日Camp</a><br>© ホリエモンAI学校株式会社</footer>
 
-<script src="works.js?v=6"></script>
+<script src="works.js?v=7"></script>
 <script>
 (function(){
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -287,7 +287,7 @@ footer{padding:28px 0;text-align:center;font-size:12px;color:var(--muted)}
   let r = 0; ranked.forEach(w => { w._rank = w._t >= 0 ? ++r : null; });
 
   const img = (w, cls='') => `<img src="img/${esc(w.id)}.jpg" alt="${esc(w.title)}のスクリーンショット" loading="lazy" onerror="this.outerHTML='<div class=&quot;ph&quot;>'+this.alt.replace('のスクリーンショット','')+'</div>'">`;
-  const link = w => `href="${esc(w.url)}" target="_blank" rel="noopener"`;
+  const link = w => w.private ? 'aria-disabled="true"' : `href="${esc(w.url)}" target="_blank" rel="noopener"`;
 
   document.getElementById('s-works').textContent = WORKS.length;
   document.getElementById('s-apps').textContent = WORKS.filter(w=>w.type==='app').length;
@@ -307,7 +307,7 @@ footer{padding:28px 0;text-align:center;font-size:12px;color:var(--muted)}
         <div class="who">${esc(w.camp)} 卒業生</div>
         ${w.badge?`<span class="badge">${esc(w.badge)}</span>`:''}
         <p class="cmt">${esc(w.comment)}</p>
-        <div class="pscore"><b>${w._t}</b><span>点 / 100点</span><span class="go">作品を見る →</span></div>
+        <div class="pscore"><b>${w._t}</b><span>点 / 100点</span><span class="go">${w.private?'画面のみ公開':'作品を見る →'}</span></div>
       </div>
     </a>`).join('');
 
@@ -337,7 +337,7 @@ footer{padding:28px 0;text-align:center;font-size:12px;color:var(--muted)}
           ${w.score?`<div class="bars">${Object.entries(w.score).map(([k,v])=>`<div class="bar"><span>${esc(k)}</span><div><i style="width:${v*10}%"></i></div></div>`).join('')}</div>`:''}
           <div class="cfoot">
             <span class="tot">${w._t>=0?`${w._t}<small> 点</small>`:'<small>審査中</small>'}</span>
-            <span style="font-size:13px;font-weight:700;color:var(--orange-dark)">作品を見る →</span>
+            <span style="font-size:13px;font-weight:700;color:var(--orange-dark)">${w.private?'社内運用中のため画面のみ公開':'作品を見る →'}</span>
           </div>
         </div>
       </a>`).join('');
@@ -345,7 +345,7 @@ footer{padding:28px 0;text-align:center;font-size:12px;color:var(--muted)}
   render('all');
   const ld = document.createElement('script'); ld.type = 'application/ld+json';
   ld.textContent = JSON.stringify({"@context":"https://schema.org","@type":"ItemList","name":"1日Camp 卒業制作ランキング","itemListOrder":"https://schema.org/ItemListOrderDescending",
-    "itemListElement": ranked.filter(w=>w._rank).map(w=>({"@type":"ListItem","position":w._rank,"item":{"@type":"CreativeWork","name":w.title,"url":w.url,"description":w.desc,"image":"https://p.horiemon.ai/camp-showcase/img/"+w.id+".jpg"}}))});
+    "itemListElement": ranked.filter(w=>w._rank).map(w=>({"@type":"ListItem","position":w._rank,"item":{"@type":"CreativeWork","name":w.title,"url":w.private?undefined:w.url,"description":w.desc,"image":"https://p.horiemon.ai/camp-showcase/img/"+w.id+".jpg"}}))});
   document.head.appendChild(ld);
   document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
     document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed', x===b));
