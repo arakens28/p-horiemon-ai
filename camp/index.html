@@ -1867,7 +1867,7 @@ function filterSchedule(type,btn){
 <script>
 // 申込ボタン：流入元を記録し、押すたびに新しいSquare決済リンクを発行する
 // （Squareの決済リンクは1回売れると使えなくなるため、Apps Scriptでその都度作る）
-const CAMP_CHECKOUT_API = ''; // Apps Script ウェブアプリのURL（.../exec）
+const CAMP_CHECKOUT_API = 'https://script.google.com/macros/s/AKfycbzHyveCTDAXNu0vrn5_XSsoBORV-6aQ1cd9q-6WFYlZbbkPlFEa4xnzWGjV27NBv-23dQ/exec'; // Apps Script ウェブアプリのURL（.../exec）
 (function(){
   var KEY = 'camp_src', DAYS = 30;
   var q = new URLSearchParams(location.search), src = {};
