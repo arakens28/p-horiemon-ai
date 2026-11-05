@@ -1368,7 +1368,7 @@ function filterSchedule(type,btn){
 }
 </script>
 <script>
-// 申込ボタン：何度でも使えるSquare決済リンクへ直接移動し、流入元はApps Scriptに記録する
+// 申込ボタン：押すたびにSquareの決済画面を発行して直接開く（失敗時は従来の決済リンク）
 const CAMP_CHECKOUT_API = 'https://script.google.com/macros/s/AKfycbzHyveCTDAXNu0vrn5_XSsoBORV-6aQ1cd9q-6WFYlZbbkPlFEa4xnzWGjV27NBv-23dQ/exec'; // Apps Script ウェブアプリのURL（.../exec）
 (function(){
   var KEY = 'camp_src', DAYS = 30;
@@ -1388,13 +1388,44 @@ const CAMP_CHECKOUT_API = 'https://script.google.com/macros/s/AKfycbzHyveCTDAXNu
     saved = src;
   }
 
-  // 申込ボタンはそのまま決済画面へ。流入元は裏でシートに記録し、決済時に突き合わせる
+  // 申込ボタン：押すたびにSquareの決済画面（連絡先・カード入力）を発行して直接開く。
+  // 流入元は注文に直接記録される。発行に失敗したときは、従来の決済リンク（a.href）へ。
   document.addEventListener('click', function(ev){
     var a = ev.target.closest('a.peatix-btn[data-v]');
     if (!a || !CAMP_CHECKOUT_API) return;
-    var params = new URLSearchParams({ click: '1', v: a.dataset.v });
+    ev.preventDefault();
+    var fallback = a.href;
+    var params = new URLSearchParams({ v: a.dataset.v });
     Object.keys(saved).forEach(function(k){ if (k !== 't') params.set(k, String(saved[k])); });
-    try { navigator.sendBeacon(CAMP_CHECKOUT_API + '?' + params); } catch(e) {}
+
+    // 先に空のタブを開いておく（あとから開くとポップアップとして止められるため）
+    var win = null;
+    try { win = window.open('', '_blank'); } catch(e) {}
+    if (win) {
+      try { win.document.write('<meta charset="utf-8"><title>お支払い画面を準備中</title><p style="font-family:sans-serif;text-align:center;margin-top:30vh;color:#555">お支払い画面を準備しています…</p>'); } catch(e) {}
+    }
+    var label = a.textContent;
+    a.textContent = '準備中…';
+    var go = function(url){
+      a.textContent = label;
+      if (win && !win.closed) win.location.href = url; else location.href = url;
+    };
+    var timer = setTimeout(function(){ go(fallback); timer = null; }, 12000);
+    fetch(CAMP_CHECKOUT_API + '?' + params)
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (!timer) return;
+        clearTimeout(timer); timer = null;
+        if (d && d.url) return go(d.url);
+        if (d && d.error === 'sold_out') {
+          a.textContent = label;
+          if (win) win.close();
+          alert('申し訳ありません。この日程は満席になりました。別の日程をお選びください。');
+          return;
+        }
+        go(fallback);
+      })
+      .catch(function(){ if (timer) { clearTimeout(timer); timer = null; go(fallback); } });
   });
 })();
 </script>
