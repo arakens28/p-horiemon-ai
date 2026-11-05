@@ -1402,7 +1402,7 @@ const CAMP_CHECKOUT_API = 'https://script.google.com/macros/s/AKfycbzHyveCTDAXNu
     var win = null;
     try { win = window.open('', '_blank'); } catch(e) {}
     if (win) {
-      try { win.document.write('<meta charset="utf-8"><title>お支払い画面を準備中</title><p style="font-family:sans-serif;text-align:center;margin-top:30vh;color:#555">お支払い画面を準備しています…</p>'); } catch(e) {}
+      try { win.document.write('<meta charset="utf-8"><title>お支払い画面を準備中</title><p style="font-family:sans-serif;text-align:center;margin-top:30vh;color:#555">お支払い画面を準備しています…</p><p style="font-family:sans-serif;text-align:center;color:#888;font-size:14px">※このまま操作せずに数秒間お待ちください</p>'); } catch(e) {}
     }
     var label = a.textContent;
     a.textContent = '準備中…';
