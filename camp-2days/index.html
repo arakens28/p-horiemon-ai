@@ -575,10 +575,23 @@ table.sim tr.best td.yen{color:var(--gold-deep);font-size:24px;}
 .cta p{color:#cfe0ff;font-size:15px;margin-bottom:36px;}
 
 /* ===== footer ===== */
+.company{background:var(--blue-pale);padding:64px 0;}
+.company + .company{padding-top:0;}
+.company-table{background:#fff;border:1px solid #dde4f2;border-radius:14px;overflow:hidden;max-width:780px;margin:28px auto 0;text-align:left;}
+.company-row{display:grid;grid-template-columns:190px 1fr;border-bottom:1px solid #e6ebf5;}
+.company-row:last-child{border-bottom:none;}
+.company-label{background:#f5f8fe;padding:14px 18px;font-size:13px;font-weight:700;color:var(--navy);}
+.company-value{padding:14px 18px;font-size:14px;line-height:1.7;color:var(--text);}
+@media (max-width:560px){.company-row{grid-template-columns:1fr;}.company-label{padding:10px 16px 4px;}.company-value{padding:4px 16px 12px;}}
+.footer-name{color:#fff;font-weight:900;font-size:15px;margin-bottom:14px;}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-bottom:16px;}
+.footer-links a{color:#b8c6e6;text-decoration:none;font-size:12px;}
+.footer-links a:hover{color:#fff;text-decoration:underline;}
+.footer-copy{color:#5f7299;font-size:11px;}
 footer{
   background:#060f26;color:#8fa3cc;
   text-align:center;font-size:12px;
-  padding:26px 0;
+  padding:36px 0 30px;
 }
 
 /* ===== responsive ===== */
@@ -752,7 +765,7 @@ footer{
 </section>
 
 <!-- ============ FEATURES ============ -->
-<section class="features">
+<section class="features" id="features">
   <div class="container center">
     <span class="sec-label">FEATURES</span>
     <h2 class="sec-title">法人貸切プランの<br>3つの特徴</h2>
@@ -964,7 +977,7 @@ footer{
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="faq">
+<section class="faq" id="faq">
   <div class="container center">
     <span class="sec-label">FAQ</span>
     <h2 class="sec-title">よくあるご質問</h2>
@@ -1024,9 +1037,64 @@ footer{
   </div>
 </section>
 
+<!-- ============ COMPANY ============ -->
+<section class="company" id="company">
+  <div class="container center">
+    <span class="sec-label">COMPANY</span>
+    <h2 class="sec-title">会社概要</h2>
+    <div class="company-table">
+      <div class="company-row"><div class="company-label">会社名</div><div class="company-value">ホリエモンAI学校株式会社</div></div>
+      <div class="company-row"><div class="company-label">設立</div><div class="company-value">2024年3月6日</div></div>
+      <div class="company-row"><div class="company-label">代表取締役</div><div class="company-value">荒木 賢二郎</div></div>
+      <div class="company-row"><div class="company-label">取締役</div><div class="company-value">山根 由嗣、堀江 貴文、田中 尚幸</div></div>
+      <div class="company-row"><div class="company-label">資本金</div><div class="company-value">1,000,000円</div></div>
+      <div class="company-row"><div class="company-label">主要株主</div><div class="company-value">荒木賢二郎、HIUインベストメント株式会社、株式会社ガイアックス</div></div>
+      <div class="company-row"><div class="company-label">本社所在地</div><div class="company-value">〒160-0022 東京都新宿区新宿4-3-15 レイフラット新宿B棟3F</div></div>
+      <div class="company-row"><div class="company-label">電話番号</div><div class="company-value">03-4400-3424</div></div>
+      <div class="company-row"><div class="company-label">E-Mail</div><div class="company-value"><a href="mailto:ux@telewor.com">ux@telewor.com</a></div></div>
+      <div class="company-row"><div class="company-label">主な業務内容</div><div class="company-value">オンライン研修の運営、オンラインスクール、セミナー・講演、などAI人材育成に関する事業全般</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOKUSHOHO ============ -->
+<section class="company" id="tokusho">
+  <div class="container center">
+    <span class="sec-label">LEGAL</span>
+    <h2 class="sec-title">特定商取引法に基づく表記</h2>
+    <div class="company-table">
+      <div class="company-row"><div class="company-label">販売業者</div><div class="company-value">ホリエモンAI学校株式会社</div></div>
+      <div class="company-row"><div class="company-label">運営責任者</div><div class="company-value">荒木 賢二郎</div></div>
+      <div class="company-row"><div class="company-label">所在地</div><div class="company-value">〒160-0022 東京都新宿区新宿4-3-15 レイフラット新宿B棟3F</div></div>
+      <div class="company-row"><div class="company-label">電話番号</div><div class="company-value">03-4400-3424（平日 10:00〜18:00）</div></div>
+      <div class="company-row"><div class="company-label">メールアドレス</div><div class="company-value"><a href="mailto:ux@telewor.com">ux@telewor.com</a></div></div>
+      <div class="company-row"><div class="company-label">サービス名</div><div class="company-value">ホリエモンAI学校 貸切Campコース</div></div>
+      <div class="company-row"><div class="company-label">販売価格</div><div class="company-value">1,000,000円（税込1,100,000円）／受講人数3名〜30名</div></div>
+      <div class="company-row"><div class="company-label">支払方法・支払時期</div><div class="company-value">ご契約時に個別にご案内いたします</div></div>
+      <div class="company-row"><div class="company-label">サービス提供時期</div><div class="company-value">ご契約後、貴社と調整した開催日程にて実施いたします</div></div>
+      <div class="company-row"><div class="company-label">キャンセル・返金</div><div class="company-value">ご契約時に個別にご案内いたします</div></div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
-    &copy; ホリエモンAI学校 貸切Campコース
+    <div class="footer-name">ホリエモンAI学校 貸切Campコース</div>
+    <nav class="footer-links">
+      <a href="#features">特徴</a>
+      <a href="#plans">開催スタイル</a>
+      <a href="#programs">プログラム</a>
+      <a href="#price">料金</a>
+      <a href="#flow">導入の流れ</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#request">資料請求</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#company">会社概要</a>
+      <a href="#tokusho">特定商取引法に基づく表記</a>
+      <a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+      <a href="/terms.html" target="_blank" rel="noopener">利用規約</a>
+    </nav>
+    <div class="footer-copy">&copy; 2026 ホリエモンAI学校株式会社. All rights reserved.</div>
   </div>
 </footer>
 
