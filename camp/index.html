@@ -1379,18 +1379,14 @@ const CAMP_CHECKOUT_API = 'https://script.google.com/macros/s/AKfycbzHyveCTDAXNu
     var params = new URLSearchParams({ v: a.dataset.v });
     Object.keys(saved).forEach(function(k){ if (k !== 't') params.set(k, String(saved[k])); });
 
-    // 先に空のタブを開いておく（あとから開くとポップアップとして止められるため）
-    var win = null;
-    try { win = window.open('', '_blank'); } catch(e) {}
-    if (win) {
-      try { win.document.write('<meta charset="utf-8"><title>お支払い画面を準備中</title><p style="font-family:sans-serif;text-align:center;margin-top:30vh;color:#555">お支払い画面を準備しています…</p><p style="font-family:sans-serif;text-align:center;color:#888;font-size:14px">※このまま操作せずに数秒間お待ちください</p>'); } catch(e) {}
-    }
-    var label = a.textContent;
-    a.textContent = '準備中…';
-    var go = function(url){
-      a.textContent = label;
-      if (win && !win.closed) win.location.href = url; else location.href = url;
-    };
+    // 同じ画面のまま決済画面へ移る（スマホのSafariやLINE内ブラウザでは、
+    // 空のタブを先に開く方式だとLPが読み込み直されて決済に進めないため）
+    if (a.dataset.busy) return;
+    a.dataset.busy = '1';
+    var label = a.dataset.label || a.textContent;
+    a.dataset.label = label;
+    a.textContent = 'お支払い画面を準備中…';
+    var go = function(url){ location.href = url; };
     var timer = setTimeout(function(){ go(fallback); timer = null; }, 12000);
     fetch(CAMP_CHECKOUT_API + '?' + params)
       .then(function(r){ return r.json(); })
@@ -1400,13 +1396,19 @@ const CAMP_CHECKOUT_API = 'https://script.google.com/macros/s/AKfycbzHyveCTDAXNu
         if (d && d.url) return go(d.url);
         if (d && d.error === 'sold_out') {
           a.textContent = label;
-          if (win) win.close();
+          delete a.dataset.busy;
           alert('申し訳ありません。この日程は満席になりました。別の日程をお選びください。');
           return;
         }
         go(fallback);
       })
       .catch(function(){ if (timer) { clearTimeout(timer); timer = null; go(fallback); } });
+  });
+  // 決済画面から「戻る」で帰ってきたとき、ボタンを元の表示に戻す
+  window.addEventListener('pageshow', function(){
+    document.querySelectorAll('a.peatix-btn[data-busy]').forEach(function(b){
+      b.textContent = b.dataset.label; delete b.dataset.busy;
+    });
   });
 })();
 </script>
